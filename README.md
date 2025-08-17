@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# The Trading Desk – Frontend
 
 ## Project info
 
@@ -59,6 +59,8 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- Sanity CMS (integration pending)
+- Lenis (smooth scrolling)
 
 ## How can I deploy this project?
 
@@ -71,3 +73,80 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## CMS Integration Plan (The Trading Desk)
+
+### Current Status: AWAITING CLIENT APPROVAL
+
+We are using **Sanity CMS** as our headless content management system, but schema implementation is **on hold** pending client approval of the discovery checklist.
+
+#### What's Ready:
+- ✅ **Sanity client configuration** (`src/lib/sanity/client.ts`)
+- ✅ **GROQ query placeholders** (`src/lib/sanity/queries.ts`)
+- ✅ **TypeScript interfaces** for all content types
+- ✅ **Mock data layer** (`src/mock/content.ts`) for development
+- ✅ **UI components** built to be schema-agnostic
+- ✅ **Environment variable setup** ready for configuration
+
+#### What's Pending:
+- ⏳ **Client schema approval** (see `docs/client-discovery-checklist.md`)
+- ⏳ **Sanity schema implementation**
+- ⏳ **Content migration from mock to live CMS**
+
+#### Next Steps:
+
+1. **Client Discovery** (1-2 days)
+   - Client reviews and completes `docs/client-discovery-checklist.md`
+   - Schema requirements finalized and approved
+
+2. **Schema Implementation** (1-2 days)
+   - Create Sanity schemas based on approved requirements
+   - Set up Sanity Studio with custom UI components
+   - Configure content validation and relationships
+
+3. **Content Migration** (2-3 days)
+   - Replace mock data imports with GROQ query calls
+   - Implement proper error handling and loading states
+   - Test all content flows and edge cases
+
+4. **Production Setup** (1 day)
+   - Configure production Sanity project
+   - Set up environment variables
+   - Deploy and test live integration
+
+**Total Migration Timeline:** 4-8 days after client approval
+
+#### Environment Variables Needed:
+```env
+VITE_SANITY_PROJECT_ID=your_project_id
+VITE_SANITY_DATASET=production
+VITE_SANITY_API_VERSION=2024-12-18
+VITE_SANITY_USE_CDN=true
+```
+
+#### File Structure:
+```
+src/
+├── lib/sanity/
+│   ├── client.ts          # ✅ Sanity client setup
+│   └── queries.ts         # ⏳ GROQ queries (commented)
+├── mock/
+│   └── content.ts         # ✅ Temporary mock data
+├── components/
+│   ├── CourseCard.tsx     # ✅ Schema-agnostic components
+│   ├── CourseGrid.tsx
+│   ├── LivestreamCard.tsx
+│   └── LivestreamList.tsx
+└── pages/
+    ├── Courses.tsx        # ✅ Using mock data
+    ├── CourseDetail.tsx   # ✅ TODO comments for CMS
+    ├── Live.tsx
+    ├── Blog.tsx           # ✅ Placeholder ready
+    └── Community.tsx      # ✅ Placeholder ready
+
+docs/
+├── client-discovery-checklist.md  # ✅ Client approval needed
+└── schema.todo.md                 # ✅ Implementation plan
+```
+
+**Contact the development team when the client discovery is complete to begin schema implementation within 24 hours.**
