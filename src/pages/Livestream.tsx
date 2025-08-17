@@ -1,5 +1,5 @@
 import Navigation from "@/components/Navigation";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Play, Calendar, Clock, Users, Eye, AlertCircle } from "lucide-react";
