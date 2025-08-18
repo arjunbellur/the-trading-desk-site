@@ -179,19 +179,19 @@ const Index = () => {
             <div className="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-black blur-2xl"></div>
             <div className="absolute top-1/2 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md"></div>
             
-            {/* Extremely subtle central glow */}
-            <div className="absolute inset-auto z-50 h-36 w-[32rem] -translate-y-1/2 rounded-full bg-emerald-700 opacity-5 blur-3xl"></div>
+            {/* Full-width extremely subtle central glow */}
+            <div className="absolute left-0 right-0 top-1/2 z-50 h-36 w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-emerald-700/5 to-transparent blur-3xl"></div>
             
-            {/* Very subtle secondary glow layer */}
+            {/* Full-width very subtle secondary glow layer */}
             <motion.div
-              initial={{ width: "8rem" }}
-              whileInView={{ width: "20rem" }}
+              initial={{ opacity: 0, scaleX: 0.5 }}
+              whileInView={{ opacity: 1, scaleX: 1 }}
               transition={{
                 delay: 0.3,
                 duration: 0.8,
                 ease: "easeInOut",
               }}
-              className="absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-emerald-800 blur-2xl opacity-3"
+              className="absolute left-0 right-0 top-0 z-30 h-36 w-full -translate-y-[6rem] bg-gradient-to-r from-transparent via-emerald-800/3 to-transparent blur-2xl"
             />
             
             {/* Visible lamp bar at viewport top - spreads from center */}
