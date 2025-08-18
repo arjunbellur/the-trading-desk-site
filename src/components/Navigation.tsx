@@ -162,7 +162,7 @@ const Navigation: React.FC = () => {
           className="tm-layout-nav__brand flex items-center gap-3"
           aria-label="The Trading Desk - Go to homepage"
         >
-          <span className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+          <span className="text-lg md:text-xl font-bold text-white tracking-tight">
             TTD
           </span>
           <span className="tm-ui-text--large font-semibold text-white/90 group-hover:text-white transition-colors hidden sm:block">
@@ -232,7 +232,7 @@ const Navigation: React.FC = () => {
             {/* Header with Close Button */}
             <div className="flex items-center justify-between p-6 border-b border-white/10">
               <div className="flex items-center gap-3">
-                <span className="text-xl font-bold text-white tracking-tight">
+                <span className="text-lg font-bold text-white tracking-tight">
                   TTD
                 </span>
                 <span 

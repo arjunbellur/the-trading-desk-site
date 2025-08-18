@@ -114,15 +114,14 @@ const Index = () => {
     document.body.style.overflowX = 'visible';
     document.documentElement.style.overflowX = 'visible';
     
-    // Create full-width central glow at document level
+    // Create ultra-wide central glow that extends beyond viewport
     const centralGlow = document.createElement('div');
     centralGlow.className = 'lamp-glow-element';
     centralGlow.style.cssText = `
       position: fixed !important;
-      left: 0 !important;
-      right: 0 !important;
+      left: -10vw !important;
       top: 50vh !important;
-      width: 100vw !important;
+      width: 120vw !important;
       max-width: none !important;
       height: 144px !important;
       background: linear-gradient(90deg, transparent 0%, rgba(4, 44, 34, 0.005) 50%, transparent 100%) !important;
@@ -133,17 +132,17 @@ const Index = () => {
       padding: 0 !important;
       box-sizing: border-box !important;
       transform: translateY(-50%) !important;
+      overflow: visible !important;
     `;
 
-    // Create full-width secondary glow at document level  
+    // Create ultra-wide secondary glow that extends beyond viewport
     const secondaryCentralGlow = document.createElement('div');
     secondaryCentralGlow.className = 'lamp-glow-element';
     secondaryCentralGlow.style.cssText = `
       position: fixed !important;
-      left: 0 !important;
-      right: 0 !important;
+      left: -10vw !important;
       top: 40vh !important;
-      width: 100vw !important;
+      width: 120vw !important;
       max-width: none !important;
       height: 96px !important;
       background: linear-gradient(90deg, transparent 0%, rgba(3, 33, 26, 0.003) 50%, transparent 100%) !important;
@@ -154,6 +153,7 @@ const Index = () => {
       padding: 0 !important;
       box-sizing: border-box !important;
       transform: translateY(-50%) !important;
+      overflow: visible !important;
     `;
     
     // Append to document body to ensure they're at the root level
