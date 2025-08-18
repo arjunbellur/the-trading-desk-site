@@ -94,29 +94,29 @@ export {
  * @param mockCourse - Mock course object
  * @returns Sanity-compatible course data
  */
-export function convertMockCourseToSanity(mockCourse: any): Partial<SanityCourse> {
+export function convertMockCourseToSanity(mockCourse: Record<string, unknown>): Partial<SanityCourse> {
   return {
     _type: 'course',
-    title: mockCourse.title,
-    slug: { current: generateSlug(mockCourse.title) },
-    description: mockCourse.description,
-    excerpt: mockCourse.excerpt,
+    title: String(mockCourse.title || ''),
+    slug: { current: generateSlug(String(mockCourse.title || '')) },
+    description: String(mockCourse.description || ''),
+    excerpt: String(mockCourse.excerpt || ''),
     instructor: {
-      name: mockCourse.instructor,
+      name: String(mockCourse.instructor || ''),
       bio: [],
     },
     price: {
-      amount: mockCourse.price,
+      amount: Number(mockCourse.price || 0),
       currency: 'USD',
     },
-    difficulty: mockCourse.level?.toLowerCase() || 'beginner',
+    difficulty: (String(mockCourse.level || 'beginner')).toLowerCase() as 'beginner' | 'intermediate' | 'advanced',
     duration: {
-      hours: Math.floor(mockCourse.duration / 60),
-      minutes: mockCourse.duration % 60,
+      hours: Math.floor(Number(mockCourse.duration || 0) / 60),
+      minutes: Number(mockCourse.duration || 0) % 60,
     },
-    skills: mockCourse.skills || [],
+    skills: Array.isArray(mockCourse.skills) ? mockCourse.skills as string[] : [],
     isPublished: true,
-    isFeatured: mockCourse.featured || false,
+    isFeatured: Boolean(mockCourse.featured),
   };
 }
 
@@ -125,24 +125,24 @@ export function convertMockCourseToSanity(mockCourse: any): Partial<SanityCourse
  * @param mockLivestream - Mock livestream object
  * @returns Sanity-compatible livestream data
  */
-export function convertMockLivestreamToSanity(mockLivestream: any): Partial<SanityLivestream> {
+export function convertMockLivestreamToSanity(mockLivestream: Record<string, unknown>): Partial<SanityLivestream> {
   return {
     _type: 'livestream',
-    title: mockLivestream.title,
-    slug: { current: generateSlug(mockLivestream.title) },
-    description: mockLivestream.description ? [{ _type: 'block', children: [{ _type: 'span', text: mockLivestream.description }] }] : [],
+    title: String(mockLivestream.title || ''),
+    slug: { current: generateSlug(String(mockLivestream.title || '')) },
+    description: mockLivestream.description ? [{ _type: 'block', children: [{ _type: 'span', text: String(mockLivestream.description) }] }] as SanityRichText[] : [],
     host: {
-      name: mockLivestream.host,
+      name: String(mockLivestream.host || ''),
     },
-    scheduledDate: mockLivestream.date,
+    scheduledDate: String(mockLivestream.date || new Date().toISOString()),
     duration: {
-      hours: Math.floor(mockLivestream.duration / 60),
-      minutes: mockLivestream.duration % 60,
+      hours: Math.floor(Number(mockLivestream.duration || 0) / 60),
+      minutes: Number(mockLivestream.duration || 0) % 60,
     },
     timezone: 'UTC',
-    topics: mockLivestream.topics || [],
-    isUpcoming: new Date(mockLivestream.date) > new Date(),
-    isLive: mockLivestream.isLive || false,
+    topics: Array.isArray(mockLivestream.topics) ? mockLivestream.topics as string[] : [],
+    isUpcoming: new Date(String(mockLivestream.date || new Date().toISOString())) > new Date(),
+    isLive: Boolean(mockLivestream.isLive),
   };
 }
 
@@ -151,20 +151,22 @@ export function convertMockLivestreamToSanity(mockLivestream: any): Partial<Sani
  * @param mockPost - Mock blog post object
  * @returns Sanity-compatible blog post data
  */
-export function convertMockBlogPostToSanity(mockPost: any): Partial<SanityBlogPost> {
+export function convertMockBlogPostToSanity(mockPost: Record<string, unknown>): Partial<SanityBlogPost> {
+  const contentBlocks: SanityRichText[] = mockPost.content ? [{ _type: 'block', children: [{ _type: 'span', text: String(mockPost.content) }] }] as SanityRichText[] : [];
+  
   return {
     _type: 'blogPost',
-    title: mockPost.title,
-    slug: { current: generateSlug(mockPost.title) },
-    excerpt: mockPost.excerpt,
-    content: mockPost.content ? [{ _type: 'block', children: [{ _type: 'span', text: mockPost.content }] }] : [],
+    title: String(mockPost.title || ''),
+    slug: { current: generateSlug(String(mockPost.title || '')) },
+    excerpt: String(mockPost.excerpt || ''),
+    content: contentBlocks,
     author: {
-      name: mockPost.author,
+      name: String(mockPost.author || ''),
     },
-    publishedAt: mockPost.publishedAt || new Date().toISOString(),
-    readTime: mockPost.readTime || calculateReadingTime(mockPost.content ? [{ _type: 'block', children: [{ _type: 'span', text: mockPost.content }] }] : []),
+    publishedAt: String(mockPost.publishedAt || new Date().toISOString()),
+    readTime: Number(mockPost.readTime) || calculateReadingTime(contentBlocks),
     isPublished: true,
-    isFeatured: mockPost.featured || false,
+    isFeatured: Boolean(mockPost.featured),
   };
 }
 
@@ -200,6 +202,7 @@ import type {
   SanityCourse,
   SanityLivestream,
   SanityBlogPost,
+  SanityRichText,
 } from './types';
 
 export type { SanityCourse, SanityLivestream, SanityBlogPost };

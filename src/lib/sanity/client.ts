@@ -111,13 +111,13 @@ export function formatLivestreamDate(
  * @param content - Sanity rich text blocks
  * @returns Estimated reading time in minutes
  */
-export function calculateReadingTime(content: any[]): number {
+export function calculateReadingTime(content: SanityRichText[]): number {
   const wordsPerMinute = 200;
   const textContent = content
     .filter(block => block._type === 'block')
     .map(block => 
       block.children
-        ?.map((child: any) => child.text)
+        ?.map((child) => child.text)
         .join(' ') || ''
     )
     .join(' ');
@@ -131,12 +131,12 @@ export function calculateReadingTime(content: any[]): number {
  * @param content - Sanity rich text blocks
  * @returns Plain text string
  */
-export function extractPlainText(content: any[]): string {
+export function extractPlainText(content: SanityRichText[]): string {
   return content
     .filter(block => block._type === 'block')
     .map(block => 
       block.children
-        ?.map((child: any) => child.text)
+        ?.map((child) => child.text)
         .join(' ') || ''
     )
     .join(' ')
@@ -171,9 +171,9 @@ export class SanityError extends Error {
  * @param params - Query parameters
  * @returns Promise with query result
  */
-export async function sanityFetch<T = any>(
+export async function sanityFetch<T = unknown>(
   query: string,
-  params: Record<string, any> = {}
+  params: Record<string, unknown> = {}
 ): Promise<T> {
   try {
     const result = await client.fetch<T>(query, params);

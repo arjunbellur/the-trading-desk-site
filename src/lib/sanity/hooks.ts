@@ -29,8 +29,8 @@ interface SanityHookState<T> {
  */
 function useSanityQuery<T>(
   query: string,
-  params: Record<string, any> = {},
-  dependencies: any[] = []
+  params: Record<string, unknown> = {},
+  dependencies: unknown[] = []
 ): SanityHookState<T> {
   const [state, setState] = useState<SanityHookState<T>>({
     data: null,
@@ -65,7 +65,8 @@ function useSanityQuery<T>(
     return () => {
       isMounted = false;
     };
-  }, dependencies);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query, JSON.stringify(params), JSON.stringify(dependencies)]);
 
   return state;
 }
