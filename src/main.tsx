@@ -15,7 +15,6 @@ const lenis = new Lenis({
   infinite: false,
   syncTouch: true,
   syncTouchLerp: 0.075,
-  touchInertiaMultiplier: 35,
 });
 
 // Hook Lenis into requestAnimationFrame

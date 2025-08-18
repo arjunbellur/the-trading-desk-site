@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { CourseGrid } from "@/components/CourseGrid";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -118,6 +119,8 @@ const Courses = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };

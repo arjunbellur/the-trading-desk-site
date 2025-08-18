@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { LivestreamList } from "@/components/LivestreamList";
 import { Badge } from "@/components/ui/badge";
 import { mockLivestreams } from "@/mock/content";
@@ -65,6 +66,8 @@ const Live = () => {
         description=""
         className="border-t border-border/30"
       />
+      
+      <Footer />
     </div>
   );
 };
