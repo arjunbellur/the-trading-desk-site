@@ -163,10 +163,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           />
           
           {/* Full-width downward lamp glow - very subtle */}
-          <div className="absolute left-0 top-0 translate-y-0.5 z-[90] h-8 w-full bg-gradient-to-b from-emerald-800/8 via-emerald-800/4 to-transparent blur-md" />
+          <div className="fixed left-0 right-0 top-0 translate-y-0.5 z-[90] h-8 w-screen bg-gradient-to-b from-emerald-800/8 via-emerald-800/4 to-transparent blur-md" />
           
           {/* Extended base glow for full coverage */}
-          <div className="absolute left-0 top-0 translate-y-1 z-[85] h-12 w-full bg-gradient-to-b from-emerald-900/6 via-emerald-900/3 to-transparent blur-lg" />
+          <div className="fixed left-0 right-0 top-0 translate-y-1 z-[85] h-12 w-screen bg-gradient-to-b from-emerald-900/6 via-emerald-900/3 to-transparent blur-lg" />
           
           {/* Top mask - positioned lower to not hide the lamp */}
           <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[10rem] bg-black"></div>
