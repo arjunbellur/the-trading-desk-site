@@ -27,16 +27,16 @@ const Navigation = () => {
         {/* Logo */}
         <Link 
           to="/" 
-          className="tm-layout-nav__brand"
+          className="tm-layout-nav__brand flex items-center gap-3"
           onClick={() => console.log('Logo clicked - navigating to home')}
         >
           <img 
             src="/logo.svg" 
             alt="The Trading Desk Logo" 
-            className="h-8 w-auto text-white transition-colors"
+            className="h-7 md:h-8 w-auto text-white transition-colors"
             style={{ filter: 'brightness(0) invert(1)' }}
           />
-          <span className="tm-ui-text--large font-semibold text-white/90 group-hover:text-white transition-colors">
+          <span className="tm-ui-text--large font-semibold text-white/90 group-hover:text-white transition-colors hidden sm:block">
             The Trading Desk
           </span>
         </Link>
@@ -66,32 +66,47 @@ const Navigation = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="tm-ui-button tm-ui-button--nav md:hidden"
+          className="tm-ui-button tm-ui-button--nav md:hidden p-3 min-h-[48px] w-12 flex items-center justify-center"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? (
-            <X className="w-5 h-5" />
+            <X className="w-6 h-6" />
           ) : (
-            <Menu className="w-5 h-5" />
+            <Menu className="w-6 h-6" />
           )}
         </button>
       </div>
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="tm-layout-nav__mobile md:hidden py-4 border-t border-white/10">
-          <div className="tm-layout-container flex flex-col space-y-4">
+        <div className="tm-layout-nav__mobile md:hidden py-6 border-t border-white/10">
+          <div className="tm-layout-container flex flex-col space-y-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className="tm-layout-nav__link tm-ui-text--large font-medium py-2"
+                className="tm-layout-nav__link tm-ui-text--large font-medium py-4 px-4 rounded-lg hover:bg-white/5 transition-colors min-h-[52px] flex items-center"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="flex flex-col space-y-3 pt-4 border-t border-white/10">
-              <Link to="/login" onClick={() => setIsOpen(false)} className="tm-layout-nav__link tm-ui-text--large text-center py-2">Login</Link>
+            <div className="flex flex-col space-y-2 pt-4 border-t border-white/10">
+              <a 
+                href="#discord" 
+                onClick={() => setIsOpen(false)} 
+                className="tm-layout-nav__link tm-ui-text--large text-center py-4 px-4 rounded-lg hover:bg-white/5 transition-colors min-h-[52px] flex items-center justify-center gap-2"
+              >
+                <DiscordIcon className="w-5 h-5" />
+                Discord
+              </a>
+              <Link 
+                to="/login" 
+                onClick={() => setIsOpen(false)} 
+                className="tm-layout-nav__link tm-ui-text--large text-center py-4 px-4 rounded-lg hover:bg-white/5 transition-colors min-h-[52px] flex items-center justify-center"
+              >
+                Login
+              </Link>
             </div>
           </div>
         </div>
