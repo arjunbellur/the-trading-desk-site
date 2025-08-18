@@ -28,7 +28,7 @@ import {
 const Index = () => {
   const rotatingWords = ["Market", "Trade", "insights"];
   const [wordIndex, setWordIndex] = useState(0);
-  const [containerWidth, setContainerWidth] = useState(0);
+  const [currentWordWidth, setCurrentWordWidth] = useState(0);
   
   useEffect(() => {
     const id = setInterval(() => {
@@ -37,30 +37,28 @@ const Index = () => {
     return () => clearInterval(id);
   }, [rotatingWords.length]);
 
-  // Calculate and set the maximum width needed for smooth transitions
+  // Calculate width for the current word dynamically
   useEffect(() => {
-    const measureElement = document.createElement('span');
+    const measureElement = document.createElement('div');
     measureElement.style.position = 'absolute';
     measureElement.style.visibility = 'hidden';
-    measureElement.style.fontSize = 'inherit';
-    measureElement.style.fontFamily = 'inherit';
-    measureElement.style.fontWeight = 'inherit';
-    measureElement.className = 'tm-layout-hero__title tm-theme-text-gradient--brand';
+    measureElement.style.whiteSpace = 'nowrap';
+    measureElement.style.fontSize = 'clamp(2rem, 6vw, 5rem)'; // Match hero title font size
+    measureElement.style.fontFamily = '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif';
+    measureElement.style.fontWeight = '700';
+    measureElement.style.top = '-9999px';
+    measureElement.className = 'tm-theme-text-gradient--brand';
     
     document.body.appendChild(measureElement);
     
-    let maxWidth = 0;
-    rotatingWords.forEach(word => {
-      measureElement.textContent = word;
-      const width = measureElement.offsetWidth;
-      if (width > maxWidth) {
-        maxWidth = width;
-      }
-    });
+    // Measure current word
+    measureElement.textContent = rotatingWords[wordIndex];
+    const width = measureElement.getBoundingClientRect().width;
     
-    setContainerWidth(maxWidth);
+    // Add small padding and set width
+    setCurrentWordWidth(Math.ceil(width) + 5);
     document.body.removeChild(measureElement);
-  }, [rotatingWords]);
+  }, [rotatingWords, wordIndex]);
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
@@ -87,26 +85,26 @@ const Index = () => {
               <div className="tm-layout-hero__title-container flex flex-col items-center justify-center">
                 <div className="flex items-center justify-center">
                   <span className="mr-3">Master your</span>
-                                  <span 
-                  className="tm-layout-hero__rotating-word relative inline-block h-[1.2em]"
-                  style={{ width: containerWidth > 0 ? `${containerWidth}px` : 'auto' }}
-                >
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={rotatingWords[wordIndex]}
-                      initial={{ opacity: 0, y: -60 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 60 }}
-                      transition={{ 
-                        duration: 0.7,
-                        ease: [0.25, 0.1, 0.25, 1]
-                      }}
-                      className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-center whitespace-nowrap"
-                    >
-                      {rotatingWords[wordIndex]}
-                    </motion.span>
-                  </AnimatePresence>
-                </span>
+                  <span 
+                    className="tm-layout-hero__rotating-word relative inline-block h-[1.2em] overflow-visible transition-all duration-700 ease-out"
+                    style={{ width: currentWordWidth > 0 ? `${currentWordWidth}px` : 'auto' }}
+                  >
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={rotatingWords[wordIndex]}
+                        initial={{ opacity: 0, y: -60 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 60 }}
+                        transition={{ 
+                          duration: 0.7,
+                          ease: [0.25, 0.1, 0.25, 1]
+                        }}
+                        className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-center whitespace-nowrap"
+                      >
+                        {rotatingWords[wordIndex]}
+                      </motion.span>
+                    </AnimatePresence>
+                  </span>
                 </div>
               </div>
             </h1>

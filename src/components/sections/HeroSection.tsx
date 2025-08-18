@@ -33,7 +33,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   onCtaClick,
 }) => {
   const [wordIndex, setWordIndex] = useState(0);
-  const [containerWidth, setContainerWidth] = useState(0);
+  const [currentWordWidth, setCurrentWordWidth] = useState(0);
 
   /**
    * Manages the rotating words animation
@@ -47,31 +47,29 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   }, [rotatingWords.length]);
 
   /**
-   * Calculate and set the maximum width needed for smooth transitions
+   * Calculate width for the current word dynamically
    */
   useEffect(() => {
-    const measureElement = document.createElement('span');
+    const measureElement = document.createElement('div');
     measureElement.style.position = 'absolute';
     measureElement.style.visibility = 'hidden';
-    measureElement.style.fontSize = 'inherit';
-    measureElement.style.fontFamily = 'inherit';
-    measureElement.style.fontWeight = 'inherit';
-    measureElement.className = 'tm-layout-hero__title tm-theme-text-gradient--brand';
+    measureElement.style.whiteSpace = 'nowrap';
+    measureElement.style.fontSize = 'clamp(2rem, 6vw, 5rem)'; // Match hero title font size
+    measureElement.style.fontFamily = '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif';
+    measureElement.style.fontWeight = '700';
+    measureElement.style.top = '-9999px';
+    measureElement.className = 'tm-theme-text-gradient--brand';
     
     document.body.appendChild(measureElement);
     
-    let maxWidth = 0;
-    rotatingWords.forEach(word => {
-      measureElement.textContent = word;
-      const width = measureElement.offsetWidth;
-      if (width > maxWidth) {
-        maxWidth = width;
-      }
-    });
+    // Measure current word
+    measureElement.textContent = rotatingWords[wordIndex];
+    const width = measureElement.getBoundingClientRect().width;
     
-    setContainerWidth(maxWidth);
+    // Add small padding and set width
+    setCurrentWordWidth(Math.ceil(width) + 5);
     document.body.removeChild(measureElement);
-  }, [rotatingWords]);
+  }, [rotatingWords, wordIndex]);
 
   return (
     <section 
@@ -100,8 +98,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="flex items-center justify-center">
                 <span className="mr-3">Master your</span>
                 <span 
-                  className="tm-layout-hero__rotating-word relative inline-block h-[1.2em]"
-                  style={{ width: containerWidth > 0 ? `${containerWidth}px` : 'auto' }}
+                  className="tm-layout-hero__rotating-word relative inline-block h-[1.2em] overflow-visible transition-all duration-700 ease-out"
+                  style={{ width: currentWordWidth > 0 ? `${currentWordWidth}px` : 'auto' }}
                 >
                   <AnimatePresence mode="wait">
                     <motion.span
