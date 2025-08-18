@@ -1053,7 +1053,7 @@
     
     /* Typography - SF Pro Display specs */
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
-    font-weight: 590; /* Apple's medium weight */
+    font-weight: 400; /* Regular weight for lighter appearance */
     letter-spacing: -0.003em; /* Apple's tight tracking */
     text-align: center;
     
@@ -1075,9 +1075,9 @@
   /* Navigation Buttons - Compact System Controls */
   .tm-ui-button--nav {
     /* Apple Control Sizing */
-    padding: 8px 16px;
-    min-height: 44px; /* Apple's minimum touch target */
-    font-size: 15px; /* Apple's standard body size */
+    padding: 6px 14px;
+    min-height: 38px; /* Apple's minimum touch target */
+    font-size: 14px; /* Apple's standard body size */
     
     /* Liquid Glass Material - Thin */
     background: rgba(255, 255, 255, 0.05);
@@ -1096,10 +1096,10 @@
   /* Regular Buttons - Primary Actions */
   .tm-ui-button--regular {
     /* Apple CTA Sizing */
-    padding: 12px 24px;
-    min-height: 50px; /* Prominent touch target */
-    font-size: 17px; /* Apple's large body size */
-    font-weight: 600; /* Semibold for prominence */
+    padding: 10px 20px;
+    min-height: 44px; /* Prominent touch target */
+    font-size: 15px; /* Apple's large body size */
+    font-weight: 400; /* Regular weight for lighter appearance */
     
     /* Liquid Glass Material - Regular */
     background: rgba(255, 255, 255, 0.08);
@@ -1200,55 +1200,22 @@
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 0.5px solid rgba(255, 255, 255, 0.12);
     color: rgba(255, 255, 255, 0.9);
-    overflow: hidden;
+    overflow: visible;
     isolation: isolate;
-  }
-
-  .liquid-glass-discord-btn::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(45deg, 
-      rgba(139, 92, 246, 0.3) 0%,
-      rgba(168, 85, 247, 0.3) 25%,
-      rgba(192, 132, 252, 0.3) 50%,
-      rgba(168, 85, 247, 0.3) 75%,
-      rgba(139, 92, 246, 0.3) 100%
-    );
-    border-radius: inherit;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-  }
-
-  .liquid-glass-discord-btn::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0.05) 50%,
-      rgba(255, 255, 255, 0.02) 100%
-    );
-    border-radius: inherit;
-    pointer-events: none;
+    border-radius: 50px;
+    padding: 6px 14px;
+    min-height: 38px;
+    font-size: 14px;
   }
 
   .liquid-glass-discord-btn:hover {
     color: rgb(168, 85, 247);
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow: 
-      0 0 20px rgba(168, 85, 247, 0.3),
-      0 4px 16px rgba(0, 0, 0, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transform: translateY(-1px);
   }
 
-  .liquid-glass-discord-btn:hover::before {
-    opacity: 1;
-  }
+  /* Removed ::before hover state since we're not using it */
 
   .liquid-glass-discord-btn:hover svg {
     color: rgb(168, 85, 247);
@@ -1257,9 +1224,15 @@
   .liquid-glass-discord-btn:active {
     transform: translateY(0);
     box-shadow: 
-      0 0 15px rgba(168, 85, 247, 0.2),
-      0 2px 8px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      0 0 18px rgba(168, 85, 247, 0.3),
+      0 0 8px rgba(168, 85, 247, 0.1),
+      0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Ensure content appears above glass overlay */
+  .liquid-glass-discord-btn > * {
+    position: relative;
+    z-index: 2;
   }
 
   /* Layout Components - tm-layout-* */

@@ -179,7 +179,7 @@ const Navigation: React.FC = () => {
         <div className="tm-layout-nav__links hidden md:flex">
           <a 
             href="#discord" 
-            className="liquid-glass-discord-btn flex items-center gap-2 whitespace-nowrap px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300"
+            className="liquid-glass-discord-btn flex items-center gap-2 whitespace-nowrap transition-all duration-300"
             aria-label="Join our Discord community"
           >
             <DiscordIcon className="w-4 h-4 transition-colors duration-300" />
