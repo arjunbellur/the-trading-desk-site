@@ -61,12 +61,40 @@ const Index = () => {
   }, [rotatingWords, wordIndex]);
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
+    <div className="min-h-screen bg-black text-white relative">
       {/* Particle background removed per spec */}
       
-      {/* Full-viewport lamp glow - positioned at root level */}
-      <div className="fixed left-0 right-0 top-0 translate-y-0.5 z-[90] h-8 w-screen bg-gradient-to-b from-emerald-800/8 via-emerald-800/4 to-transparent blur-md pointer-events-none" />
-      <div className="fixed left-0 right-0 top-0 translate-y-1 z-[85] h-12 w-screen bg-gradient-to-b from-emerald-900/6 via-emerald-900/3 to-transparent blur-lg pointer-events-none" />
+      {/* Full-viewport lamp glow - absolute positioning with viewport units */}
+      <div 
+        className="pointer-events-none"
+        style={{
+          position: 'fixed',
+          left: '0',
+          top: '2px',
+          width: '100vw',
+          height: '32px',
+          background: 'linear-gradient(to bottom, rgb(6 78 59 / 0.08), rgb(6 78 59 / 0.04), transparent)',
+          filter: 'blur(8px)',
+          zIndex: 90,
+          margin: '0',
+          padding: '0'
+        }}
+      />
+      <div 
+        className="pointer-events-none"
+        style={{
+          position: 'fixed',
+          left: '0',
+          top: '4px', 
+          width: '100vw',
+          height: '48px',
+          background: 'linear-gradient(to bottom, rgb(6 44 34 / 0.06), rgb(6 44 34 / 0.03), transparent)',
+          filter: 'blur(16px)',
+          zIndex: 85,
+          margin: '0',
+          padding: '0'
+        }}
+      />
       
       <Navigation />
       
