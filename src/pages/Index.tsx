@@ -57,9 +57,9 @@ const Index = () => {
 
             {/* Main Headline */}
             <h1 className="tm-layout-hero__title mb-6 text-white">
-                        <div className="tm-layout-hero__title-container flex flex-wrap items-center justify-center gap-1">
-            <span>Master your</span>
-            <span className="tm-layout-hero__rotating-word inline-block relative overflow-hidden min-w-[160px] md:min-w-[200px] lg:min-w-[240px] h-[1.2em] ml-[0.3em]">
+              <div className="tm-layout-hero__title-container flex flex-wrap items-center justify-center">
+                <span className="mr-3">Master your</span>
+                <span className="tm-layout-hero__rotating-word inline-block relative h-[1.2em]">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={rotatingWords[wordIndex]}
@@ -70,7 +70,7 @@ const Index = () => {
                         duration: 0.7,
                         ease: [0.25, 0.1, 0.25, 1]
                       }}
-                      className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-center"
+                      className="tm-theme-text-gradient--brand absolute left-0 top-0 whitespace-nowrap"
                     >
                       {rotatingWords[wordIndex]}
                     </motion.span>
