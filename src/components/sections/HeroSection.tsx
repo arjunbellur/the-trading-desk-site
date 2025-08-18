@@ -79,6 +79,32 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     >
       {/* Background */}
       <div className="tm-layout-hero__background absolute inset-0 bg-transparent" />
+
+      {/* Luminating lamp and light beam (decorative) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute inset-x-0 top-0 flex justify-center z-20"
+      >
+        {/* Lamp glow */}
+        <div
+          className="absolute -top-10 w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] md:w-[320px] md:h-[320px] opacity-60 animate-pulse"
+          style={{
+            background:
+              'radial-gradient(50% 50% at 50% 50%, rgba(82,255,168,0.45) 0%, rgba(82,255,168,0.25) 25%, rgba(82,255,168,0.12) 45%, transparent 70%)',
+            filter: 'blur(28px)'
+          }}
+        />
+        {/* Downward beam */}
+        <div
+          className="absolute top-10 w-[80vw] max-w-[900px] h-[55vh] opacity-45 md:opacity-60"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(82,255,168,0.18), rgba(82,255,168,0.10) 25%, rgba(82,255,168,0.06) 45%, transparent 80%)',
+            clipPath: 'polygon(50% 0%, 92% 100%, 8% 100%)',
+            filter: 'blur(32px)'
+          }}
+        />
+      </div>
       
       <div className="tm-layout-container max-w-8xl mx-auto px-4 sm:px-6 text-center relative z-50">
         <div className="tm-layout-hero__content max-w-full sm:max-w-5xl mx-auto">
