@@ -68,8 +68,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             id="hero-title"
             className="tm-layout-hero__title mb-6 text-white text-center"
           >
-            <div className="tm-layout-hero__title-container inline-flex flex-wrap items-center justify-center">
-              <span className="mr-3">Master your</span>
+            <div className="tm-layout-hero__title-container inline-flex flex-wrap items-center justify-center transition-all duration-700 ease-out">
+              <span className="mr-3 transition-transform duration-700 ease-out">Master your</span>
               <span className="tm-layout-hero__rotating-word relative">
                 <AnimatePresence mode="wait">
                   <motion.span
