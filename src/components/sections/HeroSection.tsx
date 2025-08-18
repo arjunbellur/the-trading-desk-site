@@ -123,8 +123,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-black blur-2xl"></div>
           <div className="absolute top-1/2 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md"></div>
           
-          {/* Central bright neon glow - much brighter and wider */}
-          <div className="absolute inset-auto z-50 h-36 w-[32rem] -translate-y-1/2 rounded-full bg-green-400 opacity-60 blur-3xl"></div>
+          {/* Central glow - tuned down to match bottom glow */}
+          <div className="absolute inset-auto z-50 h-36 w-[32rem] -translate-y-1/2 rounded-full bg-green-400 opacity-25 blur-3xl"></div>
           
           {/* Secondary glow layer */}
           <motion.div
@@ -135,10 +135,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-40"
+            className="absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-20"
           />
           
-          {/* Visible neon lamp bar - brighter and more prominent */}
+          {/* Visible neon lamp bar - positioned higher and brighter */}
           <motion.div
             initial={{ width: "15rem" }}
             whileInView={{ width: "35rem" }}
@@ -147,10 +147,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="absolute inset-auto z-50 h-1 w-[35rem] -translate-y-[7rem] bg-green-300 shadow-lg shadow-green-400/50"
+            className="absolute inset-auto z-60 h-1 w-[35rem] -translate-y-[8rem] bg-green-200 shadow-[0_0_10px_#4ade80,0_0_20px_#4ade80] border border-green-300/50"
           />
           
-          {/* Additional neon glow for the lamp bar */}
+          {/* Additional neon glow for the lamp bar - more prominent */}
           <motion.div
             initial={{ width: "15rem" }}
             whileInView={{ width: "35rem" }}
@@ -159,7 +159,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="absolute inset-auto z-40 h-2 w-[35rem] -translate-y-[7rem] bg-green-400/60 blur-sm"
+            className="absolute inset-auto z-50 h-3 w-[35rem] -translate-y-[8rem] bg-green-400/80 blur-sm"
+          />
+          
+          {/* Extra bright center line for the lamp */}
+          <motion.div
+            initial={{ width: "15rem" }}
+            whileInView={{ width: "35rem" }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            className="absolute inset-auto z-70 h-0.5 w-[35rem] -translate-y-[8rem] bg-white shadow-[0_0_5px_#ffffff]"
           />
           
           {/* Top mask to cut off the lamp properly */}
