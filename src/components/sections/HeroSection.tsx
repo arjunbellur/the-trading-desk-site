@@ -66,11 +66,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Main Title with Rotating Words */}
           <h1 
             id="hero-title"
-            className="tm-layout-hero__title mb-6 text-white"
+            className="tm-layout-hero__title mb-6 text-white text-center"
           >
-            <div className="tm-layout-hero__title-container flex flex-wrap items-center justify-center">
+            <div className="tm-layout-hero__title-container inline-flex flex-wrap items-center justify-center">
               <span className="mr-3">Master your</span>
-              <span className="tm-layout-hero__rotating-word inline-block relative h-[1.2em]">
+              <span className="tm-layout-hero__rotating-word relative">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={rotatingWords[wordIndex]}
@@ -81,7 +81,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                       duration: 0.7,
                       ease: [0.25, 0.1, 0.25, 1]
                     }}
-                    className="tm-theme-text-gradient--brand absolute left-0 top-0 whitespace-nowrap"
+                    className="tm-theme-text-gradient--brand inline-block whitespace-nowrap"
                   >
                     {rotatingWords[wordIndex]}
                   </motion.span>
