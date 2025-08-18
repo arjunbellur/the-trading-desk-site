@@ -149,7 +149,7 @@ const Navigation: React.FC = () => {
 
   return (
     <nav 
-      className={`tm-layout-nav tm-layout-nav--transparent fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+      className={`tm-layout-nav tm-layout-nav--transparent transition-transform duration-300 ease-in-out ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
       role="navigation"
