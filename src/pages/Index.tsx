@@ -87,26 +87,26 @@ const Index = () => {
               <div className="tm-layout-hero__title-container flex flex-col items-center justify-center">
                 <div className="flex items-center justify-center">
                   <span className="mr-3">Master your</span>
-                  <span 
-                    className="tm-layout-hero__rotating-word relative inline-block"
-                    style={{ width: containerWidth > 0 ? `${containerWidth}px` : 'auto' }}
-                  >
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key={rotatingWords[wordIndex]}
-                        initial={{ opacity: 0, y: -60 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 60 }}
-                        transition={{ 
-                          duration: 0.7,
-                          ease: [0.25, 0.1, 0.25, 1]
-                        }}
-                        className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-center whitespace-nowrap"
-                      >
-                        {rotatingWords[wordIndex]}
-                      </motion.span>
-                    </AnimatePresence>
-                  </span>
+                                  <span 
+                  className="tm-layout-hero__rotating-word relative inline-block h-[1.2em]"
+                  style={{ width: containerWidth > 0 ? `${containerWidth}px` : 'auto' }}
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={rotatingWords[wordIndex]}
+                      initial={{ opacity: 0, y: -60 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 60 }}
+                      transition={{ 
+                        duration: 0.7,
+                        ease: [0.25, 0.1, 0.25, 1]
+                      }}
+                      className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-center whitespace-nowrap"
+                    >
+                      {rotatingWords[wordIndex]}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
                 </div>
               </div>
             </h1>
