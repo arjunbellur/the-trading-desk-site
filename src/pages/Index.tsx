@@ -66,42 +66,54 @@ const Index = () => {
     const existingGlows = document.querySelectorAll('.lamp-glow-element');
     existingGlows.forEach(el => el.remove());
 
-    // Create primary glow element
+    // Create primary glow element with extreme width and reduced brightness
     const primaryGlow = document.createElement('div');
     primaryGlow.className = 'lamp-glow-element';
     primaryGlow.style.cssText = `
       position: fixed !important;
       left: 0 !important;
+      right: 0 !important;
       top: 2px !important;
       width: 100vw !important;
-      height: 20px !important;
-      background: linear-gradient(180deg, rgba(6, 78, 59, 0.015), rgba(6, 78, 59, 0.008), transparent) !important;
-      filter: blur(4px) !important;
+      max-width: none !important;
+      height: 16px !important;
+      background: linear-gradient(180deg, rgba(6, 78, 59, 0.008), rgba(6, 78, 59, 0.004), transparent) !important;
+      filter: blur(3px) !important;
       z-index: 99999 !important;
       pointer-events: none !important;
       margin: 0 !important;
       padding: 0 !important;
       box-sizing: border-box !important;
+      transform: translateX(0) !important;
+      min-width: 100vw !important;
     `;
     
-    // Create secondary glow element
+    // Create secondary glow element with extreme width and reduced brightness
     const secondaryGlow = document.createElement('div');
     secondaryGlow.className = 'lamp-glow-element';
     secondaryGlow.style.cssText = `
       position: fixed !important;
       left: 0 !important;
+      right: 0 !important;
       top: 1px !important;
       width: 100vw !important;
-      height: 28px !important;
-      background: linear-gradient(180deg, rgba(4, 56, 42, 0.012), rgba(4, 56, 42, 0.006), transparent) !important;
-      filter: blur(8px) !important;
+      max-width: none !important;
+      height: 24px !important;
+      background: linear-gradient(180deg, rgba(4, 56, 42, 0.006), rgba(4, 56, 42, 0.003), transparent) !important;
+      filter: blur(6px) !important;
       z-index: 99998 !important;
       pointer-events: none !important;
       margin: 0 !important;
       padding: 0 !important;
       box-sizing: border-box !important;
+      transform: translateX(0) !important;
+      min-width: 100vw !important;
     `;
 
+    // Override body constraints
+    document.body.style.overflowX = 'visible';
+    document.documentElement.style.overflowX = 'visible';
+    
     // Append to document body to ensure they're at the root level
     document.body.appendChild(primaryGlow);
     document.body.appendChild(secondaryGlow);
