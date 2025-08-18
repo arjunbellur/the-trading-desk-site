@@ -153,7 +153,7 @@ const Index = () => {
               className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-green-200 shadow-[0_0_4px_#bbf7d0]"
             />
             
-            {/* Downward lamp glow - positioned below the lamp */}
+            {/* Downward lamp glow - evenly distributed */}
             <motion.div
               initial={{ width: "50%" }}
               whileInView={{ width: "100%" }}
@@ -162,7 +162,19 @@ const Index = () => {
                 duration: 0.8,
                 ease: "easeInOut",
               }}
-              className="absolute left-0 top-0 translate-y-2 z-[90] h-6 w-full bg-gradient-to-b from-green-500/30 to-transparent blur-sm"
+              className="absolute left-0 top-0 translate-y-2 z-[90] h-8 w-full bg-gradient-to-b from-green-500/25 via-green-500/15 to-transparent blur-md"
+            />
+            
+            {/* Additional wider glow layer for even distribution */}
+            <motion.div
+              initial={{ width: "50%" }}
+              whileInView={{ width: "100%" }}
+              transition={{
+                delay: 0.3,
+                duration: 0.8,
+                ease: "easeInOut",
+              }}
+              className="absolute left-0 top-0 translate-y-1 z-[85] h-12 w-full bg-gradient-to-b from-green-400/15 via-green-400/8 to-transparent blur-lg"
             />
             
             {/* Top mask - positioned lower to not hide the lamp */}
