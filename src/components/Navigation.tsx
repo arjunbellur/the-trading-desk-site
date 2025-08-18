@@ -155,7 +155,7 @@ const Navigation: React.FC = () => {
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="tm-layout-nav__container px-4 sm:px-6">
+      <div className="tm-layout-nav__container px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link 
           to="/" 
