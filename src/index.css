@@ -1286,7 +1286,6 @@
   }
 
   .tm-layout-nav__links {
-    display: flex;
     align-items: center;
     gap: 2rem;
   }

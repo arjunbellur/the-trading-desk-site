@@ -1,4 +1,16 @@
-import { ReactNode } from 'react';
+/**
+ * Enhanced Smooth Scroll Link Component
+ * Provides accessible navigation with proper error handling and TypeScript types
+ */
+
+import React from 'react';
+import { SmoothScrollLinkProps } from '@/lib/types';
+import { 
+  scrollToElement, 
+  isAnchorLink, 
+  isExternalLink, 
+  extractAnchorId 
+} from '@/lib/navigation-utils';
 
 declare global {
   interface Window {
@@ -8,27 +20,38 @@ declare global {
   }
 }
 
-interface SmoothScrollLinkProps {
-  href: string;
-  children: ReactNode;
-  className?: string;
-  onClick?: () => void;
-}
+/**
+ * A smooth scrolling link component with enhanced accessibility and error handling
+ * @param props - Link properties including href, children, and accessibility attributes
+ */
+const SmoothScrollLink: React.FC<SmoothScrollLinkProps> = ({ 
+  href, 
+  children, 
+  className, 
+  ariaLabel,
+  isExternal = false,
+  onClick 
+}) => {
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>): void => {
+    // Don't prevent default for external links
+    if (isExternal || isExternalLink(href)) {
+      if (onClick) {
+        onClick();
+      }
+      return;
+    }
 
-const SmoothScrollLink = ({ href, children, className, onClick }: SmoothScrollLinkProps) => {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    
-    // Check if href is an anchor link
-    if (href.startsWith('#')) {
-      const targetId = href.substring(1);
-      const targetElement = document.getElementById(targetId);
+    // Handle anchor links with smooth scrolling
+    if (isAnchorLink(href)) {
+      event.preventDefault();
       
-      if (targetElement && window.lenis) {
-        window.lenis.scrollTo(targetElement, {
-          offset: -100, // Account for fixed navigation
-          duration: 1.2,
-        });
+      try {
+        const targetId = extractAnchorId(href);
+        scrollToElement({ elementId: targetId });
+      } catch (error) {
+        console.error('Navigation error:', error);
+        // Fallback to default browser behavior
+        window.location.hash = href;
       }
     }
     
@@ -37,14 +60,32 @@ const SmoothScrollLink = ({ href, children, className, onClick }: SmoothScrollLi
     }
   };
 
+  const linkProps = {
+    href,
+    className,
+    onClick: handleClick,
+    ...(ariaLabel && { 'aria-label': ariaLabel }),
+    ...(isExternal && { 
+      target: '_blank', 
+      rel: 'noopener noreferrer',
+      'aria-describedby': 'external-link-description' 
+    }),
+  };
+
   return (
-    <a
-      href={href}
-      className={className}
-      onClick={handleClick}
-    >
-      {children}
-    </a>
+    <>
+      <a {...linkProps}>
+        {children}
+        {isExternal && (
+          <span className="sr-only"> (opens in new tab)</span>
+        )}
+      </a>
+      {isExternal && (
+        <span id="external-link-description" className="sr-only">
+          External links open in a new tab
+        </span>
+      )}
+    </>
   );
 };
 

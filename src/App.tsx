@@ -1,37 +1,88 @@
+/**
+ * Main App Component with Code Splitting and Performance Optimizations
+ * Implements lazy loading for better performance and user experience
+ */
+
+import React, { Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Courses from "./pages/Courses";
-import CourseDetail from "./pages/CourseDetail";
-import Live from "./pages/Live";
-import Blog from "./pages/Blog";
-import Community from "./pages/Community";
-import NotFound from "./pages/NotFound";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
-const queryClient = new QueryClient();
+// Lazy load page components for better performance
+const Index = React.lazy(() => import("./pages/Index"));
+const Courses = React.lazy(() => import("./pages/Courses"));
+const CourseDetail = React.lazy(() => import("./pages/CourseDetail"));
+const Live = React.lazy(() => import("./pages/Live"));
+const Blog = React.lazy(() => import("./pages/Blog"));
+const Community = React.lazy(() => import("./pages/Community"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/courses/:slug" element={<CourseDetail />} />
-          <Route path="/live" element={<Live />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/community" element={<Community />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+/**
+ * Loading fallback component for lazy-loaded routes
+ */
+const LoadingFallback: React.FC = () => (
+  <div className="min-h-screen bg-black flex items-center justify-center">
+    <div className="text-center">
+      <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin mx-auto mb-4" />
+      <p className="text-white/70 text-sm">Loading...</p>
+    </div>
+  </div>
+);
+
+/**
+ * Query client configuration with proper error handling and caching
+ */
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      gcTime: 10 * 60 * 1000, // 10 minutes (formerly cacheTime)
+      retry: 3,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
+/**
+ * Error handler for the error boundary
+ */
+const handleGlobalError = (error: Error, errorInfo: React.ErrorInfo): void => {
+  // In production, send to error reporting service
+  console.error('Global error caught:', error, errorInfo);
+  
+  // Example: Send to analytics or error reporting
+  // analytics.track('Error', { error: error.message, stack: error.stack });
+};
+
+/**
+ * Main App component with providers and routing
+ */
+const App: React.FC = () => (
+  <ErrorBoundary onError={handleGlobalError}>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Suspense fallback={<LoadingFallback />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/courses" element={<Courses />} />
+              <Route path="/courses/:slug" element={<CourseDetail />} />
+              <Route path="/live" element={<Live />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/community" element={<Community />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </ErrorBoundary>
 );
 
 export default App;
