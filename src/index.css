@@ -127,7 +127,7 @@
 
   /* H1 - Hero/Main Titles */
   h1 {
-    font-size: 2.25rem; /* 36px base */
+    font-size: 2.75rem; /* 44px base - increased */
     font-weight: 300;
     line-height: 1.1;
     letter-spacing: -0.025em;
@@ -212,7 +212,7 @@
 
   /* Documentary-specific text styles */
   .text-lead {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 300;
     line-height: 1.6;
     letter-spacing: -0.01em;
@@ -247,31 +247,33 @@
 
   /* Responsive Typography Scaling - Documentary Style */
   @media (min-width: 640px) {
-    h1 { font-size: 3rem; }      /* 48px */
+    h1 { font-size: 3.5rem; }      /* 56px - increased */
     h2 { font-size: 2.25rem; }   /* 36px */
     h3 { font-size: 1.75rem; }   /* 28px */
-    .text-lead { font-size: 1.375rem; }
+    .text-lead { font-size: 1.25rem; }  /* reduced */
   }
 
   @media (min-width: 768px) {
-    h1 { font-size: 3.75rem; }   /* 60px */
+    h1 { font-size: 4.5rem; }   /* 72px - increased */
     h2 { font-size: 2.5rem; }    /* 40px */
     h3 { font-size: 2rem; }      /* 32px */
     h4 { font-size: 1.375rem; }  /* 22px */
+    .text-lead { font-size: 1.375rem; }  /* reduced */
   }
 
   @media (min-width: 1024px) {
-    h1 { font-size: 4.5rem; }    /* 72px */
+    h1 { font-size: 5.5rem; }    /* 88px - increased */
     h2 { font-size: 3rem; }      /* 48px */
     h3 { font-size: 2.25rem; }   /* 36px */
     h4 { font-size: 1.5rem; }    /* 24px */
-    .text-lead { font-size: 1.5rem; }
+    .text-lead { font-size: 1.375rem; }  /* reduced */
   }
 
   @media (min-width: 1280px) {
-    h1 { font-size: 5rem; }      /* 80px */
+    h1 { font-size: 6rem; }      /* 96px - increased */
     h2 { font-size: 3.5rem; }    /* 56px */
     h3 { font-size: 2.5rem; }    /* 40px */
+    .text-lead { font-size: 1.375rem; }  /* reduced */
   }
 }
 

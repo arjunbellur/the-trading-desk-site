@@ -43,7 +43,7 @@ const Index = () => {
     measureElement.style.position = 'absolute';
     measureElement.style.visibility = 'hidden';
     measureElement.style.whiteSpace = 'nowrap';
-    measureElement.style.fontSize = 'clamp(2rem, 6vw, 5rem)'; // Match hero title font size
+    measureElement.style.fontSize = 'clamp(2.75rem, 8vw, 6rem)'; // Match increased hero title font size
     measureElement.style.fontFamily = '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif';
     measureElement.style.fontWeight = '700';
     measureElement.style.top = '-9999px';
