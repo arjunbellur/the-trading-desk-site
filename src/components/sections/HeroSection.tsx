@@ -96,7 +96,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           >
             <div className="tm-layout-hero__title-container flex flex-col items-center justify-center">
               <div className="flex items-center justify-center">
-                <span className="mr-1">Master your</span>
+                <span className="mr-0.5">Master your</span>
                 <span 
                   className="tm-layout-hero__rotating-word relative inline-block h-[1.2em] overflow-visible transition-all duration-700 ease-out"
                   style={{ width: currentWordWidth > 0 ? `${currentWordWidth}px` : 'auto' }}
