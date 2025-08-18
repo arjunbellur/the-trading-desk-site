@@ -138,40 +138,40 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className="absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-20"
           />
           
-          {/* Thin neon lamp bar at viewport top - matches glow width */}
+          {/* Full-width neon lamp bar at viewport top */}
           <motion.div
-            initial={{ width: "20rem" }}
-            whileInView={{ width: "48rem" }}
+            initial={{ width: "50%" }}
+            whileInView={{ width: "100%" }}
             transition={{
               delay: 0.3,
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="absolute left-1/2 top-0 -translate-x-1/2 z-[100] h-0.5 w-[48rem] bg-green-300 shadow-[0_0_15px_#22c55e,0_0_30px_#22c55e] rounded-sm"
+            className="absolute left-0 top-0 z-[100] h-0.5 w-full bg-green-300 shadow-[0_0_15px_#22c55e,0_0_30px_#22c55e]"
           />
           
           {/* Bright center core of the lamp */}
           <motion.div
-            initial={{ width: "20rem" }}
-            whileInView={{ width: "48rem" }}
+            initial={{ width: "50%" }}
+            whileInView={{ width: "100%" }}
             transition={{
               delay: 0.3,
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="absolute left-1/2 top-0 -translate-x-1/2 translate-y-px z-[101] h-px w-[48rem] bg-white shadow-[0_0_8px_#ffffff] rounded-sm"
+            className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-white shadow-[0_0_8px_#ffffff]"
           />
           
           {/* Lamp glow underneath */}
           <motion.div
-            initial={{ width: "20rem" }}
-            whileInView={{ width: "48rem" }}
+            initial={{ width: "50%" }}
+            whileInView={{ width: "100%" }}
             transition={{
               delay: 0.3,
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="absolute left-1/2 top-0 -translate-x-1/2 translate-y-1 z-[90] h-3 w-[48rem] bg-green-400/40 blur-md rounded-sm"
+            className="absolute left-0 top-0 translate-y-1 z-[90] h-3 w-full bg-green-400/40 blur-md"
           />
           
           {/* Top mask - positioned lower to not hide the lamp */}
