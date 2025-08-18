@@ -64,6 +64,10 @@ const Index = () => {
     <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
       {/* Particle background removed per spec */}
       
+      {/* Full-viewport lamp glow - positioned at root level */}
+      <div className="fixed left-0 right-0 top-0 translate-y-0.5 z-[90] h-8 w-screen bg-gradient-to-b from-emerald-800/8 via-emerald-800/4 to-transparent blur-md pointer-events-none" />
+      <div className="fixed left-0 right-0 top-0 translate-y-1 z-[85] h-12 w-screen bg-gradient-to-b from-emerald-900/6 via-emerald-900/3 to-transparent blur-lg pointer-events-none" />
+      
       <Navigation />
       
       {/* Hero Section - Magic UI Layout */}
@@ -152,12 +156,6 @@ const Index = () => {
               }}
               className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-emerald-300 shadow-[0_0_3px_#6ee7b7]"
             />
-            
-            {/* Full-width downward lamp glow - very subtle */}
-            <div className="fixed left-0 right-0 top-0 translate-y-0.5 z-[90] h-8 w-screen bg-gradient-to-b from-emerald-800/8 via-emerald-800/4 to-transparent blur-md" />
-            
-            {/* Extended base glow for full coverage */}
-            <div className="fixed left-0 right-0 top-0 translate-y-1 z-[85] h-12 w-screen bg-gradient-to-b from-emerald-900/6 via-emerald-900/3 to-transparent blur-lg" />
             
             {/* Top mask - positioned lower to not hide the lamp */}
             <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[10rem] bg-black"></div>
