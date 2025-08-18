@@ -80,8 +80,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Background */}
       <div className="tm-layout-hero__background absolute inset-0 bg-transparent" />
       
-      <div className="tm-layout-container max-w-8xl mx-auto px-6 text-center relative z-50">
-        <div className="tm-layout-hero__content max-w-5xl mx-auto">
+      <div className="tm-layout-container max-w-8xl mx-auto px-4 sm:px-6 text-center relative z-50">
+        <div className="tm-layout-hero__content max-w-full sm:max-w-5xl mx-auto">
           {/* Beta Badge */}
           <div className="tm-layout-hero__badge mb-8">
             <span className="tm-ui-badge tm-ui-badge--glass beta-pill">
@@ -95,8 +95,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className="tm-layout-hero__title mb-6 text-white text-center"
           >
             <div className="tm-layout-hero__title-container flex flex-col items-center justify-center">
-              <div className="flex items-center justify-center">
-                <span className="mr-3">Master your</span>
+              <div className="flex items-center justify-center whitespace-nowrap">
+                <span className="mr-1 sm:mr-2 md:mr-3">Master your</span>
                 <span 
                   className="tm-layout-hero__rotating-word relative inline-block h-[1.2em] overflow-visible transition-all duration-700 ease-out"
                   style={{ width: currentWordWidth > 0 ? `${currentWordWidth}px` : 'auto' }}
@@ -111,7 +111,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                         duration: 0.7,
                         ease: [0.25, 0.1, 0.25, 1]
                       }}
-                      className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-start whitespace-nowrap ml-4"
+                      className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-start whitespace-nowrap ml-1 sm:ml-2 md:ml-4"
                     >
                       {rotatingWords[wordIndex]}
                     </motion.span>
