@@ -129,7 +129,7 @@ const Index = () => {
               className="absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-20"
             />
             
-            {/* Full-width neon lamp bar at viewport top - darker green */}
+            {/* Full-width neon lamp bar at viewport top - darker mint green */}
             <motion.div
               initial={{ width: "50%" }}
               whileInView={{ width: "100%" }}
@@ -138,7 +138,7 @@ const Index = () => {
                 duration: 0.8,
                 ease: "easeInOut",
               }}
-              className="absolute left-0 top-0 z-[100] h-0.5 w-full bg-green-600 shadow-[0_0_8px_#16a34a]"
+              className="absolute left-0 top-0 z-[100] h-0.5 w-full bg-emerald-700 shadow-[0_0_6px_#047857]"
             />
             
             {/* Bright center core of the lamp */}
@@ -150,10 +150,10 @@ const Index = () => {
                 duration: 0.8,
                 ease: "easeInOut",
               }}
-              className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-green-200 shadow-[0_0_4px_#bbf7d0]"
+              className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-emerald-300 shadow-[0_0_3px_#6ee7b7]"
             />
             
-            {/* Downward lamp glow - evenly distributed */}
+            {/* Seamless downward lamp glow - subtle */}
             <motion.div
               initial={{ width: "50%" }}
               whileInView={{ width: "100%" }}
@@ -162,10 +162,10 @@ const Index = () => {
                 duration: 0.8,
                 ease: "easeInOut",
               }}
-              className="absolute left-0 top-0 translate-y-2 z-[90] h-8 w-full bg-gradient-to-b from-green-500/25 via-green-500/15 to-transparent blur-md"
+              className="absolute left-0 top-0 translate-y-0.5 z-[90] h-6 w-full bg-gradient-to-b from-emerald-600/12 via-emerald-600/6 to-transparent blur-sm"
             />
             
-            {/* Additional wider glow layer for even distribution */}
+            {/* Subtle base glow for depth */}
             <motion.div
               initial={{ width: "50%" }}
               whileInView={{ width: "100%" }}
@@ -174,7 +174,7 @@ const Index = () => {
                 duration: 0.8,
                 ease: "easeInOut",
               }}
-              className="absolute left-0 top-0 translate-y-1 z-[85] h-12 w-full bg-gradient-to-b from-green-400/15 via-green-400/8 to-transparent blur-lg"
+              className="absolute left-0 top-0 translate-y-1 z-[85] h-8 w-full bg-gradient-to-b from-emerald-500/8 via-emerald-500/4 to-transparent blur-md"
             />
             
             {/* Top mask - positioned lower to not hide the lamp */}
