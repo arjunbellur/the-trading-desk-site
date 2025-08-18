@@ -60,41 +60,53 @@ const Index = () => {
     document.body.removeChild(measureElement);
   }, [rotatingWords, wordIndex]);
 
+  // Inject global CSS for lamp glow that bypasses all containers
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.id = 'lamp-glow-styles';
+    style.textContent = `
+      body::before {
+        content: '';
+        position: fixed;
+        left: 0;
+        top: 2px;
+        width: 100vw;
+        height: 32px;
+        background: linear-gradient(to bottom, rgba(6, 78, 59, 0.08), rgba(6, 78, 59, 0.04), transparent);
+        filter: blur(8px);
+        z-index: 9999;
+        pointer-events: none;
+        margin: 0;
+        padding: 0;
+      }
+      body::after {
+        content: '';
+        position: fixed;
+        left: 0;
+        top: 4px;
+        width: 100vw;
+        height: 48px;
+        background: linear-gradient(to bottom, rgba(6, 44, 34, 0.06), rgba(6, 44, 34, 0.03), transparent);
+        filter: blur(16px);
+        z-index: 9998;
+        pointer-events: none;
+        margin: 0;
+        padding: 0;
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      const existingStyle = document.getElementById('lamp-glow-styles');
+      if (existingStyle) {
+        document.head.removeChild(existingStyle);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-white relative">
       {/* Particle background removed per spec */}
-      
-      {/* Full-viewport lamp glow - absolute positioning with viewport units */}
-      <div 
-        className="pointer-events-none"
-        style={{
-          position: 'fixed',
-          left: '0',
-          top: '2px',
-          width: '100vw',
-          height: '32px',
-          background: 'linear-gradient(to bottom, rgb(6 78 59 / 0.08), rgb(6 78 59 / 0.04), transparent)',
-          filter: 'blur(8px)',
-          zIndex: 90,
-          margin: '0',
-          padding: '0'
-        }}
-      />
-      <div 
-        className="pointer-events-none"
-        style={{
-          position: 'fixed',
-          left: '0',
-          top: '4px', 
-          width: '100vw',
-          height: '48px',
-          background: 'linear-gradient(to bottom, rgb(6 44 34 / 0.06), rgb(6 44 34 / 0.03), transparent)',
-          filter: 'blur(16px)',
-          zIndex: 85,
-          margin: '0',
-          padding: '0'
-        }}
-      />
       
       <Navigation />
       
