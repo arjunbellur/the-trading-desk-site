@@ -138,7 +138,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className="absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-20"
           />
           
-          {/* Full-width neon lamp bar at viewport top */}
+          {/* Full-width neon lamp bar at viewport top - darker green */}
           <motion.div
             initial={{ width: "50%" }}
             whileInView={{ width: "100%" }}
@@ -147,7 +147,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="absolute left-0 top-0 z-[100] h-0.5 w-full bg-green-300 shadow-[0_0_15px_#22c55e,0_0_30px_#22c55e]"
+            className="absolute left-0 top-0 z-[100] h-0.5 w-full bg-green-600 shadow-[0_0_8px_#16a34a]"
           />
           
           {/* Bright center core of the lamp */}
@@ -159,10 +159,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-white shadow-[0_0_8px_#ffffff]"
+            className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-green-200 shadow-[0_0_4px_#bbf7d0]"
           />
           
-          {/* Lamp glow underneath */}
+          {/* Downward lamp glow - positioned below the lamp */}
           <motion.div
             initial={{ width: "50%" }}
             whileInView={{ width: "100%" }}
@@ -171,7 +171,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="absolute left-0 top-0 translate-y-1 z-[90] h-3 w-full bg-green-400/40 blur-md"
+            className="absolute left-0 top-0 translate-y-2 z-[90] h-6 w-full bg-gradient-to-b from-green-500/30 to-transparent blur-sm"
           />
           
           {/* Top mask - positioned lower to not hide the lamp */}
