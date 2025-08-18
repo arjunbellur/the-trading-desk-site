@@ -23,7 +23,7 @@ const Navigation = () => {
 
   return (
     <nav className="tm-layout-nav tm-layout-nav--transparent">
-      <div className="tm-layout-nav__container">
+      <div className="tm-layout-nav__container px-4 sm:px-6">
         {/* Logo */}
         <Link 
           to="/" 
@@ -47,7 +47,7 @@ const Navigation = () => {
             <Link
               key={item.name}
               to={item.href}
-              className="tm-ui-button tm-ui-button--nav"
+              className="tm-ui-button tm-ui-button--nav whitespace-nowrap"
             >
               {item.name}
             </Link>
@@ -56,11 +56,11 @@ const Navigation = () => {
 
         {/* Desktop CTA */}
         <div className="tm-layout-nav__links hidden md:flex">
-          <a href="#discord" className="tm-ui-button tm-ui-button--nav flex items-center gap-2">
+          <a href="#discord" className="tm-ui-button tm-ui-button--nav flex items-center gap-2 whitespace-nowrap">
             <DiscordIcon className="w-4 h-4" />
             Discord
           </a>
-          <Link to="/login" className="tm-ui-button tm-ui-button--nav hidden lg:inline-flex">Login</Link>
+          <Link to="/login" className="tm-ui-button tm-ui-button--nav hidden lg:inline-flex whitespace-nowrap">Login</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -77,36 +77,86 @@ const Navigation = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Full Screen Overlay */}
       {isOpen && (
-        <div className="tm-layout-nav__mobile md:hidden py-6 border-t border-white/10">
-          <div className="tm-layout-container flex flex-col space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="tm-layout-nav__link tm-ui-text--large font-medium py-4 px-4 rounded-lg hover:bg-white/5 transition-colors min-h-[52px] flex items-center"
+        <div className="fixed inset-0 z-50 md:hidden">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/80 backdrop-blur-md"
+            onClick={() => setIsOpen(false)}
+          />
+          
+          {/* Menu Content */}
+          <div className="relative bg-black/90 backdrop-blur-xl border-r border-white/10 w-full h-full flex flex-col">
+            {/* Header with Close Button */}
+            <div className="flex items-center justify-between p-6 border-b border-white/10">
+              <div className="flex items-center gap-3">
+                <img 
+                  src="/logo.svg" 
+                  alt="The Trading Desk Logo" 
+                  className="h-6 w-auto"
+                  style={{ filter: 'brightness(0) invert(1)' }}
+                />
+                <span className="text-lg font-semibold text-white/90">
+                  The Trading Desk
+                </span>
+              </div>
+              <button
                 onClick={() => setIsOpen(false)}
+                className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                aria-label="Close menu"
               >
-                {item.name}
-              </Link>
-            ))}
-            <div className="flex flex-col space-y-2 pt-4 border-t border-white/10">
-              <a 
-                href="#discord" 
-                onClick={() => setIsOpen(false)} 
-                className="tm-layout-nav__link tm-ui-text--large text-center py-4 px-4 rounded-lg hover:bg-white/5 transition-colors min-h-[52px] flex items-center justify-center gap-2"
+                <X className="w-6 h-6 text-white/70" />
+              </button>
+            </div>
+            
+            {/* Main Navigation Links */}
+            <div className="flex-1 px-6 py-8">
+              <div className="space-y-2">
+                <h3 className="text-sm font-medium text-white/50 uppercase tracking-wide mb-4">Navigation</h3>
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="block w-full text-left py-4 px-4 rounded-xl text-lg font-medium text-white/90 hover:text-white hover:bg-white/5 transition-all duration-200 min-h-[56px] flex items-center"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+              
+              {/* CTA Section */}
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <h3 className="text-sm font-medium text-white/50 uppercase tracking-wide mb-4">Community & Account</h3>
+                <div className="space-y-2">
+                  <a 
+                    href="#discord" 
+                    onClick={() => setIsOpen(false)} 
+                    className="block w-full text-left py-4 px-4 rounded-xl text-lg font-medium text-white/90 hover:text-white hover:bg-white/5 transition-all duration-200 min-h-[56px] flex items-center gap-3"
+                  >
+                    <DiscordIcon className="w-5 h-5 text-white/70" />
+                    Join Discord
+                  </a>
+                  <Link 
+                    to="/login" 
+                    onClick={() => setIsOpen(false)} 
+                    className="block w-full text-left py-4 px-4 rounded-xl text-lg font-medium text-white/90 hover:text-white hover:bg-white/5 transition-all duration-200 min-h-[56px] flex items-center"
+                  >
+                    Login
+                  </Link>
+                </div>
+              </div>
+            </div>
+            
+            {/* Footer */}
+            <div className="p-6 border-t border-white/10">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="w-full py-4 px-6 bg-white/5 hover:bg-white/10 rounded-xl text-white/70 hover:text-white transition-all duration-200 font-medium"
               >
-                <DiscordIcon className="w-5 h-5" />
-                Discord
-              </a>
-              <Link 
-                to="/login" 
-                onClick={() => setIsOpen(false)} 
-                className="tm-layout-nav__link tm-ui-text--large text-center py-4 px-4 rounded-lg hover:bg-white/5 transition-colors min-h-[52px] flex items-center justify-center"
-              >
-                Login
-              </Link>
+                Get Started for Free
+              </button>
             </div>
           </div>
         </div>
