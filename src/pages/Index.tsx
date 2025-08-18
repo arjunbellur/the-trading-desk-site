@@ -60,58 +60,56 @@ const Index = () => {
     document.body.removeChild(measureElement);
   }, [rotatingWords, wordIndex]);
 
-  // Inject global CSS for extremely subtle lamp glow with true full-width coverage
+  // Create actual glow elements positioned at root level
   React.useEffect(() => {
-    const style = document.createElement('style');
-    style.id = 'lamp-glow-styles';
-    style.textContent = `
-      /* Override any overflow constraints */
-      html, body {
-        overflow-x: visible !important;
-      }
-      
-      /* Full-width glow using viewport-based positioning */
-      .lamp-glow-primary {
-        content: '';
-        position: fixed !important;
-        left: 0 !important;
-        right: 0 !important;
-        top: 2px !important;
-        width: 100vw !important;
-        height: 20px !important;
-        background: linear-gradient(180deg, rgba(6, 78, 59, 0.015), rgba(6, 78, 59, 0.008), transparent) !important;
-        filter: blur(4px) !important;
-        z-index: 99999 !important;
-        pointer-events: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-      }
-      
-      .lamp-glow-secondary {
-        content: '';
-        position: fixed !important;
-        left: 0 !important;
-        right: 0 !important;
-        top: 1px !important;
-        width: 100vw !important;
-        height: 28px !important;
-        background: linear-gradient(180deg, rgba(4, 56, 42, 0.012), rgba(4, 56, 42, 0.006), transparent) !important;
-        filter: blur(8px) !important;
-        z-index: 99998 !important;
-        pointer-events: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-      }
+    // Remove any existing glow elements
+    const existingGlows = document.querySelectorAll('.lamp-glow-element');
+    existingGlows.forEach(el => el.remove());
+
+    // Create primary glow element
+    const primaryGlow = document.createElement('div');
+    primaryGlow.className = 'lamp-glow-element';
+    primaryGlow.style.cssText = `
+      position: fixed !important;
+      left: 0 !important;
+      top: 2px !important;
+      width: 100vw !important;
+      height: 20px !important;
+      background: linear-gradient(180deg, rgba(6, 78, 59, 0.015), rgba(6, 78, 59, 0.008), transparent) !important;
+      filter: blur(4px) !important;
+      z-index: 99999 !important;
+      pointer-events: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
     `;
-    document.head.appendChild(style);
+    
+    // Create secondary glow element
+    const secondaryGlow = document.createElement('div');
+    secondaryGlow.className = 'lamp-glow-element';
+    secondaryGlow.style.cssText = `
+      position: fixed !important;
+      left: 0 !important;
+      top: 1px !important;
+      width: 100vw !important;
+      height: 28px !important;
+      background: linear-gradient(180deg, rgba(4, 56, 42, 0.012), rgba(4, 56, 42, 0.006), transparent) !important;
+      filter: blur(8px) !important;
+      z-index: 99998 !important;
+      pointer-events: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+    `;
+
+    // Append to document body to ensure they're at the root level
+    document.body.appendChild(primaryGlow);
+    document.body.appendChild(secondaryGlow);
 
     return () => {
-      const existingStyle = document.getElementById('lamp-glow-styles');
-      if (existingStyle) {
-        document.head.removeChild(existingStyle);
-      }
+      // Cleanup on unmount
+      const glowElements = document.querySelectorAll('.lamp-glow-element');
+      glowElements.forEach(el => el.remove());
     };
   }, []);
 
@@ -119,11 +117,7 @@ const Index = () => {
     <div className="min-h-screen bg-black text-white relative">
       {/* Particle background removed per spec */}
       
-      {/* True full-width lamp glow elements */}
-      <div className="lamp-glow-primary" />
-      <div className="lamp-glow-secondary" />
-      
-        <Navigation />
+      <Navigation />
       
       {/* Hero Section - Magic UI Layout */}
       <section id="home" className="tm-layout-hero relative pt-32 pb-24 overflow-hidden z-40">
