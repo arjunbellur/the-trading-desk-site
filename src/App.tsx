@@ -18,6 +18,7 @@ const CourseDetail = React.lazy(() => import("./pages/CourseDetail"));
 const Live = React.lazy(() => import("./pages/Live"));
 const Blog = React.lazy(() => import("./pages/Blog"));
 const Community = React.lazy(() => import("./pages/Community"));
+const StyleGuide = React.lazy(() => import("./pages/StyleGuide"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 
 /**
@@ -75,6 +76,7 @@ const App: React.FC = () => (
               <Route path="/live" element={<Live />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/community" element={<Community />} />
+              <Route path="/style-guide" element={<StyleGuide />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -30,6 +30,7 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm text-muted-foreground">
             <div>© {new Date().getFullYear()} The Trading Desk. All rights reserved.</div>
             <div className="flex gap-6">
+              <a href="/style-guide" className="hover:text-foreground transition-colors">Style Guide</a>
               <a href="#" className="hover:text-foreground transition-colors">Terms</a>
               <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
               <a href="#" className="hover:text-foreground transition-colors">Contact</a>
