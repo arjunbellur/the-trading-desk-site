@@ -228,7 +228,7 @@ const Index = () => {
             <h1 className="tm-layout-hero__title mb-6 text-white text-center">
               <div className="tm-layout-hero__title-container flex flex-col items-center justify-center">
                 <div className="flex items-center justify-center whitespace-nowrap">
-                  <span className="mr-1 sm:mr-2 md:mr-3">Master your</span>
+                  <span className="mr-1 sm:mr-2 md:mr-3 tm-apple-3d-text">Master your</span>
                   <span 
                     className="tm-layout-hero__rotating-word relative inline-block h-[1.2em] overflow-visible transition-all duration-700 ease-out"
                     style={{ width: currentWordWidth > 0 ? `${currentWordWidth}px` : 'auto' }}
