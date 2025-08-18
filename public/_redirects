@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects for Single Page Application
+# This ensures all routes go to index.html for React Router to handle
+
+/*    /index.html   200
