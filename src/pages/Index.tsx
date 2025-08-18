@@ -64,9 +64,7 @@ const Index = () => {
     <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
       {/* Particle background removed per spec */}
       
-      <div className="relative z-50">
-        <Navigation />
-      </div>
+      <Navigation />
       
       {/* Hero Section - Magic UI Layout */}
       <section id="home" className="tm-layout-hero relative pt-32 pb-24 overflow-hidden z-40">

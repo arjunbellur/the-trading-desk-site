@@ -40,6 +40,8 @@ const DiscordIcon: React.FC<IconProps> = ({ className }) => (
  */
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const focusTrapCleanup = useRef<VoidFunction | null>(null);
 
@@ -88,6 +90,50 @@ const Navigation: React.FC = () => {
   }, [isOpen, closeMobileMenu]);
 
   /**
+   * Handles scroll behavior for hiding/showing navigation
+   */
+  useEffect(() => {
+    const handleScroll = (): void => {
+      const currentScrollY = window.scrollY;
+      const scrollThreshold = 100; // Minimum scroll distance to trigger hide/show
+      
+      // Don't hide if we're at the top of the page
+      if (currentScrollY < scrollThreshold) {
+        setIsVisible(true);
+        setLastScrollY(currentScrollY);
+        return;
+      }
+      
+      // Hide on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    // Throttle scroll events for better performance
+    let ticking = false;
+    const throttledHandleScroll = (): void => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledHandleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', throttledHandleScroll);
+    };
+  }, [lastScrollY]);
+
+  /**
    * Renders a navigation item with proper accessibility
    */
   const renderNavigationItem = (item: NavigationItem): React.ReactElement => (
@@ -103,7 +149,9 @@ const Navigation: React.FC = () => {
 
   return (
     <nav 
-      className="tm-layout-nav tm-layout-nav--transparent" 
+      className={`tm-layout-nav tm-layout-nav--transparent fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
       role="navigation"
       aria-label="Main navigation"
     >
