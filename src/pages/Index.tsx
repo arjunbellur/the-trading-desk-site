@@ -7,7 +7,7 @@ import { NeonGradientCard, Marquee, ShineBorder, BorderBeam } from "@/components
 import { motion, AnimatePresence } from "framer-motion";
 import { BlurInView } from "@/components/BlurInView";
 import { LiquidGlassButton } from "@/components/ui/liquid-glass-button";
-import { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { 
   BookOpen, 
   Star, 
