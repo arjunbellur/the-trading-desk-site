@@ -156,18 +156,15 @@ const Navigation: React.FC = () => {
       aria-label="Main navigation"
     >
       <div className="tm-layout-nav__container px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
+        {/* TTD Logo */}
         <Link 
           to="/" 
           className="tm-layout-nav__brand flex items-center gap-3"
           aria-label="The Trading Desk - Go to homepage"
         >
-          <img 
-            src="/logo.svg" 
-            alt="The Trading Desk Logo" 
-            className="h-7 md:h-8 w-auto text-white transition-colors"
-            style={{ filter: 'brightness(0) invert(1)' }}
-          />
+          <span className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+            TTD
+          </span>
           <span className="tm-ui-text--large font-semibold text-white/90 group-hover:text-white transition-colors hidden sm:block">
             The Trading Desk
           </span>
@@ -235,12 +232,9 @@ const Navigation: React.FC = () => {
             {/* Header with Close Button */}
             <div className="flex items-center justify-between p-6 border-b border-white/10">
               <div className="flex items-center gap-3">
-                <img 
-                  src="/logo.svg" 
-                  alt="The Trading Desk Logo" 
-                  className="h-6 w-auto"
-                  style={{ filter: 'brightness(0) invert(1)' }}
-                />
+                <span className="text-xl font-bold text-white tracking-tight">
+                  TTD
+                </span>
                 <span 
                   id="mobile-menu-title"
                   className="text-lg font-semibold text-white/90"

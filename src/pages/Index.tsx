@@ -114,9 +114,53 @@ const Index = () => {
     document.body.style.overflowX = 'visible';
     document.documentElement.style.overflowX = 'visible';
     
+    // Create full-width central glow at document level
+    const centralGlow = document.createElement('div');
+    centralGlow.className = 'lamp-glow-element';
+    centralGlow.style.cssText = `
+      position: fixed !important;
+      left: 0 !important;
+      right: 0 !important;
+      top: 50vh !important;
+      width: 100vw !important;
+      max-width: none !important;
+      height: 144px !important;
+      background: linear-gradient(90deg, transparent 0%, rgba(4, 44, 34, 0.005) 50%, transparent 100%) !important;
+      filter: blur(48px) !important;
+      z-index: 99997 !important;
+      pointer-events: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+      transform: translateY(-50%) !important;
+    `;
+
+    // Create full-width secondary glow at document level  
+    const secondaryCentralGlow = document.createElement('div');
+    secondaryCentralGlow.className = 'lamp-glow-element';
+    secondaryCentralGlow.style.cssText = `
+      position: fixed !important;
+      left: 0 !important;
+      right: 0 !important;
+      top: 40vh !important;
+      width: 100vw !important;
+      max-width: none !important;
+      height: 96px !important;
+      background: linear-gradient(90deg, transparent 0%, rgba(3, 33, 26, 0.003) 50%, transparent 100%) !important;
+      filter: blur(32px) !important;
+      z-index: 99996 !important;
+      pointer-events: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+      transform: translateY(-50%) !important;
+    `;
+    
     // Append to document body to ensure they're at the root level
     document.body.appendChild(primaryGlow);
     document.body.appendChild(secondaryGlow);
+    document.body.appendChild(centralGlow);
+    document.body.appendChild(secondaryCentralGlow);
 
     return () => {
       // Cleanup on unmount
