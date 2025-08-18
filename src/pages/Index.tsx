@@ -60,46 +60,49 @@ const Index = () => {
     document.body.removeChild(measureElement);
   }, [rotatingWords, wordIndex]);
 
-  // Inject global CSS for lamp glow that bypasses all containers
+  // Inject global CSS for extremely subtle lamp glow with true full-width coverage
   React.useEffect(() => {
     const style = document.createElement('style');
     style.id = 'lamp-glow-styles';
     style.textContent = `
-      html {
+      /* Override any overflow constraints */
+      html, body {
         overflow-x: visible !important;
       }
-      body {
-        overflow-x: visible !important;
-      }
-      html::before {
+      
+      /* Full-width glow using viewport-based positioning */
+      .lamp-glow-primary {
         content: '';
-        position: fixed;
+        position: fixed !important;
         left: 0 !important;
+        right: 0 !important;
         top: 2px !important;
         width: 100vw !important;
-        height: 32px !important;
-        background: linear-gradient(to bottom, rgba(6, 78, 59, 0.08), rgba(6, 78, 59, 0.04), transparent) !important;
-        filter: blur(8px) !important;
+        height: 20px !important;
+        background: linear-gradient(180deg, rgba(6, 78, 59, 0.015), rgba(6, 78, 59, 0.008), transparent) !important;
+        filter: blur(4px) !important;
         z-index: 99999 !important;
         pointer-events: none !important;
         margin: 0 !important;
         padding: 0 !important;
-        transform: translateX(0) !important;
+        box-sizing: border-box !important;
       }
-      html::after {
+      
+      .lamp-glow-secondary {
         content: '';
-        position: fixed;
+        position: fixed !important;
         left: 0 !important;
-        top: 4px !important;
+        right: 0 !important;
+        top: 1px !important;
         width: 100vw !important;
-        height: 48px !important;
-        background: linear-gradient(to bottom, rgba(6, 44, 34, 0.06), rgba(6, 44, 34, 0.03), transparent) !important;
-        filter: blur(16px) !important;
+        height: 28px !important;
+        background: linear-gradient(180deg, rgba(4, 56, 42, 0.012), rgba(4, 56, 42, 0.006), transparent) !important;
+        filter: blur(8px) !important;
         z-index: 99998 !important;
         pointer-events: none !important;
         margin: 0 !important;
         padding: 0 !important;
-        transform: translateX(0) !important;
+        box-sizing: border-box !important;
       }
     `;
     document.head.appendChild(style);
@@ -116,13 +119,17 @@ const Index = () => {
     <div className="min-h-screen bg-black text-white relative">
       {/* Particle background removed per spec */}
       
-      <Navigation />
+      {/* True full-width lamp glow elements */}
+      <div className="lamp-glow-primary" />
+      <div className="lamp-glow-secondary" />
+      
+        <Navigation />
       
       {/* Hero Section - Magic UI Layout */}
       <section id="home" className="tm-layout-hero relative pt-32 pb-24 overflow-hidden z-40">
         {/* Transparent background to show particles */}
         <div className="tm-layout-hero__background absolute inset-0 bg-transparent" />
-
+        
         {/* Enhanced neon lamp effect */}
         <div className="absolute inset-0 pointer-events-none z-10">
           <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0">
@@ -181,7 +188,7 @@ const Index = () => {
               className="absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-20"
             />
             
-            {/* Full-width neon lamp bar at viewport top - spreads from center */}
+            {/* Visible lamp bar at viewport top - spreads from center */}
             <motion.div
               initial={{ width: "0%", left: "50%", x: "-50%" }}
               whileInView={{ width: "100%", left: "0%", x: "0%" }}
@@ -190,10 +197,10 @@ const Index = () => {
                 duration: 1.2,
                 ease: "easeInOut",
               }}
-              className="absolute top-0 z-[100] h-0.5 bg-emerald-700 shadow-[0_0_6px_#047857]"
+              className="absolute top-0 z-[100] h-0.5 bg-emerald-600 shadow-[0_0_6px_#047857]"
             />
             
-            {/* Bright center core of the lamp - spreads from center */}
+            {/* Bright center highlight - spreads from center */}
             <motion.div
               initial={{ width: "0%", left: "50%", x: "-50%" }}
               whileInView={{ width: "100%", left: "0%", x: "0%" }}
@@ -202,7 +209,7 @@ const Index = () => {
                 duration: 1.2,
                 ease: "easeInOut",
               }}
-              className="absolute top-0 translate-y-px z-[101] h-px bg-emerald-300 shadow-[0_0_3px_#6ee7b7]"
+              className="absolute top-0 translate-y-px z-[101] h-px bg-emerald-300 shadow-[0_0_4px_#6ee7b7]"
             />
             
             {/* Top mask - positioned lower to not hide the lamp */}
@@ -226,22 +233,22 @@ const Index = () => {
                     className="tm-layout-hero__rotating-word relative inline-block h-[1.2em] overflow-visible transition-all duration-700 ease-out"
                     style={{ width: currentWordWidth > 0 ? `${currentWordWidth}px` : 'auto' }}
                   >
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key={rotatingWords[wordIndex]}
-                        initial={{ opacity: 0, y: -60 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 60 }}
-                        transition={{ 
-                          duration: 0.7,
-                          ease: [0.25, 0.1, 0.25, 1]
-                        }}
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={rotatingWords[wordIndex]}
+                      initial={{ opacity: 0, y: -60 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 60 }}
+                      transition={{ 
+                        duration: 0.7,
+                        ease: [0.25, 0.1, 0.25, 1]
+                      }}
                         className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-start whitespace-nowrap ml-1 sm:ml-2 md:ml-4"
-                      >
-                        {rotatingWords[wordIndex]}
-                      </motion.span>
-                    </AnimatePresence>
-                  </span>
+                    >
+                      {rotatingWords[wordIndex]}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
                 </div>
               </div>
             </h1>
