@@ -1168,11 +1168,11 @@
   }
 
   .tm-theme-text-gradient--brand {
-    background-image: linear-gradient(90deg, rgb(100 211 186) 0%, rgb(136 235 208) 50%, rgb(172 248 230) 100%);
+    background-image: linear-gradient(90deg, rgb(22 101 52) 0%, rgb(34 197 94) 50%, rgb(74 222 128) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    filter: drop-shadow(0 0 8px rgba(136, 235, 208, 0.4)); /* Text glow */
+    filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.4)); /* Text glow */
   }
 
   /* Layout Components - tm-layout-* */
