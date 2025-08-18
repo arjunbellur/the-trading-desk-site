@@ -138,7 +138,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className="absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-20"
           />
           
-          {/* Visible neon lamp bar - positioned higher and brighter */}
+          {/* Visible neon lamp bar - much more prominent */}
           <motion.div
             initial={{ width: "15rem" }}
             whileInView={{ width: "35rem" }}
@@ -147,10 +147,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="absolute inset-auto z-60 h-1 w-[35rem] -translate-y-[8rem] bg-green-200 shadow-[0_0_10px_#4ade80,0_0_20px_#4ade80] border border-green-300/50"
+            className="absolute left-1/2 top-0 -translate-x-1/2 translate-y-4 z-[100] h-2 w-[35rem] bg-green-300 shadow-[0_0_20px_#22c55e,0_0_40px_#22c55e,0_0_60px_#22c55e] rounded-sm"
           />
           
-          {/* Additional neon glow for the lamp bar - more prominent */}
+          {/* Bright center core of the lamp */}
           <motion.div
             initial={{ width: "15rem" }}
             whileInView={{ width: "35rem" }}
@@ -159,10 +159,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="absolute inset-auto z-50 h-3 w-[35rem] -translate-y-[8rem] bg-green-400/80 blur-sm"
+            className="absolute left-1/2 top-0 -translate-x-1/2 translate-y-[18px] z-[101] h-1 w-[35rem] bg-white shadow-[0_0_10px_#ffffff,0_0_20px_#ffffff] rounded-sm"
           />
           
-          {/* Extra bright center line for the lamp */}
+          {/* Lamp glow underneath */}
           <motion.div
             initial={{ width: "15rem" }}
             whileInView={{ width: "35rem" }}
@@ -171,11 +171,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="absolute inset-auto z-70 h-0.5 w-[35rem] -translate-y-[8rem] bg-white shadow-[0_0_5px_#ffffff]"
+            className="absolute left-1/2 top-0 -translate-x-1/2 translate-y-3 z-[90] h-4 w-[35rem] bg-green-400/60 blur-md rounded-sm"
           />
           
-          {/* Top mask to cut off the lamp properly */}
-          <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-black"></div>
+          {/* Top mask - positioned lower to not hide the lamp */}
+          <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[10rem] bg-black"></div>
         </div>
       </div>
       
