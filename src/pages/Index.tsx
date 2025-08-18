@@ -65,33 +65,41 @@ const Index = () => {
     const style = document.createElement('style');
     style.id = 'lamp-glow-styles';
     style.textContent = `
-      body::before {
-        content: '';
-        position: fixed;
-        left: 0;
-        top: 2px;
-        width: 100vw;
-        height: 32px;
-        background: linear-gradient(to bottom, rgba(6, 78, 59, 0.08), rgba(6, 78, 59, 0.04), transparent);
-        filter: blur(8px);
-        z-index: 9999;
-        pointer-events: none;
-        margin: 0;
-        padding: 0;
+      html {
+        overflow-x: visible !important;
       }
-      body::after {
+      body {
+        overflow-x: visible !important;
+      }
+      html::before {
         content: '';
         position: fixed;
-        left: 0;
-        top: 4px;
-        width: 100vw;
-        height: 48px;
-        background: linear-gradient(to bottom, rgba(6, 44, 34, 0.06), rgba(6, 44, 34, 0.03), transparent);
-        filter: blur(16px);
-        z-index: 9998;
-        pointer-events: none;
-        margin: 0;
-        padding: 0;
+        left: 0 !important;
+        top: 2px !important;
+        width: 100vw !important;
+        height: 32px !important;
+        background: linear-gradient(to bottom, rgba(6, 78, 59, 0.08), rgba(6, 78, 59, 0.04), transparent) !important;
+        filter: blur(8px) !important;
+        z-index: 99999 !important;
+        pointer-events: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        transform: translateX(0) !important;
+      }
+      html::after {
+        content: '';
+        position: fixed;
+        left: 0 !important;
+        top: 4px !important;
+        width: 100vw !important;
+        height: 48px !important;
+        background: linear-gradient(to bottom, rgba(6, 44, 34, 0.06), rgba(6, 44, 34, 0.03), transparent) !important;
+        filter: blur(16px) !important;
+        z-index: 99998 !important;
+        pointer-events: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        transform: translateX(0) !important;
       }
     `;
     document.head.appendChild(style);
@@ -173,28 +181,28 @@ const Index = () => {
               className="absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-20"
             />
             
-            {/* Full-width neon lamp bar at viewport top - darker mint green */}
+            {/* Full-width neon lamp bar at viewport top - spreads from center */}
             <motion.div
-              initial={{ width: "50%" }}
-              whileInView={{ width: "100%" }}
+              initial={{ width: "0%", left: "50%", x: "-50%" }}
+              whileInView={{ width: "100%", left: "0%", x: "0%" }}
               transition={{
                 delay: 0.3,
-                duration: 0.8,
+                duration: 1.2,
                 ease: "easeInOut",
               }}
-              className="absolute left-0 top-0 z-[100] h-0.5 w-full bg-emerald-700 shadow-[0_0_6px_#047857]"
+              className="absolute top-0 z-[100] h-0.5 bg-emerald-700 shadow-[0_0_6px_#047857]"
             />
             
-            {/* Bright center core of the lamp */}
+            {/* Bright center core of the lamp - spreads from center */}
             <motion.div
-              initial={{ width: "50%" }}
-              whileInView={{ width: "100%" }}
+              initial={{ width: "0%", left: "50%", x: "-50%" }}
+              whileInView={{ width: "100%", left: "0%", x: "0%" }}
               transition={{
-                delay: 0.3,
-                duration: 0.8,
+                delay: 0.4,
+                duration: 1.2,
                 ease: "easeInOut",
               }}
-              className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-emerald-300 shadow-[0_0_3px_#6ee7b7]"
+              className="absolute top-0 translate-y-px z-[101] h-px bg-emerald-300 shadow-[0_0_3px_#6ee7b7]"
             />
             
             {/* Top mask - positioned lower to not hide the lamp */}
