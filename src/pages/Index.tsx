@@ -61,107 +61,54 @@ const Index = () => {
     document.body.removeChild(measureElement);
   }, [rotatingWords, wordIndex]);
 
-  // Create actual glow elements positioned at root level
+  // Create optimized glow elements with reduced mobile impact
   React.useEffect(() => {
+    // Detect mobile to reduce glow complexity
+    const isMobile = window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
     // Remove any existing glow elements
     const existingGlows = document.querySelectorAll('.lamp-glow-element');
     existingGlows.forEach(el => el.remove());
 
-    // Create primary glow element with extreme width and reduced brightness
-    const primaryGlow = document.createElement('div');
-    primaryGlow.className = 'lamp-glow-element';
-    primaryGlow.style.cssText = `
-      position: fixed !important;
-      left: 0 !important;
-      right: 0 !important;
-      top: 2px !important;
-      width: 100vw !important;
-      max-width: none !important;
-      height: 16px !important;
-      background: linear-gradient(180deg, rgba(4, 44, 34, 0.008), rgba(4, 44, 34, 0.004), transparent) !important;
-      filter: blur(3px) !important;
-      z-index: 99999 !important;
-      pointer-events: none !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      box-sizing: border-box !important;
-      transform: translateX(0) !important;
-      min-width: 100vw !important;
-    `;
-    
-    // Create secondary glow element with extreme width and reduced brightness
-    const secondaryGlow = document.createElement('div');
-    secondaryGlow.className = 'lamp-glow-element';
-    secondaryGlow.style.cssText = `
-      position: fixed !important;
-      left: 0 !important;
-      right: 0 !important;
-      top: 1px !important;
-      width: 100vw !important;
-      max-width: none !important;
-      height: 24px !important;
-      background: linear-gradient(180deg, rgba(3, 33, 26, 0.006), rgba(3, 33, 26, 0.003), transparent) !important;
-      filter: blur(6px) !important;
-      z-index: 99998 !important;
-      pointer-events: none !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      box-sizing: border-box !important;
-      transform: translateX(0) !important;
-      min-width: 100vw !important;
-    `;
-
-    // Override body constraints
-    document.body.style.overflowX = 'visible';
-    document.documentElement.style.overflowX = 'visible';
-    
-    // Create ultra-wide central glow that extends beyond viewport
-    const centralGlow = document.createElement('div');
-    centralGlow.className = 'lamp-glow-element';
-    centralGlow.style.cssText = `
-      position: fixed !important;
-      left: -10vw !important;
-      top: 50vh !important;
-      width: 120vw !important;
-      max-width: none !important;
-      height: 144px !important;
-      background: linear-gradient(90deg, transparent 0%, rgba(4, 44, 34, 0.005) 50%, transparent 100%) !important;
-      filter: blur(48px) !important;
-      z-index: 99997 !important;
-      pointer-events: none !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      box-sizing: border-box !important;
-      transform: translateY(-50%) !important;
-      overflow: visible !important;
-    `;
-
-    // Create ultra-wide secondary glow that extends beyond viewport
-    const secondaryCentralGlow = document.createElement('div');
-    secondaryCentralGlow.className = 'lamp-glow-element';
-    secondaryCentralGlow.style.cssText = `
-      position: fixed !important;
-      left: -10vw !important;
-      top: 40vh !important;
-      width: 120vw !important;
-      max-width: none !important;
-      height: 96px !important;
-      background: linear-gradient(90deg, transparent 0%, rgba(3, 33, 26, 0.003) 50%, transparent 100%) !important;
-      filter: blur(32px) !important;
-      z-index: 99996 !important;
-      pointer-events: none !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      box-sizing: border-box !important;
-      transform: translateY(-50%) !important;
-      overflow: visible !important;
-    `;
-    
-    // Append to document body to ensure they're at the root level
-    document.body.appendChild(primaryGlow);
-    document.body.appendChild(secondaryGlow);
-    document.body.appendChild(centralGlow);
-    document.body.appendChild(secondaryCentralGlow);
+    // Only create glows if not on mobile to improve performance
+    if (!isMobile) {
+      // Create simplified primary glow
+      const primaryGlow = document.createElement('div');
+      primaryGlow.className = 'lamp-glow-element';
+      primaryGlow.style.cssText = `
+        position: fixed;
+        top: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 16px;
+        background: linear-gradient(180deg, rgba(4, 44, 34, 0.008), transparent);
+        filter: blur(3px);
+        z-index: 10;
+        pointer-events: none;
+        will-change: transform;
+      `;
+      
+      // Create simplified central glow
+      const centralGlow = document.createElement('div');
+      centralGlow.className = 'lamp-glow-element';
+      centralGlow.style.cssText = `
+        position: fixed;
+        top: 50vh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        height: 100px;
+        background: linear-gradient(90deg, transparent 0%, rgba(4, 44, 34, 0.005) 50%, transparent 100%);
+        filter: blur(40px);
+        z-index: 9;
+        pointer-events: none;
+        will-change: transform;
+      `;
+      
+      document.body.appendChild(primaryGlow);
+      document.body.appendChild(centralGlow);
+    }
 
     return () => {
       // Cleanup on unmount

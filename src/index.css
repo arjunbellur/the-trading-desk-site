@@ -91,6 +91,13 @@
   html {
     /* Disable default smooth scrolling to let Lenis handle it */
     scroll-behavior: auto;
+    /* Mobile scroll optimization */
+    -webkit-overflow-scrolling: touch;
+    /* GPU acceleration for scroll performance */
+    transform: translateZ(0);
+    /* Reduce repaints during scroll */
+    backface-visibility: hidden;
+    overflow-x: hidden;
   }
 
   body {
@@ -102,11 +109,63 @@
     -moz-osx-font-smoothing: grayscale;
     /* Ensure smooth scrolling works properly */
     overflow-x: hidden;
+    /* Mobile scroll optimization */
+    -webkit-overflow-scrolling: touch;
+    /* GPU acceleration */
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   /* ===== DOCUMENTARY TYPOGRAPHY SYSTEM ===== */
   /* Inspired by The Art of Documentary - Cinematic, Professional, Clear */
   
+  /* Mobile-specific scroll optimizations */
+  @media (max-width: 768px) {
+    html, body {
+      /* Disable overflow adjustments that can cause jank */
+      overflow-x: hidden !important;
+      /* Optimize for touch scrolling */
+      -webkit-overflow-scrolling: touch;
+      /* Force GPU acceleration */
+      will-change: scroll-position;
+    }
+    
+    /* Reduce complexity of fixed elements on mobile */
+    [style*="position: fixed"] {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      will-change: transform;
+    }
+
+    /* Optimize hero section animations on mobile */
+    .tm-layout-hero {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    /* Disable complex effects on mobile for performance */
+    .lamp-glow-element {
+      display: none !important;
+    }
+
+    /* Optimize all animations for mobile */
+    * {
+      animation-duration: 0.2s !important;
+      transition-duration: 0.2s !important;
+    }
+
+    /* Reduce motion on mobile for better performance */
+    .framer-motion {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    /* Clean container overflow */
+    .container {
+      overflow-x: hidden;
+    }
+  }
+
   /* Base Typography Settings */
   body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
