@@ -28,12 +28,39 @@ import {
 const Index = () => {
   const rotatingWords = ["Market", "Trade", "insights"];
   const [wordIndex, setWordIndex] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
+  
   useEffect(() => {
     const id = setInterval(() => {
       setWordIndex((i) => (i + 1) % rotatingWords.length);
     }, 2200);
     return () => clearInterval(id);
   }, [rotatingWords.length]);
+
+  // Calculate and set the maximum width needed for smooth transitions
+  useEffect(() => {
+    const measureElement = document.createElement('span');
+    measureElement.style.position = 'absolute';
+    measureElement.style.visibility = 'hidden';
+    measureElement.style.fontSize = 'inherit';
+    measureElement.style.fontFamily = 'inherit';
+    measureElement.style.fontWeight = 'inherit';
+    measureElement.className = 'tm-layout-hero__title tm-theme-text-gradient--brand';
+    
+    document.body.appendChild(measureElement);
+    
+    let maxWidth = 0;
+    rotatingWords.forEach(word => {
+      measureElement.textContent = word;
+      const width = measureElement.offsetWidth;
+      if (width > maxWidth) {
+        maxWidth = width;
+      }
+    });
+    
+    setContainerWidth(maxWidth);
+    document.body.removeChild(measureElement);
+  }, [rotatingWords]);
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
@@ -57,9 +84,12 @@ const Index = () => {
 
             {/* Main Headline */}
             <h1 className="tm-layout-hero__title mb-6 text-white text-center">
-              <div className="tm-layout-hero__title-container inline-flex flex-wrap items-center justify-center transition-all duration-700 ease-out">
-                <span className="mr-3 transition-transform duration-700 ease-out">Master your</span>
-                <span className="tm-layout-hero__rotating-word relative">
+              <div className="tm-layout-hero__title-container inline-flex flex-wrap items-center justify-center">
+                <span className="mr-3">Master your</span>
+                <span 
+                  className="tm-layout-hero__rotating-word relative inline-block text-center"
+                  style={{ width: containerWidth > 0 ? `${containerWidth}px` : 'auto' }}
+                >
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={rotatingWords[wordIndex]}
