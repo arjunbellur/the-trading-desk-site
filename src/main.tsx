@@ -5,11 +5,17 @@ import Lenis from 'lenis';
 import './index.css';
 // Removed legacy global styles per cleanup
 
-// Initialize Lenis smooth scrolling
+// Initialize Lenis smooth scrolling with enhanced inertia
 const lenis = new Lenis({
-  duration: 1.2,
+  duration: 1.6,
   easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   smoothWheel: true,
+  wheelMultiplier: 1.2,
+  touchMultiplier: 2,
+  infinite: false,
+  syncTouch: true,
+  syncTouchLerp: 0.075,
+  touchInertiaMultiplier: 35,
 });
 
 // Hook Lenis into requestAnimationFrame
