@@ -77,7 +77,7 @@ const Index = () => {
       width: 100vw !important;
       max-width: none !important;
       height: 16px !important;
-      background: linear-gradient(180deg, rgba(6, 78, 59, 0.008), rgba(6, 78, 59, 0.004), transparent) !important;
+      background: linear-gradient(180deg, rgba(4, 44, 34, 0.008), rgba(4, 44, 34, 0.004), transparent) !important;
       filter: blur(3px) !important;
       z-index: 99999 !important;
       pointer-events: none !important;
@@ -99,7 +99,7 @@ const Index = () => {
       width: 100vw !important;
       max-width: none !important;
       height: 24px !important;
-      background: linear-gradient(180deg, rgba(4, 56, 42, 0.006), rgba(4, 56, 42, 0.003), transparent) !important;
+      background: linear-gradient(180deg, rgba(3, 33, 26, 0.006), rgba(3, 33, 26, 0.003), transparent) !important;
       filter: blur(6px) !important;
       z-index: 99998 !important;
       pointer-events: none !important;
@@ -179,10 +179,10 @@ const Index = () => {
             <div className="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-black blur-2xl"></div>
             <div className="absolute top-1/2 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md"></div>
             
-            {/* Central glow - tuned down to match bottom glow */}
-            <div className="absolute inset-auto z-50 h-36 w-[32rem] -translate-y-1/2 rounded-full bg-green-400 opacity-25 blur-3xl"></div>
+            {/* Extremely subtle central glow */}
+            <div className="absolute inset-auto z-50 h-36 w-[32rem] -translate-y-1/2 rounded-full bg-emerald-700 opacity-5 blur-3xl"></div>
             
-            {/* Secondary glow layer */}
+            {/* Very subtle secondary glow layer */}
             <motion.div
               initial={{ width: "8rem" }}
               whileInView={{ width: "20rem" }}
@@ -191,7 +191,7 @@ const Index = () => {
                 duration: 0.8,
                 ease: "easeInOut",
               }}
-              className="absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-20"
+              className="absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-emerald-800 blur-2xl opacity-3"
             />
             
             {/* Visible lamp bar at viewport top - spreads from center */}
@@ -278,7 +278,7 @@ const Index = () => {
                 <div className="absolute w-[200%] h-[140%] -z-10 -top-16">
                   {/* Outer diffuse glow */}
                   <div 
-                    className="absolute inset-0 rounded-full opacity-9 animate-pulse-glow"
+                    className="absolute inset-0 rounded-full opacity-2 animate-pulse-glow"
                     style={{
                       background: `radial-gradient(ellipse 120% 90% at center 20%, #22c55e 0%, transparent 60%)`,
                       filter: 'blur(150px)',
@@ -287,7 +287,7 @@ const Index = () => {
                   />
                   {/* Mid-range neon glow */}
                   <div 
-                    className="absolute inset-8 rounded-full opacity-7 animate-pulse-glow-secondary"
+                    className="absolute inset-8 rounded-full opacity-1.5 animate-pulse-glow-secondary"
                     style={{
                       background: `radial-gradient(ellipse 100% 75% at center 15%, #4ade80 0%, transparent 50%)`,
                       filter: 'blur(120px)',
