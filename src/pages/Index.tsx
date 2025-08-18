@@ -73,7 +73,7 @@ const Index = () => {
         {/* Transparent background to show particles */}
         <div className="tm-layout-hero__background absolute inset-0 bg-transparent" />
         
-        <div className="tm-layout-container max-w-7xl mx-auto px-6 text-center relative z-50">
+        <div className="tm-layout-container max-w-8xl mx-auto px-6 text-center relative z-50">
           <div className="tm-layout-hero__content max-w-5xl mx-auto">
             {/* Beta pill */}
             <div className="tm-layout-hero__badge mb-8">
@@ -84,7 +84,7 @@ const Index = () => {
             <h1 className="tm-layout-hero__title mb-6 text-white text-center">
               <div className="tm-layout-hero__title-container flex flex-col items-center justify-center">
                 <div className="flex items-center justify-center">
-                  <span className="mr-0.5">Master your</span>
+                  <span className="mr-3">Master your</span>
                   <span 
                     className="tm-layout-hero__rotating-word relative inline-block h-[1.2em] overflow-visible transition-all duration-700 ease-out"
                     style={{ width: currentWordWidth > 0 ? `${currentWordWidth}px` : 'auto' }}
@@ -99,7 +99,7 @@ const Index = () => {
                           duration: 0.7,
                           ease: [0.25, 0.1, 0.25, 1]
                         }}
-                        className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-start whitespace-nowrap ml-3"
+                        className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-start whitespace-nowrap ml-4"
                       >
                         {rotatingWords[wordIndex]}
                       </motion.span>
@@ -117,7 +117,7 @@ const Index = () => {
             {/* CTA Button */}
             <div className="tm-layout-hero__actions mb-16">
               <Button variant="regular">
-                Get Started for free
+                Get Started
               </Button>
             </div>
 
