@@ -1,9 +1,3 @@
 name = "the-trading-desk-site"
 compatibility_date = "2025-08-18"
-
-[env.production]
-name = "the-trading-desk-site"
-
-# Pages configuration
-[env.production.assets]
-directory = "./dist"
+pages_build_output_dir = "dist"
