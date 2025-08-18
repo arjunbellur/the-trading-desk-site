@@ -7,7 +7,7 @@ import { NeonGradientCard, Marquee, ShineBorder, BorderBeam } from "@/components
 import { motion, AnimatePresence } from "framer-motion";
 import { BlurInView } from "@/components/BlurInView";
 import { LiquidGlassButton } from "@/components/ui/liquid-glass-button";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { 
   BookOpen, 
   Star, 
@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 
 const Index = () => {
-  const rotatingWords = ["market", "trade", "insights"];
+  const rotatingWords = useMemo(() => ["market", "trade", "insights"], []);
   const [wordIndex, setWordIndex] = useState(0);
   const [currentWordWidth, setCurrentWordWidth] = useState(0);
   
