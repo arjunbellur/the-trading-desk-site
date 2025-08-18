@@ -3,8 +3,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import SmoothScrollLink from "@/components/SmoothScrollLink";
-import ParticleBackground from "@/components/ParticleBackground";
+import { NeonGradientCard, Marquee, ShineBorder, BorderBeam } from "@/components/magicui";
 import { motion, AnimatePresence } from "framer-motion";
+import { BlurInView } from "@/components/BlurInView";
+import { LiquidGlassButton } from "@/components/ui/liquid-glass-button";
 import { useEffect, useState } from "react";
 import { 
   BookOpen, 
@@ -31,12 +33,11 @@ const Index = () => {
       setWordIndex((i) => (i + 1) % rotatingWords.length);
     }, 2200);
     return () => clearInterval(id);
-  }, []);
+  }, [rotatingWords.length]);
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
-      {/* Animated Particle Background */}
-      <ParticleBackground />
+      {/* Particle background removed per spec */}
       
       <div className="relative z-50">
         <Navigation />
@@ -47,115 +48,147 @@ const Index = () => {
         {/* Transparent background to show particles */}
         <div className="tm-layout-hero__background absolute inset-0 bg-transparent" />
         
-        <div className="tm-layout-container max-w-6xl mx-auto px-6 text-center relative z-50">
-          <div className="tm-layout-hero__content max-w-4xl mx-auto">
+        <div className="tm-layout-container max-w-7xl mx-auto px-6 text-center relative z-50">
+          <div className="tm-layout-hero__content max-w-5xl mx-auto">
             {/* Beta pill */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="tm-layout-hero__badge mb-8"
-            >
-              <span className="tm-ui-badge tm-ui-badge--glass beta-pill">Welcome to the beta version!</span>
-            </motion.div>
+            <div className="tm-layout-hero__badge mb-8">
+              <span className="tm-ui-badge tm-ui-badge--glass beta-pill">The Trading Desk</span>
+            </div>
 
             {/* Main Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="tm-layout-hero__title mb-6 text-white"
-            >
-              <div className="tm-layout-hero__title-container flex flex-col items-center">
-                <span>Master your</span>
-                <span className="tm-layout-hero__rotating-word inline-block relative">
+            <h1 className="tm-layout-hero__title mb-6 text-white">
+                        <div className="tm-layout-hero__title-container flex flex-wrap items-center justify-center gap-1">
+            <span>Master your</span>
+            <span className="tm-layout-hero__rotating-word inline-block relative overflow-hidden min-w-[160px] md:min-w-[200px] lg:min-w-[240px] h-[1.2em] ml-[0.3em]">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={rotatingWords[wordIndex]}
-                      initial={{ opacity: 0, y: -30 }}
+                      initial={{ opacity: 0, y: -60 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 30 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}
-                      className="tm-theme-text-gradient--brand"
+                      exit={{ opacity: 0, y: 60 }}
+                      transition={{ 
+                        duration: 0.7,
+                        ease: [0.25, 0.1, 0.25, 1]
+                      }}
+                      className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-center"
                     >
                       {rotatingWords[wordIndex]}
                     </motion.span>
                   </AnimatePresence>
                 </span>
               </div>
-            </motion.h1>
+            </h1>
 
             {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.35 }}
-              className="tm-layout-hero__description text-lead text-white/70 mb-12 max-w-xl mx-auto"
-            >
+            <p className="tm-layout-hero__description text-lead text-white/70 mb-12 max-w-xl mx-auto">
               Professional education, live mentorship, and a community built for serious traders.
-            </motion.p>
+            </p>
 
             {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="tm-layout-hero__actions mb-16"
-            >
+            <div className="tm-layout-hero__actions mb-16">
               <Button variant="regular">
                 Get Started for free
               </Button>
-            </motion.div>
+            </div>
 
-            {/* Hero Image Placeholder */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="tm-layout-hero__image relative"
-            >
-              <div className="tm-ui-card tm-ui-card--glass aspect-video rounded-2xl border bg-gradient-to-br from-primary/5 to-accent/5 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-2xl">📈</span>
-                  </div>
-                  <p className="text-muted-foreground">Trading Dashboard Preview</p>
+            {/* Hero Image Placeholder with neon tracking border */}
+            <div className="tm-layout-hero__image relative">
+              {/* Magic UI Glow Pulse Background */}
+              <div className="absolute top-0 left-0 right-0 h-4/5 flex items-start justify-center">
+                <div className="absolute w-[200%] h-[140%] -z-10 -top-16">
+                  {/* Outer diffuse glow */}
+                  <div 
+                    className="absolute inset-0 rounded-full opacity-9 animate-pulse-glow"
+                    style={{
+                      background: `radial-gradient(ellipse 120% 90% at center 20%, #22c55e 0%, transparent 60%)`,
+                      filter: 'blur(150px)',
+                      animation: 'pulse-glow 12s ease-in-out infinite'
+                    }}
+                  />
+                  {/* Mid-range neon glow */}
+                  <div 
+                    className="absolute inset-8 rounded-full opacity-7 animate-pulse-glow-secondary"
+                    style={{
+                      background: `radial-gradient(ellipse 100% 75% at center 15%, #4ade80 0%, transparent 50%)`,
+                      filter: 'blur(120px)',
+                      animation: 'pulse-glow-secondary 16s ease-in-out infinite'
+                    }}
+                  />
+                  {/* Inner bright core */}
+                  <div 
+                    className="absolute inset-16 rounded-full opacity-12 animate-pulse-glow-tertiary"
+                    style={{
+                      background: `radial-gradient(ellipse 80% 60% at center 10%, #86efac 0%, transparent 40%)`,
+                      filter: 'blur(80px)',
+                      animation: 'pulse-glow-tertiary 20s ease-in-out infinite'
+                    }}
+                  />
+                  {/* Ultra-soft ambient */}
+                  <div 
+                    className="absolute inset-4 rounded-full opacity-5"
+                    style={{
+                      background: `radial-gradient(ellipse 140% 100% at center 25%, #22c55e 0%, transparent 70%)`,
+                      filter: 'blur(200px)',
+                      animation: 'pulse-glow 15s ease-in-out infinite reverse'
+                    }}
+                  />
                 </div>
               </div>
-            </motion.div>
+
+              <div className="flex items-center justify-center relative z-10">
+                <NeonGradientCard className="w-full max-w-5xl p-1" style={{ pointerEvents: 'none' }}>
+                  {/* Laptop bezel border */}
+                  <div className="rounded-[11px] overflow-hidden relative">
+                    {/* Outer bezel frame */}
+                    <div className="absolute inset-0 rounded-[11px] border-2 border-gray-300/80 shadow-inner"></div>
+                    {/* Inner bright bezel */}
+                    <div className="absolute inset-[2px] rounded-[9px] border border-gray-200/60 shadow-sm"></div>
+                    {/* Screen border */}
+                    <div className="absolute inset-[4px] rounded-[7px] border border-gray-400/40"></div>
+                    
+                    <img 
+                      src="/Dashboard.png" 
+                      alt="Trading Dashboard Preview" 
+                      className="w-full h-auto object-contain relative z-10"
+                    />
+                  </div>
+                </NeonGradientCard>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Trusted By Section */}
       <section className="tm-layout-section py-24 border-t border-border/30 relative z-40">
-        <div className="tm-layout-container max-w-6xl mx-auto px-6">
-          <div className="text-center">
-            <p className="tm-ui-text--small text-muted-foreground font-semibold tracking-wide uppercase mb-8">
-              TRUSTED BY TEAMS FROM AROUND THE WORLD
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
-              {/* Company logos - using placeholder brands */}
-              <div className="tm-ui-card tm-ui-card--glass h-16 flex items-center justify-center">
+        <div className="tm-layout-container max-w-7xl mx-auto px-6">
+          <BlurInView>
+            <div className="text-center">
+              <p className="tm-ui-text--small text-muted-foreground font-semibold tracking-wide uppercase mb-8">
+                TRUSTED BY TEAMS FROM AROUND THE WORLD
+              </p>
+            <Marquee pauseOnHover className="[--duration:20s]">
+              <div className="tm-ui-card tm-ui-card--glass h-16 flex items-center justify-center min-w-[120px] mx-4">
                 <span className="font-bold text-lg">Goldman</span>
               </div>
-              <div className="tm-ui-card tm-ui-card--glass h-16 flex items-center justify-center">
+              <div className="tm-ui-card tm-ui-card--glass h-16 flex items-center justify-center min-w-[120px] mx-4">
                 <span className="font-bold text-lg">Citadel</span>
               </div>
-              <div className="tm-ui-card tm-ui-card--glass h-16 flex items-center justify-center">
+              <div className="tm-ui-card tm-ui-card--glass h-16 flex items-center justify-center min-w-[120px] mx-4">
                 <span className="font-bold text-lg">JP Morgan</span>
               </div>
-              <div className="tm-ui-card tm-ui-card--glass h-16 flex items-center justify-center">
+              <div className="tm-ui-card tm-ui-card--glass h-16 flex items-center justify-center min-w-[120px] mx-4">
                 <span className="font-bold text-lg">BlackRock</span>
               </div>
-              <div className="tm-ui-card tm-ui-card--glass h-16 flex items-center justify-center">
+              <div className="tm-ui-card tm-ui-card--glass h-16 flex items-center justify-center min-w-[120px] mx-4">
                 <span className="font-bold text-lg">Bridgewater</span>
               </div>
-              <div className="tm-ui-card tm-ui-card--glass h-16 flex items-center justify-center">
+              <div className="tm-ui-card tm-ui-card--glass h-16 flex items-center justify-center min-w-[120px] mx-4">
                 <span className="font-bold text-lg">Two Sigma</span>
               </div>
+            </Marquee>
             </div>
-          </div>
+          </BlurInView>
         </div>
       </section>
 
@@ -163,17 +196,20 @@ const Index = () => {
       <section className="tm-layout-section py-24 bg-transparent relative z-40">
         <div className="tm-layout-container max-w-7xl mx-auto px-6">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-white mb-4">
-              Transform Your{" "}
-              <span className="tm-theme-text-gradient--brand">Trading</span>
-            </h1>
-          </div>
+          <BlurInView>
+            <div className="text-center mb-16">
+              <h1 className="text-white mb-4">
+                Transform Your{" "}
+                <span className="tm-theme-text-gradient--brand">Trading</span>
+              </h1>
+            </div>
+          </BlurInView>
 
           {/* Three Cards Grid */}
           <div className="grid md:grid-cols-3 gap-8">
             {/* Coaching Card */}
-            <div className="relative group cursor-pointer">
+            <BlurInView delay={0.1}>
+              <div className="relative group cursor-pointer">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 relative">
                 {/* Background Image - Professional mentor/coaching */}
                 <img 
@@ -203,10 +239,12 @@ const Index = () => {
                 {/* Hover Effect */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-            </div>
+              </div>
+            </BlurInView>
 
             {/* Courses Card */}
-            <div className="relative group cursor-pointer">
+            <BlurInView delay={0.2}>
+              <div className="relative group cursor-pointer">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-red-800 to-red-900 relative">
                 {/* Background Image - Trading charts and analysis */}
                 <img 
@@ -236,10 +274,12 @@ const Index = () => {
                 {/* Hover Effect */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-            </div>
+              </div>
+            </BlurInView>
 
             {/* Community Card */}
-            <div className="relative group cursor-pointer">
+            <BlurInView delay={0.3}>
+              <div className="relative group cursor-pointer">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-teal-800 to-slate-900 relative">
                 {/* Background Image - Team collaboration/community */}
                 <img 
@@ -280,185 +320,29 @@ const Index = () => {
                 {/* Hover Effect */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-            </div>
+              </div>
+            </BlurInView>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="tm-layout-section py-24 relative z-40">
-        <div className="tm-layout-container max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="mb-4">Simple pricing for everyone.</h2>
-            <p className="text-lead text-muted max-w-3xl mx-auto">
-              Choose an <strong>affordable plan</strong> that's packed with the best features for mastering trading, 
-              building skills, and achieving consistent profits.
-            </p>
-          </div>
 
-          {/* Pricing Toggle */}
-          <div className="flex justify-center mb-12">
-            <div className="tm-ui-badge tm-ui-badge--glass flex items-center gap-4 p-1">
-              <span className="px-4 py-2 rounded-full bg-primary text-primary-foreground font-medium">Annual</span>
-              <span className="px-4 py-2 text-muted-foreground">2 MONTHS FREE ✨</span>
-            </div>
-          </div>
 
-          {/* Pricing Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Basic Plan */}
-            <div className="tm-ui-card tm-ui-card--glass p-8">
-              <div className="mb-8">
-                <h3 className="text-xl font-bold mb-2">Basic</h3>
-                <p className="text-sm text-muted-foreground mb-4">Perfect for beginners starting their trading journey</p>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-bold">$29</span>
-                  <span className="text-muted-foreground">/ month</span>
-                </div>
-              </div>
-              <Button variant="regular" fullWidth className="mb-6">Subscribe</Button>
-              <ul className="space-y-3 text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  Basic trading strategies
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  Community support
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  5 courses access
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  Basic market analysis
-                </li>
-              </ul>
-            </div>
 
-            {/* Premium Plan */}
-            <div className="tm-ui-card tm-ui-card--glass p-8 border-primary">
-              <div className="mb-8">
-                <h3 className="text-xl font-bold mb-2">Premium</h3>
-                <p className="text-sm text-muted-foreground mb-4">Advanced features for serious traders</p>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-bold">$79</span>
-                  <span className="text-muted-foreground">/ month</span>
-                </div>
-              </div>
-              <Button variant="regular" fullWidth className="mb-6">Subscribe</Button>
-              <ul className="space-y-3 text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  Advanced trading strategies
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  Priority support
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  Unlimited courses
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  Live trading sessions
-                </li>
-              </ul>
-            </div>
-
-            {/* Pro Plan */}
-            <div className="tm-ui-card tm-ui-card--glass p-8">
-              <div className="mb-8">
-                <h3 className="text-xl font-bold mb-2">Pro</h3>
-                <p className="text-sm text-muted-foreground mb-4">Professional features for advanced traders</p>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-bold">$149</span>
-                  <span className="text-muted-foreground">/ month</span>
-                </div>
-              </div>
-              <Button variant="regular" fullWidth className="mb-6">Subscribe</Button>
-              <ul className="space-y-3 text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  Expert trading strategies
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  24/7 dedicated support
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  Unlimited access
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  1-on-1 mentorship
-                </li>
-              </ul>
-            </div>
-
-            {/* Elite Plan */}
-            <div className="tm-ui-card tm-ui-card--glass p-8">
-              <div className="mb-8">
-                <h3 className="text-xl font-bold mb-2">Elite</h3>
-                <p className="text-sm text-muted-foreground mb-4">Ultimate package for trading mastery</p>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-bold">$299</span>
-                  <span className="text-muted-foreground">/ month</span>
-                </div>
-              </div>
-              <Button variant="regular" fullWidth className="mb-6">Subscribe</Button>
-              <ul className="space-y-3 text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  Custom trading strategies
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  White-glove support
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  Unlimited everything
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  Personal trading coach
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA Section */}
-      <section className="tm-layout-section py-24 relative z-40">
-        <div className="tm-layout-container max-w-4xl mx-auto px-6 text-center">
-          <h2 className="mb-6">
-            Stop wasting time on guesswork.
-          </h2>
-          <p className="text-lead text-muted mb-8">
-            Start your 7-day free trial. No credit card required.
-          </p>
-          <Button variant="regular" className="text-lg font-semibold">
-            Get Started
-          </Button>
-        </div>
-      </section>
 
       {/* Keep existing sections but update to use new layout classes */}
       <section id="value-proposition" className="tm-layout-section py-24 border-t border-border/30 relative z-40">
-        <div className="tm-layout-container max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
-              Why <span className="text-gradient-gold">The Trading Desk</span>?
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Four pillars that separate professionals from amateurs
-            </p>
-          </div>
+        <div className="tm-layout-container max-w-7xl mx-auto px-6">
+          <BlurInView>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+                Why <span className="text-gradient-gold">The Trading Desk</span>?
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Four pillars that separate professionals from amateurs
+              </p>
+            </div>
+          </BlurInView>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -483,84 +367,36 @@ const Index = () => {
                 description: "Connect with serious traders. Share insights, strategies, and accountability."
               }
             ].map((pillar, index) => (
-              <motion.div
-                key={index}
-                whileInView={{ scale: [0.9, 1], opacity: [0, 1] }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="rounded-2xl shadow-lg hover:shadow-xl transition-all card-gradient-bg p-6 text-center hover:scale-105 border border-white/10">
-                  <CardContent className="p-0">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <pillar.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="text-lg font-bold mb-3">{pillar.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{pillar.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              <BlurInView key={index} delay={index * 0.1}>
+                <NeonGradientCard className="p-1 text-center hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <pillar.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-bold mb-3">{pillar.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{pillar.description}</p>
+                </NeonGradientCard>
+              </BlurInView>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Emotional Showcase (Cinematic Grid) */}
-      <section className="section-padding border-t border-border/30 relative z-40">
-        <div className="container-cinematic">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            {/* Text Left */}
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6">
-                Trading is an <span className="text-gradient-brand">Art</span> and a <span className="text-gradient-brand">Discipline</span>
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6 max-w-xl">
-                We teach systems that withstand market cycles. Real techniques. Real accountability. Real results.
-              </p>
-              <div className="flex gap-4">
-                <SmoothScrollLink href="#courses">
-                  <Button variant="fx" className="btn-ios--md">Explore Courses</Button>
-                </SmoothScrollLink>
-                <SmoothScrollLink href="#livestream">
-                  <Button variant="fx-ghost" className="btn-ios--md">Watch Live</Button>
-                </SmoothScrollLink>
-              </div>
-            </motion.div>
 
-            {/* Image Grid Right */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              transition={{ staggerChildren: 0.25 }}
-              className="grid grid-cols-2 gap-4"
-            >
-              {[
-                "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=80",
-                "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80",
-                "https://images.unsplash.com/photo-1518186233392-c232efbf2373?auto=format&fit=crop&w=1200&q=80",
-              ].map((src, i) => (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-                  <div className={`relative overflow-hidden rounded-2xl ${i === 0 ? 'row-span-2 h-[420px]' : 'h-[200px]'} bg-muted/20`}>
-                    <img src={src} alt="Cinematic" className="absolute inset-0 w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* Featured Courses */}
       <section id="courses" className="section-padding smooth-scroll-target relative z-40">
         <div className="container-cinematic">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
-              Featured <span className="text-gradient-gold">Courses</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From beginner fundamentals to advanced strategies. 
-              Build skills that generate real profits.
-            </p>
-          </div>
+          <BlurInView>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+                Featured <span className="text-gradient-gold">Courses</span>
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                From beginner fundamentals to advanced strategies. 
+                Build skills that generate real profits.
+              </p>
+            </div>
+          </BlurInView>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -604,9 +440,10 @@ const Index = () => {
                 thumbnail: "gradient-from-orange-600-to-red-600"
               }
             ].map((course, index) => (
-              <Card key={index} className="card-cinematic hover:scale-105 transition-all duration-500 group overflow-hidden">
+              <BlurInView key={index} delay={index * 0.1}>
+                <Card className="p-1 hover:scale-105 transition-all duration-500 group overflow-hidden bg-black/40 border-white/10 backdrop-blur-sm hover:bg-black/30">
                 {/* Course Thumbnail */}
-                <div className={`h-40 bg-${course.thumbnail} relative overflow-hidden`}>
+                <div className={`h-40 bg-${course.thumbnail} relative overflow-hidden rounded-lg`}>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute top-4 left-4">
                     <Badge className="bg-primary text-primary-foreground px-3 py-1">
@@ -662,12 +499,13 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  <Button variant="fx" className="w-full rounded-sm py-3 text-sm font-semibold">
-                    ENROLL NOW
+                  <LiquidGlassButton className="w-full text-sm">
+                    Start course
                     <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
+                  </LiquidGlassButton>
                 </CardContent>
               </Card>
+              </BlurInView>
             ))}
           </div>
         </div>
@@ -684,19 +522,22 @@ const Index = () => {
         </div>
         
         <div className="container-cinematic relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
-              Learn in <span className="text-gradient-gold">Real Time</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-              Join live trading sessions. Watch expert decision-making, 
-              risk management, and execution in real market conditions.
-            </p>
-          </div>
+          <BlurInView>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+                Learn in <span className="text-gradient-gold">Real Time</span>
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+                Join live trading sessions. Watch expert decision-making, 
+                risk management, and execution in real market conditions.
+              </p>
+            </div>
+          </BlurInView>
           
-          <div className="max-w-4xl mx-auto">
-                        {/* Video Preview Area */}
-            <div className="relative card-neo card-neo--elevated overflow-hidden mb-8 group cursor-pointer">
+          <div className="max-w-5xl mx-auto">
+            <BlurInView delay={0.2}>
+              {/* Video Preview Area */}
+              <div className="relative card-neo card-neo--elevated overflow-hidden mb-8 group cursor-pointer">
               <div className="aspect-video bg-gradient-to-br from-black/20 to-black/10 flex items-center justify-center">
       <div className="text-center">
                   <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/30 transition-colors">
@@ -719,9 +560,11 @@ const Index = () => {
                 247 watching
               </div>
             </div>
+            </BlurInView>
             
             {/* Session info and CTAs */}
-            <div className="grid md:grid-cols-2 gap-6 items-center">
+            <BlurInView delay={0.4}>
+              <div className="grid md:grid-cols-2 gap-6 items-center">
               <div>
                 <h3 className="text-xl font-bold mb-3">Next Live Session</h3>
                 <p className="text-base text-muted-foreground mb-4">
@@ -747,18 +590,19 @@ const Index = () => {
               </div>
               
               <div className="space-y-3">
-                <Button variant="fx" className="w-full text-base font-semibold btn-ios--lg">
+                <Button variant="regular" className="w-full text-base font-semibold btn-ios--lg">
                   <Play className="w-4 h-4 mr-2" />
                   JOIN LIVE SESSION
                 </Button>
-                <Button variant="fx-ghost" className="w-full py-4 text-base btn-ios--lg">
+                <Button variant="regular" className="w-full py-4 text-base btn-ios--lg">
                   SEE LIVE SCHEDULE
                 </Button>
                 <p className="text-xs text-center text-muted-foreground">
                   Free for all students • Premium features for members
                 </p>
               </div>
-            </div>
+              </div>
+            </BlurInView>
           </div>
         </div>
       </section>
@@ -792,7 +636,7 @@ const Index = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button variant="fx" className="w-full btn-ios--lg">Get Started</Button>
+                    <Button variant="regular" className="w-full btn-ios--lg">Get Started</Button>
                   </CardContent>
                 </Card>
               </motion.div>

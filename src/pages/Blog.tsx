@@ -2,7 +2,9 @@ import Navigation from "@/components/Navigation";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { NeonGradientCard, ShineBorder } from "@/components/magicui";
 import { Calendar, Clock, ArrowRight, TrendingUp } from "lucide-react";
+import { BlurInView } from "@/components/BlurInView";
 // TODO: Replace with Sanity CMS integration once schema is approved
 
 const Blog = () => {
@@ -59,7 +61,7 @@ const Blog = () => {
             Trading <span className="text-gradient-gold">Insights</span> & Market Analysis
           </h1>
           
-          <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
             Stay ahead of the markets with expert analysis, trading strategies, 
             and platform updates from our team of professional traders.
           </p>
@@ -70,8 +72,9 @@ const Blog = () => {
       <section className="section-padding border-t border-border/30">
         <div className="container-cinematic">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {placeholderPosts.map((post) => (
-              <Card key={post.id} className="card-cinematic hover:scale-105 transition-all duration-300">
+            {placeholderPosts.map((post, index) => (
+              <BlurInView key={post.id} delay={index * 0.1}>
+                <Card className="card-cinematic hover:scale-105 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center gap-2 mb-4">
                     <Badge variant="secondary" className="text-xs">
@@ -99,27 +102,30 @@ const Blog = () => {
                     <span>By {post.author}</span>
                   </div>
                   
-                  <Button variant="ghost" className="w-full text-sm">
+                  <Button variant="regular" className="w-full text-sm">
                     Read Article
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </CardContent>
               </Card>
+              </BlurInView>
             ))}
           </div>
           
           {/* Coming Soon Notice */}
-          <div className="text-center mt-16 p-8 bg-muted/20 rounded-lg">
-            <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
-            <h3 className="text-xl font-bold mb-2">Blog Coming Soon!</h3>
+          <BlurInView delay={0.4}>
+            <div className="text-center mt-16 p-8 bg-muted/20 rounded-lg">
+              <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="text-xl font-bold mb-2">Blog Coming Soon!</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               We're preparing comprehensive market analysis, trading strategies, and educational content. 
               Our blog will feature insights from expert traders and timely market commentary.
             </p>
-            <Button variant="ghost">
+            <Button variant="regular">
               Get Notified When We Launch
             </Button>
-          </div>
+            </div>
+          </BlurInView>
         </div>
       </section>
     </div>

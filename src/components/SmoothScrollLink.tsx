@@ -1,5 +1,13 @@
 import { ReactNode } from 'react';
 
+declare global {
+  interface Window {
+    lenis?: {
+      scrollTo: (target: Element, options?: { offset?: number; duration?: number }) => void
+    }
+  }
+}
+
 interface SmoothScrollLinkProps {
   href: string;
   children: ReactNode;
@@ -16,8 +24,8 @@ const SmoothScrollLink = ({ href, children, className, onClick }: SmoothScrollLi
       const targetId = href.substring(1);
       const targetElement = document.getElementById(targetId);
       
-      if (targetElement && (window as any).lenis) {
-        (window as any).lenis.scrollTo(targetElement, {
+      if (targetElement && window.lenis) {
+        window.lenis.scrollTo(targetElement, {
           offset: -100, // Account for fixed navigation
           duration: 1.2,
         });

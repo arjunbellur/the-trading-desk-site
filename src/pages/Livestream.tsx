@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { NeonGradientCard, ShineBorder } from "@/components/magicui";
 import { Badge } from "@/components/ui/badge";
 import { Play, Calendar, Clock, Users, Eye, AlertCircle } from "lucide-react";
 
@@ -81,7 +82,7 @@ const Livestream = () => {
       {/* Header Section */}
       <section className="pt-24 pb-16 cinematic-hero-bg">
         <div className="container-cinematic">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm bg-secondary/50 backdrop-blur-sm">
               🔴 Live Trading Education
             </Badge>
@@ -145,7 +146,7 @@ const Livestream = () => {
                   <Play className="w-5 h-5 mr-2" />
                   Join Live Stream
                 </Button>
-                <Button variant="ghost">
+                <Button variant="regular">
                   Set Reminder
                 </Button>
               </div>
@@ -166,7 +167,7 @@ const Livestream = () => {
                 Mark your calendar and join our expert-led trading sessions
               </p>
             </div>
-            <Button variant="ghost">
+            <Button variant="regular">
               <Calendar className="w-4 h-4 mr-2" />
               View Full Schedule
             </Button>
@@ -224,7 +225,7 @@ const Livestream = () => {
                       <AlertCircle className="w-4 h-4 mr-2" />
                       Set Reminder
                     </Button>
-                    <Button variant="ghost" className="flex-1">
+                    <Button variant="regular" className="flex-1">
                       View Details
                     </Button>
                   </div>
@@ -291,7 +292,7 @@ const Livestream = () => {
           </div>
           
           <div className="text-center mt-12">
-            <Button variant="ghost">
+            <Button variant="regular">
               View All Replays
             </Button>
           </div>

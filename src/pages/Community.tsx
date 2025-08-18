@@ -2,6 +2,8 @@ import Navigation from "@/components/Navigation";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { NeonGradientCard, ShineBorder } from "@/components/magicui";
+import { LiquidGlassButton } from "@/components/ui/liquid-glass-button";
 import { 
   Users, 
   MessageCircle, 
@@ -13,6 +15,7 @@ import {
   Target,
   Globe
 } from "lucide-react";
+import { BlurInView } from "@/components/BlurInView";
 // TODO: Replace with Sanity CMS integration once schema is approved
 
 const Community = () => {
@@ -85,7 +88,7 @@ const Community = () => {
           </p>
           
           {/* Community Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
             {communityStats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-foreground mb-1">{stat.value}</div>
@@ -101,7 +104,7 @@ const Community = () => {
               Join Discord Community
               <ExternalLink className="w-4 h-4 ml-2" />
             </Button>
-            <Button variant="ghost" className="px-8 py-4">
+            <Button variant="regular" className="px-8 py-4">
               <Globe className="w-5 h-5 mr-2" />
               Browse Public Forums
             </Button>
@@ -176,7 +179,7 @@ const Community = () => {
                     Community guidelines access
                   </li>
                 </ul>
-                <Button variant="ghost" fullWidth>
+                <Button variant="regular" fullWidth>
                   Join Free Community
                 </Button>
               </CardContent>
@@ -212,9 +215,9 @@ const Community = () => {
                     Course-specific discussions
                   </li>
                 </ul>
-                <Button  fullWidth>
-                  Enroll in Course
-                </Button>
+                <LiquidGlassButton className="w-full">
+                  Start course
+                </LiquidGlassButton>
               </CardContent>
             </Card>
 
@@ -248,7 +251,7 @@ const Community = () => {
                     Exclusive live sessions
                   </li>
                 </ul>
-                <Button variant="ghost" fullWidth>
+                <Button variant="regular" fullWidth>
                   Learn More
                 </Button>
               </CardContent>
@@ -271,7 +274,7 @@ const Community = () => {
               <Button>
                 Join Waitlist
               </Button>
-              <Button variant="ghost">
+              <Button variant="regular">
                 Follow Updates
               </Button>
             </div>

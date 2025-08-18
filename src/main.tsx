@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import Lenis from 'lenis';
 import './index.css';
-import './styles/globals.css';
+// Removed legacy global styles per cleanup
 
 // Initialize Lenis smooth scrolling
 const lenis = new Lenis({
@@ -20,7 +20,7 @@ function raf(time: number): void {
 requestAnimationFrame(raf);
 
 // Make Lenis globally available for anchor links
-(window as any).lenis = lenis;
+(window as unknown as { lenis: typeof lenis }).lenis = lenis;
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

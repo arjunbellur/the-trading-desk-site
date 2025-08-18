@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { NeonGradientCard, ShineBorder } from "@/components/magicui";
 import { 
   ArrowLeft, 
   Play, 
@@ -252,10 +253,10 @@ const CourseDetail = () => {
                     </div>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <Button  className="w-full py-6 text-lg font-semibold">
+                    <LiquidGlassButton size="lg" className="w-full text-lg">
                       <Play className="w-5 h-5 mr-2" />
-                      ENROLL NOW
-                    </Button>
+                      Start course
+                    </LiquidGlassButton>
                     
                     <Button variant="ghost" className="w-full py-3">
                       <Calendar className="w-4 h-4 mr-2" />

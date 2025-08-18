@@ -1,5 +1,4 @@
-/* The Trading Desk Cinematic Design System - Inspired by The Art of Documentary */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+/* The Trading Desk Cinematic Design System - Apple SF Typography */
 
 @tailwind base;
 @tailwind components;
@@ -96,7 +95,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
     font-weight: 400;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -110,7 +109,7 @@
   
   /* Base Typography Settings */
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: -0.011em;
@@ -120,7 +119,7 @@
 
   /* Headings - Documentary Style Hierarchy */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
     color: hsl(var(--foreground));
     margin: 0;
     font-feature-settings: 'ss01', 'ss02';
@@ -234,7 +233,7 @@
 
   /* Code and Technical Text */
   code, pre {
-    font-family: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+    font-family: ui-monospace, 'SF Mono', -apple-system, BlinkMacSystemFont, 'Menlo', 'Monaco', 'Consolas', monospace;
     font-feature-settings: 'liga' 0;
   }
 
@@ -342,21 +341,21 @@
 
   /* Typography improvements */
   .aod-heading {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
     font-weight: 700;
     line-height: 0.95;
     letter-spacing: -0.04em;
   }
 
   .aod-subheading {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: -0.02em;
   }
 
   .aod-body {
-    font-family: 'Inter', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
     font-weight: 400;
     line-height: 1.7;
     font-size: 1.125rem;
@@ -1413,4 +1412,149 @@
   0% { opacity: 0; transform: scale(.92); }
   60% { opacity: .45; transform: scale(1.05); }
   100% { opacity: 0; transform: scale(1.1); }
+}
+
+/* Magic UI Border Beam Animations - Ultra Smooth */
+@keyframes border-beam {
+  0% { offset-distance: 0%; opacity: 0.7; }
+  25% { offset-distance: 25%; opacity: 1; }
+  50% { offset-distance: 50%; opacity: 1; }
+  75% { offset-distance: 75%; opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0.7; }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes image-glow {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Animation classes */
+.animate-border-beam {
+  animation: border-beam 8s linear infinite;
+  will-change: offset-distance, opacity;
+  transform-origin: center;
+}
+
+/* Custom gradient utilities for Apple-style glass */
+.bg-gradient-radial {
+  background-image: radial-gradient(circle at center, var(--tw-gradient-stops));
+}
+
+/* Liquid glass hover enhancements */
+.group:hover .animate-border-beam {
+  animation-duration: 6s;
+  opacity: 1.2;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out var(--animation-delay, 0ms) both;
+}
+
+.animate-image-glow {
+  animation: image-glow 4s ease-in-out infinite;
+}
+
+/* Marquee animations */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) linear infinite;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+/* Shine border animation */
+@keyframes shine {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  to {
+    background-position: 0% 0%;
+  }
+}
+
+.animate-shine {
+  animation: shine var(--duration) linear infinite;
+}
+
+/* Magic UI Glow Pulse Animations */
+@keyframes pulse-glow {
+  0%, 100% { 
+    transform: scale(0.98); 
+    opacity: 0.07; 
+  }
+  50% { 
+    transform: scale(1.02); 
+    opacity: 0.14; 
+  }
+}
+
+@keyframes pulse-glow-secondary {
+  0%, 100% { 
+    transform: scale(0.97); 
+    opacity: 0.05; 
+  }
+  50% { 
+    transform: scale(1.03); 
+    opacity: 0.09; 
+  }
+}
+
+@keyframes pulse-glow-tertiary {
+  0%, 100% { 
+    transform: scale(0.99); 
+    opacity: 0.09; 
+  }
+  50% { 
+    transform: scale(1.01); 
+    opacity: 0.17; 
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 12s ease-in-out infinite;
+}
+
+.animate-pulse-glow-secondary {
+  animation: pulse-glow-secondary 16s ease-in-out infinite;
+}
+
+.animate-pulse-glow-tertiary {
+  animation: pulse-glow-tertiary 20s ease-in-out infinite;
 }

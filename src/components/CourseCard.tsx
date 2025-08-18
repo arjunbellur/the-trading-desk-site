@@ -121,12 +121,12 @@ export const CourseCard = ({ course, className = "" }: CourseCardProps) => {
         </div>
         
         {/* CTA Button */}
-        <Button asChild variant="regular" fullWidth className="tm-ui-card__cta font-semibold">
+        <LiquidGlassButton asChild className="w-full">
           <Link to={`/courses/${course.slug}`}>
-            VIEW COURSE
+            View course
             <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
-        </Button>
+        </LiquidGlassButton>
       </CardContent>
     </Card>
   );

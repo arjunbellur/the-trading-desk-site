@@ -31,13 +31,13 @@ const Live = () => {
             <span className="text-gradient-gold">Live</span>
           </h1>
           
-          <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
             Join our expert traders in real-time as they analyze markets, execute trades, 
             and share their decision-making process. Interactive Q&A sessions included.
           </p>
           
           {/* Live Stats */}
-          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto text-center mb-16">
+          <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto text-center mb-16">
             <div>
               <div className="text-3xl font-bold text-foreground mb-2">
                 {livestreams.filter(s => s.status === 'live').length}
