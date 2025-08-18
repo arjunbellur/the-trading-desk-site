@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 
 const Index = () => {
-  const rotatingWords = ["Market", "Trade", "insights"];
+  const rotatingWords = ["market", "trade", "insights"];
   const [wordIndex, setWordIndex] = useState(0);
   const [currentWordWidth, setCurrentWordWidth] = useState(0);
   
