@@ -162,29 +162,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-emerald-300 shadow-[0_0_3px_#6ee7b7]"
           />
           
-          {/* Seamless downward lamp glow - subtle */}
-          <motion.div
-            initial={{ width: "50%" }}
-            whileInView={{ width: "100%" }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="absolute left-0 top-0 translate-y-0.5 z-[90] h-6 w-full bg-gradient-to-b from-emerald-600/12 via-emerald-600/6 to-transparent blur-sm"
-          />
+          {/* Full-width downward lamp glow - very subtle */}
+          <div className="absolute left-0 top-0 translate-y-0.5 z-[90] h-8 w-full bg-gradient-to-b from-emerald-800/8 via-emerald-800/4 to-transparent blur-md" />
           
-          {/* Subtle base glow for depth */}
-          <motion.div
-            initial={{ width: "50%" }}
-            whileInView={{ width: "100%" }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="absolute left-0 top-0 translate-y-1 z-[85] h-8 w-full bg-gradient-to-b from-emerald-500/8 via-emerald-500/4 to-transparent blur-md"
-          />
+          {/* Extended base glow for full coverage */}
+          <div className="absolute left-0 top-0 translate-y-1 z-[85] h-12 w-full bg-gradient-to-b from-emerald-900/6 via-emerald-900/3 to-transparent blur-lg" />
           
           {/* Top mask - positioned lower to not hide the lamp */}
           <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[10rem] bg-black"></div>
