@@ -73,30 +73,71 @@ const Index = () => {
         {/* Transparent background to show particles */}
         <div className="tm-layout-hero__background absolute inset-0 bg-transparent" />
 
-        {/* Luminating lamp and light beam (decorative) */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute inset-x-0 top-0 flex justify-center z-20"
-        >
-          {/* Lamp glow */}
-          <div
-            className="absolute -top-10 w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] md:w-[320px] md:h-[320px] opacity-60 animate-pulse"
-            style={{
-              background:
-                'radial-gradient(50% 50% at 50% 50%, rgba(82,255,168,0.45) 0%, rgba(82,255,168,0.25) 25%, rgba(82,255,168,0.12) 45%, transparent 70%)',
-              filter: 'blur(28px)'
-            }}
-          />
-          {/* Downward beam */}
-          <div
-            className="absolute top-10 w-[80vw] max-w-[900px] h-[55vh] opacity-45 md:opacity-60"
-            style={{
-              background:
-                'linear-gradient(to bottom, rgba(82,255,168,0.18), rgba(82,255,168,0.10) 25%, rgba(82,255,168,0.06) 45%, transparent 80%)',
-              clipPath: 'polygon(50% 0%, 92% 100%, 8% 100%)',
-              filter: 'blur(32px)'
-            }}
-          />
+        {/* Sophisticated lamp effect */}
+        <div className="absolute inset-0 pointer-events-none z-10">
+          <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0">
+            {/* Left lamp beam */}
+            <motion.div
+              initial={{ opacity: 0.3, width: "12rem" }}
+              whileInView={{ opacity: 0.6, width: "20rem" }}
+              transition={{
+                delay: 0.2,
+                duration: 1.5,
+                ease: "easeInOut",
+              }}
+              style={{
+                backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
+              }}
+              className="absolute inset-auto right-1/2 h-40 overflow-visible w-[20rem] bg-gradient-conic from-green-400/60 via-transparent to-transparent [--conic-position:from_70deg_at_center_top]"
+            >
+              <div className="absolute w-[100%] left-0 bg-black h-24 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+              <div className="absolute w-24 h-[100%] left-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
+            </motion.div>
+            
+            {/* Right lamp beam */}
+            <motion.div
+              initial={{ opacity: 0.3, width: "12rem" }}
+              whileInView={{ opacity: 0.6, width: "20rem" }}
+              transition={{
+                delay: 0.2,
+                duration: 1.5,
+                ease: "easeInOut",
+              }}
+              style={{
+                backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
+              }}
+              className="absolute inset-auto left-1/2 h-40 w-[20rem] bg-gradient-conic from-transparent via-transparent to-green-400/60 [--conic-position:from_290deg_at_center_top]"
+            >
+              <div className="absolute w-24 h-[100%] right-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
+              <div className="absolute w-[100%] right-0 bg-black h-24 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+            </motion.div>
+            
+            {/* Central glow effects */}
+            <div className="absolute top-1/2 h-32 w-full translate-y-8 scale-x-150 bg-black blur-xl opacity-60"></div>
+            <div className="absolute inset-auto z-50 h-20 w-[18rem] -translate-y-1/2 rounded-full bg-green-400 opacity-20 blur-2xl"></div>
+            <motion.div
+              initial={{ width: "4rem" }}
+              whileInView={{ width: "8rem" }}
+              transition={{
+                delay: 0.2,
+                duration: 1.5,
+                ease: "easeInOut",
+              }}
+              className="absolute inset-auto z-30 h-20 w-32 -translate-y-[3rem] rounded-full bg-green-300 blur-xl opacity-25"
+            />
+            
+            {/* Lamp bar */}
+            <motion.div
+              initial={{ width: "10rem" }}
+              whileInView={{ width: "18rem" }}
+              transition={{
+                delay: 0.2,
+                duration: 1.5,
+                ease: "easeInOut",
+              }}
+              className="absolute inset-auto z-50 h-0.5 w-[18rem] -translate-y-[4rem] bg-green-300/80"
+            />
+          </div>
         </div>
         
         <div className="tm-layout-container max-w-8xl mx-auto px-4 sm:px-6 text-center relative z-50">
