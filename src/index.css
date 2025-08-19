@@ -157,6 +157,36 @@
       opacity: 0.03 !important;
     }
 
+    /* Disable all complex animations on mobile */
+    .animate-border-beam,
+    .animate-shine,
+    .glow-particle,
+    .animate-fade-up,
+    .animate-float,
+    .animate-shimmer,
+    .animate-orb-float,
+    .animate-ring-pop,
+    *[class*="animate-border-beam"],
+    *[class*="animate-shine"],
+    *[class*="animate-float"],
+    *[class*="animate-glow"],
+    *[class*="sparkle"],
+    *[class*="shimmer"] {
+      animation: none !important;
+    }
+
+    /* Disable complex pseudo-element animations */
+    *::before,
+    *::after {
+      animation: none !important;
+    }
+
+    /* Disable framer-motion complex animations on mobile */
+    .framer-motion * {
+      animation: none !important;
+      transition: opacity 0.2s ease, transform 0.2s ease !important;
+    }
+
     /* Slow down marquee animation on mobile */
     .animate-marquee,
     .animate-marquee-vertical {
@@ -169,6 +199,11 @@
       transition-duration: 0.2s !important;
     }
 
+    /* Disable will-change on mobile to reduce GPU usage */
+    * {
+      will-change: auto !important;
+    }
+
     /* Reduce motion on mobile for better performance */
     .framer-motion {
       will-change: transform;
@@ -178,6 +213,18 @@
     /* Clean container overflow */
     .container {
       overflow-x: hidden;
+    }
+
+    /* Disable motion for users who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
   }
 
