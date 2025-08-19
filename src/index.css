@@ -120,111 +120,71 @@
   /* Inspired by The Art of Documentary - Cinematic, Professional, Clear */
   
   /* Mobile-specific scroll optimizations */
+  /* Mobile-first responsive optimizations */
   @media (max-width: 768px) {
+    /* Essential overflow control */
     html, body {
-      /* Disable overflow adjustments that can cause jank */
-      overflow-x: hidden !important;
-      /* Optimize for touch scrolling */
+      overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
-      /* Force GPU acceleration */
-      will-change: scroll-position;
-    }
-    
-    /* Reduce complexity of fixed elements on mobile */
-    [style*="position: fixed"] {
-      transform: translateZ(0);
-      backface-visibility: hidden;
-      will-change: transform;
     }
 
-    /* Optimize hero section animations on mobile */
-    .tm-layout-hero {
-      will-change: transform;
-      transform: translateZ(0);
-    }
-
-    /* Disable complex effects on mobile for performance */
-    .lamp-glow-element {
-      display: none !important;
-    }
-
-    /* Disable heavy glow animations on mobile */
-    .animate-pulse-glow,
-    .animate-pulse-glow-secondary,
-    .animate-pulse-glow-tertiary,
-    .animate-image-glow {
-      animation: none !important;
-      opacity: 0.03 !important;
-    }
-
-    /* Disable all complex animations on mobile */
-    .animate-border-beam,
-    .animate-shine,
-    .glow-particle,
-    .animate-fade-up,
-    .animate-float,
-    .animate-shimmer,
-    .animate-orb-float,
-    .animate-ring-pop,
-    *[class*="animate-border-beam"],
-    *[class*="animate-shine"],
-    *[class*="animate-float"],
-    *[class*="animate-glow"],
-    *[class*="sparkle"],
-    *[class*="shimmer"] {
-      animation: none !important;
-    }
-
-    /* Disable complex pseudo-element animations */
-    *::before,
-    *::after {
-      animation: none !important;
-    }
-
-    /* Disable framer-motion complex animations on mobile */
-    .framer-motion * {
-      animation: none !important;
-      transition: opacity 0.2s ease, transform 0.2s ease !important;
-    }
-
-    /* Slow down marquee animation on mobile */
-    .animate-marquee,
-    .animate-marquee-vertical {
-      animation-duration: 60s !important;
-    }
-
-    /* Optimize all other animations for mobile */
-    *:not(.animate-marquee):not(.animate-marquee-vertical) {
-      animation-duration: 0.2s !important;
-      transition-duration: 0.2s !important;
-    }
-
-    /* Disable will-change on mobile to reduce GPU usage */
-    * {
-      will-change: auto !important;
-    }
-
-    /* Reduce motion on mobile for better performance */
-    .framer-motion {
-      will-change: transform;
-      transform: translateZ(0);
-    }
-
-    /* Clean container overflow */
+    /* Container overflow management */
     .container {
       overflow-x: hidden;
     }
 
-    /* Disable motion for users who prefer reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
+    /* Performance optimization for heavy effects only */
+    .lamp-glow-element {
+      display: none;
+    }
+
+    /* Reduce intensity of heavy glow effects while maintaining functionality */
+    .animate-pulse-glow {
+      animation-duration: 8s !important;
+      opacity: 0.4 !important;
+    }
+
+    .animate-pulse-glow-secondary {
+      animation-duration: 12s !important;
+      opacity: 0.3 !important;
+    }
+
+    .animate-pulse-glow-tertiary {
+      animation-duration: 16s !important;
+      opacity: 0.2 !important;
+    }
+
+    /* Optimize border animations for mobile performance */
+    .animate-border-beam {
+      animation-duration: 12s !important;
+    }
+
+    .animate-shine {
+      animation-duration: 20s !important;
+    }
+
+    /* Slow down marquee for better readability */
+    .animate-marquee,
+    .animate-marquee-vertical {
+      animation-duration: 40s !important;
+    }
+
+    /* Optimize image glow effects */
+    .animate-image-glow {
+      animation-duration: 6s !important;
+      opacity: 0.3 !important;
+    }
+  }
+
+  /* Respect user motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
     }
   }
 

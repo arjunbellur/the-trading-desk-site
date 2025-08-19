@@ -67,7 +67,14 @@ const App: React.FC = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter 
+          future={{
+            // Enable React.startTransition for state updates (React Router v7 preparation)
+            v7_startTransition: true,
+            // Enable new relative route resolution within splat routes (React Router v7 preparation)
+            v7_relativeSplatPath: true
+          }}
+        >
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
               <Route path="/" element={<Index />} />

@@ -188,26 +188,28 @@ const Index = () => {
             
             {/* Visible lamp bar at viewport top - spreads from center */}
             <motion.div
-              initial={{ width: "0%", left: "50%", x: "-50%" }}
-              whileInView={{ width: "100%", left: "0%", x: "0%" }}
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
               transition={{
                 delay: 0.3,
                 duration: 1.2,
-                ease: "easeInOut",
+                ease: [0.23, 1, 0.32, 1],
+                type: "tween"
               }}
-              className="absolute top-0 z-[100] h-0.5 bg-emerald-600 shadow-[0_0_6px_#047857]"
+              className="absolute top-0 left-0 right-0 z-[100] h-0.5 bg-emerald-600 shadow-[0_0_6px_#047857] origin-center"
             />
             
             {/* Bright center highlight - spreads from center */}
             <motion.div
-              initial={{ width: "0%", left: "50%", x: "-50%" }}
-              whileInView={{ width: "100%", left: "0%", x: "0%" }}
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
               transition={{
                 delay: 0.4,
                 duration: 1.2,
-                ease: "easeInOut",
+                ease: [0.23, 1, 0.32, 1],
+                type: "tween"
               }}
-              className="absolute top-0 translate-y-px z-[101] h-px bg-emerald-300 shadow-[0_0_4px_#6ee7b7]"
+              className="absolute top-0 left-0 right-0 translate-y-px z-[101] h-px bg-emerald-300 shadow-[0_0_4px_#6ee7b7] origin-center"
             />
             
             {/* Top mask - positioned lower to not hide the lamp */}
@@ -226,7 +228,19 @@ const Index = () => {
             <h1 className="tm-layout-hero__title mb-6 text-white text-center">
               <div className="tm-layout-hero__title-container flex flex-col items-center justify-center">
                 <div className="flex items-center justify-center whitespace-nowrap">
-                  <span className="mr-1 sm:mr-2 md:mr-3 tm-apple-3d-text">Master your</span>
+                  <motion.span 
+                    initial={{ opacity: 0, x: -30, filter: "blur(4px)" }}
+                    animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                    transition={{ 
+                      duration: 0.8, 
+                      delay: 0.2,
+                      ease: [0.23, 1, 0.32, 1],
+                      type: "tween"
+                    }}
+                    className="mr-1 sm:mr-2 md:mr-3 tm-apple-3d-text"
+                  >
+                    Master your
+                  </motion.span>
                   <span 
                     className="tm-layout-hero__rotating-word relative inline-block h-[1.2em] overflow-visible transition-all duration-700 ease-out"
                     style={{ width: currentWordWidth > 0 ? `${currentWordWidth}px` : 'auto' }}
@@ -234,14 +248,15 @@ const Index = () => {
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={rotatingWords[wordIndex]}
-                      initial={{ opacity: 0, y: -60 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 60 }}
+                      initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
+                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      exit={{ opacity: 0, y: -30, filter: "blur(4px)" }}
                       transition={{ 
-                        duration: 0.7,
-                        ease: [0.25, 0.1, 0.25, 1]
+                        duration: 0.6,
+                        ease: [0.23, 1, 0.32, 1],
+                        type: "tween"
                       }}
-                        className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-start whitespace-nowrap ml-1 sm:ml-2 md:ml-4"
+                      className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-start whitespace-nowrap ml-1 sm:ml-2 md:ml-4"
                     >
                       {rotatingWords[wordIndex]}
                     </motion.span>
