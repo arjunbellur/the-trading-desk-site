@@ -148,8 +148,23 @@
       display: none !important;
     }
 
-    /* Optimize all animations for mobile */
-    * {
+    /* Disable heavy glow animations on mobile */
+    .animate-pulse-glow,
+    .animate-pulse-glow-secondary,
+    .animate-pulse-glow-tertiary,
+    .animate-image-glow {
+      animation: none !important;
+      opacity: 0.03 !important;
+    }
+
+    /* Slow down marquee animation on mobile */
+    .animate-marquee,
+    .animate-marquee-vertical {
+      animation-duration: 60s !important;
+    }
+
+    /* Optimize all other animations for mobile */
+    *:not(.animate-marquee):not(.animate-marquee-vertical) {
       animation-duration: 0.2s !important;
       transition-duration: 0.2s !important;
     }
