@@ -124,7 +124,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section - Magic UI Layout */}
-      <section id="home" className="tm-layout-hero relative pt-32 pb-24 overflow-hidden z-40">
+      <section id="home" className="tm-layout-hero relative pt-20 sm:pt-24 md:pt-32 pb-16 sm:pb-20 md:pb-24 overflow-hidden z-40">
         {/* Transparent background to show particles */}
         <div className="tm-layout-hero__background absolute inset-0 bg-transparent" />
         
@@ -352,8 +352,8 @@ const Index = () => {
       </section>
 
       {/* Trusted By Section */}
-      <section className="tm-layout-section py-24 border-t border-border/30 relative z-40">
-        <div className="tm-layout-container max-w-7xl mx-auto px-6">
+      <section className="tm-layout-section py-16 sm:py-20 md:py-24 border-t border-border/30 relative z-40">
+        <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="tm-ui-text--small text-muted-foreground font-semibold tracking-wide uppercase mb-8">
               TRUSTED BY TEAMS FROM AROUND THE WORLD
@@ -383,8 +383,8 @@ const Index = () => {
       </section>
 
       {/* Transform Your Trading Section */}
-      <section className="tm-layout-section py-24 bg-transparent relative z-40">
-        <div className="tm-layout-container max-w-7xl mx-auto px-6">
+      <section className="tm-layout-section py-16 sm:py-20 md:py-24 bg-transparent relative z-40">
+        <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h1 className="text-white mb-4">
@@ -513,8 +513,8 @@ const Index = () => {
 
 
       {/* Keep existing sections but update to use new layout classes */}
-      <section id="value-proposition" className="tm-layout-section py-24 border-t border-border/30 relative z-40">
-        <div className="tm-layout-container max-w-7xl mx-auto px-6">
+      <section id="value-proposition" className="tm-layout-section py-16 sm:py-20 md:py-24 border-t border-border/30 relative z-40">
+        <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
               Why <span className="text-gradient-gold">The Trading Desk</span>?
@@ -799,7 +799,7 @@ const Index = () => {
               { name: 'Student', price: '$79/mo', features: ['All Courses', 'Live Sessions', 'Downloads'], featured: true },
               { name: 'Pro', price: '$149/mo', features: ['1:1 Mentorship', 'VIP Community', 'Advanced Strategies'], featured: false },
             ].map((tier, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: i * 0.1 }}>
+              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.5, delay: i * 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}>
                 <Card className={`glass-card rounded-2xl p-6 ${tier.featured ? 'scale-105 border-white/30' : ''}`}>
                   <CardHeader className="text-center pb-4">
                     <CardTitle className="text-xl mb-2">{tier.name}</CardTitle>
@@ -827,13 +827,13 @@ const Index = () => {
       <section className="section-padding border-t border-border/30 relative z-40">
         <div className="container-cinematic">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <motion.div initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} transition={{ duration: 0.6 }} className="flex justify-center">
+            <motion.div initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1], type: "tween" }} className="flex justify-center">
               <div className="relative">
                 <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=800&q=80" alt="Lead Instructor" className="w-56 h-56 rounded-full object-cover" />
                 <div className="absolute inset-0 rounded-full ring-4 ring-white/10" />
               </div>
             </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1], type: "tween" }}>
               <h3 className="text-3xl font-bold mb-4">Learn from Proven Professionals</h3>
               <p className="text-muted-foreground mb-4">Our instructors are seasoned traders with institutional and prop experience. They teach exactly how they trade—no fluff.</p>
               <div className="grid sm:grid-cols-3 gap-4 text-center">
