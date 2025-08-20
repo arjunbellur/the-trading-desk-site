@@ -65,7 +65,7 @@ export function NeonGradientCard({
         {/* Border beam container */}
         <div
           className={cn(
-            "pointer-events-none absolute inset-[1px] rounded-[inherit] border-transparent",
+            "pointer-events-none absolute inset-[1px] rounded-[inherit] border-transparent z-[100]",
             "[mask-clip:padding-box,border-box] [mask-composite:intersect]",
             "[mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]"
           )}
@@ -93,7 +93,7 @@ export function NeonGradientCard({
         {/* Apple-quality glass content container */}
         <div className="relative w-full h-full rounded-[inherit] overflow-hidden">
           {/* Apple-style translucent glass effect with hover */}
-          <div className="absolute inset-0 rounded-[inherit]">
+          <div className="absolute inset-0 rounded-[inherit] z-5">
             {/* Primary translucent layer with hover enhancement */}
             <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-xl rounded-[inherit] transition-all duration-500 group-hover:bg-white/[0.035]"></div>
             
