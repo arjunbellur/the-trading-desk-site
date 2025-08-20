@@ -1718,10 +1718,7 @@
     scroll-behavior: auto;
   }
 
-  /* Reduce motion for better performance */
-  .motion-safe\:animate-pulse-glow {
-    animation: none !important;
-  }
+
 
   /* Reduce glow animation intensity for better performance */
   .animate-pulse-glow {

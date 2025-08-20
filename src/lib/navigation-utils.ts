@@ -26,10 +26,13 @@ export const scrollToElement = ({
   }
   
   if (!window.lenis) {
-    throw new NavigationError(
-      'Lenis smooth scroll not initialized', 
-      ERROR_CODES.LENIS_NOT_AVAILABLE
-    );
+    // Fallback to native scrolling on mobile or when Lenis is not available
+    targetElement.scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'start',
+      inline: 'nearest'
+    });
+    return;
   }
   
   window.lenis.scrollTo(targetElement, { offset, duration });

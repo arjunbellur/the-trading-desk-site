@@ -36,7 +36,7 @@ const Index = () => {
       setWordIndex((i) => (i + 1) % rotatingWords.length);
     }, 2200);
     return () => clearInterval(id);
-  }, [rotatingWords.length]);
+  }, [rotatingWords]);
 
   // Calculate width for the current word dynamically
   useEffect(() => {

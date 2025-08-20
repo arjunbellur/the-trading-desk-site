@@ -32,7 +32,7 @@ requestAnimationFrame(raf);
 
 // Make Lenis globally available for anchor links (only on desktop)
 if (lenis) {
-  (window as unknown as { lenis: typeof lenis }).lenis = lenis;
+  (window as unknown as { lenis: Lenis }).lenis = lenis;
 }
 
 // Handle resize and orientation changes

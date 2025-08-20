@@ -44,7 +44,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     }, 2500); // Slightly slower for better mobile performance
 
     return () => clearInterval(intervalId);
-  }, [rotatingWords.length]);
+  }, [rotatingWords]);
 
   /**
    * Calculate width for the current word dynamically
