@@ -1708,6 +1708,19 @@
   html, body {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto; /* Disable smooth scroll for better performance */
+    overscroll-behavior: contain; /* Prevent bounce effects */
+  }
+
+  /* Optimize scroll performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+  }
+
+  /* Reduce motion for better performance */
+  .motion-safe\:animate-pulse-glow {
+    animation: none !important;
   }
 
   /* Reduce glow animation intensity for better performance */
