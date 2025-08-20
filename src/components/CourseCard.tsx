@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Star, Clock, BookOpen, Users, CheckCircle, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { LiquidGlassButton } from "@/components/ui/liquid-glass-button";
 import type { CourseSummary } from "@/mock/content";
 
 interface CourseCardProps {
