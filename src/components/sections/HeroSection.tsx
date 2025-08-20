@@ -74,7 +74,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section 
       id="home" 
-      className="tm-layout-hero relative pt-32 pb-24 overflow-hidden z-40"
+      className="tm-layout-hero relative pt-20 sm:pt-24 md:pt-32 pb-16 sm:pb-20 md:pb-24 overflow-hidden z-40"
       aria-labelledby="hero-title"
     >
       {/* Background */}
@@ -114,7 +114,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
       </div>
       
-      <div className="tm-layout-container max-w-8xl mx-auto px-4 sm:px-6 text-center relative z-50">
+      <div className="tm-layout-container max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-50">
         <div className="tm-layout-hero__content max-w-full sm:max-w-5xl mx-auto">
           {/* Beta Badge */}
           <div className="tm-layout-hero__badge mb-8">
@@ -156,12 +156,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </h1>
 
           {/* Subtitle */}
-          <p className="tm-layout-hero__description text-lead text-white/70 mb-12 max-w-xl mx-auto">
+          <p className="tm-layout-hero__description text-lead text-white/70 mb-8 sm:mb-10 md:mb-12 max-w-xl mx-auto">
             {subtitle}
           </p>
 
           {/* CTA Button */}
-          <div className="tm-layout-hero__actions mb-16">
+          <div className="tm-layout-hero__actions mb-12 sm:mb-14 md:mb-16">
             <Button 
               variant="regular" 
               onClick={onCtaClick}
@@ -217,7 +217,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Main Hero Image */}
-            <div className="flex items-center justify-center relative z-10">
+            <div className="flex items-center justify-center relative z-[50]">
               <NeonGradientCard 
                 className="w-full max-w-5xl p-1" 
                 style={{ pointerEvents: 'none' }}

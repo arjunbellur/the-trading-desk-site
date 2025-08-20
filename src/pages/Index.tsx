@@ -135,10 +135,12 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0.5, width: "15rem" }}
               whileInView={{ opacity: 1, width: "35rem" }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{
-                delay: 0.3,
-                duration: 0.8,
-                ease: "easeInOut",
+                delay: 0.2,
+                duration: 0.6,
+                ease: [0.23, 1, 0.32, 1],
+                type: "tween"
               }}
               style={{
                 backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
@@ -153,10 +155,12 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0.5, width: "15rem" }}
               whileInView={{ opacity: 1, width: "35rem" }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{
-                delay: 0.3,
-                duration: 0.8,
-                ease: "easeInOut",
+                delay: 0.25,
+                duration: 0.6,
+                ease: [0.23, 1, 0.32, 1],
+                type: "tween"
               }}
               style={{
                 backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
@@ -178,10 +182,12 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, scaleX: 0.5 }}
               whileInView={{ opacity: 1, scaleX: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{
-                delay: 0.3,
-                duration: 0.8,
-                ease: "easeInOut",
+                delay: 0.2,
+                duration: 0.6,
+                ease: [0.23, 1, 0.32, 1],
+                type: "tween"
               }}
               className="absolute left-0 right-0 top-0 z-30 h-36 w-full -translate-y-[6rem] bg-gradient-to-r from-transparent via-emerald-800/3 to-transparent blur-2xl"
             />
@@ -190,9 +196,10 @@ const Index = () => {
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{
                 delay: 0.3,
-                duration: 1.2,
+                duration: 0.8,
                 ease: [0.23, 1, 0.32, 1],
                 type: "tween"
               }}
@@ -203,9 +210,10 @@ const Index = () => {
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{
-                delay: 0.4,
-                duration: 1.2,
+                delay: 0.35,
+                duration: 0.8,
                 ease: [0.23, 1, 0.32, 1],
                 type: "tween"
               }}

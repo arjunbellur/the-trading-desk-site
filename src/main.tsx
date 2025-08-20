@@ -5,17 +5,17 @@ import Lenis from 'lenis';
 import './index.css';
 // Removed legacy global styles per cleanup
 
-// Initialize Lenis smooth scrolling with unified configuration
+// Initialize Lenis smooth scrolling with mobile-optimized configuration
 const lenis = new Lenis({
-  duration: 1.2,
+  duration: 1.0,
   easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   smoothWheel: true,
-  wheelMultiplier: 1,
-  touchMultiplier: 1.5,
+  wheelMultiplier: 0.8,
+  touchMultiplier: 0.8, // Reduced from 1.5 to prevent flying
   infinite: false,
   syncTouch: true,
-  syncTouchLerp: 0.1,
-  normalizeWheel: false,
+  syncTouchLerp: 0.075, // Reduced from 0.1 for more controlled movement
+  normalizeWheel: true, // Changed to true for better mobile behavior
 });
 
 // Hook Lenis into requestAnimationFrame
