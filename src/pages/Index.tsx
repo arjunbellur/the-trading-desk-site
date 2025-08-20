@@ -280,25 +280,43 @@ const Index = () => {
 
             {/* Hero Image Placeholder with neon tracking border */}
             <div className="tm-layout-hero__image relative">
-              {/* Magic UI Glow Pulse Background - Optimized for mobile */}
-              <div className="absolute top-0 left-0 right-0 h-4/5 flex items-start justify-center">
+              {/* Magic UI Glow Pulse Background - Disabled on mobile for performance */}
+              <div className="hidden md:block absolute top-0 left-0 right-0 h-4/5 flex items-start justify-center">
                 <div className="absolute w-[200%] h-[140%] -z-10 -top-16">
-                  {/* Simplified glow for mobile */}
+                  {/* Outer diffuse glow */}
                   <div 
                     className="absolute inset-0 rounded-full opacity-2"
                     style={{
                       background: `radial-gradient(ellipse 120% 90% at center 20%, #22c55e 0%, transparent 60%)`,
-                      filter: 'blur(100px)',
-                      animation: 'pulse-glow 8s ease-in-out infinite'
+                      filter: 'blur(150px)',
+                      animation: 'pulse-glow 12s ease-in-out infinite'
                     }}
                   />
-                  {/* Additional glow only on desktop */}
+                  {/* Mid-range neon glow */}
                   <div 
-                    className="hidden md:block absolute inset-8 rounded-full opacity-1.5"
+                    className="absolute inset-8 rounded-full opacity-1.5"
                     style={{
                       background: `radial-gradient(ellipse 100% 75% at center 15%, #4ade80 0%, transparent 50%)`,
+                      filter: 'blur(120px)',
+                      animation: 'pulse-glow-secondary 16s ease-in-out infinite'
+                    }}
+                  />
+                  {/* Inner bright core */}
+                  <div 
+                    className="absolute inset-16 rounded-full opacity-12"
+                    style={{
+                      background: `radial-gradient(ellipse 80% 60% at center 10%, #86efac 0%, transparent 40%)`,
                       filter: 'blur(80px)',
-                      animation: 'pulse-glow-secondary 12s ease-in-out infinite'
+                      animation: 'pulse-glow-tertiary 20s ease-in-out infinite'
+                    }}
+                  />
+                  {/* Ultra-soft ambient */}
+                  <div 
+                    className="absolute inset-4 rounded-full opacity-5"
+                    style={{
+                      background: `radial-gradient(ellipse 140% 100% at center 25%, #22c55e 0%, transparent 70%)`,
+                      filter: 'blur(200px)',
+                      animation: 'pulse-glow 15s ease-in-out infinite reverse'
                     }}
                   />
                 </div>
