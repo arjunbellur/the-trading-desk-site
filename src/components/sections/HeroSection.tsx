@@ -80,37 +80,37 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Background */}
       <div className="tm-layout-hero__background absolute inset-0 bg-transparent" />
 
-      {/* Enhanced neon lamp effect - Disabled on mobile for performance */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none z-10">
+      {/* Enhanced neon lamp effect - Optimized for all devices */}
+      <div className="absolute inset-0 pointer-events-none z-10">
         <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0">
-          {/* Lamp beams - desktop only */}
-          <div className="absolute inset-auto right-1/2 h-56 overflow-visible w-[35rem] bg-gradient-conic from-green-400 via-transparent to-transparent [--conic-position:from_70deg_at_center_top]">
-            <div className="absolute w-[100%] left-0 bg-black h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
-            <div className="absolute w-40 h-[100%] left-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
-          </div>
-          
-          <div className="absolute inset-auto left-1/2 h-56 w-[35rem] bg-gradient-conic from-transparent via-transparent to-green-400 [--conic-position:from_290deg_at_center_top]">
-            <div className="absolute w-40 h-[100%] right-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
-            <div className="absolute w-[100%] right-0 bg-black h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
-          </div>
-          
-          {/* Background blur */}
-          <div className="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-black blur-2xl"></div>
-          
-          {/* Central glow */}
-          <div className="absolute inset-auto z-50 h-36 w-[32rem] -translate-y-1/2 rounded-full bg-green-400 opacity-25 blur-3xl"></div>
-          
-          {/* Secondary glow layer */}
-          <div className="absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-20"></div>
-          
-          {/* Neon lamp bar */}
-          <div className="absolute left-0 top-0 z-[100] h-0.5 w-full bg-emerald-700 shadow-[0_0_6px_#047857]"></div>
-          
-          {/* Bright center core */}
-          <div className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-emerald-300 shadow-[0_0_3px_#6ee7b7]"></div>
-          
-          {/* Top mask */}
-          <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[10rem] bg-black"></div>
+                      {/* Lamp beams - optimized for all devices */}
+            <div className="absolute inset-auto right-1/2 h-40 md:h-56 overflow-visible w-[20rem] md:w-[35rem] bg-gradient-conic from-green-400 via-transparent to-transparent [--conic-position:from_70deg_at_center_top]">
+              <div className="absolute w-[100%] left-0 bg-black h-32 md:h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+              <div className="absolute w-32 md:w-40 h-[100%] left-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
+            </div>
+            
+            <div className="absolute inset-auto left-1/2 h-40 md:h-56 w-[20rem] md:w-[35rem] bg-gradient-conic from-transparent via-transparent to-green-400 [--conic-position:from_290deg_at_center_top]">
+              <div className="absolute w-32 md:w-40 h-[100%] right-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
+              <div className="absolute w-[100%] right-0 bg-black h-32 md:h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+            </div>
+            
+            {/* Background blur - optimized */}
+            <div className="absolute top-1/2 h-32 md:h-48 w-full translate-y-8 md:translate-y-12 scale-x-100 md:scale-x-150 bg-black blur-xl md:blur-2xl"></div>
+            
+            {/* Central glow - optimized */}
+            <div className="absolute inset-auto z-50 h-24 md:h-36 w-[20rem] md:w-[32rem] -translate-y-1/2 rounded-full bg-green-400 opacity-20 md:opacity-25 blur-2xl md:blur-3xl"></div>
+            
+            {/* Secondary glow layer - desktop only for performance */}
+            <div className="hidden md:block absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-20"></div>
+            
+            {/* Neon lamp bar - optimized */}
+            <div className="absolute left-0 top-0 z-[100] h-0.5 w-full bg-emerald-700 shadow-[0_0_4px_#047857] md:shadow-[0_0_6px_#047857]"></div>
+            
+            {/* Bright center core - optimized */}
+            <div className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-emerald-300 shadow-[0_0_2px_#6ee7b7] md:shadow-[0_0_3px_#6ee7b7]"></div>
+            
+            {/* Top mask - optimized */}
+            <div className="absolute inset-auto z-40 h-32 md:h-44 w-full -translate-y-[8rem] md:-translate-y-[10rem] bg-black"></div>
         </div>
       </div>
       
@@ -173,50 +173,47 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Hero Image */}
           <div className="tm-layout-hero__image relative">
-            {/* Glow Effects - Disabled on mobile for performance */}
-            <div className="hidden md:block absolute top-0 left-0 right-0 h-4/5 flex items-start justify-center">
-              <div className="absolute w-[200%] h-[140%] -z-10 -top-16">
-                {/* Outer diffuse glow */}
-                <div 
-                  className="absolute inset-0 rounded-full opacity-9"
-                  style={{
-                    background: `radial-gradient(ellipse 120% 90% at center 20%, #22c55e 0%, transparent 60%)`,
-                    filter: 'blur(150px)',
-                    animation: 'pulse-glow 12s ease-in-out infinite'
-                  }}
-                  aria-hidden="true"
-                />
-                {/* Mid-range neon glow */}
-                <div 
-                  className="absolute inset-8 rounded-full opacity-7"
-                  style={{
-                    background: `radial-gradient(ellipse 100% 75% at center 15%, #4ade80 0%, transparent 50%)`,
-                    filter: 'blur(120px)',
-                    animation: 'pulse-glow-secondary 16s ease-in-out infinite'
-                  }}
-                  aria-hidden="true"
-                />
-                {/* Inner bright core */}
-                <div 
-                  className="absolute inset-16 rounded-full opacity-12"
-                  style={{
-                    background: `radial-gradient(ellipse 80% 60% at center 10%, #86efac 0%, transparent 40%)`,
-                    filter: 'blur(80px)',
-                    animation: 'pulse-glow-tertiary 20s ease-in-out infinite'
-                  }}
-                  aria-hidden="true"
-                />
-                {/* Ultra-soft ambient */}
-                <div 
-                  className="absolute inset-4 rounded-full opacity-5"
-                  style={{
-                    background: `radial-gradient(ellipse 140% 100% at center 25%, #22c55e 0%, transparent 70%)`,
-                    filter: 'blur(200px)',
-                    animation: 'pulse-glow 15s ease-in-out infinite reverse'
-                  }}
-                  aria-hidden="true"
-                />
-              </div>
+            {/* Glow Effects - Optimized for all devices */}
+            <div className="absolute top-0 left-0 right-0 h-4/5 flex items-start justify-center">
+                              <div className="absolute w-[200%] h-[140%] -z-10 -top-16">
+                  {/* Outer diffuse glow - optimized */}
+                  <div 
+                    className="absolute inset-0 rounded-full opacity-6 md:opacity-9 animate-pulse-glow"
+                    style={{
+                      background: `radial-gradient(ellipse 120% 90% at center 20%, #22c55e 0%, transparent 60%)`,
+                      filter: 'blur(100px)',
+                    }}
+                    aria-hidden="true"
+                  />
+                  {/* Mid-range neon glow - optimized */}
+                  <div 
+                    className="absolute inset-8 rounded-full opacity-4 md:opacity-7 animate-pulse-glow-secondary"
+                    style={{
+                      background: `radial-gradient(ellipse 100% 75% at center 15%, #4ade80 0%, transparent 50%)`,
+                      filter: 'blur(80px)',
+                    }}
+                    aria-hidden="true"
+                  />
+                  {/* Inner bright core - optimized */}
+                  <div 
+                    className="absolute inset-16 rounded-full opacity-8 md:opacity-12 animate-pulse-glow-tertiary"
+                    style={{
+                      background: `radial-gradient(ellipse 80% 60% at center 10%, #86efac 0%, transparent 40%)`,
+                      filter: 'blur(60px)',
+                    }}
+                    aria-hidden="true"
+                  />
+                  {/* Ultra-soft ambient - desktop only for performance */}
+                  <div 
+                    className="hidden md:block absolute inset-4 rounded-full opacity-5"
+                    style={{
+                      background: `radial-gradient(ellipse 140% 100% at center 25%, #22c55e 0%, transparent 70%)`,
+                      filter: 'blur(150px)',
+                      animation: 'pulse-glow 15s ease-in-out infinite reverse'
+                    }}
+                    aria-hidden="true"
+                  />
+                </div>
             </div>
 
             {/* Main Hero Image */}

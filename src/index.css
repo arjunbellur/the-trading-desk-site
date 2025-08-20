@@ -1701,3 +1701,52 @@
 .animate-pulse-glow-tertiary {
   animation: pulse-glow-tertiary 20s ease-in-out infinite;
 }
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  /* Essential overflow control */
+  html, body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Reduce glow animation intensity for better performance */
+  .animate-pulse-glow {
+    animation-duration: 8s !important;
+    opacity: 0.4 !important;
+  }
+
+  .animate-pulse-glow-secondary {
+    animation-duration: 12s !important;
+    opacity: 0.3 !important;
+  }
+
+  .animate-pulse-glow-tertiary {
+    animation-duration: 16s !important;
+    opacity: 0.2 !important;
+  }
+
+  /* Optimize border beam for stability */
+  .animate-border-beam {
+    animation-duration: 12s !important;
+  }
+
+  /* Slower marquee for better readability */
+  .animate-marquee {
+    animation-duration: 40s !important;
+  }
+
+  /* Reduce blur intensity for better performance */
+  .animate-shimmer-pan {
+    animation-duration: 8s !important;
+  }
+
+  /* Optimize floating animations */
+  .animate-float {
+    animation-duration: 6s !important;
+  }
+
+  .animate-orb-float {
+    animation-duration: 8s !important;
+  }
+}

@@ -280,46 +280,43 @@ const Index = () => {
 
             {/* Hero Image Placeholder with neon tracking border */}
             <div className="tm-layout-hero__image relative">
-              {/* Magic UI Glow Pulse Background - Disabled on mobile for performance */}
-              <div className="hidden md:block absolute top-0 left-0 right-0 h-4/5 flex items-start justify-center">
-                <div className="absolute w-[200%] h-[140%] -z-10 -top-16">
-                  {/* Outer diffuse glow */}
-                  <div 
-                    className="absolute inset-0 rounded-full opacity-2"
-                    style={{
-                      background: `radial-gradient(ellipse 120% 90% at center 20%, #22c55e 0%, transparent 60%)`,
-                      filter: 'blur(150px)',
-                      animation: 'pulse-glow 12s ease-in-out infinite'
-                    }}
-                  />
-                  {/* Mid-range neon glow */}
-                  <div 
-                    className="absolute inset-8 rounded-full opacity-1.5"
-                    style={{
-                      background: `radial-gradient(ellipse 100% 75% at center 15%, #4ade80 0%, transparent 50%)`,
-                      filter: 'blur(120px)',
-                      animation: 'pulse-glow-secondary 16s ease-in-out infinite'
-                    }}
-                  />
-                  {/* Inner bright core */}
-                  <div 
-                    className="absolute inset-16 rounded-full opacity-12"
-                    style={{
-                      background: `radial-gradient(ellipse 80% 60% at center 10%, #86efac 0%, transparent 40%)`,
-                      filter: 'blur(80px)',
-                      animation: 'pulse-glow-tertiary 20s ease-in-out infinite'
-                    }}
-                  />
-                  {/* Ultra-soft ambient */}
-                  <div 
-                    className="absolute inset-4 rounded-full opacity-5"
-                    style={{
-                      background: `radial-gradient(ellipse 140% 100% at center 25%, #22c55e 0%, transparent 70%)`,
-                      filter: 'blur(200px)',
-                      animation: 'pulse-glow 15s ease-in-out infinite reverse'
-                    }}
-                  />
-                </div>
+              {/* Magic UI Glow Pulse Background - Optimized for all devices */}
+              <div className="absolute top-0 left-0 right-0 h-4/5 flex items-start justify-center">
+                                  <div className="absolute w-[200%] h-[140%] -z-10 -top-16">
+                    {/* Outer diffuse glow - optimized */}
+                    <div 
+                      className="absolute inset-0 rounded-full opacity-1 md:opacity-2 animate-pulse-glow"
+                      style={{
+                        background: `radial-gradient(ellipse 120% 90% at center 20%, #22c55e 0%, transparent 60%)`,
+                        filter: 'blur(100px)',
+                      }}
+                    />
+                    {/* Mid-range neon glow - optimized */}
+                    <div 
+                      className="absolute inset-8 rounded-full opacity-0.8 md:opacity-1.5 animate-pulse-glow-secondary"
+                      style={{
+                        background: `radial-gradient(ellipse 100% 75% at center 15%, #4ade80 0%, transparent 50%)`,
+                        filter: 'blur(80px)',
+                      }}
+                    />
+                    {/* Inner bright core - optimized */}
+                    <div 
+                      className="absolute inset-16 rounded-full opacity-8 md:opacity-12 animate-pulse-glow-tertiary"
+                      style={{
+                        background: `radial-gradient(ellipse 80% 60% at center 10%, #86efac 0%, transparent 40%)`,
+                        filter: 'blur(60px)',
+                      }}
+                    />
+                    {/* Ultra-soft ambient - desktop only for performance */}
+                    <div 
+                      className="hidden md:block absolute inset-4 rounded-full opacity-5"
+                      style={{
+                        background: `radial-gradient(ellipse 140% 100% at center 25%, #22c55e 0%, transparent 70%)`,
+                        filter: 'blur(150px)',
+                        animation: 'pulse-glow 15s ease-in-out infinite reverse'
+                      }}
+                    />
+                  </div>
               </div>
 
               <div className="flex items-center justify-center relative z-10">
