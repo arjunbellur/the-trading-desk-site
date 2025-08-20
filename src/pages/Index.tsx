@@ -5,7 +5,7 @@ import Navigation from "@/components/Navigation";
 import SmoothScrollLink from "@/components/SmoothScrollLink";
 import { NeonGradientCard, Marquee, ShineBorder, BorderBeam } from "@/components/magicui";
 import { motion, AnimatePresence } from "framer-motion";
-import { BlurInView } from "@/components/BlurInView";
+// BlurInView removed for mobile performance
 import { LiquidGlassButton } from "@/components/ui/liquid-glass-button";
 import Footer from "@/components/Footer";
 import React, { useEffect, useState, useMemo } from "react";
@@ -280,43 +280,25 @@ const Index = () => {
 
             {/* Hero Image Placeholder with neon tracking border */}
             <div className="tm-layout-hero__image relative">
-              {/* Magic UI Glow Pulse Background */}
+              {/* Magic UI Glow Pulse Background - Optimized for mobile */}
               <div className="absolute top-0 left-0 right-0 h-4/5 flex items-start justify-center">
                 <div className="absolute w-[200%] h-[140%] -z-10 -top-16">
-                  {/* Outer diffuse glow */}
+                  {/* Simplified glow for mobile */}
                   <div 
-                    className="absolute inset-0 rounded-full opacity-2 animate-pulse-glow"
+                    className="absolute inset-0 rounded-full opacity-2"
                     style={{
                       background: `radial-gradient(ellipse 120% 90% at center 20%, #22c55e 0%, transparent 60%)`,
-                      filter: 'blur(150px)',
-                      animation: 'pulse-glow 12s ease-in-out infinite'
+                      filter: 'blur(100px)',
+                      animation: 'pulse-glow 8s ease-in-out infinite'
                     }}
                   />
-                  {/* Mid-range neon glow */}
+                  {/* Additional glow only on desktop */}
                   <div 
-                    className="absolute inset-8 rounded-full opacity-1.5 animate-pulse-glow-secondary"
+                    className="hidden md:block absolute inset-8 rounded-full opacity-1.5"
                     style={{
                       background: `radial-gradient(ellipse 100% 75% at center 15%, #4ade80 0%, transparent 50%)`,
-                      filter: 'blur(120px)',
-                      animation: 'pulse-glow-secondary 16s ease-in-out infinite'
-                    }}
-                  />
-                  {/* Inner bright core */}
-                  <div 
-                    className="absolute inset-16 rounded-full opacity-12 animate-pulse-glow-tertiary"
-                    style={{
-                      background: `radial-gradient(ellipse 80% 60% at center 10%, #86efac 0%, transparent 40%)`,
                       filter: 'blur(80px)',
-                      animation: 'pulse-glow-tertiary 20s ease-in-out infinite'
-                    }}
-                  />
-                  {/* Ultra-soft ambient */}
-                  <div 
-                    className="absolute inset-4 rounded-full opacity-5"
-                    style={{
-                      background: `radial-gradient(ellipse 140% 100% at center 25%, #22c55e 0%, transparent 70%)`,
-                      filter: 'blur(200px)',
-                      animation: 'pulse-glow 15s ease-in-out infinite reverse'
+                      animation: 'pulse-glow-secondary 12s ease-in-out infinite'
                     }}
                   />
                 </div>
@@ -349,11 +331,10 @@ const Index = () => {
       {/* Trusted By Section */}
       <section className="tm-layout-section py-24 border-t border-border/30 relative z-40">
         <div className="tm-layout-container max-w-7xl mx-auto px-6">
-          <BlurInView>
-            <div className="text-center">
-              <p className="tm-ui-text--small text-muted-foreground font-semibold tracking-wide uppercase mb-8">
-                TRUSTED BY TEAMS FROM AROUND THE WORLD
-              </p>
+          <div className="text-center">
+            <p className="tm-ui-text--small text-muted-foreground font-semibold tracking-wide uppercase mb-8">
+              TRUSTED BY TEAMS FROM AROUND THE WORLD
+            </p>
             <Marquee pauseOnHover className="[--duration:20s]">
               <div className="tm-ui-card tm-ui-card--glass h-16 flex items-center justify-center min-w-[120px] mx-4">
                 <span className="font-bold text-lg">Goldman</span>
@@ -375,7 +356,6 @@ const Index = () => {
               </div>
             </Marquee>
             </div>
-          </BlurInView>
         </div>
       </section>
 
@@ -383,20 +363,17 @@ const Index = () => {
       <section className="tm-layout-section py-24 bg-transparent relative z-40">
         <div className="tm-layout-container max-w-7xl mx-auto px-6">
           {/* Section Header */}
-          <BlurInView>
-            <div className="text-center mb-16">
-              <h1 className="text-white mb-4">
-                Transform Your{" "}
-                <span className="tm-theme-text-gradient--brand">Trading</span>
-              </h1>
-            </div>
-          </BlurInView>
+          <div className="text-center mb-16">
+            <h1 className="text-white mb-4">
+              Transform Your{" "}
+              <span className="tm-theme-text-gradient--brand">Trading</span>
+            </h1>
+          </div>
 
           {/* Three Cards Grid */}
           <div className="grid md:grid-cols-3 gap-8">
             {/* Coaching Card */}
-            <BlurInView delay={0.1}>
-              <div className="relative group cursor-pointer">
+            <div className="relative group cursor-pointer">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 relative">
                 {/* Background Image - Professional mentor/coaching */}
                 <img 
@@ -427,11 +404,9 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               </div>
-            </BlurInView>
 
             {/* Courses Card */}
-            <BlurInView delay={0.2}>
-              <div className="relative group cursor-pointer">
+            <div className="relative group cursor-pointer">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-red-800 to-red-900 relative">
                 {/* Background Image - Trading charts and analysis */}
                 <img 
@@ -462,11 +437,9 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               </div>
-            </BlurInView>
 
             {/* Community Card */}
-            <BlurInView delay={0.3}>
-              <div className="relative group cursor-pointer">
+            <div className="relative group cursor-pointer">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-teal-800 to-slate-900 relative">
                 {/* Background Image - Team collaboration/community */}
                 <img 
@@ -508,7 +481,6 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               </div>
-            </BlurInView>
           </div>
         </div>
       </section>
@@ -520,16 +492,14 @@ const Index = () => {
       {/* Keep existing sections but update to use new layout classes */}
       <section id="value-proposition" className="tm-layout-section py-24 border-t border-border/30 relative z-40">
         <div className="tm-layout-container max-w-7xl mx-auto px-6">
-          <BlurInView>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
-                Why <span className="text-gradient-gold">The Trading Desk</span>?
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Four pillars that separate professionals from amateurs
-              </p>
-            </div>
-          </BlurInView>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+              Why <span className="text-gradient-gold">The Trading Desk</span>?
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Four pillars that separate professionals from amateurs
+            </p>
+          </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -554,15 +524,13 @@ const Index = () => {
                 description: "Connect with serious traders. Share insights, strategies, and accountability."
               }
             ].map((pillar, index) => (
-              <BlurInView key={index} delay={index * 0.1}>
-                <NeonGradientCard className="p-1 text-center hover:scale-105 transition-transform">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <pillar.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold mb-3">{pillar.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{pillar.description}</p>
-                </NeonGradientCard>
-              </BlurInView>
+              <NeonGradientCard key={index} className="p-1 text-center hover:scale-105 transition-transform">
+                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <pillar.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold mb-3">{pillar.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{pillar.description}</p>
+              </NeonGradientCard>
             ))}
           </div>
         </div>
@@ -573,7 +541,7 @@ const Index = () => {
       {/* Featured Courses */}
       <section id="courses" className="section-padding smooth-scroll-target relative z-40">
         <div className="container-cinematic">
-          <BlurInView>
+          <div>
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
                 Featured <span className="text-gradient-gold">Courses</span>
@@ -583,7 +551,7 @@ const Index = () => {
                 Build skills that generate real profits.
               </p>
             </div>
-          </BlurInView>
+          </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -627,7 +595,7 @@ const Index = () => {
                 thumbnail: "gradient-from-orange-600-to-red-600"
               }
             ].map((course, index) => (
-              <BlurInView key={index} delay={index * 0.1}>
+              <div>
                 <Card className="p-1 hover:scale-105 transition-all duration-500 group overflow-hidden bg-black/40 border-white/10 backdrop-blur-sm hover:bg-black/30">
                 {/* Course Thumbnail */}
                 <div className={`h-40 bg-${course.thumbnail} relative overflow-hidden rounded-lg`}>
@@ -692,7 +660,7 @@ const Index = () => {
                   </LiquidGlassButton>
                 </CardContent>
               </Card>
-              </BlurInView>
+              </div>
             ))}
           </div>
         </div>
@@ -709,7 +677,7 @@ const Index = () => {
         </div>
         
         <div className="container-cinematic relative z-10">
-          <BlurInView>
+          <div>
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
                 Learn in <span className="text-gradient-gold">Real Time</span>
@@ -719,10 +687,10 @@ const Index = () => {
                 risk management, and execution in real market conditions.
               </p>
             </div>
-          </BlurInView>
+          </div>
           
           <div className="max-w-5xl mx-auto">
-            <BlurInView delay={0.2}>
+            <div>
               {/* Video Preview Area */}
               <div className="relative card-neo card-neo--elevated overflow-hidden mb-8 group cursor-pointer">
               <div className="aspect-video bg-gradient-to-br from-black/20 to-black/10 flex items-center justify-center">
@@ -737,7 +705,7 @@ const Index = () => {
               
               {/* Live indicator */}
               <div className="absolute top-4 left-4 flex items-center gap-2">
-                <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse" style={{ animationDuration: '2s' }}></div>
                 <span className="text-sm font-medium text-white bg-black/60 px-2 py-1 rounded">LIVE</span>
               </div>
               
@@ -747,10 +715,10 @@ const Index = () => {
                 247 watching
               </div>
             </div>
-            </BlurInView>
+            </div>
             
             {/* Session info and CTAs */}
-            <BlurInView delay={0.4}>
+            <div>
               <div className="grid md:grid-cols-2 gap-6 items-center">
               <div>
                 <h3 className="text-xl font-bold mb-3">Next Live Session</h3>
@@ -789,7 +757,7 @@ const Index = () => {
                 </p>
               </div>
               </div>
-            </BlurInView>
+            </div>
           </div>
         </div>
       </section>

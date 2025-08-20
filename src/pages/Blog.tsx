@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { NeonGradientCard, ShineBorder } from "@/components/magicui";
 import { Calendar, Clock, ArrowRight, TrendingUp } from "lucide-react";
-import { BlurInView } from "@/components/BlurInView";
 // TODO: Replace with Sanity CMS integration once schema is approved
 
 const Blog = () => {
@@ -74,7 +73,7 @@ const Blog = () => {
         <div className="container-cinematic">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {placeholderPosts.map((post, index) => (
-              <BlurInView key={post.id} delay={index * 0.1}>
+              <div>
                 <Card className="card-cinematic hover:scale-105 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center gap-2 mb-4">
@@ -109,12 +108,12 @@ const Blog = () => {
                   </Button>
                 </CardContent>
               </Card>
-              </BlurInView>
+              </div>
             ))}
           </div>
           
           {/* Coming Soon Notice */}
-          <BlurInView delay={0.4}>
+          <div>
             <div className="text-center mt-16 p-8 bg-muted/20 rounded-lg">
               <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Blog Coming Soon!</h3>
@@ -126,7 +125,7 @@ const Blog = () => {
               Get Notified When We Launch
             </Button>
             </div>
-          </BlurInView>
+          </div>
         </div>
       </section>
       

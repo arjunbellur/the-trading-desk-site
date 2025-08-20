@@ -16,7 +16,6 @@ import {
   Target,
   Globe
 } from "lucide-react";
-import { BlurInView } from "@/components/BlurInView";
 // TODO: Replace with Sanity CMS integration once schema is approved
 
 const Community = () => {

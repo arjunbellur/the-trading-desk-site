@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import { NeonGradientCard, ShineBorder } from "@/components/magicui";
 import { BookOpen, Play, Users } from "lucide-react";
 import { mockCourses } from "@/mock/content";
-import { BlurInView } from "@/components/BlurInView";
 // TODO: Replace mock data with Sanity GROQ queries once schema is approved
 
 const Courses = () => {
@@ -40,7 +39,7 @@ const Courses = () => {
           </p>
           
           {/* Course Stats */}
-          <BlurInView delay={0.2}>
+          <div>
             <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto text-center mb-16">
               <div>
                 <div className="text-3xl font-bold text-foreground mb-2">{courses.length}+</div>
@@ -55,33 +54,33 @@ const Courses = () => {
                 <h6>Average Rating</h6>
               </div>
             </div>
-          </BlurInView>
+          </div>
         </div>
       </section>
 
       {/* Courses Grid */}
-      <BlurInView delay={0.3}>
+      <div>
         <CourseGrid 
           courses={courses} 
           title=""
           description=""
           className="border-t border-border/30"
         />
-      </BlurInView>
+      </div>
 
       {/* Features Section */}
       <section className="section-padding bg-secondary/20">
         <div className="container-cinematic">
-          <BlurInView>
+          <div>
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Why Choose <span className="text-gradient-gold">The Trading Desk</span>
               </h2>
             </div>
-          </BlurInView>
+          </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <BlurInView delay={0.1}>
+            <div>
               <Card className="card-cinematic p-6 text-center">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="w-6 h-6 text-primary" />
@@ -91,9 +90,9 @@ const Courses = () => {
                   Learn from professional traders with decades of market experience
                 </p>
               </Card>
-            </BlurInView>
+            </div>
             
-            <BlurInView delay={0.2}>
+            <div>
               <Card className="card-cinematic p-6 text-center">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <Play className="w-6 h-6 text-primary" />
@@ -103,9 +102,9 @@ const Courses = () => {
                   Join live trading sessions and Q&A with instructors
                 </p>
               </Card>
-            </BlurInView>
+            </div>
             
-            <BlurInView delay={0.3}>
+            <div>
               <Card className="card-cinematic p-6 text-center">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <Users className="w-6 h-6 text-primary" />
@@ -115,7 +114,7 @@ const Courses = () => {
                   Connect with fellow traders and share strategies
                 </p>
               </Card>
-            </BlurInView>
+            </div>
           </div>
         </div>
       </section>

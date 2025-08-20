@@ -41,7 +41,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   useEffect(() => {
     const intervalId = setInterval(() => {
       setWordIndex((currentIndex) => (currentIndex + 1) % rotatingWords.length);
-    }, 2200);
+    }, 2500); // Slightly slower for better mobile performance
 
     return () => clearInterval(intervalId);
   }, [rotatingWords.length]);
@@ -80,90 +80,37 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Background */}
       <div className="tm-layout-hero__background absolute inset-0 bg-transparent" />
 
-      {/* Enhanced neon lamp effect */}
+      {/* Enhanced neon lamp effect - Optimized for mobile */}
       <div className="absolute inset-0 pointer-events-none z-10">
         <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0">
-          {/* Left lamp beam - wider and brighter */}
-          <motion.div
-            initial={{ opacity: 0.5, width: "15rem" }}
-            whileInView={{ opacity: 1, width: "35rem" }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            style={{
-              backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
-            }}
-            className="absolute inset-auto right-1/2 h-56 overflow-visible w-[35rem] bg-gradient-conic from-green-400 via-transparent to-transparent [--conic-position:from_70deg_at_center_top]"
-          >
-            <div className="absolute w-[100%] left-0 bg-black h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
-            <div className="absolute w-40 h-[100%] left-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
-          </motion.div>
+          {/* Simplified lamp beams for mobile */}
+          <div className="absolute inset-auto right-1/2 h-40 overflow-visible w-[20rem] md:w-[35rem] bg-gradient-conic from-green-400 via-transparent to-transparent [--conic-position:from_70deg_at_center_top]">
+            <div className="absolute w-[100%] left-0 bg-black h-32 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+            <div className="absolute w-32 h-[100%] left-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
+          </div>
           
-          {/* Right lamp beam - wider and brighter */}
-          <motion.div
-            initial={{ opacity: 0.5, width: "15rem" }}
-            whileInView={{ opacity: 1, width: "35rem" }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            style={{
-              backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
-            }}
-            className="absolute inset-auto left-1/2 h-56 w-[35rem] bg-gradient-conic from-transparent via-transparent to-green-400 [--conic-position:from_290deg_at_center_top]"
-          >
-            <div className="absolute w-40 h-[100%] right-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
-            <div className="absolute w-[100%] right-0 bg-black h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
-          </motion.div>
+          <div className="absolute inset-auto left-1/2 h-40 w-[20rem] md:w-[35rem] bg-gradient-conic from-transparent via-transparent to-green-400 [--conic-position:from_290deg_at_center_top]">
+            <div className="absolute w-32 h-[100%] right-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
+            <div className="absolute w-[100%] right-0 bg-black h-32 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+          </div>
           
-          {/* Background blur layers */}
-          <div className="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-black blur-2xl"></div>
-          <div className="absolute top-1/2 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md"></div>
+          {/* Simplified background blur */}
+          <div className="absolute top-1/2 h-32 md:h-48 w-full translate-y-8 md:translate-y-12 scale-x-100 md:scale-x-150 bg-black blur-xl md:blur-2xl"></div>
           
-          {/* Central glow - tuned down to match bottom glow */}
-          <div className="absolute inset-auto z-50 h-36 w-[32rem] -translate-y-1/2 rounded-full bg-green-400 opacity-25 blur-3xl"></div>
+          {/* Central glow - simplified */}
+          <div className="absolute inset-auto z-50 h-24 md:h-36 w-[20rem] md:w-[32rem] -translate-y-1/2 rounded-full bg-green-400 opacity-20 md:opacity-25 blur-2xl md:blur-3xl"></div>
           
-          {/* Secondary glow layer */}
-          <motion.div
-            initial={{ width: "8rem" }}
-            whileInView={{ width: "20rem" }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-20"
-          />
+          {/* Secondary glow layer - desktop only */}
+          <div className="hidden md:block absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-20"></div>
           
-          {/* Full-width neon lamp bar at viewport top - darker mint green */}
-          <motion.div
-            initial={{ width: "50%" }}
-            whileInView={{ width: "100%" }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="absolute left-0 top-0 z-[100] h-0.5 w-full bg-emerald-700 shadow-[0_0_6px_#047857]"
-          />
+          {/* Neon lamp bar - simplified */}
+          <div className="absolute left-0 top-0 z-[100] h-0.5 w-full bg-emerald-700 shadow-[0_0_4px_#047857] md:shadow-[0_0_6px_#047857]"></div>
           
-          {/* Bright center core of the lamp */}
-          <motion.div
-            initial={{ width: "50%" }}
-            whileInView={{ width: "100%" }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-emerald-300 shadow-[0_0_3px_#6ee7b7]"
-          />
+          {/* Bright center core - simplified */}
+          <div className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-emerald-300 shadow-[0_0_2px_#6ee7b7] md:shadow-[0_0_3px_#6ee7b7]"></div>
           
-          {/* Top mask - positioned lower to not hide the lamp */}
-          <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[10rem] bg-black"></div>
+          {/* Top mask - simplified */}
+          <div className="absolute inset-auto z-40 h-32 md:h-44 w-full -translate-y-[8rem] md:-translate-y-[10rem] bg-black"></div>
         </div>
       </div>
       
@@ -191,11 +138,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={rotatingWords[wordIndex]}
-                      initial={{ opacity: 0, y: -60 }}
+                      initial={{ opacity: 0, y: -40 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 60 }}
+                      exit={{ opacity: 0, y: 40 }}
                       transition={{ 
-                        duration: 0.7,
+                        duration: 0.5,
                         ease: [0.25, 0.1, 0.25, 1]
                       }}
                       className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-start whitespace-nowrap ml-1 sm:ml-2 md:ml-4"
@@ -226,46 +173,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Hero Image */}
           <div className="tm-layout-hero__image relative">
-            {/* Glow Effects */}
+            {/* Glow Effects - Simplified for mobile performance */}
             <div className="absolute top-0 left-0 right-0 h-4/5 flex items-start justify-center">
               <div className="absolute w-[200%] h-[140%] -z-10 -top-16">
-                {/* Outer diffuse glow */}
+                {/* Single simplified glow for mobile */}
                 <div 
-                  className="absolute inset-0 rounded-full opacity-9 animate-pulse-glow"
+                  className="absolute inset-0 rounded-full opacity-8"
                   style={{
                     background: `radial-gradient(ellipse 120% 90% at center 20%, #22c55e 0%, transparent 60%)`,
-                    filter: 'blur(150px)',
-                    animation: 'pulse-glow 12s ease-in-out infinite'
+                    filter: 'blur(100px)',
+                    animation: 'pulse-glow 8s ease-in-out infinite'
                   }}
                   aria-hidden="true"
                 />
-                {/* Mid-range neon glow */}
+                {/* Additional glow only on desktop */}
                 <div 
-                  className="absolute inset-8 rounded-full opacity-7 animate-pulse-glow-secondary"
+                  className="hidden md:block absolute inset-8 rounded-full opacity-6"
                   style={{
                     background: `radial-gradient(ellipse 100% 75% at center 15%, #4ade80 0%, transparent 50%)`,
-                    filter: 'blur(120px)',
-                    animation: 'pulse-glow-secondary 16s ease-in-out infinite'
-                  }}
-                  aria-hidden="true"
-                />
-                {/* Inner bright core */}
-                <div 
-                  className="absolute inset-16 rounded-full opacity-12 animate-pulse-glow-tertiary"
-                  style={{
-                    background: `radial-gradient(ellipse 80% 60% at center 10%, #86efac 0%, transparent 40%)`,
                     filter: 'blur(80px)',
-                    animation: 'pulse-glow-tertiary 20s ease-in-out infinite'
-                  }}
-                  aria-hidden="true"
-                />
-                {/* Ultra-soft ambient */}
-                <div 
-                  className="absolute inset-4 rounded-full opacity-5"
-                  style={{
-                    background: `radial-gradient(ellipse 140% 100% at center 25%, #22c55e 0%, transparent 70%)`,
-                    filter: 'blur(200px)',
-                    animation: 'pulse-glow 15s ease-in-out infinite reverse'
+                    animation: 'pulse-glow-secondary 12s ease-in-out infinite'
                   }}
                   aria-hidden="true"
                 />
