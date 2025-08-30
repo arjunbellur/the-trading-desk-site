@@ -185,7 +185,7 @@ const Index = () => {
                 ease: [0.23, 1, 0.32, 1],
                 type: "tween"
               }}
-              className="absolute top-0 left-0 right-0 z-[100] h-0.5 bg-primary origin-center"
+              className="absolute top-0 left-0 right-0 z-[100] h-0.5 bg-green-400 origin-center"
             />
             
             {/* Bright center highlight - optimized */}
@@ -199,7 +199,7 @@ const Index = () => {
                 ease: [0.23, 1, 0.32, 1],
                 type: "tween"
               }}
-              className="absolute top-0 left-0 right-0 translate-y-px z-[101] h-px bg-accent origin-center"
+              className="absolute top-0 left-0 right-0 translate-y-px z-[101] h-px bg-green-300 origin-center"
             />
             
             {/* Top mask - responsive positioning */}
