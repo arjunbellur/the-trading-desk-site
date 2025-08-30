@@ -406,6 +406,9 @@ const Index = () => {
 
                 {/* Content Overlay with Slide Animation */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 overflow-hidden z-20">
+                  {/* Spacer to push content to bottom */}
+                  <div className="flex-1"></div>
+                  
                   {/* Title - Always visible at bottom */}
                   <div className="text-center transform transition-transform duration-300 group-hover:-translate-y-8">
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Livestreams</h3>
@@ -444,6 +447,9 @@ const Index = () => {
 
                 {/* Content Overlay with Slide Animation */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 overflow-hidden z-20">
+                  {/* Spacer to push content to bottom */}
+                  <div className="flex-1"></div>
+                  
                   {/* Title - Always visible at bottom */}
                   <div className="text-center transform transition-transform duration-300 group-hover:-translate-y-8">
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Courses</h3>
@@ -493,6 +499,9 @@ const Index = () => {
 
                 {/* Content Overlay with Slide Animation */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 overflow-hidden z-20">
+                  {/* Spacer to push content to bottom */}
+                  <div className="flex-1"></div>
+                  
                   {/* Title - Always visible at bottom */}
                   <div className="text-center transform transition-transform duration-300 group-hover:-translate-y-8">
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Community</h3>
