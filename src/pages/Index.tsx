@@ -61,61 +61,7 @@ const Index = () => {
     document.body.removeChild(measureElement);
   }, [rotatingWords, wordIndex]);
 
-  // Create optimized glow elements with reduced mobile impact
-  React.useEffect(() => {
-    // Detect mobile to reduce glow complexity
-    const isMobile = window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
-    // Remove any existing glow elements
-    const existingGlows = document.querySelectorAll('.lamp-glow-element');
-    existingGlows.forEach(el => el.remove());
 
-    // Only create glows if not on mobile to improve performance
-    if (!isMobile) {
-      // Create simplified primary glow
-      const primaryGlow = document.createElement('div');
-      primaryGlow.className = 'lamp-glow-element';
-      primaryGlow.style.cssText = `
-        position: fixed;
-        top: 2px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100vw;
-        height: 16px;
-        background: linear-gradient(180deg, rgba(4, 44, 34, 0.008), transparent);
-        filter: blur(3px);
-        z-index: 10;
-        pointer-events: none;
-        will-change: transform;
-      `;
-      
-      // Create simplified central glow
-      const centralGlow = document.createElement('div');
-      centralGlow.className = 'lamp-glow-element';
-      centralGlow.style.cssText = `
-        position: fixed;
-        top: 50vh;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100vw;
-        height: 100px;
-        background: linear-gradient(90deg, transparent 0%, rgba(4, 44, 34, 0.005) 50%, transparent 100%);
-        filter: blur(40px);
-        z-index: 9;
-        pointer-events: none;
-        will-change: transform;
-      `;
-      
-      document.body.appendChild(primaryGlow);
-      document.body.appendChild(centralGlow);
-    }
-
-    return () => {
-      // Cleanup on unmount
-      const glowElements = document.querySelectorAll('.lamp-glow-element');
-      glowElements.forEach(el => el.remove());
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white relative">
@@ -286,50 +232,8 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Hero Image - Optimized glow effects */}
+            {/* Hero Image - Clean design without glow effects */}
             <div className="tm-layout-hero__image relative">
-              {/* Optimized glow background - reduced complexity for mobile */}
-              <div className="absolute top-0 left-0 right-0 h-4/5 flex items-start justify-center">
-                <div className="absolute w-[200%] h-[140%] -z-10 -top-16">
-                  {/* Primary glow - optimized opacity */}
-                  <div 
-                    className="absolute inset-0 rounded-full opacity-4 md:opacity-6 animate-pulse-glow"
-                    style={{
-                      background: `radial-gradient(ellipse 120% 90% at center 20%, #22c55e 0%, transparent 60%)`,
-                      filter: 'blur(100px)',
-                    }}
-                    aria-hidden="true"
-                  />
-                  {/* Secondary glow - optimized */}
-                  <div 
-                    className="absolute inset-8 rounded-full opacity-3 md:opacity-5 animate-pulse-glow-secondary"
-                    style={{
-                      background: `radial-gradient(ellipse 100% 75% at center 15%, #4ade80 0%, transparent 50%)`,
-                      filter: 'blur(80px)',
-                    }}
-                    aria-hidden="true"
-                  />
-                  {/* Core glow - optimized */}
-                  <div 
-                    className="absolute inset-16 rounded-full opacity-6 md:opacity-10 animate-pulse-glow-tertiary"
-                    style={{
-                      background: `radial-gradient(ellipse 80% 60% at center 10%, #86efac 0%, transparent 40%)`,
-                      filter: 'blur(60px)',
-                    }}
-                    aria-hidden="true"
-                  />
-                  {/* Ambient glow - desktop only for performance */}
-                  <div 
-                    className="hidden md:block absolute inset-4 rounded-full opacity-3"
-                    style={{
-                      background: `radial-gradient(ellipse 140% 100% at center 25%, #22c55e 0%, transparent 70%)`,
-                      filter: 'blur(150px)',
-                      animation: 'pulse-glow 15s ease-in-out infinite reverse'
-                    }}
-                    aria-hidden="true"
-                  />
-                </div>
-              </div>
 
               {/* Main hero image container */}
               <div className="flex items-center justify-center relative z-[50]">
