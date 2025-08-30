@@ -407,9 +407,9 @@ const Index = () => {
 
                 {/* Content Overlay with Slide Animation */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 overflow-hidden z-20">
-                  {/* Title - Always visible */}
+                  {/* Title - Always visible at bottom */}
                   <div className="text-center transform transition-transform duration-300 group-hover:-translate-y-8">
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-thin text-white tracking-wide">Livestreams</h3>
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Livestreams</h3>
                   </div>
                   
                   {/* Description - Hidden below, slides up on hover */}
@@ -445,9 +445,9 @@ const Index = () => {
 
                 {/* Content Overlay with Slide Animation */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 overflow-hidden z-20">
-                  {/* Title - Always visible */}
+                  {/* Title - Always visible at bottom */}
                   <div className="text-center transform transition-transform duration-300 group-hover:-translate-y-8">
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-thin text-white tracking-wide">Courses</h3>
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Courses</h3>
                   </div>
                   
                   {/* Description - Hidden below, slides up on hover */}
@@ -494,9 +494,9 @@ const Index = () => {
 
                 {/* Content Overlay with Slide Animation */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 overflow-hidden z-20">
-                  {/* Title - Always visible */}
+                  {/* Title - Always visible at bottom */}
                   <div className="text-center transform transition-transform duration-300 group-hover:-translate-y-8">
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-thin text-white tracking-wide">Community</h3>
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Community</h3>
                   </div>
                   
                   {/* Description - Hidden below, slides up on hover */}
