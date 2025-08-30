@@ -400,7 +400,7 @@ const Index = () => {
           </div>
 
           {/* Three Cards Grid - Floating near bottom */}
-          <div className="grid md:grid-cols-3 gap-2 sm:gap-4 w-full pb-8 sm:pb-12">
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 w-full pb-8 sm:pb-12">
             {/* Coaching Card - Minimal */}
             <motion.div 
               className="relative group cursor-pointer h-80 sm:h-96 lg:h-[28rem]"
@@ -417,7 +417,7 @@ const Index = () => {
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-900/40 to-black/70"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 to-black/40"></div>
                 
                 {/* Content Overlay - Minimal */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
@@ -448,7 +448,7 @@ const Index = () => {
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-red-600/40 to-black/80"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-black/40"></div>
                 
                 {/* Content Overlay - Minimal */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
@@ -479,7 +479,7 @@ const Index = () => {
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-teal-900/40 to-black/70">
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-900/20 to-black/40">
                   {/* Mock chat interface elements overlay - minimal */}
                   <div className="absolute top-4 sm:top-6 left-4 sm:left-6 right-4 sm:right-6 space-y-1.5 sm:space-y-2 opacity-20">
                     <div className="h-2 sm:h-2.5 bg-white/20 rounded w-3/4"></div>
