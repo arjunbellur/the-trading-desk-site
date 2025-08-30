@@ -522,7 +522,7 @@ const Index = () => {
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal mb-2 tracking-tight">
-              An unmatched attendee
+              The Trading Desk
             </h2>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               Experience
