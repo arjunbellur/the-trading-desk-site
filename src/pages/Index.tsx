@@ -382,7 +382,7 @@ const Index = () => {
           </div>
 
           {/* Three Cards Grid - Floating near bottom */}
-          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 w-full pb-8 sm:pb-12">
+          <div className="grid md:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 w-full pb-8 sm:pb-12">
             {/* Coaching Card - Minimal */}
             <motion.div 
               className="relative group cursor-pointer h-80 sm:h-96 lg:h-[28rem]"
@@ -405,17 +405,14 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-full group-hover:translate-y-0 z-10"></div>
 
                 {/* Content Overlay with Slide Animation */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 overflow-hidden z-20">
-                  {/* Spacer to push content to bottom */}
-                  <div className="flex-1"></div>
-                  
+                <div className="absolute inset-0 p-6 sm:p-8 overflow-hidden z-20">
                   {/* Title - Always visible at bottom */}
-                  <div className="text-center transform transition-transform duration-300 group-hover:-translate-y-8">
+                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-transform duration-300 group-hover:-translate-y-8">
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Livestreams</h3>
                   </div>
                   
                   {/* Description - Hidden below, slides up on hover */}
-                  <div className="text-center transform transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
                     <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-sm mx-auto mt-3">
                       Watch live trading sessions with real-time market analysis, strategy breakdowns, and expert insights from professional traders.
                     </p>
@@ -446,17 +443,14 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-full group-hover:translate-y-0 z-10"></div>
 
                 {/* Content Overlay with Slide Animation */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 overflow-hidden z-20">
-                  {/* Spacer to push content to bottom */}
-                  <div className="flex-1"></div>
-                  
+                <div className="absolute inset-0 p-6 sm:p-8 overflow-hidden z-20">
                   {/* Title - Always visible at bottom */}
-                  <div className="text-center transform transition-transform duration-300 group-hover:-translate-y-8">
+                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-transform duration-300 group-hover:-translate-y-8">
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Courses</h3>
                   </div>
                   
                   {/* Description - Hidden below, slides up on hover */}
-                  <div className="text-center transform transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
                     <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-sm mx-auto mt-3">
                       Master trading strategies through comprehensive courses covering technical analysis, risk management, and advanced trading techniques.
                     </p>
@@ -498,17 +492,14 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-full group-hover:translate-y-0 z-10"></div>
 
                 {/* Content Overlay with Slide Animation */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 overflow-hidden z-20">
-                  {/* Spacer to push content to bottom */}
-                  <div className="flex-1"></div>
-                  
+                <div className="absolute inset-0 p-6 sm:p-8 overflow-hidden z-20">
                   {/* Title - Always visible at bottom */}
-                  <div className="text-center transform transition-transform duration-300 group-hover:-translate-y-8">
+                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-transform duration-300 group-hover:-translate-y-8">
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Community</h3>
                   </div>
                   
                   {/* Description - Hidden below, slides up on hover */}
-                  <div className="text-center transform transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
                     <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-sm mx-auto mt-3">
                       Connect with fellow traders, share insights, discuss strategies, and learn from a community of serious trading professionals.
                     </p>
