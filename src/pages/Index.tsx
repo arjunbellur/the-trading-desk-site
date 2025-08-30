@@ -517,7 +517,7 @@ const Index = () => {
 
 
       {/* An Unmatched Attendee Experience Section */}
-      <section id="experience" className="tm-layout-section py-12 sm:py-16 md:py-20 border-t border-border/30 relative z-40">
+      <section id="experience" className="tm-layout-section py-12 sm:py-16 md:py-20 border-t border-green-500/20 relative z-40 bg-gradient-to-b from-green-950/10 via-green-900/5 to-transparent">
         <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
