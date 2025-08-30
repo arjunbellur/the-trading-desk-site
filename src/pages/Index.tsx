@@ -407,7 +407,7 @@ const Index = () => {
                 {/* Content Overlay with Slide Animation */}
                 <div className="absolute inset-0 p-6 sm:p-8 overflow-hidden z-20">
                   {/* Title - Always visible at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-transform duration-300 group-hover:-translate-y-24">
+                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-transform duration-300 group-hover:-translate-y-24 pb-4 sm:pb-6">
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Livestreams</h3>
                   </div>
                   
@@ -445,7 +445,7 @@ const Index = () => {
                 {/* Content Overlay with Slide Animation */}
                 <div className="absolute inset-0 p-6 sm:p-8 overflow-hidden z-20">
                   {/* Title - Always visible at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-transform duration-300 group-hover:-translate-y-24">
+                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-transform duration-300 group-hover:-translate-y-24 pb-4 sm:pb-6">
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Courses</h3>
                   </div>
                   
@@ -494,7 +494,7 @@ const Index = () => {
                 {/* Content Overlay with Slide Animation */}
                 <div className="absolute inset-0 p-6 sm:p-8 overflow-hidden z-20">
                   {/* Title - Always visible at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-transform duration-300 group-hover:-translate-y-24">
+                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-transform duration-300 group-hover:-translate-y-24 pb-4 sm:pb-6">
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Community</h3>
                   </div>
                   
