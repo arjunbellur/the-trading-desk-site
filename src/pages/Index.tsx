@@ -423,7 +423,7 @@ const Index = () => {
                 <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
                   {/* Title */}
                   <div className="text-center">
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-thin text-white tracking-wide">Coaching</h3>
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-thin text-white tracking-wide">Livestreams</h3>
                   </div>
                 </div>
 
