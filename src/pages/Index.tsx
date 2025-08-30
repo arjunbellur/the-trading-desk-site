@@ -388,19 +388,19 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Transform Your Trading Section - Viewport Bottom Cards */}
-      <section className="min-h-screen flex flex-col justify-between bg-transparent relative z-40 px-8">
-        <div className="w-full max-w-none">
-          {/* Section Header - At Top */}
-          <div className="text-center pt-4 sm:pt-6">
+      {/* Transform Your Trading Section - Proper Layout */}
+      <section className="h-screen bg-transparent relative z-40 px-8">
+        <div className="h-full w-full flex flex-col justify-between">
+          {/* Section Header - Floating near top */}
+          <div className="text-center pt-8 sm:pt-12">
             <h2 className="text-white">
               Transform Your{" "}
               <span className="tm-theme-text-gradient--brand">Trading</span>
             </h2>
           </div>
 
-          {/* Three Cards Grid - At Viewport Bottom */}
-          <div className="grid md:grid-cols-3 gap-2 sm:gap-4 w-full mt-auto">
+          {/* Three Cards Grid - Floating near bottom */}
+          <div className="grid md:grid-cols-3 gap-2 sm:gap-4 w-full pb-8 sm:pb-12">
             {/* Coaching Card - Minimal */}
             <motion.div 
               className="relative group cursor-pointer h-80 sm:h-96 lg:h-[28rem]"
