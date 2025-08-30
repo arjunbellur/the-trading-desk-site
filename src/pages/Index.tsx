@@ -388,28 +388,28 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Transform Your Trading Section - Optimized */}
-      <section className="tm-layout-section py-12 sm:py-16 md:py-20 bg-transparent relative z-40">
-        <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header - Optimized spacing */}
+      {/* Transform Your Trading Section - Full Width & Height */}
+      <section className="min-h-screen flex flex-col justify-center bg-transparent relative z-40 px-8">
+        <div className="w-full max-w-none">
+          {/* Section Header - Centered */}
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
               Transform Your{" "}
               <span className="tm-theme-text-gradient--brand">Trading</span>
             </h2>
           </div>
 
-          {/* Three Cards Grid - Optimized spacing */}
-          <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
-            {/* Coaching Card - Optimized */}
+          {/* Three Cards Grid - Full Width */}
+          <div className="grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 w-full">
+            {/* Coaching Card - Full Width */}
             <motion.div 
-              className="relative group cursor-pointer"
+              className="relative group cursor-pointer h-80 sm:h-96 lg:h-[28rem]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], type: "tween" }}
             >
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 relative">
+              <div className="h-full rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 relative">
                 {/* Background Image - Professional mentor/coaching */}
                 <img 
                   src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1426&q=80" 
@@ -419,12 +419,12 @@ const Index = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-900/40 to-black/70"></div>
                 
-                {/* Content Overlay - Optimized spacing */}
-                <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8">
+                {/* Content Overlay - Enhanced spacing */}
+                <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8 lg:p-10">
                   {/* Icon Area */}
-                  <div className="flex justify-center items-center h-24 sm:h-32">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                      <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex justify-center items-center h-32 sm:h-40 lg:h-48">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                      <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                       </svg>
                     </div>
@@ -432,24 +432,24 @@ const Index = () => {
                   
                   {/* Title */}
                   <div className="text-center">
-                    <h3 className="text-xl sm:text-2xl font-thin text-white tracking-wide">Coaching</h3>
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-thin text-white tracking-wide">Coaching</h3>
                   </div>
                 </div>
 
-                {/* Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Enhanced Hover Effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               </div>
             </motion.div>
 
-            {/* Courses Card - Optimized */}
+            {/* Courses Card - Full Width */}
             <motion.div 
-              className="relative group cursor-pointer"
+              className="relative group cursor-pointer h-80 sm:h-96 lg:h-[28rem]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}
             >
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-red-800 to-red-900 relative">
+              <div className="h-full rounded-2xl overflow-hidden bg-gradient-to-br from-red-800 to-red-900 relative">
                 {/* Background Image - Trading charts and analysis */}
                 <img 
                   src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
@@ -459,12 +459,12 @@ const Index = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-red-600/40 to-black/80"></div>
                 
-                {/* Content Overlay - Optimized spacing */}
-                <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8">
+                {/* Content Overlay - Enhanced spacing */}
+                <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8 lg:p-10">
                   {/* Icon Area */}
-                  <div className="flex justify-center items-center h-24 sm:h-32">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                      <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex justify-center items-center h-32 sm:h-40 lg:h-48">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                      <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
@@ -472,24 +472,24 @@ const Index = () => {
                   
                   {/* Title */}
                   <div className="text-center">
-                    <h3 className="text-xl sm:text-2xl font-thin text-white tracking-wide">Courses</h3>
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-thin text-white tracking-wide">Courses</h3>
                   </div>
                 </div>
 
-                {/* Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Enhanced Hover Effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               </div>
             </motion.div>
 
-            {/* Community Card - Optimized */}
+            {/* Community Card - Full Width */}
             <motion.div 
-              className="relative group cursor-pointer"
+              className="relative group cursor-pointer h-80 sm:h-96 lg:h-[28rem]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: 0.2, ease: [0.23, 1, 0.32, 1], type: "tween" }}
             >
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-teal-800 to-slate-900 relative">
+              <div className="h-full rounded-2xl overflow-hidden bg-gradient-to-br from-teal-800 to-slate-900 relative">
                 {/* Background Image - Team collaboration/community */}
                 <img 
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
@@ -498,24 +498,24 @@ const Index = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-teal-900/40 to-black/70">
-                  {/* Mock chat interface elements overlay - optimized */}
-                  <div className="absolute top-3 sm:top-4 left-3 sm:left-4 right-3 sm:right-4 space-y-1 sm:space-y-2 opacity-20">
-                    <div className="h-1.5 sm:h-2 bg-white/20 rounded w-3/4"></div>
-                    <div className="h-1.5 sm:h-2 bg-white/15 rounded w-1/2"></div>
-                    <div className="h-1.5 sm:h-2 bg-white/10 rounded w-2/3"></div>
+                  {/* Mock chat interface elements overlay - enhanced */}
+                  <div className="absolute top-4 sm:top-6 left-4 sm:left-6 right-4 sm:right-6 space-y-1.5 sm:space-y-2 opacity-20">
+                    <div className="h-2 sm:h-2.5 bg-white/20 rounded w-3/4"></div>
+                    <div className="h-2 sm:h-2.5 bg-white/15 rounded w-1/2"></div>
+                    <div className="h-2 sm:h-2.5 bg-white/10 rounded w-2/3"></div>
                   </div>
-                  <div className="absolute bottom-12 sm:bottom-16 left-3 sm:left-4 right-3 sm:right-4 space-y-1 sm:space-y-2 opacity-15">
-                    <div className="h-1.5 sm:h-2 bg-white/15 rounded w-1/2 ml-auto"></div>
-                    <div className="h-1.5 sm:h-2 bg-white/20 rounded w-3/4 ml-auto"></div>
+                  <div className="absolute bottom-16 sm:bottom-20 left-4 sm:left-6 right-4 sm:right-6 space-y-1.5 sm:space-y-2 opacity-15">
+                    <div className="h-2 sm:h-2.5 bg-white/15 rounded w-1/2 ml-auto"></div>
+                    <div className="h-2 sm:h-2.5 bg-white/20 rounded w-3/4 ml-auto"></div>
                   </div>
                 </div>
                 
-                {/* Content Overlay - Optimized spacing */}
-                <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8">
+                {/* Content Overlay - Enhanced spacing */}
+                <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8 lg:p-10">
                   {/* Icon Area */}
-                  <div className="flex justify-center items-center h-24 sm:h-32">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                      <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex justify-center items-center h-32 sm:h-40 lg:h-48">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                      <svg className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
                     </div>
@@ -523,12 +523,12 @@ const Index = () => {
                   
                   {/* Title */}
                   <div className="text-center">
-                    <h3 className="text-xl sm:text-2xl font-thin text-white tracking-wide">Community</h3>
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-thin text-white tracking-wide">Community</h3>
                   </div>
                 </div>
 
-                {/* Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Enhanced Hover Effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               </div>
             </motion.div>
           </div>
