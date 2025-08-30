@@ -376,8 +376,7 @@ const Index = () => {
           {/* Section Header - Floating near top */}
           <div className="text-center pt-8 sm:pt-12">
             <h2 className="text-white">
-              Transform Your
-              <br />
+              Transform Your{" "}
               <span className="tm-theme-text-gradient--brand">Trading</span>
             </h2>
           </div>
