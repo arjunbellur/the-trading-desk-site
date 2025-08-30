@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import SmoothScrollLink from "@/components/SmoothScrollLink";
-import { NeonGradientCard, Marquee, ShineBorder, BorderBeam } from "@/components/magicui";
+import { NeonGradientCard, Marquee, ShineBorder, BorderBeam, BentoBox, BentoCard } from "@/components/magicui";
 import { motion, AnimatePresence } from "framer-motion";
 // BlurInView removed for mobile performance
 import { LiquidGlassButton } from "@/components/ui/liquid-glass-button";
@@ -517,7 +517,7 @@ const Index = () => {
 
 
       {/* An Unmatched Attendee Experience Section */}
-      <section id="experience" className="tm-layout-section py-12 sm:py-16 md:py-20 border-t border-green-500/20 relative z-40 bg-gradient-to-b from-green-950/10 via-green-900/5 to-transparent">
+      <section id="experience" className="tm-layout-section py-12 sm:py-16 md:py-20 relative z-40 bg-gradient-to-b from-green-950/10 via-green-900/5 to-transparent">
         <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
@@ -529,23 +529,21 @@ const Index = () => {
             </h1>
           </div>
           
-          {/* Bento Box Grid */}
-          <div className="grid grid-cols-12 gap-4 sm:gap-6 auto-rows-fr">
+          {/* MagicUI Bento Box Grid */}
+          <BentoBox className="gap-4 sm:gap-6" columns={12}>
             
             {/* Live Trading Sessions - 5 columns */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="col-span-12 lg:col-span-5 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 p-4 backdrop-blur-sm"
+            <BentoCard 
+              colSpan={5} 
+              neonColors={{ firstColor: "#10b981", secondColor: "#34d399" }}
+              borderRadius={8}
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
                   <h3 className="text-xl font-bold mb-3 text-white">Live Trading Sessions</h3>
                   <p className="text-sm text-gray-200 leading-relaxed">
-                    Watch real trades happen in real-time. See decision-making, risk management, and execution as professional traders navigate the markets.
+                    Watch <span className="text-green-400 font-semibold">real trades</span> happen in real-time. See <span className="text-green-400 font-semibold">decision-making</span>, risk management, and execution as professional traders navigate the markets.
                   </p>
                 </div>
                 
@@ -569,22 +567,20 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </BentoCard>
 
             {/* Course Content - 7 columns */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="col-span-12 lg:col-span-7 bg-gradient-to-br from-emerald-500/20 via-teal-500/20 to-cyan-500/20 p-4 backdrop-blur-sm"
+            <BentoCard 
+              colSpan={7} 
+              neonColors={{ firstColor: "#10b981", secondColor: "#34d399" }}
+              borderRadius={8}
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
                   <h3 className="text-xl font-bold mb-3 text-white">Course Content</h3>
                   <p className="text-sm text-gray-200 leading-relaxed">
-                    Comprehensive instructional videos on futures trading. From beginner fundamentals to advanced strategies, learn at your own pace with structured curriculum.
+                    Comprehensive instructional videos on <span className="text-green-400 font-semibold">futures trading</span>. From beginner fundamentals to <span className="text-green-400 font-semibold">advanced strategies</span>, learn at your own pace with structured curriculum.
                   </p>
                 </div>
                 
@@ -604,20 +600,18 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </BentoCard>
 
             {/* Expert Coaching - 4 columns */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="col-span-12 lg:col-span-4 bg-gradient-to-br from-orange-500/20 via-red-500/20 to-pink-500/20 p-4 backdrop-blur-sm"
+            <BentoCard 
+              colSpan={4} 
+              neonColors={{ firstColor: "#f59e0b", secondColor: "#f97316" }}
+              borderRadius={8}
             >
               <div className="flex flex-col justify-center h-full">
                 <h3 className="text-xl font-bold mb-3 text-white">Expert Coaching</h3>
                 <p className="text-sm text-gray-200 leading-relaxed mb-4">
-                  Get personalized tips and guidance from professional traders. Ask instructors for advice on strategies, risk management, and market analysis.
+                  Get <span className="text-green-400 font-semibold">personalized tips</span> and guidance from professional traders. Ask instructors for advice on <span className="text-green-400 font-semibold">strategies</span>, risk management, and market analysis.
                 </p>
                 
                 {/* Visual Example */}
@@ -637,20 +631,18 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </BentoCard>
 
             {/* Trading Podcast - 4 columns */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.4, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="col-span-12 lg:col-span-4 bg-gradient-to-br from-purple-500/20 via-indigo-500/20 to-blue-500/20 p-4 backdrop-blur-sm"
+            <BentoCard 
+              colSpan={4} 
+              neonColors={{ firstColor: "#8b5cf6", secondColor: "#6366f1" }}
+              borderRadius={8}
             >
               <div className="flex flex-col justify-center h-full">
                 <h3 className="text-xl font-bold mb-3 text-white">Trading Podcast</h3>
                 <p className="text-sm text-gray-200 leading-relaxed mb-4">
-                  Listen to expert insights and market analysis on the go. Weekly episodes covering trading strategies, market psychology, and industry trends.
+                  Listen to <span className="text-green-400 font-semibold">expert insights</span> and market analysis on the go. Weekly episodes covering <span className="text-green-400 font-semibold">trading strategies</span>, market psychology, and industry trends.
                 </p>
                 
                 {/* Visual Example */}
@@ -664,20 +656,18 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </BentoCard>
 
             {/* Discord Community - 4 columns */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.5, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="col-span-12 lg:col-span-4 bg-gradient-to-br from-green-500/20 via-emerald-500/20 to-teal-500/20 p-4 backdrop-blur-sm"
+            <BentoCard 
+              colSpan={4} 
+              neonColors={{ firstColor: "#10b981", secondColor: "#059669" }}
+              borderRadius={8}
             >
               <div className="flex flex-col justify-center h-full">
                 <h3 className="text-xl font-bold mb-3 text-white">Discord Community</h3>
                 <p className="text-sm text-gray-200 leading-relaxed mb-4">
-                  Connect with fellow traders 24/7. Share insights, discuss strategies, and get real-time market updates in our active Discord community.
+                  Connect with fellow traders <span className="text-green-400 font-semibold">24/7</span>. Share insights, discuss strategies, and get <span className="text-green-400 font-semibold">real-time market updates</span> in our active Discord community.
                 </p>
                 
                 {/* Visual Example */}
@@ -708,8 +698,8 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
-          </div>
+            </BentoCard>
+          </BentoBox>
 
           {/* See All Features CTA */}
           <motion.div
