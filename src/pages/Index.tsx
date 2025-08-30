@@ -530,7 +530,7 @@ const Index = () => {
           </div>
           
           {/* Features Grid - Each card is a 2-column layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-w-none">
             
             {/* Interactive Overlays */}
             <motion.div
@@ -538,24 +538,24 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-emerald-100 to-cyan-100 rounded-2xl p-6 border border-emerald-200/50"
+              className="bg-gradient-to-br from-green-900/80 to-emerald-800/60 rounded-2xl p-4 border border-green-700/30 backdrop-blur-sm"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">Live Trading Sessions</h3>
-                  <p className="text-sm text-gray-700 leading-relaxed">
+                  <h3 className="text-xl font-bold mb-3 text-white">Live Trading Sessions</h3>
+                  <p className="text-sm text-green-100 leading-relaxed">
                     Watch real trades happen in real-time. See decision-making, risk management, and execution as professional traders navigate the markets.
                   </p>
                 </div>
                 
                 {/* Right Column - Visual Example */}
-                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-4 overflow-hidden">
+                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-3 overflow-hidden">
                   {/* Mock Video Background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-lg"></div>
                   
                   {/* Overlay Box */}
-                  <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm rounded-lg p-4 transform rotate-1">
+                  <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm rounded-lg p-3 transform rotate-1">
                     <div className="text-white font-semibold mb-2">Live Now</div>
                     <div className="flex gap-2">
                       <button className="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1 rounded-lg transition-colors">
@@ -571,86 +571,69 @@ const Index = () => {
               </div>
             </motion.div>
 
-            {/* Interactive Polls */}
+            {/* Course Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-orange-100 to-yellow-100 rounded-2xl p-6 border border-orange-200/50"
+              className="bg-gradient-to-br from-green-900/80 to-emerald-800/60 rounded-2xl p-4 border border-green-700/30 backdrop-blur-sm"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">Interactive Polls</h3>
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    Vote on market sentiment, trading strategies, and risk tolerance. See real-time results from the trading community during live sessions.
+                  <h3 className="text-xl font-bold mb-3 text-white">Course Content</h3>
+                  <p className="text-sm text-green-100 leading-relaxed">
+                    Comprehensive instructional videos on futures trading. From beginner fundamentals to advanced strategies, learn at your own pace with structured curriculum.
                   </p>
                 </div>
                 
                 {/* Right Column - Visual Example */}
-                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-4 overflow-hidden">
+                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-3 overflow-hidden">
                   {/* Mock Video Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-lg"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg"></div>
                   
-                  {/* Poll Overlay */}
-                  <div className="absolute top-4 right-4 bg-gray-800/90 backdrop-blur-sm rounded-lg p-4 transform -rotate-1 w-48">
-                    <div className="text-white text-xs mb-2">Live poll • 127 votes</div>
-                    <div className="text-white font-semibold mb-3">What's your trading style?</div>
-                    
-                    {/* Poll Options */}
-                    <div className="space-y-2">
-                      {[
-                        { text: "Scalping", votes: 15, color: "bg-red-500" },
-                        { text: "Day Trading", votes: 28, color: "bg-orange-500" },
-                        { text: "Swing Trading", votes: 35, color: "bg-yellow-500" },
-                        { text: "Position Trading", votes: 22, color: "bg-blue-500" }
-                      ].map((option, index) => (
-                        <div key={index} className="flex items-center gap-2">
-                          <div className="flex-1 bg-gray-700 rounded-full h-2 overflow-hidden">
-                            <div 
-                              className={`h-full ${option.color} rounded-full transition-all duration-500`}
-                              style={{ width: `${option.votes}%` }}
-                            ></div>
-                          </div>
-                          <span className="text-white text-xs min-w-[60px]">{option.text}</span>
-                          <span className="text-gray-400 text-xs">{option.votes}%</span>
-                        </div>
-                      ))}
+                  {/* Course Overlay */}
+                  <div className="absolute top-3 right-3 bg-blue-600/90 backdrop-blur-sm rounded-lg p-3 transform rotate-1 w-40">
+                    <div className="text-white text-xs mb-1">Lesson 12 of 24</div>
+                    <div className="text-white font-semibold mb-2 text-sm">Risk Management</div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="text-white text-xs">Live</span>
                     </div>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Q&A */}
+            {/* Expert Coaching */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-blue-100 to-emerald-100 rounded-2xl p-6 border border-blue-200/50"
+              className="bg-gradient-to-br from-green-900/80 to-emerald-800/60 rounded-2xl p-4 border border-green-700/30 backdrop-blur-sm"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">Expert Q&A</h3>
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    Ask questions directly to professional traders. Get real-time answers about strategies, risk management, and market analysis.
+                  <h3 className="text-xl font-bold mb-3 text-white">Expert Coaching</h3>
+                  <p className="text-sm text-green-100 leading-relaxed">
+                    Get personalized tips and guidance from professional traders. Ask instructors for advice on strategies, risk management, and market analysis.
                   </p>
                 </div>
                 
                 {/* Right Column - Visual Example */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 flex items-center justify-center">
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 flex items-center justify-center">
                   <div className="text-center">
                     <div className="font-semibold text-gray-900 mb-2">What's your stop-loss strategy for ES futures?</div>
                     <div className="flex items-center justify-between gap-4">
                       <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
+                        <div className="w-6 h-6 bg-orange-400 rounded-full"></div>
                         <span className="text-sm text-gray-600">asked by Mike Chen</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <ThumbsUp className="w-4 h-4 text-gray-600" />
+                        <ThumbsUp className="w-4 h-4 text-orange-500" />
                         <span className="text-sm text-gray-600">12 votes</span>
                       </div>
                     </div>
@@ -659,30 +642,30 @@ const Index = () => {
               </div>
             </motion.div>
 
-            {/* HD Video Quality */}
+            {/* Trading Podcast */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.4, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-6 border border-gray-300/50"
+              className="bg-gradient-to-br from-green-900/80 to-emerald-800/60 rounded-2xl p-4 border border-green-700/30 backdrop-blur-sm"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">Crystal Clear HD</h3>
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    Never miss a detail with crystal clear HD video streaming. See every chart, indicator, and trade execution in perfect quality.
+                  <h3 className="text-xl font-bold mb-3 text-white">Trading Podcast</h3>
+                  <p className="text-sm text-green-100 leading-relaxed">
+                    Listen to expert insights and market analysis on the go. Weekly episodes covering trading strategies, market psychology, and industry trends.
                   </p>
                 </div>
                 
                 {/* Right Column - Visual Example */}
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-4 flex items-center justify-center">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-3 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-white font-serif text-2xl font-light mb-3">Live Trading</div>
-                    <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-2 inline-flex items-center gap-2">
-                      <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
-                      <span className="text-white text-sm">Alex Rodriguez</span>
+                    <div className="text-white font-serif text-xl font-light mb-3">Episode 47</div>
+                    <div className="bg-purple-600/90 backdrop-blur-sm rounded-lg px-3 py-2 inline-flex items-center gap-2">
+                      <div className="w-6 h-6 bg-purple-400 rounded-full"></div>
+                      <span className="text-white text-sm">Market Psychology</span>
                     </div>
                   </div>
                 </div>
@@ -695,13 +678,13 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.5, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 border border-purple-200/50"
+              className="bg-gradient-to-br from-green-900/80 to-emerald-800/60 rounded-2xl p-4 border border-green-700/30 backdrop-blur-sm"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">Discord Community</h3>
-                  <p className="text-sm text-gray-700 leading-relaxed">
+                  <h3 className="text-xl font-bold mb-3 text-white">Discord Community</h3>
+                  <p className="text-sm text-green-100 leading-relaxed">
                     Connect with fellow traders 24/7. Share insights, discuss strategies, and get real-time market updates in our active Discord community.
                   </p>
                 </div>
