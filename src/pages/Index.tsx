@@ -529,8 +529,8 @@ const Index = () => {
             </h1>
           </div>
           
-          {/* Features Grid - 2x3 Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {/* Features Grid - Each card is a 2-column layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             
             {/* Interactive Overlays */}
             <motion.div
@@ -538,32 +538,34 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="space-y-4"
+              className="bg-gradient-to-br from-emerald-100 to-cyan-100 rounded-2xl p-6 border border-emerald-200/50"
             >
-              {/* Description Box */}
-              <div className="bg-gradient-to-br from-emerald-100 to-cyan-100 rounded-2xl p-6 border border-emerald-200/50">
-                <h3 className="text-lg font-bold mb-3 text-gray-900">Interactive overlays</h3>
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  Add custom branded graphics that lay over your live video to intro speakers, emphasize key points, and display clickable CTAs.
-                </p>
-              </div>
-              
-              {/* Visual Example */}
-              <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-4 h-48 overflow-hidden">
-                {/* Mock Video Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-xl"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+                {/* Left Column - Title & Description */}
+                <div className="flex flex-col justify-center">
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">Interactive overlays</h3>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Add custom branded graphics that lay over your live video to intro speakers, emphasize key points, and display clickable CTAs.
+                  </p>
+                </div>
                 
-                {/* Overlay Box */}
-                <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm rounded-xl p-4 transform rotate-1">
-                  <div className="text-white font-semibold mb-2">What's next?</div>
-                  <div className="flex gap-2">
-                    <button className="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1 rounded-lg transition-colors">
-                      BOOK A DEMO
-                    </button>
-                    <button className="bg-yellow-500 hover:bg-yellow-400 text-black text-xs px-3 py-1 rounded-lg transition-colors flex items-center gap-1">
-                      <Play className="w-3 h-3" />
-                      Attendee
-                    </button>
+                {/* Right Column - Visual Example */}
+                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-4 overflow-hidden">
+                  {/* Mock Video Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-lg"></div>
+                  
+                  {/* Overlay Box */}
+                  <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm rounded-lg p-4 transform rotate-1">
+                    <div className="text-white font-semibold mb-2">What's next?</div>
+                    <div className="flex gap-2">
+                      <button className="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1 rounded-lg transition-colors">
+                        BOOK A DEMO
+                      </button>
+                      <button className="bg-yellow-500 hover:bg-yellow-400 text-black text-xs px-3 py-1 rounded-lg transition-colors flex items-center gap-1">
+                        <Play className="w-3 h-3" />
+                        Attendee
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -575,46 +577,48 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="space-y-4"
+              className="bg-gradient-to-br from-orange-100 to-yellow-100 rounded-2xl p-6 border border-orange-200/50"
             >
-              {/* Description Box */}
-              <div className="bg-gradient-to-br from-orange-100 to-yellow-100 rounded-2xl p-6 border border-orange-200/50">
-                <h3 className="text-lg font-bold mb-3 text-gray-900">Interactive Polls</h3>
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  Embed polls directly on stage and watch the results populate in real-time. Moderate audience questions, allow upvoting, and bring attendees on-stage.
-                </p>
-              </div>
-              
-              {/* Visual Example */}
-              <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-4 h-48 overflow-hidden">
-                {/* Mock Video Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-xl"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+                {/* Left Column - Title & Description */}
+                <div className="flex flex-col justify-center">
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">Interactive Polls</h3>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Embed polls directly on stage and watch the results populate in real-time. Moderate audience questions, allow upvoting, and bring attendees on-stage.
+                  </p>
+                </div>
                 
-                {/* Poll Overlay */}
-                <div className="absolute top-4 right-4 bg-gray-800/90 backdrop-blur-sm rounded-xl p-4 transform -rotate-1 w-48">
-                  <div className="text-white text-xs mb-2">Open poll • 15 votes</div>
-                  <div className="text-white font-semibold mb-3">How are we feeling today?</div>
+                {/* Right Column - Visual Example */}
+                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-4 overflow-hidden">
+                  {/* Mock Video Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-lg"></div>
                   
-                  {/* Poll Options */}
-                  <div className="space-y-2">
-                    {[
-                      { text: "Meh", votes: 2, color: "bg-red-500" },
-                      { text: "Okay", votes: 8, color: "bg-orange-500" },
-                      { text: "Pretty good", votes: 21, color: "bg-yellow-500" },
-                      { text: "Great", votes: 17, color: "bg-blue-500" },
-                      { text: "Best day ever!", votes: 63, color: "bg-green-500" }
-                    ].map((option, index) => (
-                      <div key={index} className="flex items-center gap-2">
-                        <div className="flex-1 bg-gray-700 rounded-full h-2 overflow-hidden">
-                          <div 
-                            className={`h-full ${option.color} rounded-full transition-all duration-500`}
-                            style={{ width: `${option.votes}%` }}
-                          ></div>
+                  {/* Poll Overlay */}
+                  <div className="absolute top-4 right-4 bg-gray-800/90 backdrop-blur-sm rounded-lg p-4 transform -rotate-1 w-48">
+                    <div className="text-white text-xs mb-2">Open poll • 15 votes</div>
+                    <div className="text-white font-semibold mb-3">How are we feeling today?</div>
+                    
+                    {/* Poll Options */}
+                    <div className="space-y-2">
+                      {[
+                        { text: "Meh", votes: 2, color: "bg-red-500" },
+                        { text: "Okay", votes: 8, color: "bg-orange-500" },
+                        { text: "Pretty good", votes: 21, color: "bg-yellow-500" },
+                        { text: "Great", votes: 17, color: "bg-blue-500" },
+                        { text: "Best day ever!", votes: 63, color: "bg-green-500" }
+                      ].map((option, index) => (
+                        <div key={index} className="flex items-center gap-2">
+                          <div className="flex-1 bg-gray-700 rounded-full h-2 overflow-hidden">
+                            <div 
+                              className={`h-full ${option.color} rounded-full transition-all duration-500`}
+                              style={{ width: `${option.votes}%` }}
+                            ></div>
+                          </div>
+                          <span className="text-white text-xs min-w-[60px]">{option.text}</span>
+                          <span className="text-gray-400 text-xs">{option.votes}%</span>
                         </div>
-                        <span className="text-white text-xs min-w-[60px]">{option.text}</span>
-                        <span className="text-gray-400 text-xs">{option.votes}%</span>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -626,28 +630,30 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="space-y-4"
+              className="bg-gradient-to-br from-blue-100 to-emerald-100 rounded-2xl p-6 border border-blue-200/50"
             >
-              {/* Description Box */}
-              <div className="bg-gradient-to-br from-blue-100 to-emerald-100 rounded-2xl p-6 border border-blue-200/50">
-                <h3 className="text-lg font-bold mb-3 text-gray-900">Q&A</h3>
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  Moderate audience questions, allow upvoting, and bring attendees on-stage.
-                </p>
-              </div>
-              
-              {/* Visual Example */}
-              <div className="bg-gradient-to-br from-blue-100 to-emerald-100 rounded-2xl p-4 h-48">
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 h-full">
-                  <div className="font-semibold text-gray-900 mb-2">When is the release date?</div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
-                      <span className="text-sm text-gray-600">asked by Tommo Jones</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <ThumbsUp className="w-4 h-4 text-gray-600" />
-                      <span className="text-sm text-gray-600">3 votes</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+                {/* Left Column - Title & Description */}
+                <div className="flex flex-col justify-center">
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">Q&A</h3>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Moderate audience questions, allow upvoting, and bring attendees on-stage.
+                  </p>
+                </div>
+                
+                {/* Right Column - Visual Example */}
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="font-semibold text-gray-900 mb-2">When is the release date?</div>
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
+                        <span className="text-sm text-gray-600">asked by Tommo Jones</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <ThumbsUp className="w-4 h-4 text-gray-600" />
+                        <span className="text-sm text-gray-600">3 votes</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -660,23 +666,25 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.4, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="space-y-4"
+              className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-6 border border-gray-300/50"
             >
-              {/* Description Box */}
-              <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-6 border border-gray-300/50">
-                <h3 className="text-lg font-bold mb-3 text-gray-900">HD Video Quality</h3>
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  Provide a better experience for your viewers with crystal clear HD video streaming.
-                </p>
-              </div>
-              
-              {/* Visual Example */}
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-4 h-48 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-white font-serif text-2xl font-light mb-3">Starting soon</div>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-2 inline-flex items-center gap-2">
-                    <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
-                    <span className="text-white text-sm">Judy Thomas</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+                {/* Left Column - Title & Description */}
+                <div className="flex flex-col justify-center">
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">HD Video Quality</h3>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Provide a better experience for your viewers with crystal clear HD video streaming.
+                  </p>
+                </div>
+                
+                {/* Right Column - Visual Example */}
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-4 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-white font-serif text-2xl font-light mb-3">Starting soon</div>
+                    <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-2 inline-flex items-center gap-2">
+                      <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
+                      <span className="text-white text-sm">Judy Thomas</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -688,19 +696,19 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.5, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="space-y-4"
+              className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 border border-purple-200/50"
             >
-              {/* Description Box */}
-              <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 border border-purple-200/50">
-                <h3 className="text-lg font-bold mb-3 text-gray-900">Chat</h3>
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  Chat is where engagement happens. With a slack-like experience, attendees can use emojis, reactions, and gifs to express themselves.
-                </p>
-              </div>
-              
-              {/* Visual Example */}
-              <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-4 h-48">
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 h-full space-y-2 overflow-y-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+                {/* Left Column - Title & Description */}
+                <div className="flex flex-col justify-center">
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">Chat</h3>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Chat is where engagement happens. With a slack-like experience, attendees can use emojis, reactions, and gifs to express themselves.
+                  </p>
+                </div>
+                
+                {/* Right Column - Visual Example */}
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 space-y-2 overflow-y-auto">
                   {/* Chat Messages */}
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-blue-300 rounded-full flex-shrink-0"></div>
@@ -744,9 +752,6 @@ const Index = () => {
                 </div>
               </div>
             </motion.div>
-
-            {/* Empty slot for 2x3 grid balance */}
-            <div className="hidden lg:block"></div>
           </div>
 
           {/* See All Features CTA */}
