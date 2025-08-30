@@ -529,39 +529,42 @@ const Index = () => {
             </h1>
           </div>
           
-          {/* Features Grid - Each card is a 2-column layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-w-none">
+          {/* Features Grid - 2x2 grid for first 4 cards, full width for Discord */}
+          <div className="space-y-4 sm:space-y-6">
             
-            {/* Interactive Overlays */}
+            {/* First 4 cards in 2x2 grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+            
+            {/* Live Trading Sessions */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-green-900/80 to-emerald-800/60 rounded-2xl p-4 border border-green-700/30 backdrop-blur-sm"
+              className="bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 p-4 backdrop-blur-sm"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
                   <h3 className="text-xl font-bold mb-3 text-white">Live Trading Sessions</h3>
-                  <p className="text-sm text-green-100 leading-relaxed">
+                  <p className="text-sm text-gray-200 leading-relaxed">
                     Watch real trades happen in real-time. See decision-making, risk management, and execution as professional traders navigate the markets.
                   </p>
                 </div>
                 
                 {/* Right Column - Visual Example */}
-                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-3 overflow-hidden">
+                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-3 overflow-hidden">
                   {/* Mock Video Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-lg"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20"></div>
                   
                   {/* Overlay Box */}
-                  <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm rounded-lg p-3 transform rotate-1">
+                  <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm p-3 transform rotate-1">
                     <div className="text-white font-semibold mb-2">Live Now</div>
                     <div className="flex gap-2">
-                      <button className="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1 rounded-lg transition-colors">
+                      <button className="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1 transition-colors">
                         JOIN SESSION
                       </button>
-                      <button className="bg-yellow-500 hover:bg-yellow-400 text-black text-xs px-3 py-1 rounded-lg transition-colors flex items-center gap-1">
+                      <button className="bg-yellow-500 hover:bg-yellow-400 text-black text-xs px-3 py-1 transition-colors flex items-center gap-1">
                         <Play className="w-3 h-3" />
                         Watch
                       </button>
@@ -577,24 +580,24 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-green-900/80 to-emerald-800/60 rounded-2xl p-4 border border-green-700/30 backdrop-blur-sm"
+              className="bg-gradient-to-br from-emerald-500/20 via-teal-500/20 to-cyan-500/20 p-4 backdrop-blur-sm"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
                   <h3 className="text-xl font-bold mb-3 text-white">Course Content</h3>
-                  <p className="text-sm text-green-100 leading-relaxed">
+                  <p className="text-sm text-gray-200 leading-relaxed">
                     Comprehensive instructional videos on futures trading. From beginner fundamentals to advanced strategies, learn at your own pace with structured curriculum.
                   </p>
                 </div>
                 
                 {/* Right Column - Visual Example */}
-                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-3 overflow-hidden">
+                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-3 overflow-hidden">
                   {/* Mock Video Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20"></div>
                   
                   {/* Course Overlay */}
-                  <div className="absolute top-3 right-3 bg-blue-600/90 backdrop-blur-sm rounded-lg p-3 transform rotate-1 w-40">
+                  <div className="absolute top-3 right-3 bg-blue-600/90 backdrop-blur-sm p-3 transform rotate-1 w-40">
                     <div className="text-white text-xs mb-1">Lesson 12 of 24</div>
                     <div className="text-white font-semibold mb-2 text-sm">Risk Management</div>
                     <div className="flex items-center gap-2">
@@ -612,19 +615,19 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-green-900/80 to-emerald-800/60 rounded-2xl p-4 border border-green-700/30 backdrop-blur-sm"
+              className="bg-gradient-to-br from-orange-500/20 via-red-500/20 to-pink-500/20 p-4 backdrop-blur-sm"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
                   <h3 className="text-xl font-bold mb-3 text-white">Expert Coaching</h3>
-                  <p className="text-sm text-green-100 leading-relaxed">
+                  <p className="text-sm text-gray-200 leading-relaxed">
                     Get personalized tips and guidance from professional traders. Ask instructors for advice on strategies, risk management, and market analysis.
                   </p>
                 </div>
                 
                 {/* Right Column - Visual Example */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 flex items-center justify-center">
+                <div className="bg-white/80 backdrop-blur-sm p-3 flex items-center justify-center">
                   <div className="text-center">
                     <div className="font-semibold text-gray-900 mb-2">What's your stop-loss strategy for ES futures?</div>
                     <div className="flex items-center justify-between gap-4">
@@ -648,22 +651,22 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.4, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-green-900/80 to-emerald-800/60 rounded-2xl p-4 border border-green-700/30 backdrop-blur-sm"
+              className="bg-gradient-to-br from-purple-500/20 via-indigo-500/20 to-blue-500/20 p-4 backdrop-blur-sm"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
                   <h3 className="text-xl font-bold mb-3 text-white">Trading Podcast</h3>
-                  <p className="text-sm text-green-100 leading-relaxed">
+                  <p className="text-sm text-gray-200 leading-relaxed">
                     Listen to expert insights and market analysis on the go. Weekly episodes covering trading strategies, market psychology, and industry trends.
                   </p>
                 </div>
                 
                 {/* Right Column - Visual Example */}
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-3 flex items-center justify-center">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 flex items-center justify-center">
                   <div className="text-center">
                     <div className="text-white font-serif text-xl font-light mb-3">Episode 47</div>
-                    <div className="bg-purple-600/90 backdrop-blur-sm rounded-lg px-3 py-2 inline-flex items-center gap-2">
+                    <div className="bg-purple-600/90 backdrop-blur-sm px-3 py-2 inline-flex items-center gap-2">
                       <div className="w-6 h-6 bg-purple-400 rounded-full"></div>
                       <span className="text-white text-sm">Market Psychology</span>
                     </div>
@@ -671,30 +674,31 @@ const Index = () => {
                 </div>
               </div>
             </motion.div>
+            </div>
 
-            {/* Chat */}
+            {/* Discord Community - Full Width */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.5, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-green-900/80 to-emerald-800/60 rounded-2xl p-4 border border-green-700/30 backdrop-blur-sm"
+              className="bg-gradient-to-br from-green-500/20 via-emerald-500/20 to-teal-500/20 p-4 backdrop-blur-sm"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
                   <h3 className="text-xl font-bold mb-3 text-white">Discord Community</h3>
-                  <p className="text-sm text-green-100 leading-relaxed">
+                  <p className="text-sm text-gray-200 leading-relaxed">
                     Connect with fellow traders 24/7. Share insights, discuss strategies, and get real-time market updates in our active Discord community.
                   </p>
                 </div>
                 
                 {/* Right Column - Visual Example */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 space-y-2 overflow-y-auto">
+                <div className="bg-white/80 backdrop-blur-sm p-3 space-y-2 overflow-y-auto">
                   {/* Chat Messages */}
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-blue-300 rounded-full flex-shrink-0"></div>
-                    <div className="bg-blue-100 rounded-lg px-3 py-2 max-w-[80%]">
+                    <div className="bg-blue-100 px-3 py-2 max-w-[80%]">
                       <div className="text-xs font-semibold text-gray-700">Sarah Johnson</div>
                       <div className="text-sm text-gray-800">Just hit my profit target on ES! 🎯</div>
                     </div>
@@ -702,7 +706,7 @@ const Index = () => {
                   
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-green-300 rounded-full flex-shrink-0"></div>
-                    <div className="bg-green-100 rounded-lg px-3 py-2 max-w-[80%]">
+                    <div className="bg-green-100 px-3 py-2 max-w-[80%]">
                       <div className="text-xs font-semibold text-gray-700">David Kim</div>
                       <div className="text-sm text-gray-800">Nice trade! What was your entry? 📈</div>
                     </div>
@@ -710,7 +714,7 @@ const Index = () => {
                   
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-purple-300 rounded-full flex-shrink-0"></div>
-                    <div className="bg-purple-100 rounded-lg px-3 py-2 max-w-[80%]">
+                    <div className="bg-purple-100 px-3 py-2 max-w-[80%]">
                       <div className="text-xs font-semibold text-gray-700">Lisa Chen</div>
                       <div className="text-sm text-gray-800">Anyone watching the NQ setup?</div>
                     </div>
@@ -718,7 +722,7 @@ const Index = () => {
                   
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-orange-300 rounded-full flex-shrink-0"></div>
-                    <div className="bg-orange-100 rounded-lg px-3 py-2 max-w-[80%]">
+                    <div className="bg-orange-100 px-3 py-2 max-w-[80%]">
                       <div className="text-xs font-semibold text-gray-700">Mark Wilson</div>
                       <div className="text-sm text-gray-800">📊 [Chart Analysis]</div>
                     </div>
@@ -726,7 +730,7 @@ const Index = () => {
                   
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-red-300 rounded-full flex-shrink-0"></div>
-                    <div className="bg-red-100 rounded-lg px-3 py-2 max-w-[80%]">
+                    <div className="bg-red-100 px-3 py-2 max-w-[80%]">
                       <div className="text-xs font-semibold text-gray-700">Emma Davis</div>
                       <div className="text-sm text-gray-800">Great community here! Learning so much 💪</div>
                     </div>
