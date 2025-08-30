@@ -5,23 +5,21 @@ import Lenis from 'lenis';
 import './index.css';
 // Removed legacy global styles per cleanup
 
-// Initialize Lenis smooth scrolling with mobile-optimized configuration
-// Only enable Lenis on desktop for better mobile performance
-const isMobile = window.innerWidth <= 768;
-
-const lenis = isMobile ? null : new Lenis({
+// Initialize Lenis smooth scrolling with optimized configuration
+// Enable Lenis on all devices with improved settings
+const lenis = new Lenis({
   duration: 0.8, // Reduced for faster response
   easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   smoothWheel: true,
-  wheelMultiplier: 0.6, // Further reduced for desktop
-  touchMultiplier: 0.5, // Significantly reduced for mobile
+  wheelMultiplier: 1.5, // Increased for more responsive scrolling
+  touchMultiplier: 0.5, // Optimized for mobile touch
   infinite: false,
   syncTouch: true,
   syncTouchLerp: 0.05, // Much tighter control
   lerp: 0.1, // Smoother interpolation
 });
 
-// Hook Lenis into requestAnimationFrame (only on desktop)
+// Hook Lenis into requestAnimationFrame
 function raf(time: number): void {
   if (lenis) {
     lenis.raf(time);
@@ -30,13 +28,13 @@ function raf(time: number): void {
 }
 requestAnimationFrame(raf);
 
-// Make Lenis globally available for anchor links (only on desktop)
+// Make Lenis globally available for anchor links
 if (lenis) {
   (window as unknown as { lenis: Lenis }).lenis = lenis;
 }
 
 // Handle resize and orientation changes
-let currentIsMobile = isMobile;
+let currentIsMobile = window.innerWidth <= 768;
 window.addEventListener('resize', () => {
   const newIsMobile = window.innerWidth <= 768;
   if (newIsMobile !== currentIsMobile) {
