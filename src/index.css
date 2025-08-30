@@ -217,7 +217,7 @@
 
   /* H2 - Section Headers */
   h2 {
-    font-size: 1.875rem; /* 30px base */
+    font-size: 2.25rem; /* 36px base - increased from 30px */
     font-weight: 400;
     line-height: 1.2;
     letter-spacing: -0.02em;
@@ -329,14 +329,14 @@
   /* Responsive Typography Scaling - Documentary Style */
   @media (min-width: 640px) {
     h1 { font-size: 3.5rem; }      /* 56px - increased */
-    h2 { font-size: 2.25rem; }   /* 36px */
+    h2 { font-size: 2.75rem; }   /* 44px - increased from 36px */
     h3 { font-size: 1.75rem; }   /* 28px */
     .text-lead { font-size: 1.25rem; }  /* reduced */
   }
 
   @media (min-width: 768px) {
     h1 { font-size: 4.5rem; }   /* 72px - increased */
-    h2 { font-size: 2.5rem; }    /* 40px */
+    h2 { font-size: 3.25rem; }    /* 52px - increased from 40px */
     h3 { font-size: 2rem; }      /* 32px */
     h4 { font-size: 1.375rem; }  /* 22px */
     .text-lead { font-size: 1.375rem; }  /* reduced */
@@ -344,7 +344,7 @@
 
   @media (min-width: 1024px) {
     h1 { font-size: 5.5rem; }    /* 88px - increased */
-    h2 { font-size: 3rem; }      /* 48px */
+    h2 { font-size: 3.75rem; }      /* 60px - increased from 48px */
     h3 { font-size: 2.25rem; }   /* 36px */
     h4 { font-size: 1.5rem; }    /* 24px */
     .text-lead { font-size: 1.375rem; }  /* reduced */
@@ -352,7 +352,7 @@
 
   @media (min-width: 1280px) {
     h1 { font-size: 6rem; }      /* 96px - increased */
-    h2 { font-size: 3.5rem; }    /* 56px */
+    h2 { font-size: 4rem; }    /* 64px - increased from 56px */
     h3 { font-size: 2.5rem; }    /* 40px */
     .text-lead { font-size: 1.375rem; }  /* reduced */
   }
