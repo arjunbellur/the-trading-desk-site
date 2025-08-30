@@ -409,8 +409,17 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* Simple Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Hover Effect with Description */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                    <div className="text-center">
+                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-thin text-white tracking-wide mb-3">Livestreams</h3>
+                      <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
+                        Watch live trading sessions with real-time market analysis, strategy breakdowns, and expert insights from professional traders.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -440,8 +449,17 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* Simple Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Hover Effect with Description */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                    <div className="text-center">
+                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-thin text-white tracking-wide mb-3">Courses</h3>
+                      <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
+                        Master trading strategies through comprehensive courses covering technical analysis, risk management, and advanced trading techniques.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -482,8 +500,17 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* Simple Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Hover Effect with Description */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                    <div className="text-center">
+                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-thin text-white tracking-wide mb-3">Community</h3>
+                      <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
+                        Connect with fellow traders, share insights, discuss strategies, and learn from a community of serious trading professionals.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
