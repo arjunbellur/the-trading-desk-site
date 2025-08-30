@@ -543,9 +543,9 @@ const Index = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">Interactive overlays</h3>
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">Live Trading Sessions</h3>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    Add custom branded graphics that lay over your live video to intro speakers, emphasize key points, and display clickable CTAs.
+                    Watch real trades happen in real-time. See decision-making, risk management, and execution as professional traders navigate the markets.
                   </p>
                 </div>
                 
@@ -556,14 +556,14 @@ const Index = () => {
                   
                   {/* Overlay Box */}
                   <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm rounded-lg p-4 transform rotate-1">
-                    <div className="text-white font-semibold mb-2">What's next?</div>
+                    <div className="text-white font-semibold mb-2">Live Now</div>
                     <div className="flex gap-2">
                       <button className="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1 rounded-lg transition-colors">
-                        BOOK A DEMO
+                        JOIN SESSION
                       </button>
                       <button className="bg-yellow-500 hover:bg-yellow-400 text-black text-xs px-3 py-1 rounded-lg transition-colors flex items-center gap-1">
                         <Play className="w-3 h-3" />
-                        Attendee
+                        Watch
                       </button>
                     </div>
                   </div>
@@ -584,7 +584,7 @@ const Index = () => {
                 <div className="flex flex-col justify-center">
                   <h3 className="text-xl font-bold mb-3 text-gray-900">Interactive Polls</h3>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    Embed polls directly on stage and watch the results populate in real-time. Moderate audience questions, allow upvoting, and bring attendees on-stage.
+                    Vote on market sentiment, trading strategies, and risk tolerance. See real-time results from the trading community during live sessions.
                   </p>
                 </div>
                 
@@ -595,17 +595,16 @@ const Index = () => {
                   
                   {/* Poll Overlay */}
                   <div className="absolute top-4 right-4 bg-gray-800/90 backdrop-blur-sm rounded-lg p-4 transform -rotate-1 w-48">
-                    <div className="text-white text-xs mb-2">Open poll • 15 votes</div>
-                    <div className="text-white font-semibold mb-3">How are we feeling today?</div>
+                    <div className="text-white text-xs mb-2">Live poll • 127 votes</div>
+                    <div className="text-white font-semibold mb-3">What's your trading style?</div>
                     
                     {/* Poll Options */}
                     <div className="space-y-2">
                       {[
-                        { text: "Meh", votes: 2, color: "bg-red-500" },
-                        { text: "Okay", votes: 8, color: "bg-orange-500" },
-                        { text: "Pretty good", votes: 21, color: "bg-yellow-500" },
-                        { text: "Great", votes: 17, color: "bg-blue-500" },
-                        { text: "Best day ever!", votes: 63, color: "bg-green-500" }
+                        { text: "Scalping", votes: 15, color: "bg-red-500" },
+                        { text: "Day Trading", votes: 28, color: "bg-orange-500" },
+                        { text: "Swing Trading", votes: 35, color: "bg-yellow-500" },
+                        { text: "Position Trading", votes: 22, color: "bg-blue-500" }
                       ].map((option, index) => (
                         <div key={index} className="flex items-center gap-2">
                           <div className="flex-1 bg-gray-700 rounded-full h-2 overflow-hidden">
@@ -635,24 +634,24 @@ const Index = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">Q&A</h3>
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">Expert Q&A</h3>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    Moderate audience questions, allow upvoting, and bring attendees on-stage.
+                    Ask questions directly to professional traders. Get real-time answers about strategies, risk management, and market analysis.
                   </p>
                 </div>
                 
                 {/* Right Column - Visual Example */}
                 <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="font-semibold text-gray-900 mb-2">When is the release date?</div>
+                    <div className="font-semibold text-gray-900 mb-2">What's your stop-loss strategy for ES futures?</div>
                     <div className="flex items-center justify-between gap-4">
                       <div className="flex items-center gap-2">
                         <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
-                        <span className="text-sm text-gray-600">asked by Tommo Jones</span>
+                        <span className="text-sm text-gray-600">asked by Mike Chen</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <ThumbsUp className="w-4 h-4 text-gray-600" />
-                        <span className="text-sm text-gray-600">3 votes</span>
+                        <span className="text-sm text-gray-600">12 votes</span>
                       </div>
                     </div>
                   </div>
@@ -671,19 +670,19 @@ const Index = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">HD Video Quality</h3>
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">Crystal Clear HD</h3>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    Provide a better experience for your viewers with crystal clear HD video streaming.
+                    Never miss a detail with crystal clear HD video streaming. See every chart, indicator, and trade execution in perfect quality.
                   </p>
                 </div>
                 
                 {/* Right Column - Visual Example */}
                 <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-4 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-white font-serif text-2xl font-light mb-3">Starting soon</div>
+                    <div className="text-white font-serif text-2xl font-light mb-3">Live Trading</div>
                     <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-2 inline-flex items-center gap-2">
                       <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
-                      <span className="text-white text-sm">Judy Thomas</span>
+                      <span className="text-white text-sm">Alex Rodriguez</span>
                     </div>
                   </div>
                 </div>
@@ -701,9 +700,9 @@ const Index = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
                 {/* Left Column - Title & Description */}
                 <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">Chat</h3>
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">Discord Community</h3>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    Chat is where engagement happens. With a slack-like experience, attendees can use emojis, reactions, and gifs to express themselves.
+                    Connect with fellow traders 24/7. Share insights, discuss strategies, and get real-time market updates in our active Discord community.
                   </p>
                 </div>
                 
@@ -713,40 +712,40 @@ const Index = () => {
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-blue-300 rounded-full flex-shrink-0"></div>
                     <div className="bg-blue-100 rounded-lg px-3 py-2 max-w-[80%]">
-                      <div className="text-xs font-semibold text-gray-700">Beckett Miller</div>
-                      <div className="text-sm text-gray-800">So pumped to be here!</div>
+                      <div className="text-xs font-semibold text-gray-700">Sarah Johnson</div>
+                      <div className="text-sm text-gray-800">Just hit my profit target on ES! 🎯</div>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-green-300 rounded-full flex-shrink-0"></div>
                     <div className="bg-green-100 rounded-lg px-3 py-2 max-w-[80%]">
-                      <div className="text-xs font-semibold text-gray-700">Bebe Bell</div>
-                      <div className="text-sm text-gray-800">🎉 ✨</div>
+                      <div className="text-xs font-semibold text-gray-700">David Kim</div>
+                      <div className="text-sm text-gray-800">Nice trade! What was your entry? 📈</div>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-purple-300 rounded-full flex-shrink-0"></div>
                     <div className="bg-purple-100 rounded-lg px-3 py-2 max-w-[80%]">
-                      <div className="text-xs font-semibold text-gray-700">Leslie Alexander</div>
-                      <div className="text-sm text-gray-800">Morning everyone!!!</div>
+                      <div className="text-xs font-semibold text-gray-700">Lisa Chen</div>
+                      <div className="text-sm text-gray-800">Anyone watching the NQ setup?</div>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-orange-300 rounded-full flex-shrink-0"></div>
                     <div className="bg-orange-100 rounded-lg px-3 py-2 max-w-[80%]">
-                      <div className="text-xs font-semibold text-gray-700">Devon Lane</div>
-                      <div className="text-sm text-gray-800">📸 [Image]</div>
+                      <div className="text-xs font-semibold text-gray-700">Mark Wilson</div>
+                      <div className="text-sm text-gray-800">📊 [Chart Analysis]</div>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-red-300 rounded-full flex-shrink-0"></div>
                     <div className="bg-red-100 rounded-lg px-3 py-2 max-w-[80%]">
-                      <div className="text-xs font-semibold text-gray-700">Arlene McCoy</div>
-                      <div className="text-sm text-gray-800">Hi, joining from San Francisco!</div>
+                      <div className="text-xs font-semibold text-gray-700">Emma Davis</div>
+                      <div className="text-sm text-gray-800">Great community here! Learning so much 💪</div>
                     </div>
                   </div>
                 </div>
