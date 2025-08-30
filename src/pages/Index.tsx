@@ -470,8 +470,8 @@ const Index = () => {
               <div className="h-full overflow-hidden bg-gradient-to-br from-teal-800 to-slate-900 relative">
                 {/* Background Image */}
                 <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
-                  alt="Trading community collaboration and discussion" 
+                  src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
+                  alt="Discord community and chat interface" 
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
                 />
