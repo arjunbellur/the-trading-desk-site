@@ -515,58 +515,90 @@ const Index = () => {
 
 
 
-      {/* Value Proposition Section - Optimized */}
-      <section id="value-proposition" className="tm-layout-section py-12 sm:py-16 md:py-20 border-t border-border/30 relative z-40">
+      {/* An Unmatched Attendee Experience Section */}
+      <section id="experience" className="tm-layout-section py-12 sm:py-16 md:py-20 border-t border-border/30 relative z-40">
         <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 sm:mb-6 tracking-tight">
-              Why <span className="text-gradient-gold">The Trading Desk</span>?
+              An unmatched attendee
+              <br />
+              <span className="text-gradient-gold">Experience</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Four pillars that separate professionals from amateurs
-            </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              {
-                icon: Award,
-                title: "Expert-Led Masterclasses",
-                description: "Learn from traders who've generated millions in profits across multiple market cycles."
-              },
-              {
-                icon: Video,
-                title: "Live Trading Sessions",
-                description: "Watch real trades happen in real-time. See decision-making, risk management, and execution."
-              },
-              {
-                icon: DollarSign,
-                title: "Revenue-Focused Strategies",
-                description: "Every technique we teach is designed to generate consistent, measurable returns."
-              },
-              {
-                icon: Users,
-                title: "Community + Peer Learning",
-                description: "Connect with serious traders. Share insights, strategies, and accountability."
-              }
-            ].map((pillar, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              >
-                <NeonGradientCard className="p-1 text-center hover:scale-105 transition-transform">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    <pillar.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3">{pillar.title}</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{pillar.description}</p>
-                </NeonGradientCard>
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+            {/* Left Column - Interactive Overlays */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1], type: "tween" }}
+              className="space-y-6"
+            >
+              <div className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 rounded-2xl p-6 sm:p-8 border border-gray-700/30">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">Interactive Overlays</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Add custom branded graphics that lay over your live video to intro speakers, emphasize key points, and display clickable CTAs.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right Column - Main Features Grid */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1], type: "tween" }}
+              className="space-y-6"
+            >
+              {/* Interactive Polls */}
+              <div className="bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-2xl p-6 sm:p-8 border border-blue-700/30">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">Interactive Polls</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Embed polls directly on stage and watch the results populate in real-time. Moderate audience questions, allow upvoting, and bring attendees on-stage.
+                </p>
+              </div>
+
+              {/* HD Video Quality */}
+              <div className="bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-2xl p-6 sm:p-8 border border-green-700/30">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">HD Video Quality</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Provide a better experience for your viewers with crystal clear HD video streaming.
+                </p>
+              </div>
+
+              {/* Q&A */}
+              <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-2xl p-6 sm:p-8 border border-purple-700/30">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">Q&A</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Moderate audience questions, allow upvoting, and bring attendees on-stage.
+                </p>
+              </div>
+
+              {/* Chat */}
+              <div className="bg-gradient-to-br from-orange-900/30 to-orange-800/20 rounded-2xl p-6 sm:p-8 border border-orange-700/30">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">Chat</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Chat is where engagement happens. With a slack-like experience, attendees can use emojis, reactions, and gifs to express themselves.
+                </p>
+              </div>
+            </motion.div>
           </div>
+
+          {/* See All Features CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: [0.23, 1, 0.32, 1], type: "tween" }}
+            className="text-center mt-12 sm:mt-16"
+          >
+            <Button variant="regular" className="text-base font-semibold group">
+              See all features
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </motion.div>
         </div>
       </section>
 
