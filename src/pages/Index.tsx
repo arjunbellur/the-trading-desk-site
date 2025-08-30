@@ -127,7 +127,7 @@ const Index = () => {
               style={{
                 backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
               }}
-              className="absolute inset-auto right-1/2 h-40 md:h-56 overflow-visible w-[20rem] md:w-[35rem] bg-gradient-conic from-green-400 via-transparent to-transparent [--conic-position:from_70deg_at_center_top]"
+              className="absolute inset-auto right-1/2 h-40 md:h-56 overflow-visible w-[20rem] md:w-[35rem] bg-gradient-conic from-transparent via-transparent to-transparent [--conic-position:from_70deg_at_center_top]"
             >
               <div className="absolute w-[100%] left-0 bg-black h-32 md:h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
               <div className="absolute w-32 md:w-40 h-[100%] left-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
@@ -147,7 +147,7 @@ const Index = () => {
               style={{
                 backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
               }}
-              className="absolute inset-auto left-1/2 h-40 md:h-56 w-[20rem] md:w-[35rem] bg-gradient-conic from-transparent via-transparent to-green-400 [--conic-position:from_290deg_at_center_top]"
+              className="absolute inset-auto left-1/2 h-40 md:h-56 w-[20rem] md:w-[35rem] bg-gradient-conic from-transparent via-transparent to-transparent [--conic-position:from_290deg_at_center_top]"
             >
               <div className="absolute w-32 md:w-40 h-[100%] right-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
               <div className="absolute w-[100%] right-0 bg-black h-32 md:h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
@@ -158,7 +158,7 @@ const Index = () => {
             <div className="absolute top-1/2 z-50 h-32 md:h-48 w-full bg-transparent opacity-5 md:opacity-10 backdrop-blur-md"></div>
             
             {/* Central glow - optimized for mobile */}
-            <div className="absolute left-0 right-0 top-1/2 z-50 h-24 md:h-36 w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-emerald-700/3 md:via-emerald-700/5 to-transparent blur-2xl md:blur-3xl"></div>
+            <div className="absolute left-0 right-0 top-1/2 z-50 h-24 md:h-36 w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-transparent to-transparent blur-2xl md:blur-3xl"></div>
             
             {/* Secondary glow layer - desktop only for performance */}
             <motion.div
@@ -171,7 +171,7 @@ const Index = () => {
                 ease: [0.23, 1, 0.32, 1],
                 type: "tween"
               }}
-              className="hidden md:block absolute left-0 right-0 top-0 z-30 h-36 w-full -translate-y-[6rem] bg-gradient-to-r from-transparent via-emerald-800/3 to-transparent blur-2xl"
+              className="hidden md:block absolute left-0 right-0 top-0 z-30 h-36 w-full -translate-y-[6rem] bg-gradient-to-r from-transparent via-transparent to-transparent blur-2xl"
             />
             
             {/* Lamp bar - optimized */}
@@ -185,7 +185,7 @@ const Index = () => {
                 ease: [0.23, 1, 0.32, 1],
                 type: "tween"
               }}
-              className="absolute top-0 left-0 right-0 z-[100] h-0.5 bg-emerald-600 shadow-[0_0_4px_#047857] md:shadow-[0_0_6px_#047857] origin-center"
+              className="absolute top-0 left-0 right-0 z-[100] h-0.5 bg-transparent origin-center"
             />
             
             {/* Bright center highlight - optimized */}
@@ -199,7 +199,7 @@ const Index = () => {
                 ease: [0.23, 1, 0.32, 1],
                 type: "tween"
               }}
-              className="absolute top-0 left-0 right-0 translate-y-px z-[101] h-px bg-emerald-300 shadow-[0_0_2px_#6ee7b7] md:shadow-[0_0_4px_#6ee7b7] origin-center"
+              className="absolute top-0 left-0 right-0 translate-y-px z-[101] h-px bg-transparent origin-center"
             />
             
             {/* Top mask - responsive positioning */}
