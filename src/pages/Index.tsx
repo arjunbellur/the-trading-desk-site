@@ -392,13 +392,27 @@ const Index = () => {
               transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], type: "tween" }}
             >
               <div className="h-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 relative">
-                {/* Background Image - Live trading session */}
-                <img 
-                  src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
-                  alt="Live trading session with multiple screens" 
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                />
+                {/* Media Container */}
+                <div className="absolute inset-0 w-full h-full">
+                  {/* Background Picture - Fallback/Initial Image */}
+                  <img 
+                    src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
+                    alt="Live trading session with multiple screens" 
+                    className="relative w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  {/* Video Element - Primary Media (Positioned Absolutely) */}
+                  <video 
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    poster="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80"
+                  >
+                    <source src="/path-to-your-video.mp4" type="video/mp4" />
+                  </video>
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 to-black/40"></div>
                 
                 {/* Gradient Overlay - Slides up with content */}
@@ -430,13 +444,27 @@ const Index = () => {
               transition={{ duration: 0.5, delay: 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}
             >
               <div className="h-full overflow-hidden bg-gradient-to-br from-red-800 to-red-900 relative">
-                {/* Background Image - Advanced trading charts */}
-                <img 
-                  src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
-                  alt="Advanced trading charts and technical analysis" 
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                />
+                {/* Media Container */}
+                <div className="absolute inset-0 w-full h-full">
+                  {/* Background Picture - Fallback/Initial Image */}
+                  <img 
+                    src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
+                    alt="Advanced trading charts and technical analysis" 
+                    className="relative w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  {/* Video Element - Primary Media (Positioned Absolutely) */}
+                  <video 
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    poster="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80"
+                  >
+                    <source src="/path-to-your-video.mp4" type="video/mp4" />
+                  </video>
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-black/40"></div>
                 
                 {/* Gradient Overlay - Slides up with content */}
@@ -468,13 +496,27 @@ const Index = () => {
               transition={{ duration: 0.5, delay: 0.2, ease: [0.23, 1, 0.32, 1], type: "tween" }}
             >
               <div className="h-full overflow-hidden bg-gradient-to-br from-teal-800 to-slate-900 relative">
-                {/* Background Image - Trading community collaboration */}
-                <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
-                  alt="Trading community collaboration and discussion" 
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                />
+                {/* Media Container */}
+                <div className="absolute inset-0 w-full h-full">
+                  {/* Background Picture - Fallback/Initial Image */}
+                  <img 
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
+                    alt="Trading community collaboration and discussion" 
+                    className="relative w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  {/* Video Element - Primary Media (Positioned Absolutely) */}
+                  <video 
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    poster="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80"
+                  >
+                    <source src="/path-to-your-video.mp4" type="video/mp4" />
+                  </video>
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-br from-teal-900/20 to-black/40">
                   {/* Mock chat interface elements overlay - minimal */}
                   <div className="absolute top-4 sm:top-6 left-4 sm:left-6 right-4 sm:right-6 space-y-1.5 sm:space-y-2 opacity-20">
