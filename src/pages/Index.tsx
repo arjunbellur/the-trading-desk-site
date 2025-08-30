@@ -72,24 +72,7 @@ const Index = () => {
 
     // Only create glows if not on mobile to improve performance
     if (!isMobile) {
-      // Create simplified primary glow
-      const primaryGlow = document.createElement('div');
-      primaryGlow.className = 'lamp-glow-element';
-      primaryGlow.style.cssText = `
-        position: fixed;
-        top: 2px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100vw;
-        height: 16px;
-        background: linear-gradient(180deg, rgba(4, 44, 34, 0.008), transparent);
-        filter: blur(3px);
-        z-index: 10;
-        pointer-events: none;
-        will-change: transform;
-      `;
-      
-      // Create simplified central glow
+      // Create simplified central glow (top glow hidden)
       const centralGlow = document.createElement('div');
       centralGlow.className = 'lamp-glow-element';
       centralGlow.style.cssText = `
@@ -106,7 +89,6 @@ const Index = () => {
         will-change: transform;
       `;
       
-      document.body.appendChild(primaryGlow);
       document.body.appendChild(centralGlow);
     }
 
