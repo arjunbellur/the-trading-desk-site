@@ -529,19 +529,16 @@ const Index = () => {
             </h1>
           </div>
           
-          {/* Features Grid - 2x2 grid for first 4 cards, full width for Discord */}
-          <div className="space-y-4 sm:space-y-6">
+          {/* Bento Box Grid */}
+          <div className="grid grid-cols-12 gap-4 sm:gap-6 auto-rows-fr">
             
-            {/* First 4 cards in 2x2 grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-            
-            {/* Live Trading Sessions */}
+            {/* Live Trading Sessions - 5 columns */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 p-4 backdrop-blur-sm"
+              className="col-span-12 lg:col-span-5 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 p-4 backdrop-blur-sm"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                 {/* Left Column - Title & Description */}
@@ -574,13 +571,13 @@ const Index = () => {
               </div>
             </motion.div>
 
-            {/* Course Content */}
+            {/* Course Content - 7 columns */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-emerald-500/20 via-teal-500/20 to-cyan-500/20 p-4 backdrop-blur-sm"
+              className="col-span-12 lg:col-span-7 bg-gradient-to-br from-emerald-500/20 via-teal-500/20 to-cyan-500/20 p-4 backdrop-blur-sm"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                 {/* Left Column - Title & Description */}
@@ -609,24 +606,21 @@ const Index = () => {
               </div>
             </motion.div>
 
-            {/* Expert Coaching */}
+            {/* Expert Coaching - 4 columns */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-orange-500/20 via-red-500/20 to-pink-500/20 p-4 backdrop-blur-sm"
+              className="col-span-12 lg:col-span-4 bg-gradient-to-br from-orange-500/20 via-red-500/20 to-pink-500/20 p-4 backdrop-blur-sm"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
-                {/* Left Column - Title & Description */}
-                <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-white">Expert Coaching</h3>
-                  <p className="text-sm text-gray-200 leading-relaxed">
-                    Get personalized tips and guidance from professional traders. Ask instructors for advice on strategies, risk management, and market analysis.
-                  </p>
-                </div>
+              <div className="flex flex-col justify-center h-full">
+                <h3 className="text-xl font-bold mb-3 text-white">Expert Coaching</h3>
+                <p className="text-sm text-gray-200 leading-relaxed mb-4">
+                  Get personalized tips and guidance from professional traders. Ask instructors for advice on strategies, risk management, and market analysis.
+                </p>
                 
-                {/* Right Column - Visual Example */}
+                {/* Visual Example */}
                 <div className="bg-white/80 backdrop-blur-sm p-3 flex items-center justify-center">
                   <div className="text-center">
                     <div className="font-semibold text-gray-900 mb-2">What's your stop-loss strategy for ES futures?</div>
@@ -645,24 +639,21 @@ const Index = () => {
               </div>
             </motion.div>
 
-            {/* Trading Podcast */}
+            {/* Trading Podcast - 4 columns */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.4, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-purple-500/20 via-indigo-500/20 to-blue-500/20 p-4 backdrop-blur-sm"
+              className="col-span-12 lg:col-span-4 bg-gradient-to-br from-purple-500/20 via-indigo-500/20 to-blue-500/20 p-4 backdrop-blur-sm"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
-                {/* Left Column - Title & Description */}
-                <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-white">Trading Podcast</h3>
-                  <p className="text-sm text-gray-200 leading-relaxed">
-                    Listen to expert insights and market analysis on the go. Weekly episodes covering trading strategies, market psychology, and industry trends.
-                  </p>
-                </div>
+              <div className="flex flex-col justify-center h-full">
+                <h3 className="text-xl font-bold mb-3 text-white">Trading Podcast</h3>
+                <p className="text-sm text-gray-200 leading-relaxed mb-4">
+                  Listen to expert insights and market analysis on the go. Weekly episodes covering trading strategies, market psychology, and industry trends.
+                </p>
                 
-                {/* Right Column - Visual Example */}
+                {/* Visual Example */}
                 <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 flex items-center justify-center">
                   <div className="text-center">
                     <div className="text-white font-serif text-xl font-light mb-3">Episode 47</div>
@@ -674,26 +665,22 @@ const Index = () => {
                 </div>
               </div>
             </motion.div>
-            </div>
 
-            {/* Discord Community - Full Width */}
+            {/* Discord Community - 4 columns */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.5, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              className="bg-gradient-to-br from-green-500/20 via-emerald-500/20 to-teal-500/20 p-4 backdrop-blur-sm"
+              className="col-span-12 lg:col-span-4 bg-gradient-to-br from-green-500/20 via-emerald-500/20 to-teal-500/20 p-4 backdrop-blur-sm"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 h-full">
-                {/* Left Column - Title & Description */}
-                <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-white">Discord Community</h3>
-                  <p className="text-sm text-gray-200 leading-relaxed">
-                    Connect with fellow traders 24/7. Share insights, discuss strategies, and get real-time market updates in our active Discord community.
-                  </p>
-                </div>
+              <div className="flex flex-col justify-center h-full">
+                <h3 className="text-xl font-bold mb-3 text-white">Discord Community</h3>
+                <p className="text-sm text-gray-200 leading-relaxed mb-4">
+                  Connect with fellow traders 24/7. Share insights, discuss strategies, and get real-time market updates in our active Discord community.
+                </p>
                 
-                {/* Right Column - Visual Example */}
+                {/* Visual Example */}
                 <div className="bg-white/80 backdrop-blur-sm p-3 space-y-2 overflow-y-auto">
                   {/* Chat Messages */}
                   <div className="flex items-start gap-2">
@@ -717,22 +704,6 @@ const Index = () => {
                     <div className="bg-purple-100 px-3 py-2 max-w-[80%]">
                       <div className="text-xs font-semibold text-gray-700">Lisa Chen</div>
                       <div className="text-sm text-gray-800">Anyone watching the NQ setup?</div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-2">
-                    <div className="w-6 h-6 bg-orange-300 rounded-full flex-shrink-0"></div>
-                    <div className="bg-orange-100 px-3 py-2 max-w-[80%]">
-                      <div className="text-xs font-semibold text-gray-700">Mark Wilson</div>
-                      <div className="text-sm text-gray-800">📊 [Chart Analysis]</div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-2">
-                    <div className="w-6 h-6 bg-red-300 rounded-full flex-shrink-0"></div>
-                    <div className="bg-red-100 px-3 py-2 max-w-[80%]">
-                      <div className="text-xs font-semibold text-gray-700">Emma Davis</div>
-                      <div className="text-sm text-gray-800">Great community here! Learning so much 💪</div>
                     </div>
                   </div>
                 </div>
