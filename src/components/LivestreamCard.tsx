@@ -32,7 +32,7 @@ export const LivestreamCard = ({ livestream, className = "" }: LivestreamCardPro
     switch (livestream.status) {
       case 'live':
         return (
-          <Badge className="tm-ui-badge tm-ui-badge--glass bg-red-500/20 text-red-400 animate-pulse">
+          <Badge className="tm-ui-badge tm-ui-badge--glass animate-pulse bg-red-500/20 text-red-400">
             🔴 LIVE
           </Badge>
         );
@@ -72,21 +72,21 @@ export const LivestreamCard = ({ livestream, className = "" }: LivestreamCardPro
       case 'live':
         return (
           <Button variant="regular" fullWidth>
-            <Play className="w-4 h-4 mr-2" />
+            <Play className="mr-2 h-4 w-4" />
             JOIN LIVE
           </Button>
         );
       case 'upcoming':
         return (
           <Button variant="regular" fullWidth>
-            <AlertCircle className="w-4 h-4 mr-2" />
+            <AlertCircle className="mr-2 h-4 w-4" />
             SET REMINDER
           </Button>
         );
       case 'ended':
         return (
           <Button variant="regular" fullWidth>
-            <Play className="w-4 h-4 mr-2" />
+            <Play className="mr-2 h-4 w-4" />
             WATCH REPLAY
           </Button>
         );
@@ -96,16 +96,16 @@ export const LivestreamCard = ({ livestream, className = "" }: LivestreamCardPro
   };
 
   return (
-    <Card className={`tm-ui-card tm-ui-card--glass hover:scale-105 transition-all duration-300 ${className}`}>
+    <Card className={`tm-ui-card tm-ui-card--glass transition-all duration-300 hover:scale-105 ${className}`}>
       <CardHeader className="tm-ui-card__header pb-4">
-        <div className="tm-ui-card__badges flex items-start justify-between mb-4">
+        <div className="tm-ui-card__badges mb-4 flex items-start justify-between">
           <div className="space-y-2">
             {getStatusBadge()}
             {getAccessBadge()}
           </div>
           {livestream.viewerCount && (
-            <div className="tm-ui-card__viewers flex items-center gap-1 tm-ui-text--small tm-ui-text--muted">
-              <Users className="w-4 h-4" />
+            <div className="tm-ui-card__viewers tm-ui-text--small tm-ui-text--muted flex items-center gap-1">
+              <Users className="h-4 w-4" />
               {livestream.viewerCount}
             </div>
           )}
@@ -119,20 +119,20 @@ export const LivestreamCard = ({ livestream, className = "" }: LivestreamCardPro
       
       <CardContent className="tm-ui-card__content pt-0">
         {/* Schedule Info */}
-        <div className="tm-ui-card__schedule space-y-3 mb-6">
-          <div className="flex items-center gap-3 tm-ui-text--small">
-            <Calendar className="w-4 h-4 text-primary" />
+        <div className="tm-ui-card__schedule mb-6 space-y-3">
+          <div className="tm-ui-text--small flex items-center gap-3">
+            <Calendar className="h-4 w-4 text-primary" />
             <span>{formatDate(livestream.scheduledAt)}</span>
           </div>
-          <div className="flex items-center gap-3 tm-ui-text--small">
-            <Clock className="w-4 h-4 text-primary" />
+          <div className="tm-ui-text--small flex items-center gap-3">
+            <Clock className="h-4 w-4 text-primary" />
             <span>{formatTime(livestream.scheduledAt)} • {livestream.duration} min</span>
           </div>
         </div>
         
         {/* Instructor */}
-        <div className="tm-ui-card__instructor flex items-center gap-3 mb-6">
-          <div className="tm-ui-badge tm-ui-badge--secondary w-8 h-8 rounded-full flex items-center justify-center">
+        <div className="tm-ui-card__instructor mb-6 flex items-center gap-3">
+          <div className="tm-ui-badge tm-ui-badge--secondary flex h-8 w-8 items-center justify-center rounded-full">
             <span className="tm-ui-text--small font-medium">
               {livestream.instructor.name.split(' ').map(n => n[0]).join('')}
             </span>
@@ -150,7 +150,7 @@ export const LivestreamCard = ({ livestream, className = "" }: LivestreamCardPro
         
         {/* Additional Info */}
         {livestream.status === 'upcoming' && (
-          <p className="tm-ui-card__info tm-ui-text--small text-center tm-ui-text--muted mt-3">
+          <p className="tm-ui-card__info tm-ui-text--small tm-ui-text--muted mt-3 text-center">
             {livestream.accessLevel === 'free' 
               ? 'Free for all students' 
               : `${livestream.accessLevel} members only`}

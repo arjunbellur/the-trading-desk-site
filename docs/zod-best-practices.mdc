@@ -1,0 +1,35 @@
+# Zod Best Practices
+
+## Schema Definition
+- Define schemas for data validation
+- Use descriptive schema names
+- Implement proper type inference
+- Create reusable schema components
+
+## Validation Integration
+- Use Zod with React Hook Form
+- Implement proper error handling
+- Provide meaningful error messages
+- Handle validation timing appropriately
+
+## Type Safety
+- Leverage Zod's type inference
+- Use schemas for runtime validation
+- Implement proper type guards
+- Maintain type consistency
+
+## Error Handling
+- Provide user-friendly error messages
+- Handle validation errors gracefully
+- Implement proper error display
+- Use consistent error formatting
+
+## Performance
+- Optimize schema validation
+- Use efficient validation strategies
+- Implement proper caching
+- Handle large datasets appropriately
+description:
+globs:
+alwaysApply: true
+---

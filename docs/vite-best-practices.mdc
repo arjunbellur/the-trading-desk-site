@@ -1,0 +1,35 @@
+# Vite Best Practices
+
+## Configuration
+- Use `defineConfig` for better type inference in `vite.config.ts`
+- Configure path aliases for clean imports (`@/` → `src/`)
+- Use development plugins conditionally (e.g., `componentTagger`)
+- Optimize build performance with `@vitejs/plugin-react-swc`
+
+## Development
+- Leverage Vite's fast hot module replacement (HMR)
+- Use the development server for rapid iteration
+- Configure proper host and port settings
+- Use environment variables for configuration
+
+## Build Optimization
+- Configure `build.rollupOptions` for optimal output
+- Use code splitting and dynamic imports
+- Optimize asset handling and compression
+- Implement proper source maps for debugging
+
+## Plugin Usage
+- Use `@vitejs/plugin-react-swc` for React support
+- Implement conditional plugins based on environment
+- Configure plugins with proper options
+- Use community plugins when needed
+
+## Path Resolution
+- Use `@/` alias for src directory imports
+- Configure proper module resolution
+- Use relative imports for local files
+- Maintain consistent import patterns
+description:
+globs:
+alwaysApply: true
+---

@@ -93,12 +93,12 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
       // Default fallback UI
       return (
-        <div className="min-h-screen bg-black flex items-center justify-center px-4">
-          <div className="max-w-md w-full text-center">
+        <div className="flex min-h-screen items-center justify-center bg-black px-4">
+          <div className="w-full max-w-md text-center">
             <div className="mb-8">
-              <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-500/20">
                 <svg 
-                  className="w-8 h-8 text-red-400" 
+                  className="h-8 w-8 text-red-400" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
@@ -112,10 +112,10 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
                   />
                 </svg>
               </div>
-              <h1 className="text-2xl font-bold text-white mb-2">
+              <h1 className="mb-2 text-2xl font-bold text-white">
                 Something went wrong
               </h1>
-              <p className="text-white/70 text-sm mb-6">
+              <p className="mb-6 text-sm text-white/70">
                 We're sorry, but something unexpected happened. Please try again.
               </p>
             </div>
@@ -140,10 +140,10 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             {/* Error details in development */}
             {process.env.NODE_ENV === 'development' && this.state.error && (
               <details className="mt-8 text-left">
-                <summary className="text-white/50 text-xs cursor-pointer mb-2">
+                <summary className="mb-2 cursor-pointer text-xs text-white/50">
                   Error Details (Development Only)
                 </summary>
-                <pre className="text-xs text-red-400 bg-red-900/20 p-3 rounded overflow-auto max-h-40">
+                <pre className="max-h-40 overflow-auto rounded bg-red-900/20 p-3 text-xs text-red-400">
                   {this.state.error.toString()}
                   {this.state.errorInfo?.componentStack}
                 </pre>

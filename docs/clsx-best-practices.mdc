@@ -1,0 +1,35 @@
+# CLSX Best Practices
+
+## Class Management
+- Use `clsx` for cleaner conditional class names
+- Combine multiple class names dynamically
+- Keep class logic simple and readable
+- Use consistent class naming patterns
+
+## Conditional Logic
+- Implement clear conditional class logic
+- Use proper boolean expressions
+- Avoid complex nested conditions
+- Maintain readable class combinations
+
+## Integration
+- Combine with `cn()` utility function
+- Use with Tailwind CSS effectively
+- Implement proper class merging
+- Handle dynamic class generation
+
+## Performance
+- Optimize class name generation
+- Avoid unnecessary class computations
+- Use efficient conditional logic
+- Minimize class name complexity
+
+## Code Organization
+- Centralize class logic when possible
+- Use consistent patterns across components
+- Implement proper error handling
+- Maintain class name consistency
+description:
+globs:
+alwaysApply: true
+---

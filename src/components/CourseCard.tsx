@@ -1,134 +1,119 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Star, Clock, BookOpen, Users, CheckCircle, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
-import { LiquidGlassButton } from "@/components/ui/liquid-glass-button";
-import type { CourseSummary } from "@/mock/content";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { BookOpen, Zap, Award } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { SectionTitle, Text, Label } from '@/components/ui/typography';
+
+interface CourseFeature {
+  id: string;
+  text: string;
+}
 
 interface CourseCardProps {
-  course: CourseSummary;
+  courseNumber: string;
+  subtitle: string;
+  title: string;
+  description: string;
+  price: string;
+  features: CourseFeature[];
+  level: 'beginner' | 'intermediate' | 'advanced';
+  onPreRegister?: () => void;
+  onExplore?: () => void;
   className?: string;
 }
 
-export const CourseCard = ({ course, className = "" }: CourseCardProps) => {
-  const difficultyColors = {
-    beginner: "bg-green-500/20 text-green-300",
-    intermediate: "bg-yellow-500/20 text-yellow-300", 
-    advanced: "bg-red-500/20 text-red-300"
-  };
+const levelIcons = {
+  beginner: BookOpen,
+  intermediate: Zap,
+  advanced: Award,
+};
 
-  const formatRuntime = (seconds: number): string => {
-    const minutes = Math.floor(seconds / 60);
-    return `${minutes} min`;
-  };
+const levelLabels = {
+  beginner: 'Beginner Course',
+  intermediate: 'Intermediate Course',
+  advanced: 'Advanced Course',
+};
+
+export const CourseCard: React.FC<CourseCardProps> = ({
+  courseNumber,
+  subtitle,
+  title,
+  description,
+  price,
+  features,
+  level,
+  onPreRegister,
+  onExplore,
+  className,
+}) => {
+  const IconComponent = levelIcons[level];
 
   return (
-    <Card className={`tm-ui-card tm-ui-card--glass hover:scale-105 transition-all duration-500 group overflow-hidden ${className}`}>
-      {/* Course Thumbnail */}
-      <div className="tm-ui-card__thumbnail h-40 relative overflow-hidden">
-        {/* Unsplash image */}
-        <img
-          src={course.thumbnailUrl}
-          alt={course.title}
-          loading="lazy"
-          decoding="async"
-          className="tm-ui-card__image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"
-        />
-        <div className="tm-ui-card__overlay absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        
-        {/* Course Level Badge */}
-        <div className="tm-ui-card__badge absolute top-4 left-4">
-          <Badge className={`tm-ui-badge tm-ui-badge--glass ${difficultyColors[course.difficulty]} border-0 capitalize`}>
-            {course.difficulty}
-          </Badge>
-        </div>
-        
-        {/* Rating */}
-        <div className="tm-ui-card__rating absolute top-4 right-4 flex items-center gap-1 text-white">
-          <Star className="w-4 h-4 fill-current" />
-          <span className="tm-ui-text--small font-medium">{course.rating}</span>
-        </div>
-        
-        {/* Student Count */}
-        <div className="tm-ui-card__stats absolute bottom-4 left-4 text-white">
-          <div className="tm-ui-text--small opacity-90">
-            <Users className="w-4 h-4 inline mr-1" />
-            {course.studentCount.toLocaleString()} students
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], type: "tween" }}
+      className={cn("grid md:grid-cols-2 gap-10 sm:gap-12 lg:gap-20 mb-24 lg:mb-28 w-full max-w-6xl mx-auto", className)}
+    >
+      {/* Course Content */}
+      <div className="flex flex-col justify-center">
+        <Label className="mb-6 text-white">{courseNumber}</Label>
+        <Label className="mb-6 text-xl text-white md:text-2xl">{subtitle}</Label>
+        <SectionTitle className="mb-10 text-4xl text-white md:text-5xl lg:text-6xl">
+          {title}™
+        </SectionTitle>
+        <Text className="mb-12 text-base leading-relaxed text-white md:text-lg lg:mb-16">
+          {description}
+        </Text>
+
+        <div className="mb-12 grid grid-cols-2 gap-8 sm:gap-10 lg:mb-16 lg:gap-14">
+          <div>
+            <div className="mb-6 text-2xl font-bold text-white md:text-3xl">{price}</div>
+          </div>
+          <div>
+            <Label className="mb-8 text-sm uppercase tracking-wider text-white">WHAT'S INCLUDED</Label>
+            <ul className="space-y-5 text-white">
+              {features.map((feature) => (
+                <li key={feature.id} className="flex items-start">
+                  <span className="mr-4 mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-white" />
+                  <span className="leading-relaxed">{feature.text}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        
-        {/* Hover Play Effect */}
-        <div className="tm-ui-card__play-button absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="tm-ui-button tm-ui-button--liquid-glass-thick w-16 h-16 rounded-full flex items-center justify-center">
-            <ArrowRight className="w-8 h-8 text-white" />
-          </div>
+
+        <div className="mt-4 flex gap-6 lg:gap-8">
+          <button
+            onClick={onPreRegister}
+            className="btn-glass--green"
+            aria-label={`Pre-register for ${title} course`}
+          >
+            PRE-REGISTER →
+          </button>
+          <button
+            onClick={onExplore}
+            className="btn-glass--ghost"
+            aria-label={`Explore ${title} course details`}
+          >
+            EXPLORE →
+          </button>
         </div>
       </div>
       
-      {/* Course Content */}
-      <CardHeader className="tm-ui-card__header pb-3">
-        <CardTitle className="tm-ui-card__title tm-ui-text--large mb-2 group-hover:text-primary transition-colors">
-          {course.title}
-        </CardTitle>
-        <CardDescription className="tm-ui-card__description tm-ui-text--small tm-ui-text--muted leading-relaxed">
-          {course.shortDescription}
-        </CardDescription>
-        
-        {/* Instructor */}
-        <div className="tm-ui-card__instructor flex items-center gap-2 pt-2">
-          <div className="tm-ui-badge tm-ui-badge--secondary w-6 h-6 rounded-full flex items-center justify-center">
-            <span className="tm-ui-text--small font-medium">
-              {course.instructor.name.split(' ').map(n => n[0]).join('')}
-            </span>
-          </div>
-          <span className="tm-ui-text--small tm-ui-text--muted">{course.instructor.name}</span>
-        </div>
-      </CardHeader>
-      
-      <CardContent className="tm-ui-card__content pt-0">
-        {/* Course Meta */}
-        <div className="tm-ui-card__meta flex items-center gap-4 tm-ui-text--small tm-ui-text--muted mb-4">
-          <div className="flex items-center gap-1">
-            <Clock className="w-3 h-3" />
-            {course.duration}
-          </div>
-          <div className="flex items-center gap-1">
-            <BookOpen className="w-3 h-3" />
-            {course.lessonCount} lessons
-          </div>
-        </div>
-        
-        {/* Key Features */}
-        <div className="tm-ui-card__features space-y-1 mb-4">
-          {course.features.slice(0, 2).map((feature, i) => (
-            <div key={i} className="tm-ui-card__feature flex items-center gap-2 tm-ui-text--small">
-              <CheckCircle className="w-3 h-3 text-primary" />
-              <span>{feature}</span>
+      {/* Course Image Placeholder */}
+      <div className="flex items-center justify-center">
+        <div className="flex h-80 w-full items-center justify-center rounded-lg border border-gray-600 bg-gray-800 sm:h-96 lg:h-[28rem]">
+          <div className="px-6 text-center text-gray-400">
+            <div className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-full bg-gray-700 sm:h-20 sm:w-20">
+              <IconComponent className="h-8 w-8 sm:h-10 sm:w-10" />
             </div>
-          ))}
-        </div>
-        
-        {/* Pricing */}
-        <div className="tm-ui-card__pricing flex items-center justify-between mb-4">
-          <div>
-            <span className="tm-ui-card__price text-2xl font-bold text-foreground">${course.price}</span>
-            {course.originalPrice && (
-              <span className="tm-ui-card__original-price tm-ui-text--small tm-ui-text--muted line-through ml-2">
-                ${course.originalPrice}
-              </span>
-            )}
+            <div className="mb-3 text-lg font-semibold sm:text-xl">{levelLabels[level]}</div>
+            <div className="text-sm opacity-75 sm:text-base">Course content preview</div>
           </div>
         </div>
-        
-        {/* CTA Button */}
-        <LiquidGlassButton asChild className="w-full">
-          <Link to={`/courses/${course.slug}`}>
-            View course
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </Link>
-        </LiquidGlassButton>
-      </CardContent>
-    </Card>
+      </div>
+    </motion.div>
   );
 };

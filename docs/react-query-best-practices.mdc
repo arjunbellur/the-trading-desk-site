@@ -1,0 +1,35 @@
+# React Query Best Practices
+
+## Query Management
+- Use `useQuery` for data fetching operations
+- Implement proper query keys for cache management
+- Use `useMutation` for data mutations
+- Implement query invalidation strategies
+
+## Error Handling
+- Provide proper error boundaries for queries
+- Implement retry logic for failed requests
+- Show meaningful error messages to users
+- Handle loading states appropriately
+
+## Performance Optimization
+- Use query caching effectively
+- Implement proper refetching strategies
+- Use background updates when appropriate
+- Optimize query dependencies
+
+## Development Tools
+- Use React Query Devtools for debugging
+- Monitor query performance and cache usage
+- Implement proper logging for development
+- Use query prefetching for better UX
+
+## Data Synchronization
+- Implement proper cache invalidation
+- Use optimistic updates for better UX
+- Handle concurrent updates properly
+- Maintain data consistency across components
+description:
+globs:
+alwaysApply: true
+---

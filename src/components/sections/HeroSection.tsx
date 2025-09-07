@@ -74,48 +74,48 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section 
       id="home" 
-      className="tm-layout-hero relative pt-20 sm:pt-24 md:pt-32 pb-16 sm:pb-20 md:pb-24 overflow-hidden z-40"
+      className="tm-layout-hero relative z-40 overflow-hidden pb-16 pt-20 sm:pb-20 sm:pt-24 md:pb-24 md:pt-32"
       aria-labelledby="hero-title"
     >
       {/* Background */}
       <div className="tm-layout-hero__background absolute inset-0 bg-transparent" />
 
       {/* Enhanced neon lamp effect - Optimized for all devices */}
-      <div className="absolute inset-0 pointer-events-none z-10">
-        <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0">
+      <div className="pointer-events-none absolute inset-0 z-10">
+        <div className="relative isolate z-0 flex w-full flex-1 scale-y-125 items-center justify-center">
                       {/* Lamp beams - optimized for all devices */}
-            <div className="absolute inset-auto right-1/2 h-40 md:h-56 overflow-visible w-[20rem] md:w-[35rem] bg-gradient-conic from-green-400 via-transparent to-transparent [--conic-position:from_70deg_at_center_top]">
-              <div className="absolute w-[100%] left-0 bg-black h-32 md:h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
-              <div className="absolute w-32 md:w-40 h-[100%] left-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
+            <div className="absolute inset-auto right-1/2 h-40 w-[20rem] overflow-visible bg-gradient-conic from-green-400 via-transparent to-transparent [--conic-position:from_70deg_at_center_top] md:h-56 md:w-[35rem]">
+              <div className="absolute bottom-0 left-0 z-20 h-32 w-[100%] bg-black [mask-image:linear-gradient(to_top,white,transparent)] md:h-40" />
+              <div className="absolute bottom-0 left-0 z-20 h-[100%] w-32 bg-black [mask-image:linear-gradient(to_right,white,transparent)] md:w-40" />
             </div>
             
-            <div className="absolute inset-auto left-1/2 h-40 md:h-56 w-[20rem] md:w-[35rem] bg-gradient-conic from-transparent via-transparent to-green-400 [--conic-position:from_290deg_at_center_top]">
-              <div className="absolute w-32 md:w-40 h-[100%] right-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
-              <div className="absolute w-[100%] right-0 bg-black h-32 md:h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+            <div className="absolute inset-auto left-1/2 h-40 w-[20rem] bg-gradient-conic from-transparent via-transparent to-green-400 [--conic-position:from_290deg_at_center_top] md:h-56 md:w-[35rem]">
+              <div className="absolute bottom-0 right-0 z-20 h-[100%] w-32 bg-black [mask-image:linear-gradient(to_left,white,transparent)] md:w-40" />
+              <div className="absolute bottom-0 right-0 z-20 h-32 w-[100%] bg-black [mask-image:linear-gradient(to_top,white,transparent)] md:h-40" />
             </div>
             
             {/* Background blur - optimized */}
-            <div className="absolute top-1/2 h-32 md:h-48 w-full translate-y-8 md:translate-y-12 scale-x-100 md:scale-x-150 bg-black blur-xl md:blur-2xl"></div>
+            <div className="absolute top-1/2 h-32 w-full translate-y-8 scale-x-100 bg-black blur-xl md:h-48 md:translate-y-12 md:scale-x-150 md:blur-2xl"></div>
             
             {/* Central glow - optimized */}
-            <div className="absolute inset-auto z-50 h-24 md:h-36 w-[20rem] md:w-[32rem] -translate-y-1/2 rounded-full bg-green-400 opacity-20 md:opacity-25 blur-2xl md:blur-3xl"></div>
+            <div className="absolute inset-auto z-50 h-24 w-[20rem] -translate-y-1/2 rounded-full bg-green-400 opacity-20 blur-2xl md:h-36 md:w-[32rem] md:opacity-25 md:blur-3xl"></div>
             
             {/* Secondary glow layer - desktop only for performance */}
-            <div className="hidden md:block absolute inset-auto z-30 h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 blur-2xl opacity-20"></div>
+            <div className="absolute inset-auto z-30 hidden h-36 w-80 -translate-y-[6rem] rounded-full bg-green-300 opacity-20 blur-2xl md:block"></div>
             
             {/* Neon lamp bar - optimized */}
             <div className="absolute left-0 top-0 z-[100] h-0.5 w-full bg-emerald-700 shadow-[0_0_4px_#047857] md:shadow-[0_0_6px_#047857]"></div>
             
             {/* Bright center core - optimized */}
-            <div className="absolute left-0 top-0 translate-y-px z-[101] h-px w-full bg-emerald-300 shadow-[0_0_2px_#6ee7b7] md:shadow-[0_0_3px_#6ee7b7]"></div>
+            <div className="absolute left-0 top-0 z-[101] h-px w-full translate-y-px bg-emerald-300 shadow-[0_0_2px_#6ee7b7] md:shadow-[0_0_3px_#6ee7b7]"></div>
             
             {/* Top mask - optimized */}
-            <div className="absolute inset-auto z-40 h-32 md:h-44 w-full -translate-y-[8rem] md:-translate-y-[10rem] bg-black"></div>
+            <div className="absolute inset-auto z-40 h-32 w-full -translate-y-[8rem] bg-black md:h-44 md:-translate-y-[10rem]"></div>
         </div>
       </div>
       
-      <div className="tm-layout-container max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-50">
-        <div className="tm-layout-hero__content max-w-full sm:max-w-5xl mx-auto">
+      <div className="tm-layout-container max-w-8xl relative z-50 mx-auto px-4 text-center sm:px-6 lg:px-8">
+        <div className="tm-layout-hero__content mx-auto max-w-full sm:max-w-5xl">
           {/* Beta Badge */}
           <div className="tm-layout-hero__badge mb-8">
             <span className="tm-ui-badge tm-ui-badge--glass beta-pill">
@@ -126,7 +126,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Main Title with Rotating Words */}
           <h1 
             id="hero-title"
-            className="tm-layout-hero__title mb-6 text-white text-center"
+            className="tm-layout-hero__title mb-6 text-center text-white"
           >
             <div className="tm-layout-hero__title-container flex flex-col items-center justify-center">
               <div className="flex items-center justify-center whitespace-nowrap">
@@ -145,7 +145,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                         duration: 0.5,
                         ease: [0.25, 0.1, 0.25, 1]
                       }}
-                      className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-start whitespace-nowrap ml-1 sm:ml-2 md:ml-4"
+                      className="tm-theme-text-gradient--brand absolute inset-0 ml-1 flex items-center justify-start whitespace-nowrap sm:ml-2 md:ml-4"
                     >
                       {rotatingWords[wordIndex]}
                     </motion.span>
@@ -156,7 +156,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </h1>
 
           {/* Subtitle */}
-          <p className="tm-layout-hero__description text-lead text-white/70 mb-8 sm:mb-10 md:mb-12 max-w-xl mx-auto">
+          <p className="tm-layout-hero__description text-lead mx-auto mb-8 max-w-xl text-white/70 sm:mb-10 md:mb-12">
             {subtitle}
           </p>
 
@@ -174,11 +174,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Hero Image */}
           <div className="tm-layout-hero__image relative">
             {/* Glow Effects - Optimized for all devices */}
-            <div className="absolute top-0 left-0 right-0 h-4/5 flex items-start justify-center">
-                              <div className="absolute w-[200%] h-[140%] -z-10 -top-16">
+            <div className="absolute left-0 right-0 top-0 flex h-4/5 items-start justify-center">
+                              <div className="absolute -top-16 -z-10 h-[140%] w-[200%]">
                   {/* Outer diffuse glow - optimized */}
                   <div 
-                    className="absolute inset-0 rounded-full opacity-6 md:opacity-9 animate-pulse-glow"
+                    className="opacity-6 md:opacity-9 animate-pulse-glow absolute inset-0 rounded-full"
                     style={{
                       background: `radial-gradient(ellipse 120% 90% at center 20%, #22c55e 0%, transparent 60%)`,
                       filter: 'blur(100px)',
@@ -187,7 +187,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   />
                   {/* Mid-range neon glow - optimized */}
                   <div 
-                    className="absolute inset-8 rounded-full opacity-4 md:opacity-7 animate-pulse-glow-secondary"
+                    className="opacity-4 md:opacity-7 animate-pulse-glow-secondary absolute inset-8 rounded-full"
                     style={{
                       background: `radial-gradient(ellipse 100% 75% at center 15%, #4ade80 0%, transparent 50%)`,
                       filter: 'blur(80px)',
@@ -196,7 +196,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   />
                   {/* Inner bright core - optimized */}
                   <div 
-                    className="absolute inset-16 rounded-full opacity-8 md:opacity-12 animate-pulse-glow-tertiary"
+                    className="opacity-8 md:opacity-12 animate-pulse-glow-tertiary absolute inset-16 rounded-full"
                     style={{
                       background: `radial-gradient(ellipse 80% 60% at center 10%, #86efac 0%, transparent 40%)`,
                       filter: 'blur(60px)',
@@ -205,7 +205,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   />
                   {/* Ultra-soft ambient - desktop only for performance */}
                   <div 
-                    className="hidden md:block absolute inset-4 rounded-full opacity-5"
+                    className="absolute inset-4 hidden rounded-full opacity-5 md:block"
                     style={{
                       background: `radial-gradient(ellipse 140% 100% at center 25%, #22c55e 0%, transparent 70%)`,
                       filter: 'blur(150px)',
@@ -217,12 +217,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Main Hero Image */}
-            <div className="flex items-center justify-center relative z-[50]">
+            <div className="relative z-[50] flex items-center justify-center">
               <NeonGradientCard 
                 className="w-full max-w-5xl p-1" 
                 style={{ pointerEvents: 'none' }}
               >
-                <div className="rounded-[11px] overflow-hidden relative">
+                <div className="relative overflow-hidden rounded-[11px]">
                   {/* Bezel Effects */}
                   <div className="absolute inset-0 rounded-[11px] border-2 border-gray-300/80 shadow-inner" aria-hidden="true" />
                   <div className="absolute inset-[2px] rounded-[9px] border border-gray-200/60 shadow-sm" aria-hidden="true" />
@@ -231,7 +231,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   <img 
                     src={heroImageSrc} 
                     alt={heroImageAlt}
-                    className="w-full h-auto object-contain relative z-10"
+                    className="relative z-10 h-auto w-full object-contain"
                     loading="eager" // Hero image should load immediately
                   />
                 </div>

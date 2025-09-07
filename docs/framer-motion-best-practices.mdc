@@ -1,0 +1,35 @@
+# Framer Motion Best Practices
+
+## Component Usage
+- Use `motion` components for declarative animations
+- Implement proper animation variants
+- Use consistent animation patterns
+- Optimize performance with proper configuration
+
+## Performance Optimization
+- Use `React.memo` for animated components
+- Implement proper animation timing
+- Optimize re-renders with dependencies
+- Use efficient animation techniques
+
+## Animation Patterns
+- Create reusable animation variants
+- Implement consistent easing functions
+- Use proper animation durations
+- Handle animation states appropriately
+
+## User Experience
+- Provide meaningful animations
+- Implement proper loading states
+- Use animations for feedback
+- Ensure accessibility compliance
+
+## Code Organization
+- Centralize animation logic
+- Use consistent naming conventions
+- Implement proper error handling
+- Maintain animation consistency
+description:
+globs:
+alwaysApply: true
+---

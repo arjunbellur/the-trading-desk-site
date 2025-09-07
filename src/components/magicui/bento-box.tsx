@@ -29,11 +29,12 @@ export function BentoBox({
   return (
     <div 
       className={cn(
-        "grid auto-rows-fr",
+        "grid",
         className
       )}
       style={{
         gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
+        gridTemplateRows: 'repeat(2, 180px)',
         gap,
       }}
     >
@@ -73,86 +74,40 @@ export function BentoCard({
         )}
         style={{
           borderRadius: `${borderRadius}px`,
-          background: '#1a1a1a',
+          background: '#000000',
           border: '1px solid rgba(255, 255, 255, 0.1)',
-          boxShadow: `
-            0 4px 6px -1px rgba(0, 0, 0, 0.1),
-            0 2px 4px -1px rgba(0, 0, 0, 0.06),
-            inset 0 1px 0 rgba(255, 255, 255, 0.05)
-          `,
+          boxShadow: 'none',
         }}
       >
-        {/* Border beam container */}
-        <div
-          className={cn(
-            "pointer-events-none absolute inset-[1px] border-transparent z-[100]",
-            "[mask-clip:padding-box,border-box] [mask-composite:intersect]",
-            "[mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]"
-          )}
-          style={{
-            borderRadius: `${borderRadius - 1}px`,
-            borderWidth: "1px",
-          }}
-        >
-          {/* Animated border beam */}
-          <div
-            className="absolute aspect-square bg-gradient-to-l from-[var(--color-from)] via-[var(--color-to)] to-transparent animate-border-beam"
-            style={{
-              width: "80px",
-              height: "80px",
-              borderRadius: "50%",
-              filter: "blur(3px)",
-              offsetPath: `rect(2px auto auto 2px round ${borderRadius - 2}px)`,
-              offsetAnchor: "center",
-              offsetRotate: "0deg",
-              "--color-from": neonColors.firstColor,
-              "--color-to": neonColors.secondColor,
-            } as React.CSSProperties}
-          />
-        </div>
+
         
-        {/* Apple-quality glass content container */}
-        <div className="relative w-full h-full overflow-hidden" style={{ borderRadius: `${borderRadius}px` }}>
-          {/* Apple-style translucent glass effect with hover */}
-          <div className="absolute inset-0 z-5" style={{ borderRadius: `${borderRadius}px` }}>
-            {/* Primary dark layer with subtle hover enhancement */}
-            <div 
-              className="absolute inset-0 transition-all duration-500 group-hover:bg-white/[0.02]"
-              style={{ 
-                borderRadius: `${borderRadius}px`,
-                background: '#1a1a1a'
-              }}
-            ></div>
-            
-            {/* Subtle inner glow on hover */}
-            <div 
-              className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-100 opacity-0"
-              style={{ 
-                borderRadius: `${borderRadius}px`,
-                background: 'radial-gradient(circle at center, rgba(255, 255, 255, 0.03), transparent 70%)'
-              }}
-            ></div>
-            
-            {/* Subtle top edge highlight */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-            
-            {/* Subtle left edge highlight */}
-            <div className="absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/8 to-transparent"></div>
-          </div>
-          
-          {/* Content with proper layering */}
-          <div className="relative z-10 p-4 h-full">
-            {children}
-          </div>
-          
-          {/* Subtle noise texture */}
+        {/* Simple content container */}
+        <div className="relative flex h-full w-full flex-col overflow-hidden" style={{ borderRadius: `${borderRadius}px` }}>
+          {/* Dark background layer */}
           <div 
-            className="absolute inset-0 opacity-[0.005] pointer-events-none mix-blend-soft-light"
-            style={{
+            className="absolute inset-0 transition-all duration-300 group-hover:bg-white/[0.02]"
+            style={{ 
               borderRadius: `${borderRadius}px`,
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.6'/%3E%3C/svg%3E")`,
+              background: '#000000'
             }}
           ></div>
+          
+          {/* Subtle top edge highlight */}
+          <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          
+          {/* Subtle light gradient overlay */}
+          <div 
+            className="absolute inset-0 opacity-20"
+            style={{ 
+              borderRadius: `${borderRadius}px`,
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%, rgba(255,255,255,0.02) 100%)'
+            }}
+          ></div>
+          
+          {/* Content with proper layering */}
+          <div className="relative z-10 flex-1 p-6">
+            {children}
+          </div>
         </div>
       </div>
     </div>

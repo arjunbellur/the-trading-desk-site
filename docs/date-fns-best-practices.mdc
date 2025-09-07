@@ -1,0 +1,35 @@
+# Date-fns Best Practices
+
+## Function Usage
+- Use specific functions for better performance
+- Prefer `format` and `parse` over general functions
+- Implement proper date formatting patterns
+- Use consistent date handling approaches
+
+## Performance Optimization
+- Import specific functions to reduce bundle size
+- Use efficient date manipulation techniques
+- Implement proper date caching strategies
+- Optimize date calculations
+
+## Localization
+- Use proper locale settings
+- Implement consistent date formatting
+- Handle timezone considerations
+- Provide proper date display formats
+
+## Code Organization
+- Centralize date formatting logic
+- Create reusable date utility functions
+- Implement consistent date patterns
+- Maintain date handling consistency
+
+## Error Handling
+- Handle invalid date inputs gracefully
+- Provide fallback date formats
+- Implement proper date validation
+- Use consistent error messaging
+description:
+globs:
+alwaysApply: true
+---

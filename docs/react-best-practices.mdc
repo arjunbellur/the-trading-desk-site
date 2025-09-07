@@ -1,0 +1,41 @@
+# React Best Practices
+
+## Component Structure
+- Use functional components and hooks for cleaner code
+- Implement proper TypeScript interfaces for props
+- Use React.Fragment for multiple elements
+- Keep components focused and single-purpose
+
+## State Management
+- Use `useState` for local component state
+- Implement `useMemo` and `useCallback` for performance optimization
+- Use custom hooks for reusable state logic
+- Avoid prop drilling with context or custom hooks
+
+## Performance Optimization
+- Use `React.memo` for expensive components
+- Implement `useMemo` for expensive calculations
+- Use `useCallback` for function dependencies
+- Optimize re-renders with proper dependency arrays
+
+## Error Handling
+- Use Error Boundaries for component error handling
+- Implement proper loading states
+- Handle async operations with try-catch
+- Provide meaningful error messages
+
+## Code Organization
+- Separate concerns with custom hooks
+- Use proper file naming conventions
+- Organize imports consistently
+- Keep components testable and maintainable
+
+## TypeScript Integration
+- Use proper type definitions for props
+- Leverage TypeScript for better IDE support
+- Implement strict null checks
+- Use type inference when possible
+description:
+globs:
+alwaysApply: true
+---

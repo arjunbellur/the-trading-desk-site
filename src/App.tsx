@@ -10,6 +10,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { DemoModeBanner } from "@/components/DemoModeBanner";
 
 // Lazy load page components for better performance
 const Index = React.lazy(() => import("./pages/Index"));
@@ -19,16 +20,19 @@ const Live = React.lazy(() => import("./pages/Live"));
 const Blog = React.lazy(() => import("./pages/Blog"));
 const Community = React.lazy(() => import("./pages/Community"));
 const StyleGuide = React.lazy(() => import("./pages/StyleGuide"));
+const Login = React.lazy(() => import("./pages/Login"));
+const Billing = React.lazy(() => import("./pages/Billing"));
+const Success = React.lazy(() => import("./pages/Success"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 
 /**
  * Loading fallback component for lazy-loaded routes
  */
 const LoadingFallback: React.FC = () => (
-  <div className="min-h-screen bg-black flex items-center justify-center">
+  <div className="flex min-h-screen items-center justify-center bg-black">
     <div className="text-center">
-      <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin mx-auto mb-4" />
-      <p className="text-white/70 text-sm">Loading...</p>
+      <div className="mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white" />
+      <p className="text-sm text-white/70">Loading...</p>
     </div>
   </div>
 );
@@ -75,6 +79,7 @@ const App: React.FC = () => (
             v7_relativeSplatPath: true
           }}
         >
+          <DemoModeBanner />
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
               <Route path="/" element={<Index />} />
@@ -83,6 +88,9 @@ const App: React.FC = () => (
               <Route path="/live" element={<Live />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/community" element={<Community />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/billing" element={<Billing />} />
+              <Route path="/success" element={<Success />} />
               <Route path="/style-guide" element={<StyleGuide />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

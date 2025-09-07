@@ -16,7 +16,7 @@ export const CourseGrid = ({
 }: CourseGridProps) => {
   if (courses.length === 0) {
     return (
-      <div className={`text-center py-12 ${className}`}>
+      <div className={`py-12 text-center ${className}`}>
         <p className="text-muted-foreground">No courses available at the moment.</p>
       </div>
     );
@@ -26,9 +26,9 @@ export const CourseGrid = ({
     <section className={`section-padding ${className}`}>
       <div className="container-cinematic">
         {(title || description) && (
-          <div className="text-center mb-16">
+          <div className="mb-16 text-center">
             {title && (
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+              <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
                 {title.includes('Featured') ? (
                   <>
                     Featured <span className="text-gradient-gold">Courses</span>
@@ -37,14 +37,14 @@ export const CourseGrid = ({
               </h2>
             )}
             {description && (
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
                 {description}
               </p>
             )}
           </div>
         )}
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {courses.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}
@@ -52,7 +52,7 @@ export const CourseGrid = ({
         
         {/* Show more indicator if there are many courses */}
         {courses.length > 6 && (
-          <div className="text-center mt-12">
+          <div className="mt-12 text-center">
             <p className="text-sm text-muted-foreground">
               Showing {Math.min(6, courses.length)} of {courses.length} courses
             </p>

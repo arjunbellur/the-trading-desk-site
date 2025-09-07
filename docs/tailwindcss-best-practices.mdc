@@ -1,0 +1,35 @@
+# Tailwind CSS Best Practices
+
+## Utility-First Approach
+- Use utility classes for rapid UI development
+- Avoid custom CSS when possible
+- Leverage Tailwind's design system
+- Use consistent spacing and sizing
+
+## Custom Configuration
+- Extend Tailwind's configuration for consistency
+- Create custom color palettes
+- Define custom spacing and typography
+- Use `@apply` for reusable styles
+
+## Responsive Design
+- Use responsive utilities (`sm:`, `md:`, `lg:`)
+- Implement mobile-first design
+- Use proper breakpoint strategies
+- Test across different screen sizes
+
+## Component Styling
+- Create reusable component classes
+- Use `cn()` utility for conditional classes
+- Implement proper hover and focus states
+- Maintain consistent design patterns
+
+## Performance
+- Purge unused styles in production
+- Use JIT mode for faster builds
+- Optimize class combinations
+- Avoid overly complex class strings
+description:
+globs:
+alwaysApply: true
+---

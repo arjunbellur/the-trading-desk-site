@@ -32,12 +32,12 @@ const CourseDetail = () => {
     return (
       <div className="min-h-screen bg-background text-foreground">
         <Navigation />
-        <div className="pt-24 container-cinematic text-center">
-          <h1 className="text-2xl font-bold mb-4">Course Not Found</h1>
-          <p className="text-muted-foreground mb-8">The course you're looking for doesn't exist.</p>
+        <div className="container-cinematic pt-24 text-center">
+          <h1 className="mb-4 text-2xl font-bold">Course Not Found</h1>
+          <p className="mb-8 text-muted-foreground">The course you're looking for doesn't exist.</p>
           <Button asChild>
             <Link to="/courses">
-              <ArrowLeft className="w-4 h-4 mr-2" />
+              <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Courses
             </Link>
           </Button>
@@ -74,11 +74,11 @@ const CourseDetail = () => {
       <Navigation />
       
       {/* Back to Courses */}
-      <div className="pt-24 pb-6">
+      <div className="pb-6 pt-24">
         <div className="container-cinematic">
           <Button variant="ghost" asChild className="text-muted-foreground">
             <Link to="/courses">
-              <ArrowLeft className="w-4 h-4 mr-2" />
+              <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Courses
             </Link>
           </Button>
@@ -88,55 +88,55 @@ const CourseDetail = () => {
       {/* Course Hero */}
       <section className="pb-16">
         <div className="container-cinematic">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid gap-12 lg:grid-cols-3">
             {/* Main Content */}
             <div className="lg:col-span-2">
               {/* Course Header */}
               <div className="mb-8">
-                <div className="flex items-center gap-4 mb-4">
+                <div className="mb-4 flex items-center gap-4">
                   <Badge className={`${difficultyColors[course.difficulty]} border-0 capitalize`}>
                     {course.difficulty}
                   </Badge>
                   <div className="flex items-center gap-1">
-                    <Star className="w-4 h-4 text-primary fill-current" />
+                    <Star className="h-4 w-4 fill-current text-primary" />
                     <span className="font-medium">{course.rating}</span>
                     <span className="text-muted-foreground">({course.studentCount.toLocaleString()} students)</span>
                   </div>
                 </div>
                 
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl">
                   {course.title}
                 </h1>
                 
-                <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
+                <p className="mb-6 text-xl leading-relaxed text-muted-foreground">
                   {course.shortDescription}
                 </p>
 
                 {/* Course Meta */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div className="mb-8 grid grid-cols-2 gap-4 md:grid-cols-4">
                   <div className="flex items-center gap-2">
-                    <Clock className="w-5 h-5 text-primary" />
+                    <Clock className="h-5 w-5 text-primary" />
                     <div>
                       <p className="font-medium">{course.duration}</p>
                       <p className="text-sm text-muted-foreground">Duration</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <BookOpen className="w-5 h-5 text-primary" />
+                    <BookOpen className="h-5 w-5 text-primary" />
                     <div>
                       <p className="font-medium">{totalLessons} lessons</p>
                       <p className="text-sm text-muted-foreground">Content</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Play className="w-5 h-5 text-primary" />
+                    <Play className="h-5 w-5 text-primary" />
                     <div>
                       <p className="font-medium">{formatRuntime(totalRuntime)}</p>
                       <p className="text-sm text-muted-foreground">Video</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Users className="w-5 h-5 text-primary" />
+                    <Users className="h-5 w-5 text-primary" />
                     <div>
                       <p className="font-medium">{course.studentCount.toLocaleString()}</p>
                       <p className="text-sm text-muted-foreground">Students</p>
@@ -145,9 +145,9 @@ const CourseDetail = () => {
                 </div>
 
                 {/* Instructor */}
-                <div className="flex items-center gap-4 p-4 bg-muted/20 rounded-lg">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
-                    <User className="w-6 h-6 text-primary" />
+                <div className="flex items-center gap-4 rounded-lg bg-muted/20 p-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
+                    <User className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <p className="font-semibold">{course.instructor.name}</p>
@@ -158,8 +158,8 @@ const CourseDetail = () => {
 
               {/* Course Description */}
               <div className="mb-8">
-                <h2 className="text-2xl font-bold mb-4">About This Course</h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <h2 className="mb-4 text-2xl font-bold">About This Course</h2>
+                <p className="mb-6 leading-relaxed text-muted-foreground">
                   {course.description}
                 </p>
               </div>
@@ -167,11 +167,11 @@ const CourseDetail = () => {
               {/* Prerequisites */}
               {course.prerequisites.length > 0 && (
                 <div className="mb-8">
-                  <h3 className="text-xl font-bold mb-4">Prerequisites</h3>
+                  <h3 className="mb-4 text-xl font-bold">Prerequisites</h3>
                   <ul className="space-y-2">
                     {course.prerequisites.map((prereq, index) => (
                       <li key={index} className="flex items-center gap-2 text-muted-foreground">
-                        <Target className="w-4 h-4 text-primary" />
+                        <Target className="h-4 w-4 text-primary" />
                         {prereq}
                       </li>
                     ))}
@@ -181,11 +181,11 @@ const CourseDetail = () => {
 
               {/* What You'll Learn */}
               <div className="mb-8">
-                <h3 className="text-xl font-bold mb-4">What You'll Learn</h3>
-                <div className="grid md:grid-cols-2 gap-3">
+                <h3 className="mb-4 text-xl font-bold">What You'll Learn</h3>
+                <div className="grid gap-3 md:grid-cols-2">
                   {course.whatYouWillLearn.map((item, index) => (
                     <div key={index} className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <CheckCircle className="h-4 w-4 text-primary" />
                       <span className="text-muted-foreground">{item}</span>
                     </div>
                   ))}
@@ -194,12 +194,12 @@ const CourseDetail = () => {
 
               {/* Course Curriculum */}
               <div className="mb-8">
-                <h3 className="text-xl font-bold mb-4">Course Curriculum</h3>
+                <h3 className="mb-4 text-xl font-bold">Course Curriculum</h3>
                 <div className="space-y-4">
                   {course.modules.map((module, moduleIndex) => (
                     <Card key={module.id} className="card-cinematic">
                       <CardHeader className="pb-3">
-                        <CardTitle className="text-lg flex items-center justify-between">
+                        <CardTitle className="flex items-center justify-between text-lg">
                           <span>Module {moduleIndex + 1}: {module.title}</span>
                           <span className="text-sm font-normal text-muted-foreground">
                             {module.lessons.length} lessons
@@ -210,19 +210,19 @@ const CourseDetail = () => {
                       <CardContent className="pt-0">
                         <div className="space-y-2">
                           {module.lessons.map((lesson, lessonIndex) => (
-                            <div key={lesson.id} className="flex items-center justify-between p-3 bg-muted/10 rounded">
+                            <div key={lesson.id} className="flex items-center justify-between rounded bg-muted/10 p-3">
                               <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 bg-muted/30 rounded flex items-center justify-center">
+                                <div className="flex h-8 w-8 items-center justify-center rounded bg-muted/30">
                                   {lesson.isLocked ? (
-                                    <Lock className="w-4 h-4 text-muted-foreground" />
+                                    <Lock className="h-4 w-4 text-muted-foreground" />
                                   ) : (
-                                    <Play className="w-4 h-4 text-primary" />
+                                    <Play className="h-4 w-4 text-primary" />
                                   )}
                                 </div>
                                 <div>
-                                  <p className="font-medium text-sm">{lesson.title}</p>
+                                  <p className="text-sm font-medium">{lesson.title}</p>
                                   {lesson.isPreview && (
-                                    <Badge variant="secondary" className="text-xs mt-1">FREE PREVIEW</Badge>
+                                    <Badge variant="secondary" className="mt-1 text-xs">FREE PREVIEW</Badge>
                                   )}
                                 </div>
                               </div>
@@ -247,7 +247,7 @@ const CourseDetail = () => {
                     <div className="mb-4">
                       <span className="text-3xl font-bold">${course.price}</span>
                       {course.originalPrice && (
-                        <span className="text-lg text-muted-foreground line-through ml-2">
+                        <span className="ml-2 text-lg text-muted-foreground line-through">
                           ${course.originalPrice}
                         </span>
                       )}
@@ -255,12 +255,12 @@ const CourseDetail = () => {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <LiquidGlassButton size="lg" className="w-full text-lg">
-                      <Play className="w-5 h-5 mr-2" />
-                      Start course
+                      <Play className="mr-2 h-5 w-5" />
+                      Start Now
                     </LiquidGlassButton>
                     
                     <Button variant="ghost" className="w-full py-3">
-                      <Calendar className="w-4 h-4 mr-2" />
+                      <Calendar className="mr-2 h-4 w-4" />
                       30-Day Money Back Guarantee
                     </Button>
 
@@ -270,7 +270,7 @@ const CourseDetail = () => {
                       <h4 className="font-semibold">This course includes:</h4>
                       {course.features.map((feature, index) => (
                         <div key={index} className="flex items-center gap-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-primary" />
+                          <CheckCircle className="h-4 w-4 text-primary" />
                           <span>{feature}</span>
                         </div>
                       ))}

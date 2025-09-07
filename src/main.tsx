@@ -33,16 +33,27 @@ if (lenis) {
   (window as unknown as { lenis: Lenis }).lenis = lenis;
 }
 
-// Handle resize and orientation changes
+// Handle resize and orientation changes - optimized for better UX
 let currentIsMobile = window.innerWidth <= 768;
+let resizeTimeout: NodeJS.Timeout;
+
 window.addEventListener('resize', () => {
   const newIsMobile = window.innerWidth <= 768;
   if (newIsMobile !== currentIsMobile) {
     currentIsMobile = newIsMobile;
-    // Reload page on significant size change for better performance
-    if (Math.abs(window.innerWidth - window.innerHeight) > 100) {
-      window.location.reload();
-    }
+    // Debounce resize events to prevent excessive reloads
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      // Only reload on extreme orientation changes to prevent jarring UX
+      const aspectRatio = window.innerWidth / window.innerHeight;
+      if (aspectRatio < 0.5 || aspectRatio > 2.0) {
+        // Use smooth transition instead of hard reload when possible
+        document.body.style.opacity = '0.7';
+        setTimeout(() => {
+          window.location.reload();
+        }, 100);
+      }
+    }, 250);
   }
 });
 

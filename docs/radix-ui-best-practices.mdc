@@ -1,0 +1,35 @@
+# Radix UI Best Practices
+
+## Component Usage
+- Use Radix components for accessibility
+- Follow component documentation guidelines
+- Implement proper composition patterns
+- Use consistent styling approaches
+
+## Accessibility
+- Ensure proper ARIA attributes
+- Implement keyboard navigation
+- Handle focus management correctly
+- Provide proper screen reader support
+
+## Styling Integration
+- Use Tailwind CSS with Radix components
+- Implement proper theme integration
+- Handle component variants consistently
+- Maintain design system consistency
+
+## Customization
+- Use composition for component customization
+- Implement proper prop forwarding
+- Handle component state management
+- Use consistent naming conventions
+
+## Performance
+- Optimize component rendering
+- Use proper event handling
+- Implement efficient state updates
+- Handle component lifecycle properly
+description:
+globs:
+alwaysApply: true
+---

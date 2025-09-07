@@ -3,15 +3,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import SmoothScrollLink from "@/components/SmoothScrollLink";
-import { NeonGradientCard, Marquee, ShineBorder, BorderBeam, BentoBox, BentoCard } from "@/components/magicui";
+import { NeonGradientCard, Marquee, ShineBorder, BorderBeam } from "@/components/magicui";
 import { motion, AnimatePresence } from "framer-motion";
 // BlurInView removed for mobile performance
 import { LiquidGlassButton } from "@/components/ui/liquid-glass-button";
 import Footer from "@/components/Footer";
 import React, { useEffect, useState, useMemo } from "react";
-import { 
-  BookOpen, 
-  Star, 
+import {
+  BookOpen,
+  Star,
   Quote,
   Clock,
   Play,
@@ -24,13 +24,18 @@ import {
   DollarSign,
   Globe,
   Zap,
-  ThumbsUp
+  ThumbsUp,
+  TrendingUp
 } from "lucide-react";
+import { CourseCard } from "@/components/CourseCard";
+import { coursesData } from "@/data/courses";
+import { useCourseActions } from "@/hooks/useCourseActions";
 
 const Index = () => {
-  const rotatingWords = useMemo(() => ["market", "trade", "insights"], []);
+  const rotatingWords = useMemo(() => ["trading", "markets", "strategy"], []);
   const [wordIndex, setWordIndex] = useState(0);
   const [currentWordWidth, setCurrentWordWidth] = useState(0);
+  const { handlePreRegister, handleExplore } = useCourseActions();
   
   useEffect(() => {
     const id = setInterval(() => {
@@ -45,7 +50,7 @@ const Index = () => {
     measureElement.style.position = 'absolute';
     measureElement.style.visibility = 'hidden';
     measureElement.style.whiteSpace = 'nowrap';
-    measureElement.style.fontSize = 'clamp(2.75rem, 8vw, 6rem)'; // Match increased hero title font size
+    measureElement.style.fontSize = 'clamp(2.5rem, 7vw, 5.5rem)'; // Reduced hero title font size
     measureElement.style.fontFamily = '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif';
     measureElement.style.fontWeight = '700';
     measureElement.style.top = '-9999px';
@@ -101,19 +106,19 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white relative">
+    <div className="relative min-h-screen bg-black text-white">
       {/* Particle background removed per spec */}
       
       <Navigation />
       
-      {/* Hero Section - Optimized Magic UI Layout */}
-      <section id="home" className="tm-layout-hero relative pt-20 sm:pt-24 md:pt-32 pb-16 sm:pb-20 md:pb-24 overflow-hidden z-40">
+      {/* Hero Section - Modern Content Spacing */}
+      <section id="home" className="tm-layout-hero relative z-40 flex min-h-screen items-center overflow-hidden pb-12 pt-24 sm:pb-16 sm:pt-32 md:pb-20 md:pt-40">
         {/* Transparent background */}
         <div className="tm-layout-hero__background absolute inset-0 bg-transparent" />
         
         {/* Optimized neon lamp effect - responsive and performant */}
-        <div className="absolute inset-0 pointer-events-none z-10">
-          <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0">
+        <div className="pointer-events-none absolute inset-0 z-10">
+          <div className="relative isolate z-0 flex w-full flex-1 scale-y-125 items-center justify-center">
             {/* Left lamp beam - responsive sizing */}
             <motion.div
               initial={{ opacity: 0.5, width: "15rem" }}
@@ -128,10 +133,10 @@ const Index = () => {
               style={{
                 backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
               }}
-              className="absolute inset-auto right-1/2 h-40 md:h-56 overflow-visible w-[20rem] md:w-[35rem] bg-gradient-conic from-transparent via-transparent to-transparent [--conic-position:from_70deg_at_center_top]"
+              className="absolute inset-auto right-1/2 h-40 w-[20rem] overflow-visible bg-gradient-conic from-transparent via-transparent to-transparent [--conic-position:from_70deg_at_center_top] md:h-56 md:w-[35rem]"
             >
-              <div className="absolute w-[100%] left-0 bg-black h-32 md:h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
-              <div className="absolute w-32 md:w-40 h-[100%] left-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
+              <div className="absolute bottom-0 left-0 z-20 h-32 w-[100%] bg-black [mask-image:linear-gradient(to_top,white,transparent)] md:h-40" />
+              <div className="absolute bottom-0 left-0 z-20 h-[100%] w-32 bg-black [mask-image:linear-gradient(to_right,white,transparent)] md:w-40" />
             </motion.div>
             
             {/* Right lamp beam - responsive sizing */}
@@ -148,18 +153,18 @@ const Index = () => {
               style={{
                 backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
               }}
-              className="absolute inset-auto left-1/2 h-40 md:h-56 w-[20rem] md:w-[35rem] bg-gradient-conic from-transparent via-transparent to-transparent [--conic-position:from_290deg_at_center_top]"
+              className="absolute inset-auto left-1/2 h-40 w-[20rem] bg-gradient-conic from-transparent via-transparent to-transparent [--conic-position:from_290deg_at_center_top] md:h-56 md:w-[35rem]"
             >
-              <div className="absolute w-32 md:w-40 h-[100%] right-0 bg-black bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
-              <div className="absolute w-[100%] right-0 bg-black h-32 md:h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+              <div className="absolute bottom-0 right-0 z-20 h-[100%] w-32 bg-black [mask-image:linear-gradient(to_left,white,transparent)] md:w-40" />
+              <div className="absolute bottom-0 right-0 z-20 h-32 w-[100%] bg-black [mask-image:linear-gradient(to_top,white,transparent)] md:h-40" />
             </motion.div>
             
             {/* Background blur layers - optimized */}
-            <div className="absolute top-1/2 h-32 md:h-48 w-full translate-y-8 md:translate-y-12 scale-x-100 md:scale-x-150 bg-black blur-xl md:blur-2xl"></div>
-            <div className="absolute top-1/2 z-50 h-32 md:h-48 w-full bg-transparent opacity-5 md:opacity-10 backdrop-blur-md"></div>
+            <div className="absolute top-1/2 h-32 w-full translate-y-8 scale-x-100 bg-black blur-xl md:h-48 md:translate-y-12 md:scale-x-150 md:blur-2xl"></div>
+            <div className="absolute top-1/2 z-50 h-32 w-full bg-transparent opacity-5 backdrop-blur-md md:h-48 md:opacity-10"></div>
             
             {/* Central glow - optimized for mobile */}
-            <div className="absolute left-0 right-0 top-1/2 z-50 h-24 md:h-36 w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-transparent to-transparent blur-2xl md:blur-3xl"></div>
+            <div className="absolute left-0 right-0 top-1/2 z-50 h-24 w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-transparent to-transparent blur-2xl md:h-36 md:blur-3xl"></div>
             
             {/* Secondary glow layer - desktop only for performance */}
             <motion.div
@@ -172,7 +177,7 @@ const Index = () => {
                 ease: [0.23, 1, 0.32, 1],
                 type: "tween"
               }}
-              className="hidden md:block absolute left-0 right-0 top-0 z-30 h-36 w-full -translate-y-[6rem] bg-gradient-to-r from-transparent via-transparent to-transparent blur-2xl"
+              className="absolute left-0 right-0 top-0 z-30 hidden h-36 w-full -translate-y-[6rem] bg-gradient-to-r from-transparent via-transparent to-transparent blur-2xl md:block"
             />
             
             {/* Lamp bar - optimized */}
@@ -186,7 +191,7 @@ const Index = () => {
                 ease: [0.23, 1, 0.32, 1],
                 type: "tween"
               }}
-              className="absolute top-0 left-0 right-0 z-[100] h-0.5 bg-green-400 origin-center"
+              className="absolute left-0 right-0 top-0 z-[100] h-0.5 origin-center bg-green-400"
             />
             
             {/* Bright center highlight - optimized */}
@@ -200,39 +205,39 @@ const Index = () => {
                 ease: [0.23, 1, 0.32, 1],
                 type: "tween"
               }}
-              className="absolute top-0 left-0 right-0 translate-y-px z-[101] h-px bg-green-300 origin-center"
+              className="absolute left-0 right-0 top-0 z-[101] h-px origin-center translate-y-px bg-green-300"
             />
             
             {/* Top mask - responsive positioning */}
-            <div className="absolute inset-auto z-40 h-32 md:h-44 w-full -translate-y-[8rem] md:-translate-y-[10rem] bg-black"></div>
+            <div className="absolute inset-auto z-40 h-32 w-full -translate-y-[8rem] bg-black md:h-44 md:-translate-y-[10rem]"></div>
           </div>
         </div>
         
-        <div className="tm-layout-container max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-50">
-          <div className="tm-layout-hero__content max-w-full sm:max-w-5xl mx-auto">
+        <div className="tm-layout-container relative z-50 mx-auto w-full px-6 text-center sm:px-8 lg:px-12">
+          <div className="tm-layout-hero__content mx-auto max-w-7xl">
             {/* Beta pill */}
-            <div className="tm-layout-hero__badge mb-6 sm:mb-8">
+            <div className="tm-layout-hero__badge mb-12 sm:mb-16">
               <span className="tm-ui-badge tm-ui-badge--glass beta-pill">The Trading Desk</span>
             </div>
 
-            {/* Main Headline - Optimized animations */}
-            <h1 className="tm-layout-hero__title mb-4 sm:mb-6 text-white text-center">
+            {/* Main Headline - Modern spacing */}
+            <h1 className="tm-layout-hero__title mb-8 text-center text-white sm:mb-12">
               <div className="tm-layout-hero__title-container flex flex-col items-center justify-center">
                 <div className="flex items-center justify-center whitespace-nowrap">
-                  <motion.span 
+                  <motion.span
                     initial={{ opacity: 0, x: -20, filter: "blur(2px)" }}
                     animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                    transition={{ 
-                      duration: 0.6, 
+                    transition={{
+                      duration: 0.6,
                       delay: 0.2,
                       ease: [0.23, 1, 0.32, 1],
                       type: "tween"
                     }}
-                    className="mr-1 sm:mr-2 md:mr-3 tm-apple-3d-text"
+                    className="tm-apple-3d-text mr-2 sm:mr-3 md:mr-4"
                   >
                     Master your
                   </motion.span>
-                  <span 
+                  <span
                     className="tm-layout-hero__rotating-word relative inline-block h-[1.2em] overflow-visible transition-all duration-500 ease-out"
                     style={{ width: currentWordWidth > 0 ? `${currentWordWidth}px` : 'auto' }}
                   >
@@ -242,12 +247,12 @@ const Index = () => {
                       initial={{ opacity: 0, y: 20, filter: "blur(2px)" }}
                       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                       exit={{ opacity: 0, y: -20, filter: "blur(2px)" }}
-                      transition={{ 
+                      transition={{
                         duration: 0.5,
                         ease: [0.23, 1, 0.32, 1],
                         type: "tween"
                       }}
-                      className="tm-theme-text-gradient--brand absolute inset-0 flex items-center justify-start whitespace-nowrap ml-1 sm:ml-2 md:ml-4"
+                      className="tm-theme-text-gradient--brand absolute inset-0 ml-2 flex items-center justify-start whitespace-nowrap sm:ml-3 md:ml-5"
                     >
                       {rotatingWords[wordIndex]}
                     </motion.span>
@@ -257,26 +262,26 @@ const Index = () => {
               </div>
             </h1>
 
-            {/* Subtitle - Optimized spacing */}
-            <p className="tm-layout-hero__description text-lead text-white/70 mb-8 sm:mb-10 md:mb-12 max-w-xl mx-auto">
-              Professional education, live mentorship, and a community built for serious traders.
+            {/* Subtitle - Modern Documentary Typography */}
+            <p className="tm-layout-hero__description text-lead mx-auto mb-10 max-w-6xl text-white/70 sm:mb-12 md:mb-16">
+              Elite trading education with live mentorship, advanced strategies, and a community of professional traders.
             </p>
 
-            {/* CTA Button - Optimized spacing */}
-            <div className="tm-layout-hero__actions mb-12 sm:mb-14 md:mb-16">
-              <Button variant="regular" className="text-base font-semibold">
+            {/* CTA Button - Modern spacing */}
+            <div className="tm-layout-hero__actions mb-16 sm:mb-20 md:mb-24">
+              <button className="btn-glass--green min-h-[52px] px-8 py-4 text-lg sm:min-h-[60px] sm:px-12 sm:py-5 sm:text-xl">
                 Get Started
-              </Button>
+              </button>
             </div>
 
             {/* Hero Image - Optimized glow effects */}
-            <div className="tm-layout-hero__image relative">
+            <div className="tm-layout-hero__image relative mt-16 sm:mt-20 md:mt-24">
               {/* Optimized glow background - reduced complexity for mobile */}
-              <div className="absolute top-0 left-0 right-0 h-4/5 flex items-start justify-center">
-                <div className="absolute w-[200%] h-[140%] -z-10 -top-16">
+              <div className="absolute left-0 right-0 top-0 flex h-4/5 items-start justify-center">
+                <div className="absolute -top-16 -z-10 h-[140%] w-[200%]">
                   {/* Primary glow - optimized opacity */}
                   <div 
-                    className="absolute inset-0 rounded-full opacity-4 md:opacity-6 animate-pulse-glow"
+                    className="opacity-4 md:opacity-6 animate-pulse-glow absolute inset-0 rounded-full"
                     style={{
                       background: `radial-gradient(ellipse 120% 90% at center 20%, #22c55e 0%, transparent 60%)`,
                       filter: 'blur(100px)',
@@ -285,7 +290,7 @@ const Index = () => {
                   />
                   {/* Secondary glow - optimized */}
                   <div 
-                    className="absolute inset-8 rounded-full opacity-3 md:opacity-5 animate-pulse-glow-secondary"
+                    className="opacity-3 animate-pulse-glow-secondary absolute inset-8 rounded-full md:opacity-5"
                     style={{
                       background: `radial-gradient(ellipse 100% 75% at center 15%, #4ade80 0%, transparent 50%)`,
                       filter: 'blur(80px)',
@@ -294,7 +299,7 @@ const Index = () => {
                   />
                   {/* Core glow - optimized */}
                   <div 
-                    className="absolute inset-16 rounded-full opacity-6 md:opacity-10 animate-pulse-glow-tertiary"
+                    className="opacity-6 animate-pulse-glow-tertiary absolute inset-16 rounded-full md:opacity-10"
                     style={{
                       background: `radial-gradient(ellipse 80% 60% at center 10%, #86efac 0%, transparent 40%)`,
                       filter: 'blur(60px)',
@@ -303,7 +308,7 @@ const Index = () => {
                   />
                   {/* Ambient glow - desktop only for performance */}
                   <div 
-                    className="hidden md:block absolute inset-4 rounded-full opacity-3"
+                    className="opacity-3 absolute inset-4 hidden rounded-full md:block"
                     style={{
                       background: `radial-gradient(ellipse 140% 100% at center 25%, #22c55e 0%, transparent 70%)`,
                       filter: 'blur(150px)',
@@ -315,10 +320,10 @@ const Index = () => {
               </div>
 
               {/* Main hero image container */}
-              <div className="flex items-center justify-center relative z-[50]">
-                <NeonGradientCard className="w-full max-w-5xl p-1" style={{ pointerEvents: 'none' }}>
+              <div className="relative z-[50] flex items-center justify-center">
+                <NeonGradientCard className="w-full max-w-none p-1" style={{ pointerEvents: 'none' }}>
                   {/* Laptop bezel border - optimized */}
-                  <div className="rounded-[11px] overflow-hidden relative">
+                  <div className="relative overflow-hidden rounded-[11px]">
                     {/* Outer bezel frame */}
                     <div className="absolute inset-0 rounded-[11px] border-2 border-gray-300/80 shadow-inner" aria-hidden="true"></div>
                     {/* Inner bright bezel */}
@@ -329,7 +334,7 @@ const Index = () => {
                     <img 
                       src="/Dashboard.png" 
                       alt="Trading Dashboard Preview" 
-                      className="w-full h-auto object-contain relative z-10"
+                      className="relative z-10 h-auto w-full object-contain"
                       loading="eager"
                     />
                   </div>
@@ -340,175 +345,83 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Trusted By Section - Optimized */}
-      <section className="tm-layout-section py-12 sm:py-16 md:py-20 border-t border-border/30 relative z-40">
-        <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="tm-ui-text--small text-muted-foreground font-semibold tracking-wide uppercase mb-6 sm:mb-8">
-              TRUSTED BY TEAMS FROM AROUND THE WORLD
-            </p>
-            <Marquee pauseOnHover className="[--duration:30s]">
-              <div className="tm-ui-card tm-ui-card--glass h-12 sm:h-16 flex items-center justify-center min-w-[100px] sm:min-w-[120px] mx-2 sm:mx-4">
-                <span className="font-bold text-base sm:text-lg">Goldman</span>
-              </div>
-              <div className="tm-ui-card tm-ui-card--glass h-12 sm:h-16 flex items-center justify-center min-w-[100px] sm:min-w-[120px] mx-2 sm:mx-4">
-                <span className="font-bold text-base sm:text-lg">Citadel</span>
-              </div>
-              <div className="tm-ui-card tm-ui-card--glass h-12 sm:h-16 flex items-center justify-center min-w-[100px] sm:min-w-[120px] mx-2 sm:mx-4">
-                <span className="font-bold text-base sm:text-lg">JP Morgan</span>
-              </div>
-              <div className="tm-ui-card tm-ui-card--glass h-12 sm:h-16 flex items-center justify-center min-w-[100px] sm:min-w-[120px] mx-2 sm:mx-4">
-                <span className="font-bold text-base sm:text-lg">BlackRock</span>
-              </div>
-              <div className="tm-ui-card tm-ui-card--glass h-12 sm:h-16 flex items-center justify-center min-w-[100px] sm:min-w-[120px] mx-2 sm:mx-4">
-                <span className="font-bold text-base sm:text-lg">Bridgewater</span>
-              </div>
-              <div className="tm-ui-card tm-ui-card--glass h-12 sm:h-16 flex items-center justify-center min-w-[100px] sm:min-w-[120px] mx-2 sm:mx-4">
-                <span className="font-bold text-base sm:text-lg">Two Sigma</span>
-              </div>
-            </Marquee>
-          </div>
+
+
+      {/* Trusted By Section - Single Line Design */}
+      <section className="relative z-40 overflow-hidden py-16 sm:py-20 md:py-24">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/20 to-black"></div>
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute -left-1/4 top-1/4 h-96 w-96 animate-pulse rounded-full bg-emerald-500/5 blur-3xl"></div>
+          <div className="absolute -right-1/4 bottom-1/4 h-96 w-96 animate-pulse rounded-full bg-blue-500/5 blur-3xl delay-1000"></div>
         </div>
-      </section>
 
-      {/* Transform Your Trading Section - Proper Layout */}
-      <section className="h-screen bg-transparent relative z-40 px-8">
-        <div className="h-full w-full flex flex-col justify-between">
-          {/* Section Header - Floating near top */}
-          <div className="text-center pt-8 sm:pt-12">
-            <h2 className="text-white">
-              Transform Your{" "}
-              <span className="tm-theme-text-gradient--brand">Trading</span>
-            </h2>
+        {/* Header */}
+        <div className="relative z-10 mb-12 text-center sm:mb-16">
+          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-emerald-500/20 bg-gradient-to-r from-emerald-900/20 to-blue-900/20 px-6 py-3 backdrop-blur-sm">
+            <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></div>
+            <span className="text-sm font-semibold uppercase tracking-wider text-emerald-300">
+              Trusted Globally
+            </span>
           </div>
+          <h2 className="mb-4 text-2xl font-light text-white sm:text-3xl md:text-4xl">
+            Powering <span className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text font-medium text-transparent">World-Class</span> Trading Teams
+          </h2>
+        </div>
 
-          {/* Three Cards Grid - Floating near bottom */}
-          <div className="grid md:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 w-full pb-8 sm:pb-12">
-            {/* Coaching Card - Minimal */}
-            <motion.div 
-              className="relative group cursor-pointer h-80 sm:h-96 lg:h-[28rem]"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-            >
-              <div className="h-full overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 relative">
-                {/* Background Image */}
-                <img 
-                  src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
-                  alt="Live trading session with multiple screens" 
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 to-black/40"></div>
-                
-                {/* Gradient Overlay - Slides up with content */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-full group-hover:translate-y-0 z-10"></div>
+        {/* Single Line Logo Marquee - Full Width */}
+        <div className="relative z-10 w-full">
+          <Marquee pauseOnHover className="[--duration:40s]">
+            <div className="flex items-center gap-8 px-4 sm:gap-12">
+              {[
+                { name: "Goldman Sachs", logo: "GS", color: "from-yellow-400 to-yellow-600", glow: "shadow-yellow-500/20" },
+                { name: "Citadel", logo: "CT", color: "from-purple-400 to-purple-600", glow: "shadow-purple-500/20" },
+                { name: "JPMorgan Chase", logo: "JPM", color: "from-blue-400 to-blue-600", glow: "shadow-blue-500/20" },
+                { name: "BlackRock", logo: "BLK", color: "from-green-400 to-green-600", glow: "shadow-green-500/20" },
+                { name: "Bridgewater", logo: "BW", color: "from-orange-400 to-orange-600", glow: "shadow-orange-500/20" },
+                { name: "Two Sigma", logo: "TS", color: "from-pink-400 to-pink-600", glow: "shadow-pink-500/20" },
+                { name: "Renaissance", logo: "RT", color: "from-cyan-400 to-cyan-600", glow: "shadow-cyan-500/20" },
+                { name: "DE Shaw", logo: "DS", color: "from-indigo-400 to-indigo-600", glow: "shadow-indigo-500/20" },
+                { name: "Millennium", logo: "MM", color: "from-red-400 to-red-600", glow: "shadow-red-500/20" },
+                { name: "Point72", logo: "P72", color: "from-teal-400 to-teal-600", glow: "shadow-teal-500/20" },
+                { name: "Man Group", logo: "MG", color: "from-amber-400 to-amber-600", glow: "shadow-amber-500/20" },
+                { name: "Wellington", logo: "WM", color: "from-violet-400 to-violet-600", glow: "shadow-violet-500/20" },
+                { name: "AllianceBernstein", logo: "AB", color: "from-rose-400 to-rose-600", glow: "shadow-rose-500/20" },
+                { name: "T. Rowe Price", logo: "TRP", color: "from-lime-400 to-lime-600", glow: "shadow-lime-500/20" },
+                { name: "Capital Group", logo: "CG", color: "from-sky-400 to-sky-600", glow: "shadow-sky-500/20" }
+              ].map((company, index) => (
+                <motion.div
+                  key={company.name}
+                  className="group relative"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: index * 0.05 }}
+                >
+                  <div className={`relative bg-gradient-to-br ${company.color} rounded-2xl p-5 shadow-2xl sm:p-6 ${company.glow} hover:shadow-3xl min-w-[140px] transition-all duration-500 group-hover:rotate-1 group-hover:scale-105 sm:min-w-[160px]`}>
+                    {/* Glow Effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent"></div>
 
-                {/* Content Overlay with Slide Animation */}
-                <div className="absolute inset-0 p-6 sm:p-8 overflow-hidden z-20">
-                  {/* Title - Always visible at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-transform duration-300 group-hover:-translate-y-24 pb-4 sm:pb-6">
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Livestreams</h3>
-                  </div>
-                  
-                  {/* Description - Hidden below, slides up on hover */}
-                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                    <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-sm mx-auto mt-3">
-                      Watch live trading sessions with real-time market analysis, strategy breakdowns, and expert insights from professional traders.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+                    {/* Logo */}
+                    <div className="relative text-center">
+                      <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl border border-white/20 bg-white/20 backdrop-blur-sm sm:h-14 sm:w-14">
+                        <span className="text-lg font-black tracking-tighter text-white sm:text-xl">
+                          {company.logo}
+                        </span>
+                      </div>
+                      <h3 className="text-sm font-semibold leading-tight text-white sm:text-base">
+                        {company.name}
+                      </h3>
+                      <div className="mx-auto mt-2 h-0.5 w-8 rounded-full bg-white/40 transition-all duration-300 group-hover:w-12"></div>
+                    </div>
 
-            {/* Courses Card - Minimal */}
-            <motion.div 
-              className="relative group cursor-pointer h-80 sm:h-96 lg:h-[28rem]"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-            >
-              <div className="h-full overflow-hidden bg-gradient-to-br from-red-800 to-red-900 relative">
-                {/* Background Image */}
-                <img 
-                  src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
-                  alt="Advanced trading charts and technical analysis" 
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-black/40"></div>
-                
-                {/* Gradient Overlay - Slides up with content */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-full group-hover:translate-y-0 z-10"></div>
-
-                {/* Content Overlay with Slide Animation */}
-                <div className="absolute inset-0 p-6 sm:p-8 overflow-hidden z-20">
-                  {/* Title - Always visible at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-transform duration-300 group-hover:-translate-y-24 pb-4 sm:pb-6">
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Courses</h3>
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                   </div>
-                  
-                  {/* Description - Hidden below, slides up on hover */}
-                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                    <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-sm mx-auto mt-3">
-                      Master trading strategies through comprehensive courses covering technical analysis, risk management, and advanced trading techniques.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Community Card - Minimal */}
-            <motion.div 
-              className="relative group cursor-pointer h-80 sm:h-96 lg:h-[28rem]"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: 0.2, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-            >
-              <div className="h-full overflow-hidden bg-gradient-to-br from-teal-800 to-slate-900 relative">
-                {/* Background Image */}
-                <img 
-                  src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
-                  alt="Discord community and chat interface" 
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-teal-900/20 to-black/40">
-                  {/* Mock chat interface elements overlay - minimal */}
-                  <div className="absolute top-4 sm:top-6 left-4 sm:left-6 right-4 sm:right-6 space-y-1.5 sm:space-y-2 opacity-20">
-                    <div className="h-2 sm:h-2.5 bg-white/20 rounded w-3/4"></div>
-                    <div className="h-2 sm:h-2.5 bg-white/15 rounded w-1/2"></div>
-                    <div className="h-2 sm:h-2.5 bg-white/10 rounded w-2/3"></div>
-                  </div>
-                  <div className="absolute bottom-16 sm:bottom-20 left-4 sm:left-6 right-4 sm:right-6 space-y-1.5 sm:space-y-2 opacity-15">
-                    <div className="h-2 sm:h-2.5 bg-white/15 rounded w-1/2 ml-auto"></div>
-                    <div className="h-2 sm:h-2.5 bg-white/20 rounded w-3/4 ml-auto"></div>
-                  </div>
-                </div>
-                
-                {/* Gradient Overlay - Slides up with content */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-full group-hover:translate-y-0 z-10"></div>
-
-                {/* Content Overlay with Slide Animation */}
-                <div className="absolute inset-0 p-6 sm:p-8 overflow-hidden z-20">
-                  {/* Title - Always visible at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-transform duration-300 group-hover:-translate-y-24 pb-4 sm:pb-6">
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-white tracking-wide">Community</h3>
-                  </div>
-                  
-                  {/* Description - Hidden below, slides up on hover */}
-                  <div className="absolute bottom-0 left-0 right-0 text-center transform transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                    <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-sm mx-auto mt-3">
-                      Connect with fellow traders, share insights, discuss strategies, and learn from a community of serious trading professionals.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+                </motion.div>
+              ))}
+            </div>
+          </Marquee>
         </div>
       </section>
 
@@ -516,390 +429,98 @@ const Index = () => {
 
 
 
-      {/* An Unmatched Attendee Experience Section */}
-      <section id="experience" className="tm-layout-section py-12 sm:py-16 md:py-20 relative z-40 bg-gradient-to-b from-green-950/10 via-green-900/5 to-transparent">
-        <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal mb-2 tracking-tight">
-              The Trading Desk
+
+
+
+
+
+
+
+      {/* Featured Courses Section */}
+      <section id="courses" className="tm-layout-section relative z-40 border-t border-border/30 py-8 sm:py-12 md:py-16">
+
+        <div className="relative z-10 mx-auto px-6 sm:px-8 lg:px-12 xl:px-16" style={{ maxWidth: '100%' }}>
+          {/* Header - Modern Documentary Typography */}
+          <div className="mx-auto mb-8 max-w-7xl text-center sm:mb-12">
+            <h2 className="text-2xl font-light tracking-tight md:text-3xl lg:text-4xl">
+              <span className="text-white">Trading Courses</span>{' '}
+              <span className="text-green-400">Expert Training</span>
             </h2>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-              Experience
-            </h1>
           </div>
           
-          {/* MagicUI Bento Box Grid */}
-          <BentoBox className="gap-4 sm:gap-6" columns={12}>
-            
-            {/* Live Trading Sessions - 5 columns */}
-            <BentoCard 
-              colSpan={5} 
-              neonColors={{ firstColor: "#10b981", secondColor: "#34d399" }}
-              borderRadius={8}
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
-                {/* Left Column - Title & Description */}
-                <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-white">Live Trading Sessions</h3>
-                  <p className="text-sm text-gray-200 leading-relaxed">
-                    Watch <span className="text-green-400 font-semibold">real trades</span> happen in real-time. See <span className="text-green-400 font-semibold">decision-making</span>, risk management, and execution as professional traders navigate the markets.
-                  </p>
-                </div>
-                
-                {/* Right Column - Visual Example */}
-                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-3 overflow-hidden">
-                  {/* Mock Video Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20"></div>
-                  
-                  {/* Overlay Box */}
-                  <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm p-3 transform rotate-1">
-                    <div className="text-white font-semibold mb-2">Live Now</div>
-                    <div className="flex gap-2">
-                      <button className="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1 transition-colors">
-                        JOIN SESSION
-                      </button>
-                      <button className="bg-yellow-500 hover:bg-yellow-400 text-black text-xs px-3 py-1 transition-colors flex items-center gap-1">
-                        <Play className="w-3 h-3" />
-                        Watch
-                      </button>
-                    </div>
-                  </div>
-                </div>
+          {/* Course Cards */}
+          {coursesData.map((course, index) => (
+            <React.Fragment key={course.id}>
+              <div className="mb-6 sm:mb-8">
+                <CourseCard
+                  courseNumber={course.courseNumber}
+                  subtitle={course.subtitle}
+                  title={course.title}
+                  description={course.description}
+                  price={course.price}
+                  features={course.features}
+                  level={course.level}
+                  onPreRegister={() => handlePreRegister(course.id)}
+                  onExplore={() => handleExplore(course.id)}
+                />
               </div>
-            </BentoCard>
-
-            {/* Course Content - 7 columns */}
-            <BentoCard 
-              colSpan={7} 
-              neonColors={{ firstColor: "#10b981", secondColor: "#34d399" }}
-              borderRadius={8}
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
-                {/* Left Column - Title & Description */}
-                <div className="flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-3 text-white">Course Content</h3>
-                  <p className="text-sm text-gray-200 leading-relaxed">
-                    Comprehensive instructional videos on <span className="text-green-400 font-semibold">futures trading</span>. From beginner fundamentals to <span className="text-green-400 font-semibold">advanced strategies</span>, learn at your own pace with structured curriculum.
-                  </p>
-                </div>
-                
-                {/* Right Column - Visual Example */}
-                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-3 overflow-hidden">
-                  {/* Mock Video Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20"></div>
-                  
-                  {/* Course Overlay */}
-                  <div className="absolute top-3 right-3 bg-blue-600/90 backdrop-blur-sm p-3 transform rotate-1 w-40">
-                    <div className="text-white text-xs mb-1">Lesson 12 of 24</div>
-                    <div className="text-white font-semibold mb-2 text-sm">Risk Management</div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                      <span className="text-white text-xs">Live</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </BentoCard>
-
-            {/* Expert Coaching - 4 columns */}
-            <BentoCard 
-              colSpan={4} 
-              neonColors={{ firstColor: "#f59e0b", secondColor: "#f97316" }}
-              borderRadius={8}
-            >
-              <div className="flex flex-col justify-center h-full">
-                <h3 className="text-xl font-bold mb-3 text-white">Expert Coaching</h3>
-                <p className="text-sm text-gray-200 leading-relaxed mb-4">
-                  Get <span className="text-green-400 font-semibold">personalized tips</span> and guidance from professional traders. Ask instructors for advice on <span className="text-green-400 font-semibold">strategies</span>, risk management, and market analysis.
-                </p>
-                
-                {/* Visual Example */}
-                <div className="bg-white/80 backdrop-blur-sm p-3 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="font-semibold text-gray-900 mb-2">What's your stop-loss strategy for ES futures?</div>
-                    <div className="flex items-center justify-between gap-4">
-                      <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 bg-orange-400 rounded-full"></div>
-                        <span className="text-sm text-gray-600">asked by Mike Chen</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <ThumbsUp className="w-4 h-4 text-orange-500" />
-                        <span className="text-sm text-gray-600">12 votes</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </BentoCard>
-
-            {/* Trading Podcast - 4 columns */}
-            <BentoCard 
-              colSpan={4} 
-              neonColors={{ firstColor: "#8b5cf6", secondColor: "#6366f1" }}
-              borderRadius={8}
-            >
-              <div className="flex flex-col justify-center h-full">
-                <h3 className="text-xl font-bold mb-3 text-white">Trading Podcast</h3>
-                <p className="text-sm text-gray-200 leading-relaxed mb-4">
-                  Listen to <span className="text-green-400 font-semibold">expert insights</span> and market analysis on the go. Weekly episodes covering <span className="text-green-400 font-semibold">trading strategies</span>, market psychology, and industry trends.
-                </p>
-                
-                {/* Visual Example */}
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-white font-serif text-xl font-light mb-3">Episode 47</div>
-                    <div className="bg-purple-600/90 backdrop-blur-sm px-3 py-2 inline-flex items-center gap-2">
-                      <div className="w-6 h-6 bg-purple-400 rounded-full"></div>
-                      <span className="text-white text-sm">Market Psychology</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </BentoCard>
-
-            {/* Discord Community - 4 columns */}
-            <BentoCard 
-              colSpan={4} 
-              neonColors={{ firstColor: "#10b981", secondColor: "#059669" }}
-              borderRadius={8}
-            >
-              <div className="flex flex-col justify-center h-full">
-                <h3 className="text-xl font-bold mb-3 text-white">Discord Community</h3>
-                <p className="text-sm text-gray-200 leading-relaxed mb-4">
-                  Connect with fellow traders <span className="text-green-400 font-semibold">24/7</span>. Share insights, discuss strategies, and get <span className="text-green-400 font-semibold">real-time market updates</span> in our active Discord community.
-                </p>
-                
-                {/* Visual Example */}
-                <div className="bg-white/80 backdrop-blur-sm p-3 space-y-2 overflow-y-auto">
-                  {/* Chat Messages */}
-                  <div className="flex items-start gap-2">
-                    <div className="w-6 h-6 bg-blue-300 rounded-full flex-shrink-0"></div>
-                    <div className="bg-blue-100 px-3 py-2 max-w-[80%]">
-                      <div className="text-xs font-semibold text-gray-700">Sarah Johnson</div>
-                      <div className="text-sm text-gray-800">Just hit my profit target on ES! 🎯</div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-2">
-                    <div className="w-6 h-6 bg-green-300 rounded-full flex-shrink-0"></div>
-                    <div className="bg-green-100 px-3 py-2 max-w-[80%]">
-                      <div className="text-xs font-semibold text-gray-700">David Kim</div>
-                      <div className="text-sm text-gray-800">Nice trade! What was your entry? 📈</div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-2">
-                    <div className="w-6 h-6 bg-purple-300 rounded-full flex-shrink-0"></div>
-                    <div className="bg-purple-100 px-3 py-2 max-w-[80%]">
-                      <div className="text-xs font-semibold text-gray-700">Lisa Chen</div>
-                      <div className="text-sm text-gray-800">Anyone watching the NQ setup?</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </BentoCard>
-          </BentoBox>
-
-          {/* See All Features CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.6, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-            className="text-center mt-12 sm:mt-16"
-          >
-            <Button variant="regular" className="text-base font-medium group">
-              See all features
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </motion.div>
+              {index < coursesData.length - 1 && (
+                <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-gray-600 to-transparent" />
+              )}
+            </React.Fragment>
+          ))}
         </div>
       </section>
 
-
-
-      {/* Featured Courses Section - Optimized */}
-      <section id="courses" className="tm-layout-section py-12 sm:py-16 md:py-20 border-t border-border/30 relative z-40">
-        <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 sm:mb-6 tracking-tight">
-              Featured <span className="text-gradient-gold">Courses</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From beginner fundamentals to advanced strategies. 
-              Build skills that generate real profits.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {[
-              {
-                title: "Market Mastery Foundations",
-                description: "Complete beginner's guide to profitable trading. Risk management, psychology, and proven strategies.",
-                price: "$297",
-                originalPrice: "$497",
-                duration: "6 weeks",
-                lessons: "24 video lessons",
-                students: "3,247",
-                rating: 4.9,
-                level: "Beginner",
-                features: ["Live Q&A sessions", "Trading simulator access", "Community access", "Certificate of completion"],
-                thumbnail: "gradient-from-blue-600-to-purple-600"
-              },
-              {
-                title: "Advanced Options Strategies",
-                description: "Master complex options plays. Income generation, hedging, and advanced Greeks analysis.",
-                price: "$597",
-                originalPrice: "$897",
-                duration: "8 weeks", 
-                lessons: "32 video lessons",
-                students: "1,893",
-                rating: 4.8,
-                level: "Advanced",
-                features: ["Live trading sessions", "1-on-1 mentorship", "Strategy backtesting", "Lifetime updates"],
-                thumbnail: "gradient-from-green-600-to-emerald-600"
-              },
-              {
-                title: "Day Trading Intensive",
-                description: "High-frequency strategies for active traders. Scalping, momentum, and intraday techniques.",
-                price: "$497",
-                originalPrice: "$697",
-                duration: "10 weeks",
-                lessons: "40 video lessons", 
-                students: "2,156",
-                rating: 4.9,
-                level: "Intermediate",
-                features: ["Daily market analysis", "Live trading room", "Discord community", "Mobile app access"],
-                thumbnail: "gradient-from-orange-600-to-red-600"
-              }
-            ].map((course, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-              >
-                <Card className="p-1 hover:scale-105 transition-all duration-500 group overflow-hidden bg-black/40 border-white/10 backdrop-blur-sm hover:bg-black/30">
-                {/* Course Thumbnail - Optimized */}
-                <div className={`h-32 sm:h-40 bg-${course.thumbnail} relative overflow-hidden rounded-lg`}>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
-                    <Badge className="bg-primary text-primary-foreground px-2 sm:px-3 py-1 text-xs">
-                      {course.level}
-                    </Badge>
-                  </div>
-                  <div className="absolute top-3 sm:top-4 right-3 sm:right-4 flex items-center gap-1 text-white">
-                    <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
-                    <span className="text-xs sm:text-sm font-medium">{course.rating}</span>
-                  </div>
-                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white">
-                    <div className="text-xs sm:text-sm opacity-90">{course.students} students</div>
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Play className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
-                  </div>
-                </div>
-                
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-base sm:text-lg mb-2">{course.title}</CardTitle>
-                  <CardDescription className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {course.description}
-                  </CardDescription>
-                </CardHeader>
-                
-                <CardContent className="pt-0">
-                  <div className="flex items-center gap-3 sm:gap-4 text-xs text-muted-foreground mb-3 sm:mb-4">
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      {course.duration}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <BookOpen className="w-3 h-3" />
-                      {course.lessons}
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-1 mb-3 sm:mb-4">
-                    {course.features.slice(0, 2).map((feature, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs">
-                        <CheckCircle className="w-3 h-3 text-primary" />
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <div>
-                      <span className="text-xl sm:text-2xl font-bold text-foreground">{course.price}</span>
-                      <span className="text-xs text-muted-foreground line-through ml-2">
-                        {course.originalPrice}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <LiquidGlassButton className="w-full text-xs sm:text-sm">
-                    Start course
-                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2" />
-                  </LiquidGlassButton>
-                </CardContent>
-              </Card>
-            </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Live Trading Section - Optimized */}
-      <section id="livestream" className="tm-layout-section py-12 sm:py-16 md:py-20 border-t border-border/30 relative z-40 overflow-hidden">
+            {/* Live Trading Section - Modern spacing */}
+      <section id="livestream" className="tm-layout-section relative z-40 overflow-hidden border-t border-border/30 py-8 sm:py-12 md:py-16">
         {/* Dark cinematic background - optimized */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background">
           <div className="absolute inset-0 opacity-20 md:opacity-30">
-            <div className="absolute top-1/4 right-1/4 w-64 h-64 md:w-96 md:h-96 bg-primary/5 rounded-full blur-2xl md:blur-3xl"></div>
-            <div className="absolute bottom-1/4 left-1/4 w-48 h-48 md:w-64 md:h-64 bg-accent/10 rounded-full blur-2xl md:blur-3xl"></div>
+            <div className="absolute right-1/4 top-1/4 h-64 w-64 rounded-full bg-primary/5 blur-2xl md:h-96 md:w-96 md:blur-3xl"></div>
+            <div className="absolute bottom-1/4 left-1/4 h-48 w-48 rounded-full bg-accent/10 blur-2xl md:h-64 md:w-64 md:blur-3xl"></div>
           </div>
         </div>
-        
-        <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 sm:mb-6 tracking-tight">
-              Learn in <span className="text-gradient-gold">Real Time</span>
+
+        <div className="relative z-10 mx-auto px-6 sm:px-8 lg:px-12 xl:px-16" style={{ maxWidth: '100%' }}>
+          <div className="mx-auto mb-8 max-w-7xl text-center sm:mb-12">
+            <h2 className="mb-4 text-2xl font-light tracking-tight sm:mb-6 md:text-3xl">
+              Live Trading
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8">
-              Join live trading sessions. Watch expert decision-making, 
-              risk management, and execution in real market conditions.
+            <p className="mx-auto mb-6 max-w-6xl text-base text-muted-foreground sm:mb-8 sm:text-lg">
+              Join live trading sessions where you'll watch expert traders make decisions,
+              manage risk, and execute trades in real-time market conditions.
             </p>
           </div>
           
-          <div className="max-w-5xl mx-auto">
+          <div className="mx-auto max-w-none">
             {/* Video Preview Area - Optimized */}
-            <motion.div 
-              className="relative card-neo card-neo--elevated overflow-hidden mb-6 sm:mb-8 group cursor-pointer"
+            <motion.div
+              className="card-neo card-neo--elevated group relative mb-4 cursor-pointer overflow-hidden sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], type: "tween" }}
             >
-              <div className="aspect-video bg-gradient-to-br from-black/20 to-black/10 flex items-center justify-center">
+              <div className="flex aspect-video items-center justify-center bg-gradient-to-br from-black/20 to-black/10">
                 <div className="text-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:bg-primary/30 transition-colors">
-                    <Play className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+                  <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 transition-colors group-hover:bg-primary/30 sm:mb-3 sm:h-16 sm:w-16">
+                    <Play className="h-6 w-6 text-primary sm:h-8 sm:w-8" />
                   </div>
-                  <p className="text-sm sm:text-base font-semibold mb-1">Live Session Preview</p>
-                  <p className="text-xs sm:text-sm text-muted-foreground">Watch our latest trading session</p>
+                  <p className="mb-1 text-sm font-semibold sm:text-base">Live Session Preview</p>
+                  <p className="text-xs text-muted-foreground sm:text-sm">Watch our latest trading session</p>
                 </div>
               </div>
               
               {/* Live indicator - optimized */}
-              <div className="absolute top-3 sm:top-4 left-3 sm:left-4 flex items-center gap-1 sm:gap-2">
-                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full animate-pulse" style={{ animationDuration: '2s' }}></div>
-                <span className="text-xs sm:text-sm font-medium text-white bg-black/60 px-2 py-1 rounded">LIVE</span>
+              <div className="absolute left-3 top-3 flex items-center gap-1 sm:left-4 sm:top-4 sm:gap-2">
+                <div className="h-2 w-2 animate-pulse rounded-full bg-red-500 sm:h-3 sm:w-3" style={{ animationDuration: '2s' }}></div>
+                <span className="rounded bg-black/60 px-3 py-1 text-xs font-medium text-white sm:text-sm">LIVE</span>
               </div>
               
               {/* Viewer count - optimized */}
-              <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-black/60 text-white px-2 sm:px-3 py-1 rounded text-xs sm:text-sm">
-                <Users className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
+              <div className="absolute right-3 top-3 rounded bg-black/60 px-3 py-1 text-xs text-white sm:right-4 sm:top-4 sm:px-3 sm:text-sm">
+                <Users className="mr-1 inline h-3 w-3 sm:h-4 sm:w-4" />
                 247 watching
               </div>
             </motion.div>
@@ -911,40 +532,40 @@ const Index = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}
             >
-              <div className="grid md:grid-cols-2 gap-6 items-center">
+              <div className="grid items-center gap-6 md:grid-cols-2">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Next Live Session</h3>
-                  <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">
+                  <h3 className="mb-2 text-lg font-bold sm:mb-3 sm:text-xl">Next Live Session</h3>
+                  <p className="mb-3 text-sm text-muted-foreground sm:mb-4 sm:text-base">
                     "Advanced Options Income Strategies" 
                     <br />
                     <span className="text-xs sm:text-sm">Wednesday, December 18th • 2:00 PM EST</span>
                   </p>
                   
-                  <div className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
+                  <div className="mb-4 space-y-1.5 sm:mb-6 sm:space-y-2">
                     <div className="flex items-center gap-2">
-                      <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+                      <Zap className="h-3 w-3 text-primary sm:h-4 sm:w-4" />
                       <span className="text-xs sm:text-sm">Real-time trade execution</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+                      <MessageCircle className="h-3 w-3 text-primary sm:h-4 sm:w-4" />
                       <span className="text-xs sm:text-sm">Live Q&A with expert traders</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Globe className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+                      <Globe className="h-3 w-3 text-primary sm:h-4 sm:w-4" />
                       <span className="text-xs sm:text-sm">Market analysis and insights</span>
                     </div>
                   </div>
                 </div>
                 
                 <div className="space-y-2 sm:space-y-3">
-                  <Button variant="regular" className="w-full text-sm sm:text-base font-semibold">
-                    <Play className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
-                    JOIN LIVE SESSION
-                  </Button>
-                  <Button variant="regular" className="w-full py-3 sm:py-4 text-sm sm:text-base">
-                    SEE LIVE SCHEDULE
-                  </Button>
-                  <p className="text-xs text-center text-muted-foreground">
+                  <button className="btn-glass--green w-full text-sm sm:text-base">
+                    <Play className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                    Join Live
+                  </button>
+                  <button className="btn-glass--ghost w-full py-3 text-sm sm:py-4 sm:text-base">
+                    View Schedule
+                  </button>
+                  <p className="text-center text-xs text-muted-foreground">
                     Free for all students • Premium features for members
                   </p>
                 </div>
@@ -954,42 +575,42 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Pricing Section - Optimized */}
-      <section className="tm-layout-section py-12 sm:py-16 md:py-20 border-t border-border/30 relative z-40">
-        <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Choose Your Path</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">Flexible plans for every trader. Upgrade anytime.</p>
+      {/* Pricing Section - Modern spacing */}
+      <section className="tm-layout-section relative z-40 border-t border-border/30 py-20 sm:py-24 md:py-28">
+        <div className="mx-auto px-6 sm:px-8 lg:px-12 xl:px-16" style={{ maxWidth: '100%' }}>
+          <div className="mx-auto mb-16 max-w-7xl text-center sm:mb-20">
+            <h2 className="mb-6 text-3xl font-light tracking-tight sm:mb-8 md:text-4xl">Pricing Plans</h2>
+            <p className="text-lead mx-auto max-w-6xl text-muted-foreground">Flexible plans designed for traders at every level. Upgrade anytime.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-3 lg:gap-10">
             {[
               { name: 'Starter', price: '$29/mo', features: ['Community Access', 'Weekly Insights', 'Select Previews'], featured: false },
               { name: 'Student', price: '$79/mo', features: ['All Courses', 'Live Sessions', 'Downloads'], featured: true },
               { name: 'Pro', price: '$149/mo', features: ['1:1 Mentorship', 'VIP Community', 'Advanced Strategies'], featured: false },
             ].map((tier, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, y: 30 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                viewport={{ once: true, amount: 0.3 }} 
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}
               >
-                <Card className={`glass-card rounded-2xl p-4 sm:p-6 ${tier.featured ? 'scale-105 border-white/30' : ''}`}>
-                  <CardHeader className="text-center pb-3 sm:pb-4">
-                    <CardTitle className="text-lg sm:text-xl mb-2">{tier.name}</CardTitle>
-                    <div className="text-2xl sm:text-3xl font-bold">{tier.price}</div>
+                <Card className={`glass-card rounded-2xl p-6 sm:p-8 ${tier.featured ? 'scale-105 border-white/30' : ''}`}>
+                  <CardHeader className="pb-4 text-center sm:pb-6">
+                    <CardTitle className="mb-3 text-lg sm:text-xl">{tier.name}</CardTitle>
+                    <div className="mb-2 text-2xl font-bold sm:text-3xl">{tier.price}</div>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6 text-xs sm:text-sm">
+                    <ul className="mb-6 space-y-2.5 text-sm sm:mb-8 sm:space-y-3 sm:text-base">
                       {tier.features.map((f, idx) => (
                         <li key={idx} className="flex items-center gap-2">
-                          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-primary rounded-full" />
+                          <div className="h-1 w-1 rounded-full bg-primary sm:h-1.5 sm:w-1.5" />
                           {f}
                         </li>
                       ))}
                     </ul>
-                    <Button variant="regular" className="w-full text-sm sm:text-base">Get Started</Button>
+                    <Button variant="regular" className="w-full text-sm sm:text-base">Start Learning</Button>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -998,22 +619,23 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Instructor Section - Optimized */}
-      <section className="tm-layout-section py-12 sm:py-16 md:py-20 border-t border-border/30 relative z-40">
-        <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 items-center">
-            <motion.div 
-              initial={{ scale: 0.9, opacity: 0 }} 
-              whileInView={{ scale: 1, opacity: 1 }} 
-              viewport={{ once: true, amount: 0.3 }} 
-              transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1], type: "tween" }} 
+      {/* Instructor Section - Modern spacing */}
+      <section className="tm-layout-section py-24 sm:py-28 md:py-36">
+
+        <div className="relative z-10 mx-auto px-6 sm:px-8 lg:px-12 xl:px-16" style={{ maxWidth: '100%' }}>
+          <div className="mx-auto grid max-w-7xl items-center gap-16 sm:gap-20 lg:grid-cols-2">
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1], type: "tween" }}
               className="flex justify-center"
             >
               <div className="relative">
                 <img 
                   src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=800&q=80" 
                   alt="Lead Instructor" 
-                  className="w-48 h-48 sm:w-56 sm:h-56 rounded-full object-cover"
+                  className="h-48 w-48 rounded-full object-cover sm:h-56 sm:w-56"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 rounded-full ring-4 ring-white/10" />
@@ -1025,20 +647,20 @@ const Index = () => {
               viewport={{ once: true, amount: 0.3 }} 
               transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1], type: "tween" }}
             >
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Learn from Proven Professionals</h3>
-              <p className="text-sm sm:text-base text-muted-foreground mb-4">Our instructors are seasoned traders with institutional and prop experience. They teach exactly how they trade—no fluff.</p>
-              <div className="grid sm:grid-cols-3 gap-4 text-center">
+              <h3 className="mb-3 text-2xl font-normal tracking-tight sm:mb-4 sm:text-3xl">Expert Instructors</h3>
+              <p className="text-body mb-4 text-muted-foreground">Our instructors are seasoned traders with institutional and proprietary trading experience. They teach exactly how they trade in real markets—no theory, no fluff.</p>
+              <div className="grid gap-4 text-center sm:grid-cols-3">
                 <div>
-                  <div className="text-xl sm:text-2xl font-bold">15+ yrs</div>
-                  <div className="text-xs text-muted-foreground uppercase tracking-wide">Experience</div>
+                  <div className="text-xl font-medium tracking-tight sm:text-2xl">15+ yrs</div>
+                  <div className="text-label text-muted-foreground">Experience</div>
                 </div>
                 <div>
-                  <div className="text-xl sm:text-2xl font-bold">$50M+</div>
-                  <div className="text-xs text-muted-foreground uppercase tracking-wide">Profits</div>
+                  <div className="text-xl font-medium tracking-tight sm:text-2xl">$50M+</div>
+                  <div className="text-label text-muted-foreground">Profits</div>
                 </div>
                 <div>
-                  <div className="text-xl sm:text-2xl font-bold">10K+</div>
-                  <div className="text-xs text-muted-foreground uppercase tracking-wide">Students</div>
+                  <div className="text-xl font-medium tracking-tight sm:text-2xl">10K+</div>
+                  <div className="text-label text-muted-foreground">Students</div>
                 </div>
               </div>
             </motion.div>
@@ -1046,16 +668,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section - Optimized */}
-      <section id="testimonials" className="tm-layout-section py-12 sm:py-16 md:py-20 border-t border-border/50 relative z-40">
-        <div className="tm-layout-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 sm:mb-6 tracking-tight">
-              What Our <span className="text-gradient-gold">Students Say</span>
+      {/* Testimonials Section - Modern spacing */}
+      <section id="testimonials" className="tm-layout-section relative z-40 border-t border-border/50 py-20 sm:py-24 md:py-28">
+        <div className="mx-auto px-6 sm:px-8 lg:px-12 xl:px-16" style={{ maxWidth: '100%' }}>
+          <div className="mx-auto mb-20 max-w-7xl text-center sm:mb-24 md:mb-28">
+            <h2 className="mb-8 text-3xl font-light tracking-tight sm:mb-10 md:text-4xl">
+              Student Reviews
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-3 lg:gap-10">
             {[
               {
                 name: "Sarah Johnson",
@@ -1083,18 +705,18 @@ const Index = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: index * 0.1, ease: [0.23, 1, 0.32, 1], type: "tween" }}
               >
-                <Card className="card-cinematic p-4 sm:p-6">
+                <Card className="card-cinematic p-6 sm:p-8">
                   <CardContent className="p-0">
-                    <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-foreground mb-3 sm:mb-4" />
-                    <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4 italic">"{testimonial.content}"</p>
+                    <Quote className="mb-4 h-6 w-6 text-foreground sm:mb-6 sm:h-8 sm:w-8" />
+                    <p className="text-body mb-6 italic text-muted-foreground sm:mb-8">"{testimonial.content}"</p>
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm sm:text-base font-semibold">{testimonial.name}</p>
-                        <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.role}</p>
+                        <p className="mb-1 text-base font-medium tracking-tight">{testimonial.name}</p>
+                        <p className="text-caption text-muted-foreground">{testimonial.role}</p>
                       </div>
-                      <div className="flex">
+                      <div className="flex gap-0.5">
                         {Array.from({ length: testimonial.rating }).map((_, i) => (
-                          <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-foreground fill-current" />
+                          <Star key={i} className="h-3 w-3 fill-current text-foreground sm:h-4 sm:w-4" />
                         ))}
                       </div>
                     </div>

@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User, LogOut } from "lucide-react";
 
 // Internal imports
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,7 @@ import AccessibleButton from "./AccessibleButton";
 import { NAVIGATION_ITEMS, MOBILE_MENU_ID } from "@/lib/constants";
 import { NavigationItem, VoidFunction } from "@/lib/types";
 import { handleKeyboardNavigation, manageFocusTrap } from "@/lib/navigation-utils";
+import { useSession } from "@/hooks/useSession";
 
 // Icons
 interface IconProps {
@@ -39,6 +40,7 @@ const DiscordIcon: React.FC<IconProps> = ({ className }) => (
  * Main Navigation Component
  */
 const Navigation: React.FC = () => {
+  const { user, signOut } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -155,17 +157,17 @@ const Navigation: React.FC = () => {
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="tm-layout-nav__container px-4 sm:px-6 lg:px-8">
+              <div className="tm-layout-nav__container px-4 sm:px-6 lg:px-8">
         {/* TTD Logo */}
         <Link 
           to="/" 
           className="tm-layout-nav__brand flex items-center gap-3"
           aria-label="The Trading Desk - Go to homepage"
         >
-          <span className="text-lg md:text-xl font-bold text-white tracking-tight">
+          <span className="text-lg font-bold tracking-tight text-white md:text-xl">
             TTD
           </span>
-          <span className="tm-ui-text--large font-semibold text-white/90 group-hover:text-white transition-colors hidden sm:block">
+          <span className="tm-ui-text--large hidden font-semibold text-white/90 transition-colors group-hover:text-white sm:block">
             The Trading Desk
           </span>
         </Link>
@@ -182,16 +184,37 @@ const Navigation: React.FC = () => {
             className="liquid-glass-discord-btn flex items-center gap-2 whitespace-nowrap transition-all duration-300"
             aria-label="Join our Discord community"
           >
-            <DiscordIcon className="w-4 h-4 transition-colors duration-300" />
+            <DiscordIcon className="h-4 w-4 transition-colors duration-300" />
             Discord
           </a>
-          <Link 
-            to="/login" 
-            className="tm-ui-button tm-ui-button--nav hidden lg:inline-flex whitespace-nowrap"
-            aria-label="Login to your account"
-          >
-            Login
-          </Link>
+          {user ? (
+            <>
+              <Link 
+                to="/billing" 
+                className="tm-ui-button tm-ui-button--nav hidden whitespace-nowrap lg:inline-flex items-center gap-2"
+                aria-label="Manage your billing"
+              >
+                <User className="h-4 w-4" />
+                Account
+              </Link>
+              <button
+                onClick={signOut}
+                className="tm-ui-button tm-ui-button--nav hidden whitespace-nowrap lg:inline-flex items-center gap-2"
+                aria-label="Sign out of your account"
+              >
+                <LogOut className="h-4 w-4" />
+                Sign Out
+              </button>
+            </>
+          ) : (
+            <Link 
+              to="/login" 
+              className="tm-ui-button tm-ui-button--nav hidden whitespace-nowrap lg:inline-flex"
+              aria-label="Login to your account"
+            >
+              Login
+            </Link>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -200,12 +223,12 @@ const Navigation: React.FC = () => {
           ariaLabel={isOpen ? "Close navigation menu" : "Open navigation menu"}
           ariaExpanded={isOpen}
           ariaControls={MOBILE_MENU_ID}
-          className="tm-ui-button tm-ui-button--nav md:hidden p-3 min-h-[48px] w-12 flex items-center justify-center"
+          className="tm-ui-button tm-ui-button--nav flex min-h-[48px] w-12 items-center justify-center p-3 md:hidden"
         >
           {isOpen ? (
-            <X className="w-6 h-6" aria-hidden="true" />
+            <X className="h-6 w-6" aria-hidden="true" />
           ) : (
-            <Menu className="w-6 h-6" aria-hidden="true" />
+            <Menu className="h-6 w-6" aria-hidden="true" />
           )}
         </AccessibleButton>
       </div>
@@ -224,15 +247,15 @@ const Navigation: React.FC = () => {
           <div 
             ref={mobileMenuRef}
             id={MOBILE_MENU_ID}
-            className="relative bg-black/90 backdrop-blur-xl border-r border-white/10 w-full h-full flex flex-col"
+            className="relative flex h-full w-full flex-col border-r border-white/10 bg-black/90 backdrop-blur-xl"
             role="dialog"
             aria-modal="true"
             aria-labelledby="mobile-menu-title"
           >
             {/* Header with Close Button */}
-            <div className="flex items-center justify-between p-6 border-b border-white/10">
+            <div className="flex items-center justify-between border-b border-white/10 p-4 sm:p-6">
               <div className="flex items-center gap-3">
-                <span className="text-lg font-bold text-white tracking-tight">
+                <span className="text-lg font-bold tracking-tight text-white">
                   TTD
                 </span>
                 <span 
@@ -245,18 +268,18 @@ const Navigation: React.FC = () => {
               <AccessibleButton
                 onClick={closeMobileMenu}
                 ariaLabel="Close navigation menu"
-                className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                className="rounded-lg p-2 transition-colors hover:bg-white/10"
               >
-                <X className="w-6 h-6 text-white/70" aria-hidden="true" />
+                <X className="h-6 w-6 text-white/70" aria-hidden="true" />
               </AccessibleButton>
             </div>
             
             {/* Main Navigation Links */}
-            <div className="flex-1 px-6 py-8">
+            <div className="flex-1 px-4 py-6 sm:px-6 sm:py-8">
               <nav role="navigation" aria-labelledby="mobile-nav-heading">
                 <h3 
                   id="mobile-nav-heading"
-                  className="text-sm font-medium text-white/50 uppercase tracking-wide mb-4"
+                  className="mb-4 text-sm font-medium uppercase tracking-wide text-white/50"
                 >
                   Navigation
                 </h3>
@@ -266,7 +289,7 @@ const Navigation: React.FC = () => {
                       key={item.name}
                       href={item.href}
                       ariaLabel={item.ariaLabel}
-                      className="block w-full text-left py-4 px-4 rounded-xl text-lg font-medium text-white/90 hover:text-white hover:bg-white/5 transition-all duration-200 min-h-[56px] flex items-center"
+                      className="flex min-h-[56px] w-full items-center rounded-xl px-4 py-4 text-left text-lg font-medium text-white/90 transition-all duration-200 hover:bg-white/5 hover:text-white"
                       onClick={closeMobileMenu}
                     >
                       {item.name}
@@ -276,40 +299,65 @@ const Navigation: React.FC = () => {
               </nav>
               
               {/* CTA Section */}
-              <div className="mt-8 pt-6 border-t border-white/10">
-                <h3 className="text-sm font-medium text-white/50 uppercase tracking-wide mb-4">
+              <div className="mt-8 border-t border-white/10 pt-6">
+                <h3 className="mb-4 text-sm font-medium uppercase tracking-wide text-white/50">
                   Community & Account
                 </h3>
                 <div className="space-y-2">
                   <a 
                     href="#discord" 
                     onClick={closeMobileMenu} 
-                    className="block w-full text-left py-4 px-4 rounded-xl text-lg font-medium text-white/90 hover:text-white hover:bg-white/5 transition-all duration-200 min-h-[56px] flex items-center gap-3"
+                    className="flex min-h-[56px] w-full items-center gap-3 rounded-xl px-4 py-4 text-left text-lg font-medium text-white/90 transition-all duration-200 hover:bg-white/5 hover:text-white"
                     aria-label="Join our Discord community"
                   >
-                    <DiscordIcon className="w-5 h-5 text-white/70" />
+                    <DiscordIcon className="h-5 w-5 text-white/70" />
                     Join Discord
                   </a>
-                  <Link 
-                    to="/login" 
-                    onClick={closeMobileMenu} 
-                    className="block w-full text-left py-4 px-4 rounded-xl text-lg font-medium text-white/90 hover:text-white hover:bg-white/5 transition-all duration-200 min-h-[56px] flex items-center"
-                    aria-label="Login to your account"
-                  >
-                    Login
-                  </Link>
+                  {user ? (
+                    <>
+                      <Link 
+                        to="/billing" 
+                        onClick={closeMobileMenu} 
+                        className="flex min-h-[56px] w-full items-center gap-3 rounded-xl px-4 py-4 text-left text-lg font-medium text-white/90 transition-all duration-200 hover:bg-white/5 hover:text-white"
+                        aria-label="Manage your billing"
+                      >
+                        <User className="h-5 w-5 text-white/70" />
+                        Account
+                      </Link>
+                      <button
+                        onClick={() => {
+                          signOut();
+                          closeMobileMenu();
+                        }}
+                        className="flex min-h-[56px] w-full items-center gap-3 rounded-xl px-4 py-4 text-left text-lg font-medium text-white/90 transition-all duration-200 hover:bg-white/5 hover:text-white"
+                        aria-label="Sign out of your account"
+                      >
+                        <LogOut className="h-5 w-5 text-white/70" />
+                        Sign Out
+                      </button>
+                    </>
+                  ) : (
+                    <Link 
+                      to="/login" 
+                      onClick={closeMobileMenu} 
+                      className="flex min-h-[56px] w-full items-center rounded-xl px-4 py-4 text-left text-lg font-medium text-white/90 transition-all duration-200 hover:bg-white/5 hover:text-white"
+                      aria-label="Login to your account"
+                    >
+                      Login
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
             
             {/* Footer */}
-            <div className="p-6 border-t border-white/10">
+            <div className="border-t border-white/10 p-4 sm:p-6">
               <AccessibleButton
                 onClick={closeMobileMenu}
                 ariaLabel="Get started for free"
-                className="w-full py-4 px-6 bg-white/5 hover:bg-white/10 rounded-xl text-white/70 hover:text-white transition-all duration-200 font-medium"
+                className="w-full rounded-xl bg-white/5 px-6 py-4 font-medium text-white/70 transition-all duration-200 hover:bg-white/10 hover:text-white"
               >
-                Get Started for Free
+                Get Started
               </AccessibleButton>
             </div>
           </div>

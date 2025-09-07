@@ -17,64 +17,64 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Navigation />
       
       {/* 404 Content */}
-      <div className="flex-1 flex items-center justify-center pt-24 pb-16">
+      <div className="flex flex-1 items-center justify-center pb-16 pt-24">
         <div className="container-cinematic text-center">
-          <div className="relative max-w-2xl mx-auto">
+          <div className="relative mx-auto max-w-2xl">
             {/* Background decoration */}
             <div className="absolute inset-0 opacity-20">
-              <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-              <div className="absolute bottom-1/3 right-1/3 w-48 h-48 bg-accent/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+              <div className="absolute left-1/4 top-1/4 h-32 w-32 animate-pulse rounded-full bg-primary/10 blur-3xl"></div>
+              <div className="absolute bottom-1/3 right-1/3 h-48 w-48 animate-pulse rounded-full bg-accent/5 blur-3xl delay-1000"></div>
             </div>
             
             <div className="relative z-10">
-              <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm bg-destructive/20 text-destructive">
+              <Badge variant="secondary" className="mb-6 bg-destructive/20 px-4 py-2 text-sm text-destructive">
                 🔍 Page Not Found
               </Badge>
               
-              <h1 className="text-6xl md:text-8xl font-bold mb-6 text-foreground">404</h1>
+              <h1 className="mb-6 text-6xl font-bold text-foreground md:text-8xl">404</h1>
               
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight">
+              <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl">
                 Oops! This page seems to have{" "}
                 <span className="text-gradient-gold">disappeared</span>
               </h2>
               
-              <p className="text-lg text-muted-foreground mb-12 max-w-xl mx-auto leading-relaxed">
+              <p className="mx-auto mb-12 max-w-xl text-lg leading-relaxed text-muted-foreground">
                 The page you're looking for doesn't exist. It might have been moved, deleted, 
                 or you entered the wrong URL.
               </p>
               
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col justify-center gap-4 sm:flex-row">
                 <Button asChild className="px-8 py-4">
                   <Link to="/">
-                    <Home className="w-5 h-5 mr-2" />
+                    <Home className="mr-2 h-5 w-5" />
                     Return to Home
                   </Link>
                 </Button>
                 <Button variant="regular" className="px-8 py-4" onClick={() => window.history.back()}>
-                  <ArrowLeft className="w-5 h-5 mr-2" />
+                  <ArrowLeft className="mr-2 h-5 w-5" />
                   Go Back
                 </Button>
               </div>
               
               {/* Helpful Links */}
-              <div className="mt-12 pt-8 border-t border-border/30">
-                <p className="text-sm text-muted-foreground mb-4">Looking for something specific?</p>
-                <div className="flex flex-wrap gap-6 justify-center text-sm">
-                  <Link to="/courses" className="text-primary hover:text-primary/80 transition-colors">
+              <div className="mt-12 border-t border-border/30 pt-8">
+                <p className="mb-4 text-sm text-muted-foreground">Looking for something specific?</p>
+                <div className="flex flex-wrap justify-center gap-6 text-sm">
+                  <Link to="/courses" className="text-primary transition-colors hover:text-primary/80">
                     Trading Courses
                   </Link>
-                  <Link to="/live" className="text-primary hover:text-primary/80 transition-colors">
+                  <Link to="/live" className="text-primary transition-colors hover:text-primary/80">
                     Live Sessions
                   </Link>
-                  <Link to="/blog" className="text-primary hover:text-primary/80 transition-colors">
+                  <Link to="/blog" className="text-primary transition-colors hover:text-primary/80">
                     Trading Blog
                   </Link>
-                  <Link to="/community" className="text-primary hover:text-primary/80 transition-colors">
+                  <Link to="/community" className="text-primary transition-colors hover:text-primary/80">
                     Community
                   </Link>
                 </div>

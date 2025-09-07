@@ -22,7 +22,7 @@ export const LivestreamList = ({
   const renderStreamGroup = (streams: LivestreamPreview[], groupTitle: string, emptyMessage: string) => {
     if (streams.length === 0) {
       return (
-        <div className="text-center py-6">
+        <div className="py-6 text-center">
           <p className="text-sm text-muted-foreground">{emptyMessage}</p>
         </div>
       );
@@ -30,8 +30,8 @@ export const LivestreamList = ({
 
     return (
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold mb-4">{groupTitle}</h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h3 className="mb-4 text-lg font-semibold">{groupTitle}</h3>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {streams.map((stream) => (
             <LivestreamCard key={stream.id} livestream={stream} />
           ))}
@@ -42,9 +42,9 @@ export const LivestreamList = ({
 
   if (livestreams.length === 0) {
     return (
-      <div className={`text-center py-12 ${className}`}>
+      <div className={`py-12 text-center ${className}`}>
         <p className="text-muted-foreground">No livestreams scheduled at the moment.</p>
-        <p className="text-sm text-muted-foreground mt-2">Check back soon for upcoming sessions!</p>
+        <p className="mt-2 text-sm text-muted-foreground">Check back soon for upcoming sessions!</p>
       </div>
     );
   }
@@ -53,9 +53,9 @@ export const LivestreamList = ({
     <section className={`section-padding ${className}`}>
       <div className="container-cinematic">
         {(title || description) && (
-          <div className="text-center mb-16">
+          <div className="mb-16 text-center">
             {title && (
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+              <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
                 {title.includes('Live') ? (
                   <>
                     <span className="text-gradient-gold">Live</span> Trading Sessions
@@ -64,7 +64,7 @@ export const LivestreamList = ({
               </h2>
             )}
             {description && (
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
                 {description}
               </p>
             )}
@@ -96,19 +96,19 @@ export const LivestreamList = ({
         
         {/* Summary Stats */}
         {livestreams.length > 0 && (
-          <div className="text-center mt-12 pt-8 border-t border-border/30">
-            <div className="grid grid-cols-3 gap-6 max-w-md mx-auto text-center">
+          <div className="mt-12 border-t border-border/30 pt-8 text-center">
+            <div className="mx-auto grid max-w-md grid-cols-3 gap-6 text-center">
               <div>
                 <div className="text-2xl font-bold text-foreground">{liveStreams.length}</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wide">Live Now</div>
+                <div className="text-xs uppercase tracking-wide text-muted-foreground">Live Now</div>
               </div>
               <div>
                 <div className="text-2xl font-bold text-foreground">{upcomingStreams.length}</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wide">Upcoming</div>
+                <div className="text-xs uppercase tracking-wide text-muted-foreground">Upcoming</div>
               </div>
               <div>
                 <div className="text-2xl font-bold text-foreground">{endedStreams.length}</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wide">Replays</div>
+                <div className="text-xs uppercase tracking-wide text-muted-foreground">Replays</div>
               </div>
             </div>
           </div>

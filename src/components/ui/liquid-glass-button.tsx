@@ -4,14 +4,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const liquidGlassButtonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/20 disabled:pointer-events-none disabled:opacity-50 group cursor-pointer relative overflow-hidden",
+  "group relative inline-flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap rounded-xl text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/20 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default: "text-white",
         destructive: "text-white",
         secondary: "text-white/90",
-        outline: "text-white border border-white/20",
+        outline: "border border-white/20 text-white",
       },
       size: {
         default: "h-11 px-5 py-2.5",
@@ -40,52 +40,29 @@ const LiquidGlassButton = React.forwardRef<HTMLButtonElement, LiquidGlassButtonP
       <Comp
         className={cn(
           liquidGlassButtonVariants({ variant, size, className }),
-          // Apple-style hover with subtle scale and no translation
-          "hover:scale-[1.02] active:scale-[0.98]"
+          // Matching navigation style hover effects
+          "hover:translate-y-[-1px] active:translate-y-[0] transition-all duration-300"
         )}
         ref={ref}
         style={{
-          // Apple-style glass material background
-          background: 'rgba(255, 255, 255, 0.1)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          // Apple-style shadow system
-          boxShadow: `
-            0 1px 2px rgba(0, 0, 0, 0.1),
-            0 1px 0 rgba(255, 255, 255, 0.15) inset,
-            0 8px 25px rgba(0, 0, 0, 0.15),
-            0 0 0 1px rgba(255, 255, 255, 0.05)
-          `,
+          // Matching navigation liquid glass style
+          background: 'rgba(255, 255, 255, 0.05)',
+          border: '0.5px solid rgba(255, 255, 255, 0.12)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          borderRadius: '50px',
+          minHeight: '38px',
+          padding: '6px 14px',
+          fontSize: '14px',
+          fontWeight: '500',
+          color: 'rgba(255, 255, 255, 0.9)',
+          overflow: 'visible',
+          isolation: 'isolate',
         }}
         {...props}
       >
-        {/* Apple-style glass material layers */}
-        <div className="absolute inset-0 rounded-[inherit] pointer-events-none">
-          {/* Primary translucent material layer */}
-          <div className="absolute inset-0 bg-white/[0.05] backdrop-blur-lg rounded-[inherit] transition-all duration-300 group-hover:bg-white/[0.08]"></div>
-          
-          {/* Apple-style edge highlights */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent transition-all duration-300 group-hover:via-white/40"></div>
-          <div className="absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent transition-all duration-300 group-hover:via-white/30"></div>
-          
-          {/* Inner material glow */}
-          <div className="absolute inset-[0.5px] rounded-[inherit] bg-gradient-to-br from-white/[0.08] via-white/[0.02] to-transparent pointer-events-none transition-all duration-300 group-hover:from-white/[0.12] group-hover:via-white/[0.04]"></div>
-          
-          {/* Apple-style noise texture for realism */}
-          <div 
-            className="absolute inset-0 rounded-[inherit] opacity-[0.015] pointer-events-none mix-blend-soft-light transition-opacity duration-300 group-hover:opacity-[0.025]"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.8'/%3E%3C/svg%3E")`,
-            }}
-          ></div>
-          
-          {/* Press state feedback */}
-          <div className="absolute inset-0 rounded-[inherit] opacity-0 group-active:opacity-100 transition-opacity duration-100 pointer-events-none bg-black/[0.1]"></div>
-        </div>
-        
-        {/* Content with Apple-style typography */}
-        <span className="relative z-10 font-medium tracking-[-0.01em] flex items-center gap-2">
+        {/* Content with proper z-index */}
+        <span className="relative z-10 flex items-center gap-2">
           {children}
         </span>
       </Comp>

@@ -11,10 +11,10 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ className = "" }) => {
   return (
-    <footer className={`bg-black border-t border-border/20 ${className}`}>
-      <div className="h-1 w-full gradient-brand" />
+    <footer className={`border-t border-border/20 bg-black ${className}`}>
+      <div className="gradient-brand h-1 w-full" />
       <div className="container-cinematic py-10">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
           {/* Footer Logo */}
           <div className="flex items-center gap-3">
             <img 
@@ -27,13 +27,13 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
           </div>
           
           {/* Footer Content */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm text-muted-foreground">
+          <div className="flex flex-col gap-4 text-sm text-muted-foreground sm:flex-row sm:gap-6">
             <div>© {new Date().getFullYear()} The Trading Desk. All rights reserved.</div>
             <div className="flex gap-6">
-              <a href="/style-guide" className="hover:text-foreground transition-colors">Style Guide</a>
-              <a href="#" className="hover:text-foreground transition-colors">Terms</a>
-              <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
-              <a href="#" className="hover:text-foreground transition-colors">Contact</a>
+              <a href="/style-guide" className="transition-colors hover:text-foreground">Style Guide</a>
+              <a href="#" className="transition-colors hover:text-foreground">Terms</a>
+              <a href="#" className="transition-colors hover:text-foreground">Privacy</a>
+              <a href="#" className="transition-colors hover:text-foreground">Contact</a>
             </div>
           </div>
         </div>

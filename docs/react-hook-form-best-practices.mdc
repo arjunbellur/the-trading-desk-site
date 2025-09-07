@@ -1,0 +1,35 @@
+# React Hook Form Best Practices
+
+## Form Setup
+- Use `useForm` for managing form state
+- Implement proper default values
+- Use `mode` for validation timing
+- Configure proper error handling
+
+## Validation
+- Integrate with Zod for schema validation
+- Use `resolver` for custom validation logic
+- Implement proper error messages
+- Validate on appropriate events
+
+## Component Integration
+- Use `Controller` for custom input components
+- Implement proper field registration
+- Handle controlled and uncontrolled inputs
+- Use proper event handlers
+
+## Performance
+- Optimize re-renders with proper configuration
+- Use `shouldUnregister` appropriately
+- Implement proper form reset logic
+- Handle form submission efficiently
+
+## Accessibility
+- Implement proper ARIA attributes
+- Use proper labels and descriptions
+- Handle keyboard navigation
+- Provide meaningful error messages
+description:
+globs:
+alwaysApply: true
+---

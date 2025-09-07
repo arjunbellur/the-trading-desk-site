@@ -188,17 +188,17 @@
     }
   }
 
-  /* Base Typography Settings */
+  /* Base Typography Settings - Modern Documentary Style */
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
     font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: -0.011em;
+    line-height: 1.65;
+    letter-spacing: -0.01em;
     color: hsl(var(--foreground));
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
-  /* Headings - Documentary Style Hierarchy */
+  /* Headings - Modern Documentary Hierarchy */
   h1, h2, h3, h4, h5, h6 {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
     color: hsl(var(--foreground));
@@ -206,111 +206,162 @@
     font-feature-settings: 'ss01', 'ss02';
   }
 
-  /* H1 - Hero/Main Titles */
+  /* H1 - Hero/Main Titles - Ultra Light for Impact */
   h1 {
-    font-size: 2.75rem; /* 44px base - increased */
-    font-weight: 300;
+    font-size: 3.5rem; /* 56px base - documentary hero scale */
+    font-weight: 200; /* Ultra light for cinematic feel */
     line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  /* H2 - Section Headers - Light Weight, Bold Presence */
+  h2 {
+    font-size: 2.75rem; /* 44px base - modern section scale */
+    font-weight: 300; /* Light weight for elegance */
+    line-height: 1.15;
     letter-spacing: -0.025em;
+    margin-bottom: 1.25rem;
+  }
+
+  /* H3 - Subsection Headers - Medium Weight, Balanced */
+  h3 {
+    font-size: 2.125rem; /* 34px base - refined subsection scale */
+    font-weight: 400; /* Regular weight for readability */
+    line-height: 1.25;
+    letter-spacing: -0.02em;
     margin-bottom: 1rem;
   }
 
-  /* H2 - Section Headers */
-  h2 {
-    font-size: 2.25rem; /* 36px base - increased from 30px */
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+  /* H4 - Component Headers - Medium Weight, Clear */
+  h4 {
+    font-size: 1.875rem; /* 30px base - modern component scale */
+    font-weight: 500; /* Medium weight for distinction */
+    line-height: 1.3;
+    letter-spacing: -0.015em;
     margin-bottom: 0.75rem;
   }
 
-  /* H3 - Subsection Headers */
-  h3 {
-    font-size: 1.75rem; /* 28px base - increased from 24px */
-    font-weight: 500;
-    line-height: 1.3;
-    letter-spacing: -0.015em;
-    margin-bottom: 0.5rem;
-  }
-
-  /* H4 - Component Headers */
-  h4 {
-    font-size: 1.5rem; /* 24px base - increased from 20px */
-    font-weight: 500;
-    line-height: 1.4;
+  /* H5 - Small Headers - Semi Bold for Emphasis */
+  h5 {
+    font-size: 1.5rem; /* 24px base - modern small header scale */
+    font-weight: 600; /* Semi bold for clear hierarchy */
+    line-height: 1.35;
     letter-spacing: -0.01em;
     margin-bottom: 0.5rem;
   }
 
-  /* H5 - Small Headers */
-  h5 {
-    font-size: 1.25rem; /* 20px base - increased from 18px */
-    font-weight: 600;
+  /* H6 - Labels/Tags - Bold for Contrast */
+  h6 {
+    font-size: 1.125rem; /* 18px base - modern label scale */
+    font-weight: 700; /* Bold for maximum contrast */
     line-height: 1.4;
-    letter-spacing: -0.005em;
-    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em; /* Tighter for labels */
+    margin-bottom: 0.5rem;
+    color: hsl(var(--muted-foreground));
   }
 
-  /* H6 - Labels/Tags */
-  h6 {
-    font-size: 0.875rem; /* 14px base */
+  /* Modern Documentary Typography Classes */
+
+  /* Body Text Variants - Refined for Readability */
+  p {
+    font-size: 1.125rem; /* Slightly larger for better readability */
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    color: hsl(var(--foreground));
+    font-weight: 400;
+  }
+
+  .text-large {
+    font-size: 1.25rem; /* 20px - refined large text */
+    line-height: 1.7;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+
+  .text-small {
+    font-size: 1rem; /* 16px - refined small text */
+    line-height: 1.6;
+    font-weight: 400;
+    letter-spacing: -0.002em;
+  }
+
+  .text-xs {
+    font-size: 0.875rem; /* 14px - refined extra small */
+    line-height: 1.5;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  /* Documentary-specific text styles - Enhanced Hierarchy */
+  .text-lead {
+    font-size: 1.375rem; /* 22px - refined lead text */
+    font-weight: 300;
+    line-height: 1.65;
+    letter-spacing: -0.015em;
+    color: hsl(var(--foreground));
+  }
+
+  .text-intro {
+    font-size: 1.5rem; /* 24px - new intro text size */
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: -0.02em;
+    color: hsl(var(--foreground));
+  }
+
+  .text-body {
+    font-size: 1rem; /* 16px - standard body text */
+    line-height: 1.7;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    color: hsl(var(--foreground));
+  }
+
+  .text-caption {
+    font-size: 0.875rem; /* 14px - refined caption */
+    font-weight: 500;
+    line-height: 1.5;
+    color: hsl(var(--muted-foreground));
+    letter-spacing: 0.005em;
+  }
+
+  .text-label {
+    font-size: 0.75rem; /* 12px - refined label */
     font-weight: 600;
     line-height: 1.4;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 0.25rem;
     color: hsl(var(--muted-foreground));
   }
 
-  /* Documentary Typography Classes */
-  
-  /* Body Text Variants */
-  p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    color: hsl(var(--foreground));
-  }
-
-  .text-large {
-    font-size: 1.125rem;
-    line-height: 1.7;
-    font-weight: 400;
-  }
-
-  .text-small {
-    font-size: 0.875rem;
-    line-height: 1.5;
-    font-weight: 400;
-  }
-
-  .text-xs {
-    font-size: 0.75rem;
-    line-height: 1.4;
-    font-weight: 500;
-    letter-spacing: 0.025em;
-  }
-
-  /* Documentary-specific text styles */
-  .text-lead {
-    font-size: 1.125rem;
-    font-weight: 300;
-    line-height: 1.6;
-    letter-spacing: -0.01em;
-    color: hsl(var(--foreground));
-  }
-
+  /* Enhanced text states */
   .text-muted {
     color: hsl(var(--muted-foreground));
+    font-weight: 400;
   }
 
-  .text-caption {
-    font-size: 0.875rem;
+  .text-accent {
+    color: hsl(var(--primary));
     font-weight: 500;
-    line-height: 1.4;
-    color: hsl(var(--muted-foreground));
-    letter-spacing: 0.015em;
   }
+
+  .text-highlight {
+    color: hsl(var(--foreground));
+    font-weight: 600;
+  }
+
+  /* Font weight utilities for modern hierarchy */
+  .font-ultralight { font-weight: 200; }
+  .font-extralight { font-weight: 200; }
+  .font-light { font-weight: 300; }
+  .font-normal { font-weight: 400; }
+  .font-medium { font-weight: 500; }
+  .font-semibold { font-weight: 600; }
+  .font-bold { font-weight: 700; }
+  .font-extrabold { font-weight: 800; }
+  .font-black { font-weight: 900; }
 
   /* Code and Technical Text */
   code, pre {
@@ -326,40 +377,57 @@
     border-radius: 0.25rem;
   }
 
-  /* Responsive Typography Scaling - Documentary Style */
+  /* Responsive Typography Scaling - Modern Documentary Standards */
   @media (min-width: 640px) {
-    h1 { font-size: 3.5rem; }      /* 56px - increased */
-    h2 { font-size: 2.75rem; }   /* 44px - increased from 36px */
-    h3 { font-size: 2rem; }   /* 32px - increased from 28px */
-    h4 { font-size: 1.625rem; }   /* 26px - increased from 22px */
-    .text-lead { font-size: 1.25rem; }  /* reduced */
+    h1 { font-size: 4.25rem; }     /* 68px - refined scaling */
+    h2 { font-size: 3.25rem; }     /* 52px - balanced growth */
+    h3 { font-size: 2.5rem; }      /* 40px - proportional increase */
+    h4 { font-size: 2.125rem; }    /* 34px - refined component scale */
+    h5 { font-size: 1.75rem; }     /* 28px - clear hierarchy */
+    h6 { font-size: 1.375rem; }    /* 22px - legible labels */
+    .text-lead { font-size: 1.5rem; }  /* improved readability */
+    .text-intro { font-size: 1.625rem; }  /* refined intro text */
+    .text-body { font-size: 1.125rem; }   /* refined body text */
+    .text-caption { font-size: 1rem; }    /* refined caption */
   }
 
   @media (min-width: 768px) {
-    h1 { font-size: 4.5rem; }   /* 72px - increased */
-    h2 { font-size: 3.25rem; }    /* 52px - increased from 40px */
-    h3 { font-size: 2.25rem; }      /* 36px - increased from 32px */
-    h4 { font-size: 1.75rem; }  /* 28px - increased from 22px */
-    h5 { font-size: 1.375rem; }  /* 22px - increased from 18px */
-    .text-lead { font-size: 1.375rem; }  /* reduced */
+    h1 { font-size: 5rem; }        /* 80px - cinematic impact */
+    h2 { font-size: 3.75rem; }     /* 60px - balanced presence */
+    h3 { font-size: 2.75rem; }     /* 44px - refined subsection */
+    h4 { font-size: 2.25rem; }     /* 36px - clear components */
+    h5 { font-size: 1.875rem; }    /* 30px - strong headers */
+    h6 { font-size: 1.5rem; }      /* 24px - prominent labels */
+    .text-lead { font-size: 1.625rem; }  /* enhanced readability */
+    .text-intro { font-size: 1.75rem; }   /* enhanced intro text */
+    .text-body { font-size: 1.125rem; }   /* enhanced body text */
+    .text-caption { font-size: 1rem; }    /* enhanced caption */
   }
 
   @media (min-width: 1024px) {
-    h1 { font-size: 5.5rem; }    /* 88px - increased */
-    h2 { font-size: 3.75rem; }      /* 60px - increased from 48px */
-    h3 { font-size: 2.5rem; }   /* 40px - increased from 36px */
-    h4 { font-size: 2rem; }    /* 32px - increased from 24px */
-    h5 { font-size: 1.5rem; }    /* 24px - increased from 20px */
-    .text-lead { font-size: 1.375rem; }  /* reduced */
+    h1 { font-size: 5.75rem; }     /* 92px - maximum impact */
+    h2 { font-size: 4.25rem; }     /* 68px - strong sections */
+    h3 { font-size: 3rem; }        /* 48px - balanced subsections */
+    h4 { font-size: 2.5rem; }      /* 40px - clear components */
+    h5 { font-size: 2rem; }        /* 32px - prominent headers */
+    h6 { font-size: 1.625rem; }    /* 26px - clear labels */
+    .text-lead { font-size: 1.75rem; }  /* optimal readability */
+    .text-intro { font-size: 1.875rem; }  /* optimal intro text */
+    .text-body { font-size: 1.125rem; }   /* optimal body text */
+    .text-caption { font-size: 1rem; }    /* optimal caption */
   }
 
   @media (min-width: 1280px) {
-    h1 { font-size: 6rem; }      /* 96px - increased */
-    h2 { font-size: 4rem; }    /* 64px - increased from 56px */
-    h3 { font-size: 2.75rem; }    /* 44px - increased from 40px */
-    h4 { font-size: 2.25rem; }    /* 36px - increased from 32px */
-    h5 { font-size: 1.625rem; }    /* 26px - increased from 24px */
-    .text-lead { font-size: 1.375rem; }  /* reduced */
+    h1 { font-size: 6.5rem; }      /* 104px - ultimate impact */
+    h2 { font-size: 4.75rem; }     /* 76px - commanding presence */
+    h3 { font-size: 3.25rem; }     /* 52px - refined subsections */
+    h4 { font-size: 2.75rem; }     /* 44px - strong components */
+    h5 { font-size: 2.125rem; }    /* 34px - clear headers */
+    h6 { font-size: 1.75rem; }     /* 28px - prominent labels */
+    .text-lead { font-size: 1.875rem; }  /* superior readability */
+    .text-intro { font-size: 2rem; }      /* superior intro text */
+    .text-body { font-size: 1.125rem; }   /* superior body text */
+    .text-caption { font-size: 1rem; }    /* superior caption */
   }
 }
 
@@ -412,19 +480,38 @@
     scroll-margin-top: 100px; /* Account for fixed navigation */
   }
 
-  /* AOD-style spacing and layout */
+  /* Enhanced container system for wider layouts */
   .aod-container {
-    max-width: 1400px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .aod-container--wide {
+    max-width: 1408px;
     margin: 0 auto;
     padding: 0 2rem;
   }
 
   .aod-section {
-    padding: 6rem 0;
+    padding: 5rem 0;
   }
 
   .aod-section-lg {
-    padding: 8rem 0;
+    padding: 7rem 0;
+  }
+
+  /* Responsive container adjustments */
+  @media (min-width: 1280px) {
+    .aod-container {
+      max-width: 1344px;
+      padding: 0 2rem;
+    }
+
+    .aod-container--wide {
+      max-width: 1536px;
+      padding: 0 2.5rem;
+    }
   }
 
   /* Typography improvements */
@@ -453,56 +540,60 @@
 
 @layer utilities {
   .section-padding {
-    @apply py-20 px-4 sm:px-6 lg:px-8;
+    @apply py-16 px-4 sm:px-6 lg:px-8 xl:px-12;
   }
 
   .container-cinematic {
-    /* Full-width container with 1–2em side padding */
+    /* Modern container with consistent side padding */
     @apply w-full mx-auto;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   @media (min-width: 640px) {
-    .container-cinematic { padding-left: 1.5em; padding-right: 1.5em; }
+    .container-cinematic { padding-left: 1.5rem; padding-right: 1.5rem; }
   }
   @media (min-width: 1024px) {
-    .container-cinematic { padding-left: 2em; padding-right: 2em; }
+    .container-cinematic { padding-left: 2rem; padding-right: 2rem; }
+  }
+  @media (min-width: 1280px) {
+    .container-cinematic { padding-left: 2.5rem; padding-right: 2.5rem; }
   }
 
-  /* Refined spacing system */
-  .spacing-xs { gap: 0.75rem; }
-  .spacing-sm { gap: 1.25rem; }
-  .spacing-md { gap: 2rem; }
-  .spacing-lg { gap: 3rem; }
-  .spacing-xl { gap: 4.5rem; }
+  /* Modern spacing system - 8px grid */
+  .spacing-xs { gap: 0.5rem; }   /* 8px */
+  .spacing-sm { gap: 1rem; }     /* 16px */
+  .spacing-md { gap: 1.5rem; }   /* 24px */
+  .spacing-lg { gap: 2rem; }     /* 32px */
+  .spacing-xl { gap: 3rem; }     /* 48px */
+  .spacing-2xl { gap: 4rem; }    /* 64px */
 
-  /* Refined text sizes with better proportions */
+  /* Modern text sizes with fluid typography */
   .text-aod-hero {
-    font-size: clamp(2rem, 6vw, 5rem);
-    line-height: 0.9;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.5rem;
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 2rem;
   }
 
   .text-aod-title {
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    line-height: 0.95;
+    font-size: clamp(1.875rem, 5vw, 3.5rem);
+    line-height: 1.15;
     letter-spacing: -0.02em;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .text-aod-subtitle {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    line-height: 1.5;
-    letter-spacing: -0.005em;
-    margin-bottom: 0.75rem;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
   }
 
   .text-aod-body {
-    font-size: clamp(0.875rem, 1.25vw, 1rem);
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
     line-height: 1.6;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
   }
 }
 
@@ -781,30 +872,101 @@
   .btn-glass:hover::before, .btn-ios-primary:hover::before, .btn-fx-primary:hover::before { opacity: 0; }
   .btn-glass:hover, .btn-ios-primary:hover, .btn-fx-primary:hover { filter: brightness(1.02); box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 18px 36px rgba(0,0,0,0.5); }
 
-  /* iOS liquid glass ghost */
-  .btn-glass--ghost, .btn-ios-ghost, .btn-fx-ghost {
+  /* Green Liquid Glass Button - Matching Navigation Style */
+  .btn-glass--green {
+    position: relative;
+    background: rgba(34, 197, 94, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 0.5px solid rgba(34, 197, 94, 0.3);
+    color: #fff;
+    overflow: visible;
+    isolation: isolate;
+    border-radius: 50px;
+    padding: 6px 14px;
+    min-height: 38px;
+    font-size: 14px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .btn-glass--green:hover {
+    background: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+  }
+
+  .btn-glass--green:active {
+    transform: translateY(0);
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.1);
+  }
+
+  /* Ensure content appears above glass overlay */
+  .btn-glass--green > * {
     position: relative;
-    color: rgba(255,255,255,0.92);
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.22);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    overflow: hidden;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+    z-index: 2;
   }
-  .btn-glass--ghost::before, .btn-ios-ghost::before, .btn-fx-ghost::before {
-    content: ""; position: absolute; inset: -1px; border-radius: 9999px; pointer-events: none;
-    background: linear-gradient(120deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 45%, rgba(255,255,255,0) 60%);
-    transform: translateX(-120%);
-    transition: transform .8s ease;
-    mix-blend-mode: screen;
+
+  /* Ghost Liquid Glass Button - Matching Navigation Style */
+  .btn-glass--ghost {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.9);
+    overflow: visible;
+    isolation: isolate;
+    border-radius: 50px;
+    padding: 6px 14px;
+    min-height: 38px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
   }
-  .btn-glass--ghost:hover::before, .btn-ios-ghost:hover::before, .btn-fx-ghost:hover::before { transform: translateX(120%); }
-  .btn-glass--ghost:hover, .btn-ios-ghost:hover, .btn-fx-ghost:hover { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.28); }
+
+  .btn-glass--ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-glass--ghost:active {
+    transform: translateY(0);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+  }
+
+  /* Ensure content appears above glass overlay */
+  .btn-glass--ghost > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Mobile adjustments for liquid glass buttons */
+  @media (max-width: 640px) {
+    .btn-glass--green,
+    .btn-glass--ghost {
+      padding: 8px 16px;
+      min-height: 42px;
+      font-size: 15px;
+    }
+
+    .liquid-glass-discord-btn {
+      padding: 8px 16px;
+      min-height: 42px;
+      font-size: 15px;
+    }
+  }
 
   /* Gradient border variant (transparent center) */
   .btn-ios-gradient-border {
@@ -865,66 +1027,12 @@
   }
   .btn-hero-secondary:hover { background: rgba(16, 185, 129, 0.12); }
 
-  @keyframes sparkleFloat {
-    0% { transform: translateY(0) scale(1); opacity: .35; }
-    50% { opacity: .9; }
-    100% { transform: translateY(-26px) scale(1.05); opacity: .35; }
-  }
-  .glow-particle { animation: sparkleFloat 3.5s ease-in-out infinite; }
 
-  .floating-number { color: rgba(255,255,255,0.08); filter: blur(0.3px); }
 }
 
-/* Hover-revealed trading grid overlay */
-@layer utilities {
-  .trading-grid {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    background-image:
-      linear-gradient(to right, rgba(16,185,129,0.18) 1px, rgba(0,0,0,0) 1px),
-      linear-gradient(to bottom, rgba(16,185,129,0.10) 1px, rgba(0,0,0,0) 1px),
-      radial-gradient(60% 60% at 50% 40%, rgba(159,212,166,0.10), rgba(0,0,0,0) 70%);
-    background-size: 40px 40px, 40px 40px, 100% 100%;
-    background-position: 0 0, 0 0, 0 0;
-    opacity: 0;
-    transition: opacity 300ms ease;
-  }
 
-  .trading-grid-offset {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    background-image:
-      linear-gradient(to right, rgba(52,211,153,0.12) 1px, rgba(0,0,0,0) 1px),
-      linear-gradient(to bottom, rgba(20,184,166,0.08) 1px, rgba(0,0,0,0) 1px);
-    background-size: 80px 80px, 80px 80px;
-    background-position: 20px 0, 0 20px; /* stagger */
-    opacity: 0;
-    transition: opacity 300ms ease;
-  }
 
-  .group:hover .trading-grid,
-  .group:hover .trading-grid-offset { opacity: 0.28; }
-}
 
-/* Mouse-follow grid spotlight */
-@layer utilities {
-  .grid-spotlight {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 15;
-    opacity: 0;
-    transition: opacity 200ms ease;
-    mix-blend-mode: screen;
-    background:
-      radial-gradient(240px 240px at var(--mx, 50%) var(--my, 50%), rgba(159,212,166,0.55) 0%, rgba(16,185,129,0.18) 45%, rgba(0,0,0,0) 65%);
-  }
-  .group:hover .grid-spotlight { opacity: 1; }
-}
 
 /* Hero light streak (diagonal purple/blue glow) */
 @layer utilities {
@@ -954,15 +1062,7 @@
     box-shadow: 0 0 12px rgba(136, 235, 208, 0.2); /* Soft glow */
   }
 
-  .btn-purple {
-    @apply rounded-full px-6 py-3 font-semibold text-slate-900;
-    background: linear-gradient(90deg, #8b5cf6, #6366f1);
-    background-size: 200% 200%;
-    animation: gradient-move 10s ease infinite;
-    box-shadow: 0 10px 24px rgba(139,92,246,.3);
-    transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
-  }
-  .btn-purple:hover { transform: translateY(-2px); filter: brightness(1.03); box-shadow: 0 16px 36px rgba(139,92,246,.42); }
+
 }
 
 /* FXIFY-like hero components (blue/purple) */
@@ -1372,6 +1472,7 @@
     50% { opacity: 1; transform: translateX(0%) rotate(-15deg); }
   }
 
+
   /* Card Components - tm-ui-card-* */
   .tm-ui-card {
     background: hsl(var(--card));
@@ -1707,8 +1808,44 @@
   animation: pulse-glow-tertiary 20s ease-in-out infinite;
 }
 
-/* Mobile Performance Optimizations */
-@media (max-width: 768px) {
+  /* Enhanced Mobile Spacing & Performance Optimizations */
+  @media (max-width: 768px) {
+    /* Mobile container adjustments for better content flow */
+    .aod-container,
+    .aod-container--wide {
+      padding: 0 1rem;
+    }
+
+    /* Reduce spacing on mobile for better content density */
+    .aod-section {
+      padding: 3rem 0;
+    }
+
+    .aod-section-lg {
+      padding: 4rem 0;
+    }
+
+    /* Mobile typography adjustments */
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
+
+    /* Mobile spacing utilities */
+    .section-padding {
+      @apply py-12 px-4;
+    }
+
+    .container-cinematic {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Mobile card spacing */
+    .spacing-xs { gap: 0.5rem; }
+    .spacing-sm { gap: 0.75rem; }
+    .spacing-md { gap: 1rem; }
+    .spacing-lg { gap: 1.5rem; }
+    .spacing-xl { gap: 2rem; }
   /* Essential overflow control */
   html, body {
     overflow-x: hidden;
@@ -1751,17 +1888,11 @@
     animation-duration: 40s !important;
   }
 
-  /* Reduce blur intensity for better performance */
-  .animate-shimmer-pan {
-    animation-duration: 8s !important;
+  /* Enhanced Shadow Effects for Partnerships */
+  .shadow-3xl {
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
   }
 
-  /* Optimize floating animations */
-  .animate-float {
-    animation-duration: 6s !important;
-  }
-
-  .animate-orb-float {
-    animation-duration: 8s !important;
-  }
 }
