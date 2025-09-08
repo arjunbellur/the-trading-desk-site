@@ -119,7 +119,7 @@ export function VideoPlayer({
 
   return (
     <div 
-      className={`relative bg-black rounded-lg overflow-hidden group ${className}`}
+      className={`group relative overflow-hidden rounded-lg bg-black ${className}`}
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
@@ -127,25 +127,25 @@ export function VideoPlayer({
         ref={videoRef}
         src={src}
         poster={poster}
-        className="w-full h-full object-cover"
+        className="h-full w-full object-cover"
         preload="metadata"
       />
 
       {/* Loading overlay */}
       {isLoading && (
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <Loader2 className="w-8 h-8 text-white animate-spin" />
+        <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+          <Loader2 className="h-8 w-8 animate-spin text-white" />
         </div>
       )}
 
       {/* Play/Pause overlay */}
       {!isPlaying && !isLoading && (
-        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center bg-black/30">
           <button
             onClick={togglePlay}
-            className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+            className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-colors hover:bg-white/30"
           >
-            <Play className="w-6 h-6 text-white ml-1" />
+            <Play className="ml-1 h-6 w-6 text-white" />
           </button>
         </div>
       )}
@@ -161,7 +161,7 @@ export function VideoPlayer({
               max={duration || 0}
               value={currentTime}
               onChange={handleSeek}
-              className="w-full h-1 bg-white/20 rounded-lg appearance-none cursor-pointer slider"
+              className="slider h-1 w-full cursor-pointer appearance-none rounded-lg bg-white/20"
             />
           </div>
 
@@ -170,35 +170,35 @@ export function VideoPlayer({
             <div className="flex items-center gap-3">
               <button
                 onClick={togglePlay}
-                className="text-white hover:text-gray-300 transition-colors"
+                className="text-white transition-colors hover:text-gray-300"
               >
-                {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+                {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
               </button>
 
               <button
                 onClick={toggleMute}
-                className="text-white hover:text-gray-300 transition-colors"
+                className="text-white transition-colors hover:text-gray-300"
               >
-                {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
               </button>
 
-              <span className="text-white text-sm">
+              <span className="text-sm text-white">
                 {formatTime(currentTime)} / {formatTime(duration)}
               </span>
             </div>
 
             <div className="flex items-center gap-3">
               {title && (
-                <span className="text-white text-sm font-medium truncate max-w-xs">
+                <span className="max-w-xs truncate text-sm font-medium text-white">
                   {title}
                 </span>
               )}
               
               <button
                 onClick={toggleFullscreen}
-                className="text-white hover:text-gray-300 transition-colors"
+                className="text-white transition-colors hover:text-gray-300"
               >
-                <Maximize className="w-5 h-5" />
+                <Maximize className="h-5 w-5" />
               </button>
             </div>
           </div>

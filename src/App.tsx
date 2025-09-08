@@ -10,7 +10,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import { DemoModeBanner } from "@/components/DemoModeBanner";
 
 // Lazy load page components for better performance
 const Index = React.lazy(() => import("./pages/Index"));
@@ -21,6 +20,7 @@ const Blog = React.lazy(() => import("./pages/Blog"));
 const Community = React.lazy(() => import("./pages/Community"));
 const StyleGuide = React.lazy(() => import("./pages/StyleGuide"));
 const Login = React.lazy(() => import("./pages/Login"));
+const SignUp = React.lazy(() => import("./pages/SignUp"));
 const Billing = React.lazy(() => import("./pages/Billing"));
 const Success = React.lazy(() => import("./pages/Success"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
@@ -32,7 +32,7 @@ const LoadingFallback: React.FC = () => (
   <div className="flex min-h-screen items-center justify-center bg-black">
     <div className="text-center">
       <div className="mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white" />
-      <p className="text-sm text-white/70">Loading...</p>
+      <p className="text-small text-white/70">Loading...</p>
     </div>
   </div>
 );
@@ -79,7 +79,6 @@ const App: React.FC = () => (
             v7_relativeSplatPath: true
           }}
         >
-          <DemoModeBanner />
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
               <Route path="/" element={<Index />} />
@@ -89,6 +88,7 @@ const App: React.FC = () => (
               <Route path="/blog" element={<Blog />} />
               <Route path="/community" element={<Community />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
               <Route path="/billing" element={<Billing />} />
               <Route path="/success" element={<Success />} />
               <Route path="/style-guide" element={<StyleGuide />} />

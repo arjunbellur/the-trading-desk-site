@@ -143,7 +143,7 @@ const Navigation: React.FC = () => {
       key={item.name}
       href={item.href}
       ariaLabel={item.ariaLabel}
-      className="tm-ui-button tm-ui-button--nav whitespace-nowrap"
+      className="liquid-glass-btn whitespace-nowrap"
     >
       {item.name}
     </SmoothScrollLink>
@@ -157,28 +157,31 @@ const Navigation: React.FC = () => {
       role="navigation"
       aria-label="Main navigation"
     >
-              <div className="tm-layout-nav__container px-4 sm:px-6 lg:px-8">
-        {/* TTD Logo */}
-        <Link 
-          to="/" 
-          className="tm-layout-nav__brand flex items-center gap-3"
-          aria-label="The Trading Desk - Go to homepage"
-        >
-          <span className="text-lg font-bold tracking-tight text-white md:text-xl">
-            TTD
-          </span>
-          <span className="tm-ui-text--large hidden font-semibold text-white/90 transition-colors group-hover:text-white sm:block">
-            The Trading Desk
-          </span>
-        </Link>
+              <div className="tm-layout-nav__container px-2 sm:px-4">
+        {/* Group 1: TTD Logo (Left Column) */}
+        <div className="flex justify-start">
+          <Link 
+            to="/" 
+            className="tm-layout-nav__brand flex items-center gap-3"
+            aria-label="The Trading Desk - Go to homepage"
+          >
+            <span className="text-lg font-bold tracking-tight text-white md:text-xl">
+              TTD
+            </span>
+            <span className="tm-ui-text--large hidden font-semibold text-white/90 transition-colors group-hover:text-white sm:block">
+              The Trading Desk
+            </span>
+          </Link>
+        </div>
 
-        {/* Desktop Navigation */}
-        <div className="tm-layout-nav__links hidden md:flex" role="menubar">
+        {/* Group 2: Main Navigation Links (Center Column) */}
+        <div className="tm-layout-nav__links hidden justify-center md:flex" role="menubar">
           {NAVIGATION_ITEMS.map(renderNavigationItem)}
         </div>
 
-        {/* Desktop CTA */}
-        <div className="tm-layout-nav__links hidden md:flex">
+        {/* Group 3: Action Buttons (Right Column) */}
+        <div className="flex justify-end">
+          <div className="tm-layout-nav__links hidden gap-2 md:flex">
           <a 
             href="#discord" 
             className="liquid-glass-discord-btn flex items-center gap-2 whitespace-nowrap transition-all duration-300"
@@ -191,7 +194,7 @@ const Navigation: React.FC = () => {
             <>
               <Link 
                 to="/billing" 
-                className="tm-ui-button tm-ui-button--nav hidden whitespace-nowrap lg:inline-flex items-center gap-2"
+                className="liquid-glass-btn hidden items-center gap-2 whitespace-nowrap lg:inline-flex"
                 aria-label="Manage your billing"
               >
                 <User className="h-4 w-4" />
@@ -199,7 +202,7 @@ const Navigation: React.FC = () => {
               </Link>
               <button
                 onClick={signOut}
-                className="tm-ui-button tm-ui-button--nav hidden whitespace-nowrap lg:inline-flex items-center gap-2"
+                className="liquid-glass-btn hidden items-center gap-2 whitespace-nowrap lg:inline-flex"
                 aria-label="Sign out of your account"
               >
                 <LogOut className="h-4 w-4" />
@@ -207,14 +210,24 @@ const Navigation: React.FC = () => {
               </button>
             </>
           ) : (
-            <Link 
-              to="/login" 
-              className="tm-ui-button tm-ui-button--nav hidden whitespace-nowrap lg:inline-flex"
-              aria-label="Login to your account"
-            >
-              Login
-            </Link>
+            <>
+              <Link 
+                to="/login" 
+                className="liquid-glass-btn hidden whitespace-nowrap lg:inline-flex"
+                aria-label="Login to your account"
+              >
+                Login
+              </Link>
+              <Link 
+                to="/signup" 
+                className="liquid-glass-btn--green hidden whitespace-nowrap lg:inline-flex"
+                aria-label="Sign up for a new account"
+              >
+                Sign Up
+              </Link>
+            </>
           )}
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -223,7 +236,7 @@ const Navigation: React.FC = () => {
           ariaLabel={isOpen ? "Close navigation menu" : "Open navigation menu"}
           ariaExpanded={isOpen}
           ariaControls={MOBILE_MENU_ID}
-          className="tm-ui-button tm-ui-button--nav flex min-h-[48px] w-12 items-center justify-center p-3 md:hidden"
+          className="liquid-glass-btn flex min-h-[48px] w-12 items-center justify-center p-3 md:hidden"
         >
           {isOpen ? (
             <X className="h-6 w-6" aria-hidden="true" />
@@ -307,7 +320,7 @@ const Navigation: React.FC = () => {
                   <a 
                     href="#discord" 
                     onClick={closeMobileMenu} 
-                    className="flex min-h-[56px] w-full items-center gap-3 rounded-xl px-4 py-4 text-left text-lg font-medium text-white/90 transition-all duration-200 hover:bg-white/5 hover:text-white"
+                    className="liquid-glass-discord-btn flex min-h-[56px] w-full items-center gap-3 rounded-xl px-4 py-4 text-left text-lg font-medium text-white/90 transition-all duration-200 hover:bg-white/5 hover:text-white"
                     aria-label="Join our Discord community"
                   >
                     <DiscordIcon className="h-5 w-5 text-white/70" />
@@ -337,14 +350,24 @@ const Navigation: React.FC = () => {
                       </button>
                     </>
                   ) : (
-                    <Link 
-                      to="/login" 
-                      onClick={closeMobileMenu} 
-                      className="flex min-h-[56px] w-full items-center rounded-xl px-4 py-4 text-left text-lg font-medium text-white/90 transition-all duration-200 hover:bg-white/5 hover:text-white"
-                      aria-label="Login to your account"
-                    >
-                      Login
-                    </Link>
+                    <>
+                      <Link 
+                        to="/login" 
+                        onClick={closeMobileMenu} 
+                        className="flex min-h-[56px] w-full items-center rounded-xl px-4 py-4 text-left text-lg font-medium text-white/90 transition-all duration-200 hover:bg-white/5 hover:text-white"
+                        aria-label="Login to your account"
+                      >
+                        Login
+                      </Link>
+                      <Link 
+                        to="/signup" 
+                        onClick={closeMobileMenu} 
+                        className="flex min-h-[56px] w-full items-center rounded-xl px-4 py-4 text-left text-lg font-medium text-white/90 transition-all duration-200 hover:bg-white/5 hover:text-white"
+                        aria-label="Sign up for a new account"
+                      >
+                        Sign Up
+                      </Link>
+                    </>
                   )}
                 </div>
               </div>

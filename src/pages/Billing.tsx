@@ -44,13 +44,13 @@ const Billing: React.FC = () => {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'active':
-        return <CheckCircle className="w-5 h-5 text-green-400" />;
+        return <CheckCircle className="h-5 w-5 text-green-400" />;
       case 'past_due':
-        return <AlertCircle className="w-5 h-5 text-yellow-400" />;
+        return <AlertCircle className="h-5 w-5 text-yellow-400" />;
       case 'canceled':
-        return <XCircle className="w-5 h-5 text-red-400" />;
+        return <XCircle className="h-5 w-5 text-red-400" />;
       default:
-        return <AlertCircle className="w-5 h-5 text-gray-400" />;
+        return <AlertCircle className="h-5 w-5 text-gray-400" />;
     }
   };
 
@@ -83,7 +83,7 @@ const Billing: React.FC = () => {
   return (
     <ProtectedRoute>
       <div className="min-h-screen bg-black">
-        <div className="max-w-4xl mx-auto px-4 py-12">
+        <div className="mx-auto max-w-4xl px-4 py-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -91,40 +91,40 @@ const Billing: React.FC = () => {
           >
             {/* Header */}
             <div className="text-center">
-              <h1 className="text-4xl font-bold text-white mb-4">Billing & Subscriptions</h1>
-              <p className="text-gray-300 text-lg">
+              <h1 className="mb-4 text-4xl font-bold text-white">Billing & Subscriptions</h1>
+              <p className="text-lg text-gray-300">
                 Manage your subscriptions and billing information
               </p>
             </div>
 
             {/* User Info */}
-            <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-semibold text-lg">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600">
+                  <span className="text-lg font-semibold text-white">
                     {user?.email?.charAt(0).toUpperCase()}
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold">{user?.email}</h3>
-                  <p className="text-gray-400 text-sm">Member since {new Date(user?.created_at || '').toLocaleDateString()}</p>
+                  <h3 className="font-semibold text-white">{user?.email}</h3>
+                  <p className="text-sm text-gray-400">Member since {new Date(user?.created_at || '').toLocaleDateString()}</p>
                 </div>
               </div>
             </div>
 
             {/* Current Subscriptions */}
-            <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
-              <h2 className="text-2xl font-semibold text-white mb-6">Current Subscriptions</h2>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg">
+              <h2 className="mb-6 text-2xl font-semibold text-white">Current Subscriptions</h2>
               
               {loading ? (
                 <div className="flex items-center justify-center py-8">
-                  <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <div className="h-8 w-8 animate-spin rounded-full border-2 border-white/30 border-t-white" />
                 </div>
               ) : entitlements.length === 0 ? (
-                <div className="text-center py-8">
-                  <CreditCard className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                <div className="py-8 text-center">
+                  <CreditCard className="mx-auto mb-4 h-12 w-12 text-gray-400" />
                   <p className="text-gray-400">No active subscriptions</p>
-                  <p className="text-gray-500 text-sm mt-2">
+                  <p className="mt-2 text-sm text-gray-500">
                     Browse our courses to get started
                   </p>
                 </div>
@@ -135,15 +135,15 @@ const Billing: React.FC = () => {
                     return (
                       <div
                         key={entitlement}
-                        className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10"
+                        className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 p-4"
                       >
                         <div className="flex items-center gap-4">
                           {getStatusIcon('active')}
                           <div>
-                            <h3 className="text-white font-medium">
+                            <h3 className="font-medium text-white">
                               {metadata?.name || entitlement}
                             </h3>
-                            <p className="text-gray-400 text-sm">
+                            <p className="text-sm text-gray-400">
                               {metadata?.description || 'Premium content access'}
                             </p>
                           </div>
@@ -161,37 +161,37 @@ const Billing: React.FC = () => {
             </div>
 
             {/* Billing Management */}
-            <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
-              <h2 className="text-2xl font-semibold text-white mb-6">Billing Management</h2>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg">
+              <h2 className="mb-6 text-2xl font-semibold text-white">Billing Management</h2>
               
               {error && (
-                <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
-                  <p className="text-red-400 text-sm">{error}</p>
+                <div className="mb-6 rounded-lg border border-red-500/20 bg-red-500/10 p-4">
+                  <p className="text-sm text-red-400">{error}</p>
                 </div>
               )}
 
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10">
+                <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 p-4">
                   <div>
-                    <h3 className="text-white font-medium">Manage Subscription</h3>
-                    <p className="text-gray-400 text-sm">
+                    <h3 className="font-medium text-white">Manage Subscription</h3>
+                    <p className="text-sm text-gray-400">
                       Update payment method, view invoices, or cancel subscription
                     </p>
                   </div>
                   <Button
                     onClick={handleManageBilling}
                     disabled={isLoading}
-                    className="bg-blue-500 hover:bg-blue-600 text-white"
+                    className="bg-blue-500 text-white hover:bg-blue-600"
                   >
                     {isLoading ? (
                       <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
                         <span>Loading...</span>
                       </div>
                     ) : (
                       <div className="flex items-center gap-2">
                         <span>Manage</span>
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink className="h-4 w-4" />
                       </div>
                     )}
                   </Button>
@@ -200,21 +200,21 @@ const Billing: React.FC = () => {
             </div>
 
             {/* Help Section */}
-            <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
-              <h2 className="text-2xl font-semibold text-white mb-4">Need Help?</h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="p-4 bg-white/5 rounded-lg border border-white/10">
-                  <h3 className="text-white font-medium mb-2">Billing Questions</h3>
-                  <p className="text-gray-400 text-sm mb-3">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg">
+              <h2 className="mb-4 text-2xl font-semibold text-white">Need Help?</h2>
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="rounded-lg border border-white/10 bg-white/5 p-4">
+                  <h3 className="mb-2 font-medium text-white">Billing Questions</h3>
+                  <p className="mb-3 text-sm text-gray-400">
                     Have questions about your subscription or billing?
                   </p>
                   <Button className="w-full border border-white/20 text-white hover:bg-white/10">
                     Contact Support
                   </Button>
                 </div>
-                <div className="p-4 bg-white/5 rounded-lg border border-white/10">
-                  <h3 className="text-white font-medium mb-2">Account Issues</h3>
-                  <p className="text-gray-400 text-sm mb-3">
+                <div className="rounded-lg border border-white/10 bg-white/5 p-4">
+                  <h3 className="mb-2 font-medium text-white">Account Issues</h3>
+                  <p className="mb-3 text-sm text-gray-400">
                     Need help with your account or access?
                   </p>
                   <Button className="w-full border border-white/20 text-white hover:bg-white/10">

@@ -1,0 +1,29 @@
+:root {
+  /* Type scale */
+  --fs-display: clamp(40px, 7vw, 72px);
+  --fs-h1: clamp(36px, 6vw, 56px);
+  --fs-h2: clamp(28px, 4.5vw, 44px);
+  --fs-h3: clamp(22px, 3.5vw, 32px);
+  --fs-h4: clamp(18px, 2.8vw, 26px);
+  --fs-body-l: clamp(16px, 2vw, 18px);
+  --fs-body-s: clamp(14px, 1.6vw, 16px);
+  --fs-caption: clamp(12px, 1.4vw, 13px);
+
+  --lh-heading: 1.2;
+  --lh-body: 1.6;
+
+  /* 8pt spacing scale */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-7: 32px; --space-8: 40px;
+  --space-9: 48px; --space-10: 64px; --space-11: 80px; --space-12: 96px;
+
+  /* Components */
+  --btn-height: 48px;
+  --input-height: 48px;
+  --icon-size: 24px;       /* inside 40–48px hit area */
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
+
+  /* Layout */
+  --container-max: 1200px;
+  --gutter: 32px;
+}

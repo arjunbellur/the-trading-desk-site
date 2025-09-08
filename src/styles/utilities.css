@@ -1,0 +1,3 @@
+.hit { position: relative; }
+.hit::after { content: ''; position: absolute; inset: -12px; }
+@media (hover:hover) and (pointer:fine){ .hit::after { inset: -6px; } }

@@ -14,7 +14,7 @@ export const PageTitle: React.FC<TypographyProps> = ({
   as: Component = 'h1' 
 }) => (
   <Component className={cn(
-    'text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight',
+    'text-display font-bold tracking-tight',
     className
   )}>
     {children}
@@ -27,7 +27,7 @@ export const PageSubtitle: React.FC<TypographyProps> = ({
   as: Component = 'h2' 
 }) => (
   <Component className={cn(
-    'text-xl sm:text-2xl md:text-3xl font-medium tracking-tight',
+    'text-h1 font-medium tracking-tight',
     className
   )}>
     {children}
@@ -41,7 +41,7 @@ export const SectionTitle: React.FC<TypographyProps> = ({
   as: Component = 'h2' 
 }) => (
   <Component className={cn(
-    'text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight',
+    'text-h1 font-bold tracking-tight',
     className
   )}>
     {children}
@@ -54,7 +54,7 @@ export const SectionSubtitle: React.FC<TypographyProps> = ({
   as: Component = 'h3' 
 }) => (
   <Component className={cn(
-    'text-lg sm:text-xl md:text-2xl font-medium tracking-tight',
+    'text-h3 font-medium tracking-tight',
     className
   )}>
     {children}
@@ -68,7 +68,7 @@ export const Text: React.FC<TypographyProps> = ({
   as: Component = 'p' 
 }) => (
   <Component className={cn(
-    'text-base leading-relaxed',
+    'text-body',
     className
   )}>
     {children}
@@ -81,7 +81,7 @@ export const TextLarge: React.FC<TypographyProps> = ({
   as: Component = 'p' 
 }) => (
   <Component className={cn(
-    'text-lg sm:text-xl leading-relaxed',
+    'text-body',
     className
   )}>
     {children}
@@ -94,7 +94,7 @@ export const TextSmall: React.FC<TypographyProps> = ({
   as: Component = 'p' 
 }) => (
   <Component className={cn(
-    'text-sm leading-relaxed',
+    'text-small',
     className
   )}>
     {children}
@@ -108,7 +108,7 @@ export const Caption: React.FC<TypographyProps> = ({
   as: Component = 'p' 
 }) => (
   <Component className={cn(
-    'text-xs leading-relaxed text-muted-foreground',
+    'text-caption text-muted-foreground',
     className
   )}>
     {children}
@@ -121,7 +121,7 @@ export const Label: React.FC<TypographyProps> = ({
   as: Component = 'span' 
 }) => (
   <Component className={cn(
-    'text-sm font-medium',
+    'text-small font-medium',
     className
   )}>
     {children}

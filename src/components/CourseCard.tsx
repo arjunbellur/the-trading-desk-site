@@ -54,63 +54,71 @@ export const CourseCard: React.FC<CourseCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], type: "tween" }}
-      className={cn("grid md:grid-cols-2 gap-10 sm:gap-12 lg:gap-20 mb-24 lg:mb-28 w-full max-w-6xl mx-auto", className)}
+      className={cn("grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-12 lg:mb-16 w-full max-w-7xl mx-auto h-[50vh]", className)}
     >
       {/* Course Content */}
       <div className="flex flex-col justify-center">
-        <Label className="mb-6 text-white">{courseNumber}</Label>
-        <Label className="mb-6 text-xl text-white md:text-2xl">{subtitle}</Label>
-        <SectionTitle className="mb-10 text-4xl text-white md:text-5xl lg:text-6xl">
-          {title}™
-        </SectionTitle>
-        <Text className="mb-12 text-base leading-relaxed text-white md:text-lg lg:mb-16">
-          {description}
-        </Text>
+        {/* Course Header */}
+        <div className="mb-4">
+          <div className="mb-1 text-xs font-medium uppercase tracking-wider text-gray-300">{courseNumber}</div>
+          <div className="mb-2 text-sm font-medium text-green-400">{subtitle}</div>
+          <h3 className="mb-3 text-xl font-semibold leading-tight text-white">
+            {title}™
+          </h3>
+          <p className="text-sm leading-relaxed text-gray-300">
+            {description}
+          </p>
+        </div>
 
-        <div className="mb-12 grid grid-cols-2 gap-8 sm:gap-10 lg:mb-16 lg:gap-14">
-          <div>
-            <div className="mb-6 text-2xl font-bold text-white md:text-3xl">{price}</div>
+        {/* Price & Features */}
+        <div className="mb-6 grid grid-cols-2 gap-6">
+          <div className="flex flex-col">
+            <div className="mb-1 text-2xl font-bold text-white">{price}</div>
+            <div className="text-xs text-gray-400">One-time payment</div>
           </div>
           <div>
-            <Label className="mb-8 text-sm uppercase tracking-wider text-white">WHAT'S INCLUDED</Label>
-            <ul className="space-y-5 text-white">
+            <div className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-300">What's Included</div>
+            <ul className="space-y-2">
               {features.map((feature) => (
-                <li key={feature.id} className="flex items-start">
-                  <span className="mr-4 mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-white" />
-                  <span className="leading-relaxed">{feature.text}</span>
+                <li key={feature.id} className="flex items-center">
+                  <div className="mr-3 flex h-4 w-4 items-center justify-center rounded-full bg-green-400/20">
+                    <div className="h-1.5 w-1.5 rounded-full bg-green-400" />
+                  </div>
+                  <span className="text-xs text-gray-300">{feature.text}</span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <div className="mt-4 flex gap-6 lg:gap-8">
+        {/* CTA Buttons */}
+        <div className="flex gap-3">
           <button
             onClick={onPreRegister}
-            className="btn-glass--green"
+            className="liquid-glass-btn--green flex-1"
             aria-label={`Pre-register for ${title} course`}
           >
-            PRE-REGISTER →
+            Pre-register
           </button>
           <button
             onClick={onExplore}
-            className="btn-glass--ghost"
+            className="liquid-glass-btn--ghost flex-1"
             aria-label={`Explore ${title} course details`}
           >
-            EXPLORE →
+            Explore
           </button>
         </div>
       </div>
       
       {/* Course Image Placeholder */}
       <div className="flex items-center justify-center">
-        <div className="flex h-80 w-full items-center justify-center rounded-lg border border-gray-600 bg-gray-800 sm:h-96 lg:h-[28rem]">
+        <div className="flex h-56 w-full items-center justify-center rounded-lg border border-gray-600 bg-gray-800 sm:h-64 lg:h-72">
           <div className="px-6 text-center text-gray-400">
-            <div className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-full bg-gray-700 sm:h-20 sm:w-20">
-              <IconComponent className="h-8 w-8 sm:h-10 sm:w-10" />
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gray-700 sm:h-14 sm:w-14">
+              <IconComponent className="h-6 w-6 sm:h-7 sm:w-7" />
             </div>
-            <div className="mb-3 text-lg font-semibold sm:text-xl">{levelLabels[level]}</div>
-            <div className="text-sm opacity-75 sm:text-base">Course content preview</div>
+            <div className="mb-2 text-sm font-semibold">{levelLabels[level]}</div>
+            <div className="text-xs opacity-75">Course content preview</div>
           </div>
         </div>
       </div>

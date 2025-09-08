@@ -39,8 +39,7 @@ const LoginSimple: React.FC = () => {
     // Simulate login process
     setTimeout(() => {
       setIsLoading(false);
-      // TODO: Implement actual authentication logic
-      console.log('Login attempt:', formData);
+      // TODO: Implement login logic
     }, 1500);
   };
 

@@ -36,7 +36,6 @@ export const A11Y = {
 export const NAVIGATION_ITEMS = [
   { name: 'How it Works', href: '/#value-proposition', ariaLabel: 'Learn how our trading education works' },
   { name: 'Plans', href: '/courses', ariaLabel: 'View our course plans and pricing' },
-  { name: 'Affiliate', href: '/community', ariaLabel: 'Join our affiliate program' },
   { name: 'Support', href: '/blog', ariaLabel: 'Get support and read our blog' },
 ] as const;
 

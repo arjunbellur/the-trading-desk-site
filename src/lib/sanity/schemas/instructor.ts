@@ -1,3 +1,5 @@
+import { Rule } from '@sanity/types';
+
 export default {
   name: 'instructor',
   type: 'document',
@@ -7,7 +9,7 @@ export default {
       name: 'name',
       type: 'string',
       title: 'Name',
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'slug',
@@ -17,7 +19,7 @@ export default {
         source: 'name',
         maxLength: 96,
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'bio',

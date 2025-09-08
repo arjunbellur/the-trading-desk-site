@@ -11,7 +11,6 @@ export const useCourseActions = (): UseCourseActionsReturn => {
 
   const handlePreRegister = useCallback((courseId: string) => {
     // TODO: Implement pre-registration logic
-    console.log('Pre-registering for course:', courseId);
     // Could integrate with payment system, analytics, etc.
   }, []);
 

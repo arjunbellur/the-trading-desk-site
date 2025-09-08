@@ -78,7 +78,7 @@ const StyleGuide = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-black text-white">
       <Navigation />
       
       <div className="container mx-auto max-w-6xl px-4 py-24">
@@ -232,7 +232,7 @@ const StyleGuide = () => {
                   </div>
 
                   <div>
-                    <p className="text-small mb-2">Small Text - For captions and secondary information.</p>
+                    <p className="mb-2 text-small">Small Text - For captions and secondary information.</p>
                     <p className="mb-2 text-sm text-muted-foreground">
                       Font: SF Pro Text | Size: 0.875rem (14px) | Weight: 400 | Line Height: 1.5
                     </p>
@@ -443,40 +443,22 @@ const StyleGuide = () => {
                 <h3 className="mb-6 text-xl font-semibold">TM UI Button System</h3>
                 <div className="space-y-6">
                   <div>
-                    <h4 className="mb-4 font-medium">Navigation Buttons (tm-ui-button--nav)</h4>
+                    <h4 className="mb-4 font-medium">Liquid Glass Buttons</h4>
                     <div className="mb-4 flex flex-wrap gap-4">
-                      <button className="tm-ui-button tm-ui-button--nav">Default</button>
-                      <button className="tm-ui-button tm-ui-button--nav" style={{ 
-                        background: 'rgba(255, 255, 255, 0.08)', 
-                        borderColor: 'rgba(255, 255, 255, 0.18)' 
-                      }}>Hover</button>
-                      <button className="tm-ui-button tm-ui-button--nav" disabled>Disabled</button>
+                      <button className="liquid-glass-btn">Base</button>
+                      <button className="liquid-glass-btn--green">Green</button>
+                      <button className="liquid-glass-btn--ghost">Ghost</button>
+                      <button className="liquid-glass-discord-btn">Discord</button>
                     </div>
                     <CodeBlock 
-                      id="nav-button-code" 
-                      code={`<button className="tm-ui-button tm-ui-button--nav">Navigation Button</button>
-/* Sizing: padding: 6px 14px; min-height: 38px; font-size: 14px; */
-/* Material: border-radius: 50px; backdrop-filter: blur(20px); */`} 
+                      id="liquid-glass-button-code" 
+                      code={`<button className="liquid-glass-btn">Base Button</button>
+<button className="liquid-glass-btn--green">Green Button</button>
+<button className="liquid-glass-btn--ghost">Ghost Button</button>
+<button className="liquid-glass-discord-btn">Discord Button</button>`} 
                     />
                   </div>
 
-                  <div>
-                    <h4 className="mb-4 font-medium">Regular Buttons (tm-ui-button--regular)</h4>
-                    <div className="mb-4 flex flex-wrap gap-4">
-                      <button className="tm-ui-button tm-ui-button--regular">Default</button>
-                      <button className="tm-ui-button tm-ui-button--regular" style={{ 
-                        background: 'rgba(255, 255, 255, 0.12)', 
-                        borderColor: 'rgba(255, 255, 255, 0.25)' 
-                      }}>Hover</button>
-                      <button className="tm-ui-button tm-ui-button--regular" disabled>Disabled</button>
-                    </div>
-                    <CodeBlock 
-                      id="regular-button-code" 
-                      code={`<button className="tm-ui-button tm-ui-button--regular">Regular Button</button>
-/* Sizing: padding: 10px 20px; min-height: 44px; font-size: 15px; */
-/* Material: Apple glass effect with backdrop blur */`} 
-                    />
-                  </div>
                 </div>
               </div>
 
@@ -716,13 +698,15 @@ const StyleGuide = () => {
                       <h4 className="mb-4 font-medium">UI Components (tm-ui-*)</h4>
                       <CodeBlock 
                         id="ui-naming-code" 
-                        code={`/* Button System */
-.tm-ui-button              /* Base button foundation */
-.tm-ui-button--nav         /* Navigation variant */
-.tm-ui-button--regular     /* Regular variant */
+                        code={`/* Liquid Glass Button System */
+.liquid-glass-btn              /* Base button foundation */
+.liquid-glass-btn--green       /* Green variant */
+.liquid-glass-btn--ghost       /* Ghost variant */
+.liquid-glass-discord-btn      /* Discord variant */
 
 /* Usage */
-<button className="tm-ui-button tm-ui-button--nav">Navigation</button>`} 
+<button className="liquid-glass-btn">Base Button</button>
+<button className="liquid-glass-btn--green">Green Button</button>`} 
                       />
                     </div>
 
@@ -790,8 +774,8 @@ const StyleGuide = () => {
                     <div>
                       <h4 className="mb-3 font-medium">Structure Examples</h4>
                       <div className="space-y-2 font-mono text-sm">
-                        <div><span className="text-primary">tm-ui-button</span> - Base component</div>
-                        <div><span className="text-accent">tm-ui-button--nav</span> - With modifier</div>
+                        <div><span className="text-primary">liquid-glass-btn</span> - Base component</div>
+                        <div><span className="text-accent">liquid-glass-btn--green</span> - With modifier</div>
                         <div><span className="text-muted-foreground">tm-layout-nav__links</span> - With element</div>
                       </div>
                     </div>

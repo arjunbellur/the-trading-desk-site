@@ -17,7 +17,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground">
+    <div className="flex min-h-screen flex-col bg-black text-white">
       <Navigation />
       
       {/* 404 Content */}
@@ -55,7 +55,7 @@ const NotFound = () => {
                     Return to Home
                   </Link>
                 </Button>
-                <Button variant="regular" className="px-8 py-4" onClick={() => window.history.back()}>
+                <Button variant="base" className="px-8 py-4" onClick={() => window.history.back()}>
                   <ArrowLeft className="mr-2 h-5 w-5" />
                   Go Back
                 </Button>

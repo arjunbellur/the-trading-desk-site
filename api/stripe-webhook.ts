@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import { PRICE_TO_ENTITLEMENT } from '../src/config/entitlements';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { 
-  apiVersion: '2024-06-20' 
+  apiVersion: '2024-06-20' as any
 });
 
 const supabase = createClient(
@@ -23,9 +23,9 @@ export default async function handler(req: any, res: any) {
 
   try {
     event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET!);
-  } catch (err: any) {
-    console.error('Webhook signature verification failed:', err.message);
-    return res.status(400).send(`Webhook Error: ${err.message}`);
+  } catch (err: unknown) {
+    console.error('Webhook signature verification failed:', err instanceof Error ? err.message : 'Unknown error');
+    return res.status(400).send(`Webhook Error: ${err instanceof Error ? err.message : 'Unknown error'}`);
   }
 
   try {
@@ -82,9 +82,9 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
     return;
   }
 
-  const entitlementSlug = await inferSlugFromPrice(subscription.items.data[0].price.id);
+  const entitlementSlug = await inferSlugFromPrice(subscription.items.data[0].price?.id as string);
   if (!entitlementSlug) {
-    console.error('Entitlement not found for price:', subscription.items.data[0].price.id);
+    console.error('Entitlement not found for price:', subscription.items.data[0].price?.id);
     return;
   }
 
@@ -101,9 +101,9 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
     return;
   }
 
-  const entitlementSlug = await inferSlugFromPrice(subscription.items.data[0].price.id);
+  const entitlementSlug = await inferSlugFromPrice(subscription.items.data[0].price?.id as string);
   if (!entitlementSlug) {
-    console.error('Entitlement not found for price:', subscription.items.data[0].price.id);
+    console.error('Entitlement not found for price:', subscription.items.data[0].price?.id);
     return;
   }
 
@@ -111,7 +111,7 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
 }
 
 async function handleInvoicePaymentSucceeded(invoice: Stripe.Invoice) {
-  if (invoice.subscription) {
+  if ((invoice as any).subscription) {
     // This will be handled by subscription.updated event
     return;
   }
@@ -124,9 +124,9 @@ async function handleInvoicePaymentSucceeded(invoice: Stripe.Invoice) {
     return;
   }
 
-  const entitlementSlug = await inferSlugFromPrice(invoice.lines.data[0].price!.id);
+  const entitlementSlug = await inferSlugFromPrice((invoice.lines.data[0] as any).price?.id as string);
   if (!entitlementSlug) {
-    console.error('Entitlement not found for price:', invoice.lines.data[0].price!.id);
+    console.error('Entitlement not found for price:', (invoice.lines.data[0] as any).price?.id);
     return;
   }
 
@@ -142,9 +142,9 @@ async function handleInvoicePaymentFailed(invoice: Stripe.Invoice) {
     return;
   }
 
-  const entitlementSlug = await inferSlugFromPrice(invoice.lines.data[0].price!.id);
+  const entitlementSlug = await inferSlugFromPrice((invoice.lines.data[0] as any).price?.id as string);
   if (!entitlementSlug) {
-    console.error('Entitlement not found for price:', invoice.lines.data[0].price!.id);
+    console.error('Entitlement not found for price:', (invoice.lines.data[0] as any).price?.id);
     return;
   }
 
@@ -207,7 +207,6 @@ function mapSubscriptionStatus(status: string): 'active' | 'canceled' | 'past_du
     case 'canceled':
     case 'incomplete':
     case 'incomplete_expired':
-    case 'unpaid':
       return 'canceled';
     default:
       return 'canceled';

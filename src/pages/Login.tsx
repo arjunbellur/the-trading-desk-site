@@ -50,29 +50,29 @@ const Login: React.FC = () => {
       // Redirect to intended page or home
       const from = location.state?.from?.pathname || '/';
       navigate(from, { replace: true });
-    } catch (error: any) {
-      setError(error.message || 'An error occurred');
+    } catch (error: unknown) {
+      setError(error instanceof Error ? error.message : 'An error occurred');
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="h-screen bg-black overflow-hidden">
+    <div className="h-screen overflow-hidden bg-black">
       <div className="h-full">
-        <div className="grid lg:grid-cols-2 h-full">
+        <div className="grid h-full lg:grid-cols-2">
             
           {/* Left Column - Promotional Section */}
           <motion.div 
-            className="relative bg-gradient-to-br from-green-900 via-green-800 to-emerald-700 p-8 lg:p-12 flex flex-col justify-between"
+            className="relative flex flex-col justify-between bg-gradient-to-br from-green-900 via-green-800 to-emerald-700 p-8 lg:p-12"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             {/* Background Geometric Shapes */}
             <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-400/20 via-transparent to-emerald-400/20 transform -skew-x-12 -translate-x-1/4" />
-              <div className="absolute top-0 right-0 w-1/3 h-1/2 bg-gradient-to-bl from-green-600/30 to-transparent transform skew-x-12 translate-x-1/4" />
+              <div className="absolute left-0 top-0 h-full w-full -translate-x-1/4 -skew-x-12 transform bg-gradient-to-br from-green-400/20 via-transparent to-emerald-400/20" />
+              <div className="absolute right-0 top-0 h-1/2 w-1/3 translate-x-1/4 skew-x-12 transform bg-gradient-to-bl from-green-600/30 to-transparent" />
             </div>
 
             <div className="relative z-10">
@@ -83,7 +83,7 @@ const Login: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
               >
-                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
+                <h1 className="text-4xl font-bold leading-tight text-white lg:text-5xl xl:text-6xl">
                   Navigate the
                   <br />
                   Markets with
@@ -94,7 +94,7 @@ const Login: React.FC = () => {
 
               {/* Feature Buttons */}
               <motion.div
-                className="space-y-3 mb-8"
+                className="mb-8 space-y-3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
@@ -107,7 +107,7 @@ const Login: React.FC = () => {
                 ].map((feature, index) => (
                   <motion.button
                     key={index}
-                    className="block w-full text-left px-4 py-3 bg-white/10 border border-white/20 rounded-full text-white hover:bg-white/20 transition-all duration-200 backdrop-blur-sm text-sm"
+                    className="block w-full rounded-full border border-white/20 bg-white/10 px-4 py-3 text-left text-sm text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/20"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5 + index * 0.1, duration: 0.4 }}
@@ -126,19 +126,19 @@ const Login: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
-                <div className="text-4xl text-green-300 mb-3">&quot;</div>
-              <blockquote className="text-lg text-white mb-4 leading-relaxed">
+                <div className="mb-3 text-4xl text-green-300">&quot;</div>
+              <blockquote className="mb-4 text-lg leading-relaxed text-white">
                 Game changing trading software that helped me <strong>analysis</strong> market trends easily and <strong>make better decisions</strong>
               </blockquote>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
-                  <User className="w-5 h-5 text-gray-600" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-300">
+                  <User className="h-5 w-5 text-gray-600" />
                 </div>
                 <div>
-                  <div className="text-white font-semibold text-sm">Aaron O&apos;Donnell</div>
-                  <div className="flex items-center gap-2 mt-1">
+                  <div className="text-sm font-semibold text-white">Aaron O&apos;Donnell</div>
+                  <div className="mt-1 flex items-center gap-2">
                     <span className="text-xs text-white/80">Pro Account</span>
-                    <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                    <div className="h-2 w-2 rounded-full bg-amber-400"></div>
                   </div>
                 </div>
               </div>
@@ -147,12 +147,12 @@ const Login: React.FC = () => {
 
           {/* Right Column - Sign-up Form */}
           <motion.div
-            className="bg-black p-8 lg:p-12 flex items-center"
+            className="flex items-center bg-black p-8 lg:p-12"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="w-full max-w-md mx-auto">
+            <div className="mx-auto w-full max-w-md">
               <motion.div
                 className="space-y-6"
                 initial={{ opacity: 0, y: 20 }}
@@ -160,15 +160,15 @@ const Login: React.FC = () => {
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
                 {/* Header */}
-                <div className="text-center mb-6">
-                  <h2 className="text-2xl font-semibold text-white mb-2">Welcome Back</h2>
-                  <p className="text-gray-400 text-sm">Sign in to your account to continue</p>
+                <div className="mb-6 text-center">
+                  <h2 className="mb-2 text-2xl font-semibold text-white">Welcome Back</h2>
+                  <p className="text-sm text-gray-400">Sign in to your account to continue</p>
                 </div>
 
                   {/* Error Message */}
                   {error && (
-                    <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
-                      <p className="text-red-400 text-sm">{error}</p>
+                    <div className="rounded-lg border border-red-500/20 bg-red-500/10 p-3">
+                      <p className="text-sm text-red-400">{error}</p>
                     </div>
                   )}
 
@@ -176,7 +176,7 @@ const Login: React.FC = () => {
                   <form onSubmit={handleSubmit} className="space-y-4">
 
                   <div>
-                    <Label htmlFor="email" className="text-white/90 mb-1 block text-sm">
+                    <Label htmlFor="email" className="mb-1 block text-sm text-white/90">
                       Email Address
                     </Label>
                     <Input
@@ -185,13 +185,13 @@ const Login: React.FC = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                        className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/20 py-2"
+                        className="border-gray-700 bg-gray-900 py-2 text-white placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/20"
                       required
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="password" className="text-white/90 mb-1 block text-sm">
+                    <Label htmlFor="password" className="mb-1 block text-sm text-white/90">
                       Password
                     </Label>
                     <div className="relative">
@@ -201,18 +201,18 @@ const Login: React.FC = () => {
                         type={showPassword ? "text" : "password"}
                         value={formData.password}
                         onChange={handleInputChange}
-                        className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/20 pr-10 py-2"
+                        className="border-gray-700 bg-gray-900 py-2 pr-10 text-white placeholder:text-gray-400 focus:border-green-400 focus:ring-green-400/20"
                         required
                       />
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 transform text-gray-400 transition-colors hover:text-white"
                       >
-                        {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                        {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                       </button>
                     </div>
-                    <Text className="text-xs text-gray-400 mt-1">
+                    <Text className="mt-1 text-xs text-gray-400">
                       At least 8 characters, with numbers and symbols.
                     </Text>
                   </div>
@@ -225,7 +225,7 @@ const Login: React.FC = () => {
                       onChange={(e) => setRememberDevice(e.target.checked)}
                       className="rounded border-gray-700 bg-gray-900 text-blue-400 focus:ring-blue-400/20"
                     />
-                    <Label htmlFor="remember" className="text-white/90 text-sm">
+                    <Label htmlFor="remember" className="text-sm text-white/90">
                       Remember this device
                     </Label>
                   </div>
@@ -233,11 +233,11 @@ const Login: React.FC = () => {
                     <Button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2.5 rounded-lg transition-all duration-200 text-sm"
+                      className="w-full rounded-lg bg-green-500 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-green-600"
                     >
                       {isLoading ? (
                         <div className="flex items-center gap-2">
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
                           <span>Signing In...</span>
                         </div>
                       ) : (
@@ -249,7 +249,7 @@ const Login: React.FC = () => {
                 <div className="text-center">
                   <Text className="text-xs text-gray-400">
                     Don't have an account?{" "}
-                    <button className="text-green-400 hover:text-green-300 underline">
+                    <button className="text-green-400 underline hover:text-green-300">
                       Contact support
                     </button>
                   </Text>

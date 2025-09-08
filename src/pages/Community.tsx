@@ -60,7 +60,7 @@ const Community = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-black text-white">
       <Navigation />
       
       {/* Hero Section */}

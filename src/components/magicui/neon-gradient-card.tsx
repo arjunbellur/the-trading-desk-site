@@ -36,7 +36,6 @@ export function NeonGradientCard({
     <Component
       className={cn(
         "relative animate-fade-up opacity-0 [--animation-delay:400ms] group cursor-pointer",
-        "after:absolute after:inset-0 after:z-50 after:[background:linear-gradient(to_top,var(--background)_30%,transparent)]",
         "transition-all duration-500 ease-out",
         "hover:scale-[1.02] hover:-translate-y-1",
         className
@@ -95,32 +94,26 @@ export function NeonGradientCard({
           {/* Apple-style translucent glass effect with hover */}
           <div className="z-5 absolute inset-0 rounded-[inherit]">
             {/* Primary translucent layer with hover enhancement */}
-            <div className="absolute inset-0 rounded-[inherit] bg-white/[0.02] backdrop-blur-xl transition-all duration-500 group-hover:bg-white/[0.035]"></div>
-            
+            <div className="absolute inset-0 rounded-[inherit] bg-white/[0.005] backdrop-blur-xl transition-all duration-500 group-hover:bg-white/[0.008]"></div>
+
             {/* Radial darkness overlay for depth */}
             <div className="bg-gradient-radial absolute inset-0 rounded-[inherit] from-transparent via-black/[0.02] to-black/[0.05] transition-opacity duration-500 group-hover:opacity-70"></div>
-            
-            {/* Secondary subtle depth layer with hover brightening */}
-            <div className="absolute inset-0 rounded-[inherit] bg-gradient-to-b from-white/[0.06] via-white/[0.015] to-transparent transition-all duration-500 group-hover:from-white/[0.1] group-hover:via-white/[0.025]"></div>
-            
-            {/* Top edge highlight - brighter on hover */}
-            <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent transition-all duration-500 group-hover:via-white/25"></div>
-            
-            {/* Left edge highlight - brighter on hover */}
-            <div className="group-hover:via-white/18 absolute bottom-0 left-0 top-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent transition-all duration-500"></div>
-            
-            {/* Right edge highlight on hover */}
-            <div className="group-hover:via-white/12 absolute bottom-0 right-0 top-0 w-px bg-gradient-to-b from-transparent via-white/0 to-transparent transition-all duration-500"></div>
-            
-            {/* Inner translucent glow with hover enhancement */}
-            <div className="pointer-events-none absolute inset-[1px] rounded-[inherit] bg-gradient-to-br from-white/[0.02] via-transparent to-white/[0.01] transition-all duration-500 group-hover:from-white/[0.04] group-hover:to-white/[0.02]"></div>
+
+            {/* Top edge highlight - subtle */}
+            <div className="group-hover:via-white/8 absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent transition-all duration-500"></div>
+
+            {/* Left edge highlight - subtle */}
+            <div className="via-white/3 group-hover:via-white/6 absolute bottom-0 left-0 top-0 w-px bg-gradient-to-b from-transparent to-transparent transition-all duration-500"></div>
+
+            {/* Right edge highlight - subtle */}
+            <div className="via-white/3 group-hover:via-white/6 absolute bottom-0 right-0 top-0 w-px bg-gradient-to-b from-transparent to-transparent transition-all duration-500"></div>
             
             {/* Apple-style center darkening with hover reduction */}
             <div className="bg-gradient-radial pointer-events-none absolute inset-4 rounded-[inherit] from-black/[0.01] via-black/[0.03] to-transparent transition-opacity duration-500 group-hover:opacity-50"></div>
             
-            {/* Liquid ripple effect on hover */}
-            <div className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-700 group-hover:opacity-100">
-              <div className="absolute inset-0 animate-pulse rounded-[inherit] bg-gradient-to-r from-transparent via-white/[0.02] to-transparent"></div>
+            {/* Subtle liquid ripple effect on hover */}
+            <div className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-700 group-hover:opacity-30">
+              <div className="absolute inset-0 animate-pulse rounded-[inherit] bg-gradient-to-r from-transparent via-white/[0.005] to-transparent"></div>
             </div>
           </div>
           

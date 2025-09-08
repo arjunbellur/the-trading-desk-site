@@ -12,7 +12,7 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    const { lessonId, playbackId, accessTag } = req.body;
+    const { lessonId, playbackId, accessTag } = req.body as { lessonId: string; playbackId: string; accessTag: string };
 
     if (!lessonId || !playbackId || !accessTag) {
       return res.status(400).json({ error: 'Missing required parameters' });
@@ -70,7 +70,7 @@ async function userHasEntitlement(userId: string, accessTag: string): Promise<bo
       return false;
     }
 
-    const userEntitlements = data?.map((item: any) => item.entitlements.slug) || [];
+    const userEntitlements = data?.map((item: any) => item.entitlements?.slug).filter(Boolean) || [];
     
     return userEntitlements.includes(accessTag) || 
            userEntitlements.includes('membership:all-access');

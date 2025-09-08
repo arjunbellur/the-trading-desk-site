@@ -30,7 +30,7 @@ const CourseDetail = () => {
 
   if (!course) {
     return (
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-screen bg-black text-white">
         <Navigation />
         <div className="container-cinematic pt-24 text-center">
           <h1 className="mb-4 text-2xl font-bold">Course Not Found</h1>
@@ -70,7 +70,7 @@ const CourseDetail = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-black text-white">
       <Navigation />
       
       {/* Back to Courses */}

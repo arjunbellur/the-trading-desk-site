@@ -57,52 +57,52 @@ export function Paywall({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="max-w-md mx-auto bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 text-center"
+      className="mx-auto max-w-md rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-lg"
     >
       <div className="mb-6">
-        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Lock className="w-8 h-8 text-white" />
+        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600">
+          <Lock className="h-8 w-8 text-white" />
         </div>
-        <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-        <p className="text-gray-300 text-sm">{description}</p>
+        <h3 className="mb-2 text-xl font-semibold text-white">{title}</h3>
+        <p className="text-sm text-gray-300">{description}</p>
       </div>
 
       {metadata && (
-        <div className="mb-6 p-4 bg-white/5 rounded-xl border border-white/10">
-          <h4 className="text-white font-medium mb-2">{metadata.name}</h4>
-          <p className="text-gray-300 text-sm">{metadata.description}</p>
+        <div className="mb-6 rounded-xl border border-white/10 bg-white/5 p-4">
+          <h4 className="mb-2 font-medium text-white">{metadata.name}</h4>
+          <p className="text-sm text-gray-300">{metadata.description}</p>
         </div>
       )}
 
-      <div className="space-y-3 mb-6">
+      <div className="mb-6 space-y-3">
         <div className="flex items-center gap-3 text-sm text-gray-300">
-          <Shield className="w-4 h-4 text-green-400" />
+          <Shield className="h-4 w-4 text-green-400" />
           <span>Secure payment processing</span>
         </div>
         <div className="flex items-center gap-3 text-sm text-gray-300">
-          <Zap className="w-4 h-4 text-yellow-400" />
+          <Zap className="h-4 w-4 text-yellow-400" />
           <span>Instant access after purchase</span>
         </div>
         <div className="flex items-center gap-3 text-sm text-gray-300">
-          <CreditCard className="w-4 h-4 text-blue-400" />
+          <CreditCard className="h-4 w-4 text-blue-400" />
           <span>Cancel anytime</span>
         </div>
       </div>
 
       {error && (
-        <div className="mb-4 p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
-          <p className="text-red-400 text-sm">{error}</p>
+        <div className="mb-4 rounded-lg border border-red-500/20 bg-red-500/10 p-3">
+          <p className="text-sm text-red-400">{error}</p>
         </div>
       )}
 
       <Button
         onClick={handlePurchase}
         disabled={loading}
-        className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl transition-all duration-200"
+        className="w-full rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 py-3 font-semibold text-white transition-all duration-200 hover:from-blue-600 hover:to-purple-700"
       >
         {loading ? (
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
             <span>Processing...</span>
           </div>
         ) : (
@@ -110,7 +110,7 @@ export function Paywall({
         )}
       </Button>
 
-      <p className="text-xs text-gray-400 mt-4">
+      <p className="mt-4 text-xs text-gray-400">
         By purchasing, you agree to our terms of service and privacy policy.
       </p>
     </motion.div>

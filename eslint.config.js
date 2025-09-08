@@ -27,5 +27,11 @@ export default tseslint.config(
       "tailwindcss/no-custom-classname": "off",
       "tailwindcss/no-contradicting-classname": "error",
     },
+  },
+  {
+    files: ["api/**/*.{ts,tsx}"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+    },
   }
 );

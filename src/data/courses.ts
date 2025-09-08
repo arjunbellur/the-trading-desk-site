@@ -16,10 +16,10 @@ export interface CourseData {
 
 export const coursesData: CourseData[] = [
   {
-    id: 'foundations',
+    id: 'beginner',
     courseNumber: 'COURSE 01',
-    subtitle: 'TRADING',
-    title: 'FOUNDATIONS',
+    subtitle: '',
+    title: 'BEGINNER',
     description: 'A step-by-step guide to profitable trading. From market basics to building your first winning strategy.',
     price: '$297',
     features: [
@@ -32,10 +32,10 @@ export const coursesData: CourseData[] = [
     level: 'beginner',
   },
   {
-    id: 'day-trading',
+    id: 'intermediate',
     courseNumber: 'COURSE 02',
-    subtitle: 'DAY',
-    title: 'TRADING',
+    subtitle: '',
+    title: 'INTERMEDIATE',
     description: 'Master high-frequency strategies for active traders. Scalping, momentum, and intraday techniques.',
     price: '$497',
     features: [
@@ -48,10 +48,10 @@ export const coursesData: CourseData[] = [
     level: 'intermediate',
   },
   {
-    id: 'options',
+    id: 'advanced',
     courseNumber: 'COURSE 03',
-    subtitle: 'ADVANCED',
-    title: 'OPTIONS',
+    subtitle: '',
+    title: 'ADVANCED',
     description: 'Master complex options strategies. Income generation, hedging, and advanced Greeks analysis.',
     price: '$697',
     features: [

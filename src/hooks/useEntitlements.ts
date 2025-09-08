@@ -39,7 +39,7 @@ export function useEntitlements() {
           setError(error.message);
           setEntitlements([]);
         } else {
-          const slugs = data?.map((item: any) => item.entitlements.slug) || [];
+          const slugs = data?.map((item: { entitlements: { slug: string } }) => item.entitlements.slug) || [];
           setEntitlements(slugs);
         }
       } catch (error) {

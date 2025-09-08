@@ -1,3 +1,5 @@
+import { Rule } from '@sanity/types';
+
 export default {
   name: 'course',
   type: 'document',
@@ -7,7 +9,7 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'slug',
@@ -17,7 +19,7 @@ export default {
         source: 'title',
         maxLength: 96,
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'description',
@@ -44,14 +46,14 @@ export default {
           { title: 'Advanced', value: 'advanced' },
         ],
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'accessTag',
       type: 'string',
       title: 'Access Tag',
       description: 'Entitlement required to access this course (e.g., "course:orderflow-basics", "membership:all-access", or "free")',
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'instructor',

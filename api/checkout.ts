@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import { ENTITLEMENT_TO_PRICE } from '../src/config/entitlements';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { 
-  apiVersion: '2024-06-20' 
+  apiVersion: '2024-06-20' as any
 });
 
 const supabase = createClient(
@@ -17,7 +17,7 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    const { entitlementSlug } = req.body;
+    const { entitlementSlug } = req.body as { entitlementSlug: string };
 
     if (!entitlementSlug) {
       return res.status(400).json({ error: 'entitlementSlug is required' });

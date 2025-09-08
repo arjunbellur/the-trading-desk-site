@@ -13,7 +13,7 @@ export function ProtectedRoute({ children, fallback }: ProtectedRouteProps) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center bg-black">
         <div className="text-white">Loading...</div>
       </div>
     );
@@ -42,7 +42,7 @@ export function ConditionalRoute({
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center bg-black">
         <div className="text-white">Loading...</div>
       </div>
     );

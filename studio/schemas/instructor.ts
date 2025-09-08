@@ -1,10 +1,12 @@
+import { Rule } from '@sanity/types';
+
 export default {
   name: 'instructor',
   title: 'Instructor',
   type: 'document',
   fields: [
-    { name: 'name', title: 'Name', type: 'string', validation: (R:any)=>R.required() },
-    { name: 'slug', title: 'Slug', type: 'slug', options: { source: 'name' }, validation: (R:any)=>R.required() },
+    { name: 'name', title: 'Name', type: 'string', validation: (R: Rule)=>R.required() },
+    { name: 'slug', title: 'Slug', type: 'slug', options: { source: 'name' }, validation: (R: Rule)=>R.required() },
     { name: 'avatar', title: 'Avatar', type: 'image', options: { hotspot: true } },
     { name: 'title', title: 'Title', type: 'string' },
     { name: 'bio', title: 'Bio', type: 'text' },

@@ -2,17 +2,19 @@ import * as React from "react";
 import { twMerge } from "tailwind-merge";
 
 /**
- * The Trading Desk iOS 26 Liquid Glass Button Component
- * Two standardized variants following navigation button styling:
- * - nav: Compact buttons for navigation (like the nav bar)
- * - regular: Standard buttons for actions and CTAs
+ * The Trading Desk Liquid Glass Button Component
+ * Standardized variants following liquid glass styling:
+ * - base: Base liquid glass button
+ * - green: Green variant for primary actions
+ * - ghost: Ghost variant for secondary actions
+ * - discord: Discord variant with purple glow
  * 
- * Both use consistent iOS 26 liquid glass styling
+ * All use consistent liquid glass styling
  */
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   fullWidth?: boolean;
-  variant?: 'nav' | 'regular';
+  variant?: 'base' | 'green' | 'ghost' | 'discord';
   asChild?: boolean; // For Link compatibility
 };
 
@@ -21,16 +23,16 @@ export function Button({
   children,
   disabled,
   fullWidth,
-  variant = 'regular',
+  variant = 'base',
   asChild,
   ...props
 }: ButtonProps) {
   const baseClasses = [
     // Core button styling
-    "tm-ui-button",
-    
-    // Variant-specific classes
-    variant === 'nav' ? "tm-ui-button--nav" : "tm-ui-button--regular",
+    variant === 'base' ? "liquid-glass-btn" :
+    variant === 'green' ? "liquid-glass-btn--green" :
+    variant === 'ghost' ? "liquid-glass-btn--ghost" :
+    variant === 'discord' ? "liquid-glass-discord-btn" : "liquid-glass-btn",
     
     // Width
     fullWidth ? "w-full" : "",
